@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>허전한 개발 블로그</title>
+<meta
+name="description"
+content="정적페이지로 운영하는 개발 블로그입니다."
+/>
+<link
+rel="icon"
+type="image/png"
+sizes="16x16"
+href="/static/favicon-16x16.png"
+/>
+<link
+rel="icon"
+type="image/png"
+sizes="32x32"
+href="/static/favicon-32x32.png"
+/>
+<link
+rel="icon"
+type="image/png"
+sizes="192x192"
+href="/static/favicon-192x192.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="57x57"
+href="/static/apple-touch-icon-57x57.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="72x72"
+href="/static/apple-touch-icon-72x72.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="76x76"
+href="/static/apple-touch-icon-76x76.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="114x114"
+href="/static/apple-touch-icon-114x114.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="120x120"
+href="/static/apple-touch-icon-120x120.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="144x144"
+href="/static/apple-touch-icon-144x144.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="152x152"
+href="/static/apple-touch-icon-152x152.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="154x154"
+href="/static/apple-touch-icon-154x154.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="180x180"
+href="/static/apple-touch-icon-180x180.png"
+/>
+<link rel="stylesheet" href="/static/style.css">
+</head>
+<body class="kigui one">
+<header class="kigui header">
+<span id="headerBtn" class="nav-header-btn"><img src="/static/menu-w.svg"></span>
+<a href="/">
+<h1 class="title">
+허전한 개발 블로그
+</h1>
+</a>
+</header>
+<div class="kigui header-space"></div>
+<section class="kigui">
+<div id="navBar" class="nav-bar">
+
+<div class="nav-header">
+<span id="catToggle" class="nav-header-btn"><img src="/static/menu.svg"></span>
+</div>
+<ul class="category">
+
+<li>
+<a style="padding-left: 10px" href="/c/전체보기.html">전체보기</a>
+</li>
+
+<li>
+<a style="padding-left: 20px" href="/c/안드로이드.html">안드로이드</a>
+</li>
+
+
+<li>
+<a style="padding-left: 20px" href="/c/개발일기.html">개발일기</a>
+</li>
+
+
+<li>
+<a style="padding-left: 20px" href="/c/기타.html">기타</a>
+</li>
+
+
+<li>
+<a style="padding-left: 20px" href="/c/JavaScript.html">JavaScript</a>
+</li>
+
+
+<li>
+<a style="padding-left: 20px" href="/c/Linux.html">Linux</a>
+</li>
+
+
+
+</ul>
+</div>
+<script>
+let catToggle = document.getElementById("catToggle");
+let headerBtn = document.getElementById("headerBtn");
+let navBar = document.getElementById("navBar");
+catToggle.addEventListener("click", () => {
+navBar.classList.toggle("show");
+});
+headerBtn.addEventListener("click", () => {
+navBar.classList.toggle("show");
+})
+</script>
+<div class="kigui frame">
+<p class="category-path">
+
+<a href="/c/전체보기.html">전체보기</a>
+<span> > </span>
+
+<a href="/c/Linux.html">Linux</a>
+<span> > </span>
+
+</p>
+<h1 class="article-title">리눅스 umount 오류 시</h1>
+<p class="write-date">2021-10-13 21-55-00</p>
+<div class="markdown-body">
+<p>리눅스에서 저장장치를 마운트하고 사용하다가 이를 제거하려고 할 때  오류가 발생하는 경우가 있다.</p>
+<p>오류 내용:</p>
+<pre><code>umount: 경로: device is busy.
+
+(In some cases useful info about processes that use the device is found by lsof(8) or fuser(1))
+</code></pre>
+<p>다음과 같은 오류가 발생하였다. 이 경우에는 어떤 프로세스가 해당 저장소를 사용하고 있는 경우에 발생하게 된다.</p>
+<p><code># fuser -ch (마운트 경로)</code></p>
+<p>다음과 같은 명령어로 프로세스를 종료할 수 있다.</p>
+<p>여담으로 중요한 프로세서가 이를 사용할 수 있을 수도 있다. 그러므로 종료할 프로세서가 무엇인지 정도는 파악하고 종료하는 것이 좋다.</p>
+<p>만약 해당 디렉토리를 사용하는 유저를 확인만 하고 싶은 경우에는 다음 명령어를 사용한다.</p>
+<p><code># fuser -cu (마운트 경로)</code></p>
+
+</div>
+</div>
+<div class="kigui frame">
+<script src="https://utteranc.es/client.js"
+repo="lazyig/blog-comment"
+issue-term="pathname"
+label="blog-comment"
+theme="github-light"
+crossorigin="anonymous"
+async>
+</script>
+</div>
+</section>
+</body>
+</html>
