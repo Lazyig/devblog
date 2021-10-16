@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
+<link rel="stylesheet" href="/static/catstyle.css">
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -147,47 +148,20 @@ navBar.classList.toggle("show");
 })
 </script>
 <div class="kigui frame">
-<p class="category-path">
-
-<a href="/c/전체보기.html">전체보기</a>
-<span> > </span>
-
-<a href="/c/Linux.html">Linux</a>
-<span> > </span>
-
-</p>
-<h1 class="article-title">REMOTE HOST IDENTIFICATION HAS CHANGED! 에러</h1>
-<p class="write-date">2021-10-16 23-26-42</p>
 <div class="markdown-body">
-<p>이 글은 티스토리 블로그 글을 옮겨 수정한 것 입니다.
-(최초 작성일 : 2017. 3.. 20. 10:07)
-<a href="https://kim-19.tistory.com/134?category=922291">https://kim-19.tistory.com/134?category=922291</a></p>
-<p><img src="/static/Bnl7c_XX4yjlgN4wKZXHMT6PcsMY3HxAeRku88KYhPU.png" alt=""></p>
-<pre><code>@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-@    WARNING: REMOTE HOST IDENTIFICATION HAS CHANGED!     @
-@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-IT IS POSSIBLE THAT SOMEONE IS DOING SOMETHING NASTY!
-Someone could be eavesdropping on you right now (man-in-the-middle attack)!
-...
-</code></pre>
-<p>리눅스 서버를 새로 설치 한 후 해당 서버에 깃 push를 진행하려다가 발생한 에러이다.</p>
-<p>해당 에러는 내가 가지고 있는 인증키가 서버의 인증키와 다를 경우에 발생하며 중간자공격을 경고한다.</p>
-<p>만약 접속하려는 서버의 인증 정보가 변경될 일이 없다면 이에 대한 의심을 반드시 하여 중간에서 누군가 서버 접속을 가로채려는 것인지 꼭 확인하고 해결방법을 실행하도록 하자.</p>
-<h3>해결 방법</h3>
-<p><code>$ ssh-keygen -R [도메인 or IP]</code></p>
-<p>위의 명령어를 클라이언트에서 입력하여 새로운 키를 발급받으면 간단하게 해결된다.</p>
+<h1>Web</h1>
+</div>
+<ul class="catlist">
 
-</div>
-</div>
-<div class="kigui frame">
-<script src="https://utteranc.es/client.js"
-repo="lazyig/blog-comment"
-issue-term="pathname"
-label="blog-comment"
-theme="github-light"
-crossorigin="anonymous"
-async>
-</script>
+<li>
+<a href="/18"><i class="idx">18</i>구버전의 IE(8 이하)에서 시맨틱 태그 호환</a>
+</li>
+
+<li>
+<a href="/3"><i class="idx">3</i>자바스크립트의 Number 범위</a>
+</li>
+
+</ul>
 </div>
 </section>
 </body>
