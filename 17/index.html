@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-<link rel="stylesheet" href="/static/catstyle.css">
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -138,48 +137,57 @@ navBar.classList.toggle("show");
 })
 </script>
 <div class="kigui frame">
+<p class="category-path">
+
+<a href="/c/전체보기.html">전체보기</a>
+<span> > </span>
+
+<a href="/c/Linux.html">Linux</a>
+<span> > </span>
+
+</p>
+<h1 class="article-title">리눅스 서버 시간 변경</h1>
+<p class="write-date">2021-10-17 00-14-54</p>
 <div class="markdown-body">
-<h1>Linux</h1>
+<blockquote>
+<p>Package rdate.i686 0:1.4-16.el6 will be installed
+--&gt; Finished Dependency Resolution</p>
+</blockquote>
+<p>Dependencies Resolved</p>
+<h1>================================================================================
+Package          Arch            Version                 Repository       Size</h1>
+<p>Installing:
+rdate            i686            1.4-16.el6              base             18 k</p>
+<h1>Transaction Summary</h1>
+<p>Install       1 Package(s)</p>
+<p>Total download size: 18 k
+Installed size: 26 k
+Downloading Packages:
+rdate-1.4-16.el6.i686.rpm                                |  18 kB     00:00
+Running rpm_check_debug
+Running Transaction Test
+Transaction Test Succeeded
+Running Transaction
+Installing : rdate-1.4-16.el6.i686                                        1/1
+Verifying  : rdate-1.4-16.el6.i686                                        1/1</p>
+<p>Installed:
+rdate.i686 0:1.4-16.el6</p>
+<p>Complete!</p>
+<pre><code>
+-y 옵션은 설치중에 yes/no를 묻는 것에서 모두다 yes를 답한다는 뜻. 알아서 하자.
+</code></pre>
+
 </div>
-<ul class="catlist">
-
-<li>
-<a href="/17"><i class="idx">17</i>리눅스 서버 시간 변경</a>
-</li>
-
-<li>
-<a href="/16"><i class="idx">16</i>REMOTE HOST IDENTIFICATION HAS CHANGED! 에러</a>
-</li>
-
-<li>
-<a href="/15"><i class="idx">15</i>crontab 사용법 (리눅스 예약 작업)</a>
-</li>
-
-<li>
-<a href="/8"><i class="idx">8</i>리눅스 umount 오류 시</a>
-</li>
-
-<li>
-<a href="/7"><i class="idx">7</i>vim 파일 경로 자동완성</a>
-</li>
-
-<li>
-<a href="/6"><i class="idx">6</i>Gitlab 업데이트</a>
-</li>
-
-<li>
-<a href="/5"><i class="idx">5</i>Gitlab 업데이트 시 공간부족 오류</a>
-</li>
-
-<li>
-<a href="/2"><i class="idx">2</i>Nginx + Node.js + PM2 세팅 502 에러 등</a>
-</li>
-
-<li>
-<a href="/1"><i class="idx">1</i>리눅스 부팅모드</a>
-</li>
-
-</ul>
+</div>
+<div class="kigui frame">
+<script src="https://utteranc.es/client.js"
+repo="lazyig/blog-comment"
+issue-term="pathname"
+label="blog-comment"
+theme="github-light"
+crossorigin="anonymous"
+async>
+</script>
 </div>
 </section>
 </body>
