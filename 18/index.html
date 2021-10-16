@@ -103,6 +103,11 @@ href="/static/apple-touch-icon-180x180.png"
 
 
 <li>
+<a style="padding-left: 20px" href="/c/CSS3.html">CSS3</a>
+</li>
+
+
+<li>
 <a style="padding-left: 20px" href="/c/개발일기.html">개발일기</a>
 </li>
 
@@ -142,40 +147,30 @@ navBar.classList.toggle("show");
 <a href="/c/전체보기.html">전체보기</a>
 <span> > </span>
 
-<a href="/c/Linux.html">Linux</a>
+<a href="/c/CSS3.html">CSS3</a>
 <span> > </span>
 
 </p>
-<h1 class="article-title">리눅스 서버 시간 변경</h1>
-<p class="write-date">2021-10-17 00-15-08</p>
+<h1 class="article-title">구버전의 IE(8 이하)에서 시맨틱 태그 호환</h1>
+<p class="write-date">2021-10-17 00-36-03</p>
 <div class="markdown-body">
-<blockquote>
-<p>Package rdate.i686 0:1.4-16.el6 will be installed
---&gt; Finished Dependency Resolution</p>
-</blockquote>
-<p>Dependencies Resolved</p>
-<h1>================================================================================
-Package          Arch            Version                 Repository       Size</h1>
-<p>Installing:
-rdate            i686            1.4-16.el6              base             18 k</p>
-<h1>Transaction Summary</h1>
-<p>Install       1 Package(s)</p>
-<p>Total download size: 18 k
-Installed size: 26 k
-Downloading Packages:
-rdate-1.4-16.el6.i686.rpm                                |  18 kB     00:00
-Running rpm_check_debug
-Running Transaction Test
-Transaction Test Succeeded
-Running Transaction
-Installing : rdate-1.4-16.el6.i686                                        1/1
-Verifying  : rdate-1.4-16.el6.i686                                        1/1</p>
-<p>Installed:
-rdate.i686 0:1.4-16.el6</p>
-<p>Complete!</p>
-<pre><code>
--y 옵션은 설치중에 yes/no를 묻는 것에서 모두다 yes를 답한다는 뜻. 알아서 하자.
+<p>이 글은 이전 티스토리 블로그에서 글을 가져와서 일부 수정하였습니다.</p>
+<p><a href="https://kim-19.tistory.com/99">https://kim-19.tistory.com/99</a></p>
+<p>최초 작성일 : (2017. 2. 2. 09:39)</p>
+<h3>서론</h3>
+<p>현재 구버전의 IE 8 정도를 일상에서 사용하는건 심했습니다...</p>
+<p>이게 도움이 될 일이 거의 없을 것 같기는 합니다.</p>
+<hr>
+<p>HTML5를 지원하지 않는 구버전의 브라우저에서는 시맨틱 태그를모른다. 그렇기 때문에 자신이 원하는 웹페이지의 레아아웃대로 정렬이 안될 수도 있는데.</p>
+<p>이를 '어느정도'는 원하는 대로 보여지게 하고 싶을 수도 있다.</p>
+<p>웹 브라우저가 모르는 태그의 경우에는 <strong>disply값이 inline으로 설정</strong>된다.</p>
+<p>하지만, 시맨틱 태그들의 경우에는 레이아웃을 나누는데 사용하므로 기본 값이 block이다.</p>
+<p>이 점에서 호환이 안되고 레이아웃이 망가지는 문제가 발생하는데. 이에 대한 스타일을 명시해주면 된다.</p>
+<pre><code>header, nav, section, article, aside, fotter {
+    display: block;
+}
 </code></pre>
+<p>또한, 해당 스타일이 가장 우선순위가 낮게 하기 위해서 스타일의 상단에 위치시키도록 하자.</p>
 
 </div>
 </div>
