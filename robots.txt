@@ -1,4 +1,4 @@
-user-agent: *
-allow: /
+User-agent: *
+Allow: /
 
-sitemap: https://devlog.lazyig.com/sitemap.xml
+Sitemap: https://devlog.lazyig.com/sitemap.xml
