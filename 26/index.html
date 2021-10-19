@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title></title>
+<meta
+name="description"
+content="정적페이지로 운영하는 개발 블로그입니다."
+/>
+<link
+rel="icon"
+type="image/png"
+sizes="16x16"
+href="/static/favicon-16x16.png"
+/>
+<link
+rel="icon"
+type="image/png"
+sizes="32x32"
+href="/static/favicon-32x32.png"
+/>
+<link
+rel="icon"
+type="image/png"
+sizes="192x192"
+href="/static/favicon-192x192.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="57x57"
+href="/static/apple-touch-icon-57x57.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="72x72"
+href="/static/apple-touch-icon-72x72.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="76x76"
+href="/static/apple-touch-icon-76x76.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="114x114"
+href="/static/apple-touch-icon-114x114.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="120x120"
+href="/static/apple-touch-icon-120x120.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="144x144"
+href="/static/apple-touch-icon-144x144.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="152x152"
+href="/static/apple-touch-icon-152x152.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="154x154"
+href="/static/apple-touch-icon-154x154.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="180x180"
+href="/static/apple-touch-icon-180x180.png"
+/>
+<link rel="stylesheet" href="/static/style.css">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8149987977999297" crossorigin="anonymous"></script>
+</head>
+<body class="kigui one">
+<header class="kigui header">
+<span id="headerBtn" class="nav-header-btn"><img src="/static/menu-w.svg"></span>
+<a href="/">
+<h1 class="title">
+이름 없는 블로그
+</h1>
+</a>
+</header>
+<div class="kigui header-space"></div>
+<section class="kigui">
+<div id="navBar" class="nav-bar">
+
+<div class="nav-header">
+<span id="catToggle" class="nav-header-btn"><img src="/static/menu.svg"></span>
+</div>
+<ul class="category">
+
+<li>
+<a style="padding-left: 10px" href="/c/전체보기.html">전체보기</a>
+</li>
+
+<li>
+<a style="padding-left: 20px" href="/c/안드로이드.html">안드로이드</a>
+</li>
+
+
+<li>
+<a style="padding-left: 20px" href="/c/개발일기.html">개발일기</a>
+</li>
+
+
+<li>
+<a style="padding-left: 20px" href="/c/기타.html">기타</a>
+</li>
+
+
+<li>
+<a style="padding-left: 20px" href="/c/Linux.html">Linux</a>
+</li>
+
+
+<li>
+<a style="padding-left: 20px" href="/c/Web.html">Web</a>
+</li>
+
+<li>
+<a style="padding-left: 30px" href="/c/CSS3.html">CSS3</a>
+</li>
+
+
+<li>
+<a style="padding-left: 30px" href="/c/JavaScript.html">JavaScript</a>
+</li>
+
+
+
+
+</ul>
+</div>
+<script>
+let catToggle = document.getElementById("catToggle");
+let headerBtn = document.getElementById("headerBtn");
+let navBar = document.getElementById("navBar");
+catToggle.addEventListener("click", () => {
+navBar.classList.toggle("show");
+});
+headerBtn.addEventListener("click", () => {
+navBar.classList.toggle("show");
+})
+</script>
+<div class="kigui frame">
+<p class="category-path">
+
+<a href="/c/전체보기.html">전체보기</a>
+<span> > </span>
+
+<a href="/c/기타.html">기타</a>
+<span> > </span>
+
+</p>
+<h1 class="article-title"></h1>
+<p class="write-date">2021-10-20 01:03:55</p>
+<div class="markdown-body">
+<p>이 블로그에 포함된 라이선스입니다.</p>
+<h1>github-markdown-css</h1>
+<p>link: <a href="https://github.com/sindresorhus/github-markdown-css">Github</a></p>
+<p>License:</p>
+<pre><code>MIT License
+
+Copyright (c) Sindre Sorhus &lt;sindresorhus@gmail.com&gt; (https://sindresorhus.com)
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the &quot;Software&quot;), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+</code></pre>
+
+</div>
+</div>
+<div class="kigui frame">
+<script src="https://utteranc.es/client.js"
+repo="lazyig/blog-comment"
+issue-term="pathname"
+label="blog-comment"
+theme="github-light"
+crossorigin="anonymous"
+async>
+</script>
+</div>
+</section>
+</body>
+</html>

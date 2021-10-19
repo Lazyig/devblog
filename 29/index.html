@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title></title>
+<meta
+name="description"
+content="정적페이지로 운영하는 개발 블로그입니다."
+/>
+<link
+rel="icon"
+type="image/png"
+sizes="16x16"
+href="/static/favicon-16x16.png"
+/>
+<link
+rel="icon"
+type="image/png"
+sizes="32x32"
+href="/static/favicon-32x32.png"
+/>
+<link
+rel="icon"
+type="image/png"
+sizes="192x192"
+href="/static/favicon-192x192.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="57x57"
+href="/static/apple-touch-icon-57x57.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="72x72"
+href="/static/apple-touch-icon-72x72.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="76x76"
+href="/static/apple-touch-icon-76x76.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="114x114"
+href="/static/apple-touch-icon-114x114.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="120x120"
+href="/static/apple-touch-icon-120x120.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="144x144"
+href="/static/apple-touch-icon-144x144.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="152x152"
+href="/static/apple-touch-icon-152x152.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="154x154"
+href="/static/apple-touch-icon-154x154.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="180x180"
+href="/static/apple-touch-icon-180x180.png"
+/>
+<link rel="stylesheet" href="/static/style.css">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8149987977999297" crossorigin="anonymous"></script>
+</head>
+<body class="kigui one">
+<header class="kigui header">
+<span id="headerBtn" class="nav-header-btn"><img src="/static/menu-w.svg"></span>
+<a href="/">
+<h1 class="title">
+이름 없는 블로그
+</h1>
+</a>
+</header>
+<div class="kigui header-space"></div>
+<section class="kigui">
+<div id="navBar" class="nav-bar">
+
+<div class="nav-header">
+<span id="catToggle" class="nav-header-btn"><img src="/static/menu.svg"></span>
+</div>
+<ul class="category">
+
+<li>
+<a style="padding-left: 10px" href="/c/전체보기.html">전체보기</a>
+</li>
+
+<li>
+<a style="padding-left: 20px" href="/c/안드로이드.html">안드로이드</a>
+</li>
+
+
+<li>
+<a style="padding-left: 20px" href="/c/개발일기.html">개발일기</a>
+</li>
+
+
+<li>
+<a style="padding-left: 20px" href="/c/기타.html">기타</a>
+</li>
+
+
+<li>
+<a style="padding-left: 20px" href="/c/Linux.html">Linux</a>
+</li>
+
+
+<li>
+<a style="padding-left: 20px" href="/c/Web.html">Web</a>
+</li>
+
+<li>
+<a style="padding-left: 30px" href="/c/CSS3.html">CSS3</a>
+</li>
+
+
+<li>
+<a style="padding-left: 30px" href="/c/JavaScript.html">JavaScript</a>
+</li>
+
+
+
+
+</ul>
+</div>
+<script>
+let catToggle = document.getElementById("catToggle");
+let headerBtn = document.getElementById("headerBtn");
+let navBar = document.getElementById("navBar");
+catToggle.addEventListener("click", () => {
+navBar.classList.toggle("show");
+});
+headerBtn.addEventListener("click", () => {
+navBar.classList.toggle("show");
+})
+</script>
+<div class="kigui frame">
+<p class="category-path">
+
+<a href="/c/전체보기.html">전체보기</a>
+<span> > </span>
+
+<a href="/c/Linux.html">Linux</a>
+<span> > </span>
+
+</p>
+<h1 class="article-title"></h1>
+<p class="write-date">2021-10-20 01:03:55</p>
+<div class="markdown-body">
+<p>이 글은 티스토리 블로그 글을 옮겨 수정한 것 입니다.
+(최초 작성일 : 2017. 3.. 20. 10:07)
+<a href="https://kim-19.tistory.com/134?category=922291">https://kim-19.tistory.com/134?category=922291</a></p>
+<p><img src="/static/Bnl7c_XX4yjlgN4wKZXHMT6PcsMY3HxAeRku88KYhPU.png" alt=""></p>
+<pre><code>@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@    WARNING: REMOTE HOST IDENTIFICATION HAS CHANGED!     @
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+IT IS POSSIBLE THAT SOMEONE IS DOING SOMETHING NASTY!
+Someone could be eavesdropping on you right now (man-in-the-middle attack)!
+...
+</code></pre>
+<p>리눅스 서버를 새로 설치 한 후 해당 서버에 깃 push를 진행하려다가 발생한 에러이다.</p>
+<p>해당 에러는 내가 가지고 있는 인증키가 서버의 인증키와 다를 경우에 발생하며 중간자공격을 경고한다.</p>
+<p>만약 접속하려는 서버의 인증 정보가 변경될 일이 없다면 이에 대한 의심을 반드시 하여 중간에서 누군가 서버 접속을 가로채려는 것인지 꼭 확인하고 해결방법을 실행하도록 하자.</p>
+<h3>해결 방법</h3>
+<p><code>$ ssh-keygen -R [도메인 or IP]</code></p>
+<p>위의 명령어를 클라이언트에서 입력하여 새로운 키를 발급받으면 간단하게 해결된다.</p>
+
+</div>
+</div>
+<div class="kigui frame">
+<script src="https://utteranc.es/client.js"
+repo="lazyig/blog-comment"
+issue-term="pathname"
+label="blog-comment"
+theme="github-light"
+crossorigin="anonymous"
+async>
+</script>
+</div>
+</section>
+</body>
+</html>

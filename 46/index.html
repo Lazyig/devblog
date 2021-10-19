@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title></title>
+<meta
+name="description"
+content="정적페이지로 운영하는 개발 블로그입니다."
+/>
+<link
+rel="icon"
+type="image/png"
+sizes="16x16"
+href="/static/favicon-16x16.png"
+/>
+<link
+rel="icon"
+type="image/png"
+sizes="32x32"
+href="/static/favicon-32x32.png"
+/>
+<link
+rel="icon"
+type="image/png"
+sizes="192x192"
+href="/static/favicon-192x192.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="57x57"
+href="/static/apple-touch-icon-57x57.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="72x72"
+href="/static/apple-touch-icon-72x72.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="76x76"
+href="/static/apple-touch-icon-76x76.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="114x114"
+href="/static/apple-touch-icon-114x114.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="120x120"
+href="/static/apple-touch-icon-120x120.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="144x144"
+href="/static/apple-touch-icon-144x144.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="152x152"
+href="/static/apple-touch-icon-152x152.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="154x154"
+href="/static/apple-touch-icon-154x154.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="180x180"
+href="/static/apple-touch-icon-180x180.png"
+/>
+<link rel="stylesheet" href="/static/style.css">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8149987977999297" crossorigin="anonymous"></script>
+</head>
+<body class="kigui one">
+<header class="kigui header">
+<span id="headerBtn" class="nav-header-btn"><img src="/static/menu-w.svg"></span>
+<a href="/">
+<h1 class="title">
+허전한 개발 블로그
+</h1>
+</a>
+</header>
+<div class="kigui header-space"></div>
+<section class="kigui">
+<div id="navBar" class="nav-bar">
+
+<div class="nav-header">
+<span id="catToggle" class="nav-header-btn"><img src="/static/menu.svg"></span>
+</div>
+<ul class="category">
+
+<li>
+<a style="padding-left: 10px" href="/c/전체보기.html">전체보기</a>
+</li>
+
+<li>
+<a style="padding-left: 20px" href="/c/안드로이드.html">안드로이드</a>
+</li>
+
+
+<li>
+<a style="padding-left: 20px" href="/c/개발일기.html">개발일기</a>
+</li>
+
+
+<li>
+<a style="padding-left: 20px" href="/c/기타.html">기타</a>
+</li>
+
+
+<li>
+<a style="padding-left: 20px" href="/c/Linux.html">Linux</a>
+</li>
+
+
+<li>
+<a style="padding-left: 20px" href="/c/Web.html">Web</a>
+</li>
+
+<li>
+<a style="padding-left: 30px" href="/c/CSS3.html">CSS3</a>
+</li>
+
+
+<li>
+<a style="padding-left: 30px" href="/c/JavaScript.html">JavaScript</a>
+</li>
+
+
+
+
+</ul>
+</div>
+<script>
+let catToggle = document.getElementById("catToggle");
+let headerBtn = document.getElementById("headerBtn");
+let navBar = document.getElementById("navBar");
+catToggle.addEventListener("click", () => {
+navBar.classList.toggle("show");
+});
+headerBtn.addEventListener("click", () => {
+navBar.classList.toggle("show");
+})
+</script>
+<div class="kigui frame">
+<p class="category-path">
+
+<a href="/c/전체보기.html">전체보기</a>
+<span> > </span>
+
+<a href="/c/기타.html">기타</a>
+<span> > </span>
+
+</p>
+<h1 class="article-title"></h1>
+<p class="write-date">2021-10-20 01:01:34</p>
+<div class="markdown-body">
+<p>(티스토리 블로그에서 이전하여 작성한 글 입니다.)</p>
+<p>가끔 디스코드가 자기 멋대로 망가지는 경우가 있다.</p>
+<p>이러한 경우 재설치를 하려 해도 다음과 같은 오류 메시지가 뜨면서 재설치가 불가능한 경우가 있다.</p>
+<p><img src="/static/DipbTspyLIp1_9HjPv22gLQ4jFOvir97wgJHSTeVFzY.png" alt=""></p>
+<pre><code>Installation has failed
+There was an error while installing the application.
+Check the setup log for more information and contact the autor.
+</code></pre>
+<p>재설치를 진행해도 오류가 생겨서 어찌할 줄 몰랐던 기억이 있습니다.</p>
+<p>순서대로 하나씩 조치해나가시면서 재설치를 진행해보시기 바랍니다.</p>
+<p>보통은 프로세스를 종료하는 첫번째 방법이 원인인 경우가 많습니다만 다른 원인도 있을 수 있으니 안되실 경우 추가로 진행해보시기 바랍니다.</p>
+<h3>1. 프로세스 종료</h3>
+<p>우선 작업관리자를 들어가줍니다.</p>
+<p>윈도우 + R키로 실행을 들어간 뒤에 'taskmgr'를 적고 확인을 누르시거나,</p>
+<p><img src="/static/N5U_fCcB-n_Tn1QmbgVBGI05G4ul50covTuyIauB9YY.png" alt=""></p>
+<p>Ctrl + Alt + Delete키를 누르신 다음 작업관리자를 눌러주면 실행이 됩니다.</p>
+<p><img src="/static/5Nt9g1eeZ8PIbFfdM5PZ_cKoMs-Idm-jf6F-zTubDMs.png" alt=""></p>
+<p>그 이후에는 디스코드와 관련된 모든 프로세스들을 종료해줍시다.</p>
+<p>1번 방법 끝.</p>
+<h3>2. 설정파일 삭제 1</h3>
+<p>디스코드 설정파일들을 삭제하는 방법입니다.</p>
+<p>윈도우 + R키로 실행을 들어간 뒤에 아래의 주소를 적고 확인을 눌러주세요.</p>
+<p><code>%USERPROFILE%\AppData\Local</code></p>
+<p><img src="/static/tPEj0jQiULpYPJf7OVN7kv51q2H2Zj8MZW7NzUTJHA4.png" alt=""></p>
+<p>해당 주소에서 Discord 폴더를 찾아서 제거해주세요.</p>
+<p>2번 방법 끝.</p>
+<h3>3. 설정파일 삭제 2</h3>
+<p>이번엔 다른 곳에 있는 관련된 파일들 입니다.</p>
+<p>윈도우 + R으로 실행을 들어간 뒤에 아래의 주소를 적고 확인을 눌러주세요.</p>
+<p><img src="/static/XsVozCwv2IzGwaN6Bj-6LHfTuUeaAGq0cXdRhL2LMSM.png" alt=""></p>
+<p><code>%APPDATA%</code></p>
+<p>다음 주소로 들어간 다음 Discord 폴더를 찾아 삭제를 해주세요.</p>
+<p>3번 방법 끝.</p>
+<h3>마치며</h3>
+<p>위의 조치사항들을 하고 나면 정상적으로 될 것 입니다.</p>
+<p>저는 해당 방법들로 설치를 완료하였으나, 그래도 안된다면 다른 해결방안을 찾으셔야하겠지요.</p>
+<p>다른 유형의 오류와 해결방법을 찾으시면 공유하여 주시면 감사하겠습니다.</p>
+
+</div>
+</div>
+<div class="kigui frame">
+<script src="https://utteranc.es/client.js"
+repo="lazyig/blog-comment"
+issue-term="pathname"
+label="blog-comment"
+theme="github-light"
+crossorigin="anonymous"
+async>
+</script>
+</div>
+</section>
+</body>
+</html>
