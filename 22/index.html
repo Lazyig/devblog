@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>윈도우 한글 자음모음 분리되서 입력</title>
+<title>자바스크립트의 false</title>
 <meta
 name="description"
 content="정적페이지로 운영하는 개발 블로그입니다."
@@ -163,25 +163,29 @@ navBar.classList.toggle("show");
 <a href="/c/전체보기.html">전체보기</a>
 <span> > </span>
 
-<a href="/c/기타.html">기타</a>
+<a href="/c/Web.html">Web</a>
+<span> > </span>
+
+<a href="/c/JavaScript.html">JavaScript</a>
 <span> > </span>
 
 </p>
-<h1 class="article-title">윈도우 한글 자음모음 분리되서 입력</h1>
-<p class="write-date">2021-10-24 17:27:19</p>
+<h1 class="article-title">자바스크립트의 false</h1>
+<p class="write-date">2021-10-26 23:20:22</p>
 <div class="markdown-body">
-<p>윈도우에서 갑자기 한글 자음 모음이 분리되서 입력이되는 문제가 발생하였다.</p>
-<pre><code>ㅇㅜㅣㄴㄷㅗㅇㅜ ㅎㅏㄴㄱㅡㄹ ㅈㅏㅇㅡㅁㅁㅗㅇㅡㅁ ㅂㅜㄴㄹㅣㄷㅗㅣㅅㅓ ㅇㅣㅂㄹㅕㄱ
-</code></pre>
-<p>이에 대한 해결방법을 찾아서 메모해두려고 한다.</p>
-<h3>원인</h3>
-<p>원인은 Window + H키를 눌러서 윈도우 받아쓰기 기능을 활성화시키면 지원하는 언어가 아니다라는 메시지와 함께 발생한다.</p>
-<h3>해결방법</h3>
-<p>작업관리자를 켜서 &quot;Microsoft Text Input Application&quot;라고 하는  프로세스를 종료하면 됩니다.</p>
-<p><img src="/static/CUWlfBbYJZdTQdwMCaNfqJeuI12-VHN3KegSOBYPM_4.png" alt=""></p>
-<p>작업 관리자는 Window + R를 눌러서</p>
-<p><img src="/static/Ir4a8CLUSkbvrWxC9vMY8AbCnBpIIhsiy2eKRvrnZDA.png" alt=""></p>
-<p>다음 창에서 taskmgr를 적으시면 켜집니다.</p>
+<h3>서론</h3>
+<p>이 글을 쓰게된 이유는 정적 페이지 생성기 개발을 하다가 페이지의 인덱스 관련해서 수정하다가 첫번째 글이 맨 위로 올라와버리는 문제가 생겨서 이를 확인하다가 자바스크립트의 false에 대해서 한번 더 점검해보고 쓰게된 글 입니다.</p>
+<h3>자바스크립트의 거짓 같은 값</h3>
+<p>자바스크립트는 형 변환이 몹시 자유로운 언어입니다. 그래서 원하지 않던 결과가 나올 수 있기 때문에 주의하여야 합니다.</p>
+<p>이러한 과정중에 어떠한 값이 boolean으로 자동 형변환이 이루어질때 다음과 같은 값들은 false로 변환되게 됩니다.</p>
+<p>&quot;false, 0, -0, 0n, &quot;&quot;, null, undefined, NaN&quot;</p>
+<p>이러한 값들은 if, 논리연산자 등을 만나 boolean으로 처리될 필요가 있을 때. false로 취급하기 때문에 염두해두어야 하며, 이들을 falsy라고도 부릅니다.</p>
+<h3>자바스크립트의 참 같은 값</h3>
+<p>거짓 같은 값(Falsy)를 제외한 모든 값은 true로 처리됩니다.</p>
+<p>빈 객체, 배열, 무언가 든 문자열, Infinity 등의 값이 해당됩니다.</p>
+<h3>여담</h3>
+<p>이걸 다시 정리해보게 된 이유는 원래 인덱스의 유무를 체크하려고 if(index)와 같이 썼는데. 여기에 0이 걸리는걸 생각하지 않고 있다가 문제가 발생하였습니다.
+사실 0은 다른 언어에서도 흔하게 false로 취급되는 것이지만 너무 생각없이 만들다보니 그렇지 않나 싶습니다.</p>
 
 </div>
 </div>
