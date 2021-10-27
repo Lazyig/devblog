@@ -23,6 +23,7 @@
     height:100%;
     width: 100%;
     padding: 10px 12px;
+    -webkit-tap-highlight-color: transparent;
     transition-property: box-shadow background-color;
     transition-duration: .2s;
 }

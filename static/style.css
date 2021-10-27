@@ -69,6 +69,7 @@ section.kigui {
   cursor: pointer;
   transition-property: background-color;
   transition-duration: 0.3s;
+  -webkit-tap-highlight-color: transparent;
 }
 .kigui.header .menu:active {
   background-color: #ff8a65;
@@ -1530,6 +1531,7 @@ body.sm-on .kigui.sidemenu {
   cursor: pointer;
   transition-duration: .2s;
   transition-property: background-color;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .nav-header-btn:hover {
