@@ -1488,6 +1488,7 @@ body.sm-on .kigui.sidemenu {
     width: 100%;
     transition-property: box-shadow background-color;
     transition-duration: .2s;
+    -webkit-tap-highlight-color: transparent;
 }
 
 .category li a:hover {
