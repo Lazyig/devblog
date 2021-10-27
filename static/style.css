@@ -49,6 +49,7 @@ section.kigui {
 
 .kigui.header a {
   text-decoration: none;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .kigui.header .title {
