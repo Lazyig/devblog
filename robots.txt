@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://devlog.lazyig.com/sitemap.xml
+Sitemap: https://devblog.lazyig.com/sitemap.xml
