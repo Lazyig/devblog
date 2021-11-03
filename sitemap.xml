@@ -20,13 +20,6 @@
 </url>
 
 <url>
-<loc>https://devblog.lazyig.com/c/안드로이드.html</loc>
-
-
-
-</url>
-
-<url>
 <loc>https://devblog.lazyig.com/11/index.html</loc>
 
 <lastmod>2021-10-13</lastmod>
@@ -72,13 +65,6 @@
 </url>
 
 <url>
-<loc>https://devblog.lazyig.com/c/개발일기.html</loc>
-
-
-
-</url>
-
-<url>
 <loc>https://devblog.lazyig.com/10/index.html</loc>
 
 <lastmod>2021-10-13</lastmod>
@@ -106,6 +92,15 @@
 </url>
 
 <url>
+<loc>https://devblog.lazyig.com/32/index.html</loc>
+
+<lastmod>2021-11-03</lastmod>
+
+
+
+</url>
+
+<url>
 <loc>https://devblog.lazyig.com/23/index.html</loc>
 
 <lastmod>2021-10-27</lastmod>
@@ -118,13 +113,6 @@
 <loc>https://devblog.lazyig.com/0/index.html</loc>
 
 <lastmod>2021-10-13</lastmod>
-
-
-
-</url>
-
-<url>
-<loc>https://devblog.lazyig.com/c/기타.html</loc>
 
 
 
@@ -239,13 +227,6 @@
 </url>
 
 <url>
-<loc>https://devblog.lazyig.com/c/Linux.html</loc>
-
-
-
-</url>
-
-<url>
 <loc>https://devblog.lazyig.com/13/index.html</loc>
 
 <lastmod>2021-10-15</lastmod>
@@ -258,13 +239,6 @@
 <loc>https://devblog.lazyig.com/20/index.html</loc>
 
 <lastmod>2021-10-20</lastmod>
-
-
-
-</url>
-
-<url>
-<loc>https://devblog.lazyig.com/c/이 블로그의 오픈소스.html</loc>
 
 
 
@@ -289,13 +263,6 @@
 </url>
 
 <url>
-<loc>https://devblog.lazyig.com/c/CSS3.html</loc>
-
-
-
-</url>
-
-<url>
 <loc>https://devblog.lazyig.com/25/index.html</loc>
 
 <lastmod>2021-10-27</lastmod>
@@ -314,13 +281,6 @@
 </url>
 
 <url>
-<loc>https://devblog.lazyig.com/c/HTML5.html</loc>
-
-
-
-</url>
-
-<url>
 <loc>https://devblog.lazyig.com/22/index.html</loc>
 
 <lastmod>2021-10-26</lastmod>
@@ -333,6 +293,62 @@
 <loc>https://devblog.lazyig.com/3/index.html</loc>
 
 <lastmod>2021-10-13</lastmod>
+
+
+
+</url>
+
+<url>
+<loc>https://devblog.lazyig.com/c/전체보기.html</loc>
+
+
+
+</url>
+
+<url>
+<loc>https://devblog.lazyig.com/c/안드로이드.html</loc>
+
+
+
+</url>
+
+<url>
+<loc>https://devblog.lazyig.com/c/개발일기.html</loc>
+
+
+
+</url>
+
+<url>
+<loc>https://devblog.lazyig.com/c/기타.html</loc>
+
+
+
+</url>
+
+<url>
+<loc>https://devblog.lazyig.com/c/Linux.html</loc>
+
+
+
+</url>
+
+<url>
+<loc>https://devblog.lazyig.com/c/이 블로그의 오픈소스.html</loc>
+
+
+
+</url>
+
+<url>
+<loc>https://devblog.lazyig.com/c/CSS3.html</loc>
+
+
+
+</url>
+
+<url>
+<loc>https://devblog.lazyig.com/c/HTML5.html</loc>
 
 
 
