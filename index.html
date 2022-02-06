@@ -220,14 +220,11 @@ navBar.classList.toggle("show");
 <pre><code>sudo docker run --name nexus -d -p 5000:5000 -p 8081:8081 -v /nexus-data:/nexus-data -u root sonatype/nexus3
 </code></pre>
 <p>위 명령어를 입력하면 자동으로 도커에서 받아서 진행하게 된다.</p>
-<p>5000번 포트는 패키지</p>
-<p>8081번 포트는 웹 페이지</p>
 <p>/nexus-data 경로는 설정파일 연결을 위해서 사용한다.</p>
 <h3>2. 방화벽 설정</h3>
 <p>사용하고 있는 포트에 대해서 다른 기기에서 접속을 허용하여야 한다면 당연히 방화벽 설정을 해주어야 한다.</p>
 <p>ufw를 통해서 방화벽 설정을 할 것이므로 다음 명령어를 통하여 방화벽을 열어준다.</p>
 <pre><code>sudo ufw allow 8081/tcp
-sudo ufw allow 5000/tcp
 </code></pre>
 <h3>3. 초기 설정</h3>
 <p>정상적으로 실행이 되었다면 설치한 기기로 웹 브라우저를 통해서 접속한다.</p>
