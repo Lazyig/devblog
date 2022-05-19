@@ -244,24 +244,24 @@ navBar.classList.toggle("show");
 deploy:
   stage: deploy
   script:
-    - whoami
     - PATH=$PATH:/home/gitlab-runner/node/node-v17.2.0-linux-x64/bin
     - cd ..
     - rm -rf ./blogmaker 2&gt; /dev/null
-    - git clone https://깃랩아이디:$MAKER_TOKEN@깃랩주소/깃랩아이디/ejs-static-blog-generator.git blogmaker
+    - git clone 블로그_생성기_저장소_주소 blogmaker
     - mv ./blog-data ./blogmaker/post
     - cd ./blogmaker
-    - git clone 깃허브레포 export
+    - git clone 블로그_배포_주소 export
     - npm i
     - npm run build
     - cd post
-    - git config --local user.email &quot;이메일&quot;
-    - git config --local user.name &quot;이름&quot;
+    - git config --local user.email &quot;이메일&quot; &amp;&amp; git config --local user.name &quot;이름&quot;
+    - git remote add origin2 블로그_글_저장소
+    - git pull origin2 main
+    - git checkout -t origin2/main
     - git add .
-    - if [ &quot;$(git diff --staged)&quot; != &quot;&quot; ]; then git commit -m &quot;Gitlab Runner&quot; &amp;&amp; git push origin main; fi
+    - if [ &quot;$(git diff --staged)&quot; != &quot;&quot; ]; then git commit -m &quot;Gitlab Runner&quot; &amp;&amp; git push origin2 main; fi
     - cd ../export
-    - git config --local user.email &quot;이메일&quot;
-    - git config --local user.name &quot;이름&quot;
+    - git config --local user.email &quot;이메일&quot; &amp;&amp; git config --local user.name &quot;이름&quot;
     - git add .
     - if [ &quot;$(git diff --staged)&quot; != &quot;&quot; ]; then git commit -m &quot;Gitlab Runner&quot; &amp;&amp; git push origin main; fi
 </code></pre>
@@ -276,6 +276,7 @@ deploy:
 <li>블로그 빌드</li>
 <li>post 경로 이동</li>
 <li>깃 커미터 정보 설정</li>
+<li>글 원격저장소 연결 &amp; 브랜치 가져오기 &amp; 이동</li>
 <li>글 메타 정보 변경 시 커밋 &amp; 푸시</li>
 <li>export 경로 이동</li>
 <li>깃 커미터 정보 설정</li>
@@ -286,6 +287,8 @@ deploy:
 <p>정상적으로 배포되는 모습을 볼 수 있다.</p>
 <h3>후기</h3>
 <p>나중에 서버가 이동된다면 잡스러운 설정을 다시해야한다는 생각에 머리가 아찔해지지만 그건 미래의 내가 하겠지...</p>
+<p>다만 아쉽게도 러너가 올린 커밋에도 반응을 한다는건데. 이건 나중에 수정하도록 해야겠다.</p>
+<p>어짜피 블로그 빌드를 두번하는건 내가 아니라 나의 컴퓨터이기 때문이다.</p>
 
 </div>
 </div>
