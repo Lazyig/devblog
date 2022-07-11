@@ -1478,6 +1478,7 @@ body.sm-on .kigui.sidemenu {
     flex-direction: column;
     width: 100%;
     box-sizing: border-box;
+    overflow-y: auto;
 }
 .category li {
     width: 100%;
@@ -1511,6 +1512,8 @@ body.sm-on .kigui.sidemenu {
   bottom: 0px;
   width: 300px;
   background-color: #fff;
+  display: flex;
+  flex-direction: column;
   box-shadow: 4px 0 30px rgb(0 0 0 / 50%);
 
   transition-duration: .2s;
