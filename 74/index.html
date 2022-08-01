@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Express BodyParser Deprecated</title>
+<title>MacOS 기본 터미널 호스트명 숨기기</title>
 <meta
 name="description"
 content="정적페이지로 운영하는 개발 블로그입니다."
@@ -81,10 +81,10 @@ href="/static/apple-touch-icon-180x180.png"
 <link rel="stylesheet" href="/static/style.css">
 <meta name="theme-color" content="#ff5722">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Express BodyParser Deprecated">
+<meta property="og:title" content="MacOS 기본 터미널 호스트명 숨기기">
 <meta property="og:description" content="공부한 개발 정보를 공유합니다.">
-<meta property="og:image" content="https://devblog.lazyig.com/59//static/ogimg.png">
-<meta property="og:url" content="https://devblog.lazyig.com/59/">
+<meta property="og:image" content="https://devblog.lazyig.com/74//static/ogimg.png">
+<meta property="og:url" content="https://devblog.lazyig.com/74/">
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8149987977999297" crossorigin="anonymous"></script>
 </head>
 <body class="kigui one">
@@ -224,23 +224,29 @@ navBar.classList.toggle("show");
 <a href="/c/전체보기.html">전체보기</a>
 <span> > </span>
 
-<a href="/c/Develop.html">Develop</a>
+<a href="/c/OS.html">OS</a>
+<span> > </span>
+
+<a href="/c/MacOS.html">MacOS</a>
 <span> > </span>
 
 </p>
-<h1 class="article-title"><a href="https://devblog.lazyig.com/59/">Express BodyParser Deprecated</a></h1>
-<p class="write-date">2022-03-08 20:57:48</p>
+<h1 class="article-title"><a href="https://devblog.lazyig.com/74/">MacOS 기본 터미널 호스트명 숨기기</a></h1>
+<p class="write-date">2022-08-01 23:19:52</p>
 <div class="markdown-body">
-<p>예전 프로젝트를 불러와서 의존성 패키지를 설치하고 프로젝트를 보니 다음과 같이 나와있다.</p>
-<img src="/static/6dtTOcjBA82pXAHI-Dz66ggqBuZzRhTCbI_8YbSTbeo.png" alt="image-20220308205332584" style="zoom:50%;" />
-<p>해당 에러 메시지를 보면</p>
-<p>'bodyParser' is deprecated. 라고 되어 있는데.</p>
-<p>모종의 이유로 해당 기능이 사용이 되지 않는다는 것.</p>
-<p>원인은 Express 4.16 버전 이후로는 bodyParser가 내장되었으므로 이를 사용하라는 것이다.</p>
-<p>좋은 이유이니 위 코드는 다음과 같이 수정하면 된다.</p>
-<pre><code class="language-javascript">this.app.use(express.json());
-this.app.use(bodyParser.urlencoded({ extended: false}));
+<p>맥에서 기본 터미널을 열면 타이틀 창에 호스트명이랑 이런저런 잡다한 정보가 표시된다.</p>
+<p>개인적으로 거추장스럽기 때문에 숨기고자 한다.</p>
+<p>이런저런 설정을 따라서 해보았지만 지워지지 않았으나 호스트명이 노출되는 원인은 zsh였다.</p>
+<pre><code>vim .zshrc
 </code></pre>
+<p>아래 문구를 추가한다.</p>
+<pre><code>DISABLE_AUTO_TITLE=&quot;true&quot;
+</code></pre>
+<p><img src="/static/8OlgDSlhp40cgBMTBaI0_hxWcN9QJuSpJZHaMDgO5d4.png" alt="image-20220801231721419"></p>
+<p>몹시 깔끔하게 변경이 완료되었다.</p>
+<h3>2. 기타 변경</h3>
+<p>호스트 명 외 다른 부분은 해당 애플 공식 홈페이지에서 자세하게 설명되어 있다.</p>
+<p><a href="https://support.apple.com/ko-kr/guide/terminal/trml15228/mac">https://support.apple.com/ko-kr/guide/terminal/trml15228/mac</a></p>
 
 </div>
 </div>
