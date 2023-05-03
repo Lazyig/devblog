@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-<link rel="stylesheet" href="/static/catstyle.css">
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>전체보기 카테고리</title>
+<title>github page 언더바(_) 문제</title>
 <meta
 name="description"
 content="정적페이지로 운영하는 개발 블로그입니다."
@@ -82,11 +81,13 @@ href="/static/apple-touch-icon-180x180.png"
 <link rel="stylesheet" href="/static/style.css">
 <meta name="theme-color" content="#ff5722">
 <meta property="og:type" content="website">
-<meta property="og:title" content="전체보기 카테고리">
+<meta property="og:title" content="github page 언더바(_) 문제">
 <meta property="og:description" content="공부한 개발 정보를 공유합니다.">
-<meta property="og:image" content="https://devblog.lazyig.com/static/ogimg.png">
-<meta property="og:url" content="https://devblog.lazyig.com">
+<meta property="og:image" content="https://devblog.lazyig.com/109//static/ogimg.png">
+<meta property="og:url" content="https://devblog.lazyig.com/109/">
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8149987977999297" crossorigin="anonymous"></script>
+<link rel="stylesheet"
+href="/static/highlight.css">
 </head>
 <body class="kigui one">
 <header class="kigui header">
@@ -222,97 +223,40 @@ navBar.classList.toggle("show");
 })
 </script>
 <div class="kigui frame">
+<p class="category-path">
+
+<a href="/c/전체보기/1/">전체보기</a>
+<span> > </span>
+
+<a href="/c/기타/1/">기타</a>
+<span> > </span>
+
+</p>
+<h1 class="article-title"><a href="https://devblog.lazyig.com/109/">github page 언더바(_) 문제</a></h1>
+<p class="write-date">2023-05-03 15:16:17</p>
 <div class="markdown-body">
-<h1>전체보기</h1>
+<h3>발단</h3>
+<p>한 동안 블로그 생성기를 잘 쓰다가 이미지가 누락되는 문제가 발생하였다.</p>
+<p><img src="/static/img-JE7LsNJrNFyR2cDDMD-4DrPk3owq8V4q50YvEIQmiY4.png" alt="image-20230503212001232"></p>
+<p>나머지 이미지는 멀쩡한데. 해당 이미지만 누락되어 찾아보니 해당 이미지는 https://devblog.lazyig.com/static/_RYSwFejKVgF11wrBzzIz0oOv1WT204fOJ3SwSstJIU.png 이러한 경로였는데.</p>
+<p>이는 내가 이미지를 해싱한 뒤 base64 인코딩을 해서 제공한 이름이다. 마침 <code>_</code>로 시작하여 찾아보니 깃허브 페이지에서는 언더바가 안먹힌다고 한다...</p>
+<h3>원인</h3>
+<p>Github Page에서는 <code>_</code>로 시작하는 경로나 파일을 무시한다.</p>
+<h3>해결</h3>
+<p>혹시나 이미지나 페이지 혹은 특정 경로 하위가 안먹히는 오류가 있을 경우 언더바를 지우도록 하자.</p>
+<p>(해당 프로젝트에는 img- 라는 접두사를 추가함)</p>
+
 </div>
-<ul class="catlist">
-
-<li>
-<a href="/52"><span class="date">2022-02-06 19:48:11</span>리눅스(우분투)에서 Nexus3 구축</a>
-</li>
-
-<li>
-<a href="/51"><span class="date">2022-02-04 08:12:05</span>맥북 터치패드 더 편하게 사용하기</a>
-</li>
-
-<li>
-<a href="/50"><span class="date">2022-01-26 20:52:47</span>Ubuntu에서 NVM 설치</a>
-</li>
-
-<li>
-<a href="/49"><span class="date">2022-01-26 20:52:47</span>nvm node version not found 에러</a>
-</li>
-
-<li>
-<a href="/48"><span class="date">2022-01-24 22:06:03</span>MacOS iterm2 설치 및 세팅</a>
-</li>
-
-<li>
-<a href="/46"><span class="date">2022-01-21 08:09:44</span>git 개인적으로 사용하는 alias</a>
-</li>
-
-<li>
-<a href="/45"><span class="date">2022-01-20 21:07:29</span>MacBook Air M1 MacOS 한달 사용 후기</a>
-</li>
-
-<li>
-<a href="/44"><span class="date">2022-01-17 21:26:56</span>정적 블로그 유지보수 일기 6</a>
-</li>
-
-<li>
-<a href="/43"><span class="date">2022-01-14 02:46:51</span>Typora 주관적 사용기</a>
-</li>
-
-<li>
-<a href="/42"><span class="date">2022-01-14 02:14:35</span>git pager 설정, (END) 제거</a>
-</li>
-
-</ul>
 </div>
-<div class="kigui frame catnum">
-<ul>
-
-<li>
-<a href="/c/전체보기/1">1</a>
-</li>
-
-<li>
-<a href="/c/전체보기/2">2</a>
-</li>
-
-<li>
-<a href="/c/전체보기/3">3</a>
-</li>
-
-<li>
-<a href="/c/전체보기/4">4</a>
-</li>
-
-<li>
-<a href="/c/전체보기/5">5</a>
-</li>
-
-<li>
-<a href="/c/전체보기/6">6</a>
-</li>
-
-<li>
-<a href="/c/전체보기/7">7</a>
-</li>
-
-<li>
-<a href="/c/전체보기/8">8</a>
-</li>
-
-<li>
-<a href="/c/전체보기/9">9</a>
-</li>
-
-<li>
-<a href="/c/전체보기/10">10</a>
-</li>
-
-</ul>
+<div class="kigui frame">
+<script src="https://utteranc.es/client.js"
+repo="lazyig/blog-comment"
+issue-term="pathname"
+label="blog-comment"
+theme="github-light"
+crossorigin="anonymous"
+async>
+</script>
 </div>
 </section>
 </body>
