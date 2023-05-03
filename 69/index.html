@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nginx TCP/UDP 리버스 프록시, 로드밸런싱</title>
+<meta
+name="description"
+content="정적페이지로 운영하는 개발 블로그입니다."
+/>
+<link
+rel="shortcut icon"
+type="image/png"
+sizes="144x144"
+href="/static/favicon-144x144.png"
+/>
+<link
+rel="icon"
+type="image/png"
+sizes="16x16"
+href="/static/favicon-16x16.png"
+/>
+<link
+rel="icon"
+type="image/png"
+sizes="32x32"
+href="/static/favicon-32x32.png"
+/>
+<link
+rel="icon"
+type="image/png"
+sizes="192x192"
+href="/static/favicon-192x192.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="57x57"
+href="/static/apple-touch-icon-57x57.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="72x72"
+href="/static/apple-touch-icon-72x72.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="76x76"
+href="/static/apple-touch-icon-76x76.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="114x114"
+href="/static/apple-touch-icon-114x114.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="120x120"
+href="/static/apple-touch-icon-120x120.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="144x144"
+href="/static/apple-touch-icon-144x144.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="152x152"
+href="/static/apple-touch-icon-152x152.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="154x154"
+href="/static/apple-touch-icon-154x154.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="180x180"
+href="/static/apple-touch-icon-180x180.png"
+/>
+<link rel="stylesheet" href="/static/style.css">
+<meta name="theme-color" content="#ff5722">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Nginx TCP/UDP 리버스 프록시, 로드밸런싱">
+<meta property="og:description" content="공부한 개발 정보를 공유합니다.">
+<meta property="og:image" content="https://devblog.lazyig.com/69//static/ogimg.png">
+<meta property="og:url" content="https://devblog.lazyig.com/69/">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8149987977999297" crossorigin="anonymous"></script>
+<link rel="stylesheet"
+href="/static/highlight.css">
+</head>
+<body class="kigui one">
+<header class="kigui header">
+<a href="/">
+<h1 class="title">
+메모용 개발 블로그
+</h1>
+</a>
+<div class="header-buttons">
+<span id="headerBtn" class="nav-header-btn"><img src="/static/menu-w.svg" alt="Menu"></span>
+</div>
+</header>
+<div class="kigui header-space"></div>
+<section class="kigui">
+<div id="navBar" class="nav-bar">
+
+<div class="nav-header">
+<span id="catToggle" class="nav-header-btn"><img src="/static/menu.svg" alt="Menu"></span>
+</div>
+<ul class="category">
+
+<li style="padding-left: 0px">
+<a href="/c/전체보기/1/">전체보기<span class="nav-cat-cnt">(99)</span></a>
+</li>
+
+<li style="padding-left: 15px">
+<a href="/c/OS/1/">OS<span class="nav-cat-cnt">(34)</span></a>
+</li>
+
+<li style="padding-left: 30px">
+<a href="/c/Linux/1/">Linux<span class="nav-cat-cnt">(23)</span></a>
+</li>
+
+
+<li style="padding-left: 30px">
+<a href="/c/MacOS/1/">MacOS<span class="nav-cat-cnt">(8)</span></a>
+</li>
+
+
+<li style="padding-left: 30px">
+<a href="/c/Windows/1/">Windows<span class="nav-cat-cnt">(3)</span></a>
+</li>
+
+
+
+<li style="padding-left: 15px">
+<a href="/c/데이터베이스/1/">데이터베이스<span class="nav-cat-cnt">(3)</span></a>
+</li>
+
+<li style="padding-left: 30px">
+<a href="/c/Oracle/1/">Oracle<span class="nav-cat-cnt">(1)</span></a>
+</li>
+
+
+<li style="padding-left: 30px">
+<a href="/c/Postgresql/1/">Postgresql<span class="nav-cat-cnt">(1)</span></a>
+</li>
+
+
+
+<li style="padding-left: 15px">
+<a href="/c/Develop/1/">Develop<span class="nav-cat-cnt">(20)</span></a>
+</li>
+
+<li style="padding-left: 30px">
+<a href="/c/CSS3/1/">CSS3<span class="nav-cat-cnt">(3)</span></a>
+</li>
+
+
+<li style="padding-left: 30px">
+<a href="/c/HTML5/1/">HTML5<span class="nav-cat-cnt">(2)</span></a>
+</li>
+
+
+<li style="padding-left: 30px">
+<a href="/c/JavaScript/1/">JavaScript<span class="nav-cat-cnt">(4)</span></a>
+</li>
+
+
+<li style="padding-left: 30px">
+<a href="/c/React/1/">React<span class="nav-cat-cnt">(1)</span></a>
+</li>
+
+
+<li style="padding-left: 30px">
+<a href="/c/Svelte/1/">Svelte<span class="nav-cat-cnt">(2)</span></a>
+</li>
+
+
+
+<li style="padding-left: 15px">
+<a href="/c/개발일기/1/">개발일기<span class="nav-cat-cnt">(9)</span></a>
+</li>
+
+
+<li style="padding-left: 15px">
+<a href="/c/Git/1/">Git<span class="nav-cat-cnt">(3)</span></a>
+</li>
+
+
+<li style="padding-left: 15px">
+<a href="/c/GitLab/1/">GitLab<span class="nav-cat-cnt">(11)</span></a>
+</li>
+
+
+<li style="padding-left: 15px">
+<a href="/c/Nginx/1/">Nginx<span class="nav-cat-cnt">(7)</span></a>
+</li>
+
+
+<li style="padding-left: 15px">
+<a href="/c/기타/1/">기타<span class="nav-cat-cnt">(9)</span></a>
+</li>
+
+
+<li style="padding-left: 15px">
+<a href="/c/이 블로그의 오픈소스/1/">이 블로그의 오픈소스<span class="nav-cat-cnt">(3)</span></a>
+</li>
+
+
+
+</ul>
+</div>
+<script>
+let catToggle = document.getElementById("catToggle");
+let headerBtn = document.getElementById("headerBtn");
+let navBar = document.getElementById("navBar");
+catToggle.addEventListener("click", () => {
+navBar.classList.toggle("show");
+});
+headerBtn.addEventListener("click", () => {
+navBar.classList.toggle("show");
+})
+</script>
+<div class="kigui frame">
+<p class="category-path">
+
+<a href="/c/전체보기/1/">전체보기</a>
+<span> > </span>
+
+<a href="/c/Nginx/1/">Nginx</a>
+<span> > </span>
+
+</p>
+<h1 class="article-title"><a href="https://devblog.lazyig.com/69/">Nginx TCP/UDP 리버스 프록시, 로드밸런싱</a></h1>
+<p class="write-date">2022-07-21 00:34:44</p>
+<div class="markdown-body">
+<h2>서론</h2>
+<p>Nginx를 웹 서버와 http/https 리버스 프록시 용도로만 잘 사용하고 있었는데.</p>
+<p>우연찮게 TCP/UDP도 가능하다는 것을 알게되었다.</p>
+<p>그리고 공식 사이트 문서를 보니 너무나 쉽게 가능한 것을 확인할 수 있었다.</p>
+<p>그래서 당장 쓸 곳은 없기는 하지만 궁금하므로 사용해보기로 하였다.</p>
+<h2>본론</h2>
+<h3>문서</h3>
+<p>https://docs.nginx.com/nginx/admin-guide/load-balancer/tcp-udp-load-balancer/</p>
+<p>사실 문서에 모든 설명이 너무나 명확하게 적혀있고 너무나 쉽게 구성가능하다.</p>
+<h3>설정</h3>
+<pre><code>stream {
+        server {
+                listen 포트 tcp또는udp;
+                proxy_pass 목적지_주소;
+        }
+}
+</code></pre>
+<p>어찌되었건 stream 블럭 아래 작성만 되어 있으면 된다.  nginx.conf 파일에다가 작성을 하던지 modules-available에 작성 후 modules-enabled에 링크를 하던지. 혹은 따로 경로를 만들고 따로 include 구문을 해놓고 사용하던지. 각자의 규모에 맞게 하면 된다.</p>
+<p>여기서는 간편한 테스트이므로 modules-available 하단에 작성을 하고 링크를 해서 적용했다.</p>
+<h3>테스트</h3>
+<p>테스트는... 마인크래프트로 하였다. 마침 너무나 적절하게 열고 있는 서버이면서 단일포트로 서비스하는 서버였으므로 적합하였다.</p>
+<p>아래는 동일한 서버의 다이렉트 연결과 Nginx경유 연결을 테스트 한 모습.</p>
+<p><img src="/static/img-CfSzZMEekZ2UIi8ui8z1rwOf7J3MypMxdQUeXJ1YGQs.png" alt="image-20220721002812649"></p>
+<p>서버로 직접 다이렉트로 연결되는 모습(와이파이, LTE 환경이라 국내 치고 핑이 높다.)</p>
+<p><img src="/static/img-uIflIVnBwu7sneyqfRzmfWcrf-1sT2JrxVt3T8-ika0.png" alt="image-20220721002904088"></p>
+<p>일본에 위치한 클라우드 서버를  경유하여 연결되는 모습(클라이언트는 위와 동일 환경, 핑이 훨씬 높다.)</p>
+<h2>후기</h2>
+<p>기능이 잘되나 궁금해서 가장 직관적인 게임으로 테스트 해보았다.</p>
+<p>다양한 프로토콜이나 프로그램에 적용이 가능해서 이러한 기능이 필요하다면 고려해볼만하다. 무엇보다 설정이 쉽다!</p>
+<p>이러한 게임 서버를 본인 PC에서 열면서 불특정 다수와 즐길때 본인의 아이피 노출을 꺼릴 경우에도 괜찮지 않나 생각된다.</p>
+
+</div>
+</div>
+<div class="kigui frame">
+<script src="https://utteranc.es/client.js"
+repo="lazyig/blog-comment"
+issue-term="pathname"
+label="blog-comment"
+theme="github-light"
+crossorigin="anonymous"
+async>
+</script>
+</div>
+</section>
+</body>
+</html>

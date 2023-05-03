@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>라즈비안에 한글 설정하기</title>
+<meta
+name="description"
+content="정적페이지로 운영하는 개발 블로그입니다."
+/>
+<link
+rel="shortcut icon"
+type="image/png"
+sizes="144x144"
+href="/static/favicon-144x144.png"
+/>
+<link
+rel="icon"
+type="image/png"
+sizes="16x16"
+href="/static/favicon-16x16.png"
+/>
+<link
+rel="icon"
+type="image/png"
+sizes="32x32"
+href="/static/favicon-32x32.png"
+/>
+<link
+rel="icon"
+type="image/png"
+sizes="192x192"
+href="/static/favicon-192x192.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="57x57"
+href="/static/apple-touch-icon-57x57.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="72x72"
+href="/static/apple-touch-icon-72x72.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="76x76"
+href="/static/apple-touch-icon-76x76.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="114x114"
+href="/static/apple-touch-icon-114x114.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="120x120"
+href="/static/apple-touch-icon-120x120.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="144x144"
+href="/static/apple-touch-icon-144x144.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="152x152"
+href="/static/apple-touch-icon-152x152.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="154x154"
+href="/static/apple-touch-icon-154x154.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="180x180"
+href="/static/apple-touch-icon-180x180.png"
+/>
+<link rel="stylesheet" href="/static/style.css">
+<meta name="theme-color" content="#ff5722">
+<meta property="og:type" content="website">
+<meta property="og:title" content="라즈비안에 한글 설정하기">
+<meta property="og:description" content="공부한 개발 정보를 공유합니다.">
+<meta property="og:image" content="https://devblog.lazyig.com/31//static/ogimg.png">
+<meta property="og:url" content="https://devblog.lazyig.com/31/">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8149987977999297" crossorigin="anonymous"></script>
+<link rel="stylesheet"
+href="/static/highlight.css">
+</head>
+<body class="kigui one">
+<header class="kigui header">
+<a href="/">
+<h1 class="title">
+메모용 개발 블로그
+</h1>
+</a>
+<div class="header-buttons">
+<span id="headerBtn" class="nav-header-btn"><img src="/static/menu-w.svg" alt="Menu"></span>
+</div>
+</header>
+<div class="kigui header-space"></div>
+<section class="kigui">
+<div id="navBar" class="nav-bar">
+
+<div class="nav-header">
+<span id="catToggle" class="nav-header-btn"><img src="/static/menu.svg" alt="Menu"></span>
+</div>
+<ul class="category">
+
+<li style="padding-left: 0px">
+<a href="/c/전체보기/1/">전체보기<span class="nav-cat-cnt">(99)</span></a>
+</li>
+
+<li style="padding-left: 15px">
+<a href="/c/OS/1/">OS<span class="nav-cat-cnt">(34)</span></a>
+</li>
+
+<li style="padding-left: 30px">
+<a href="/c/Linux/1/">Linux<span class="nav-cat-cnt">(23)</span></a>
+</li>
+
+
+<li style="padding-left: 30px">
+<a href="/c/MacOS/1/">MacOS<span class="nav-cat-cnt">(8)</span></a>
+</li>
+
+
+<li style="padding-left: 30px">
+<a href="/c/Windows/1/">Windows<span class="nav-cat-cnt">(3)</span></a>
+</li>
+
+
+
+<li style="padding-left: 15px">
+<a href="/c/데이터베이스/1/">데이터베이스<span class="nav-cat-cnt">(3)</span></a>
+</li>
+
+<li style="padding-left: 30px">
+<a href="/c/Oracle/1/">Oracle<span class="nav-cat-cnt">(1)</span></a>
+</li>
+
+
+<li style="padding-left: 30px">
+<a href="/c/Postgresql/1/">Postgresql<span class="nav-cat-cnt">(1)</span></a>
+</li>
+
+
+
+<li style="padding-left: 15px">
+<a href="/c/Develop/1/">Develop<span class="nav-cat-cnt">(20)</span></a>
+</li>
+
+<li style="padding-left: 30px">
+<a href="/c/CSS3/1/">CSS3<span class="nav-cat-cnt">(3)</span></a>
+</li>
+
+
+<li style="padding-left: 30px">
+<a href="/c/HTML5/1/">HTML5<span class="nav-cat-cnt">(2)</span></a>
+</li>
+
+
+<li style="padding-left: 30px">
+<a href="/c/JavaScript/1/">JavaScript<span class="nav-cat-cnt">(4)</span></a>
+</li>
+
+
+<li style="padding-left: 30px">
+<a href="/c/React/1/">React<span class="nav-cat-cnt">(1)</span></a>
+</li>
+
+
+<li style="padding-left: 30px">
+<a href="/c/Svelte/1/">Svelte<span class="nav-cat-cnt">(2)</span></a>
+</li>
+
+
+
+<li style="padding-left: 15px">
+<a href="/c/개발일기/1/">개발일기<span class="nav-cat-cnt">(9)</span></a>
+</li>
+
+
+<li style="padding-left: 15px">
+<a href="/c/Git/1/">Git<span class="nav-cat-cnt">(3)</span></a>
+</li>
+
+
+<li style="padding-left: 15px">
+<a href="/c/GitLab/1/">GitLab<span class="nav-cat-cnt">(11)</span></a>
+</li>
+
+
+<li style="padding-left: 15px">
+<a href="/c/Nginx/1/">Nginx<span class="nav-cat-cnt">(7)</span></a>
+</li>
+
+
+<li style="padding-left: 15px">
+<a href="/c/기타/1/">기타<span class="nav-cat-cnt">(9)</span></a>
+</li>
+
+
+<li style="padding-left: 15px">
+<a href="/c/이 블로그의 오픈소스/1/">이 블로그의 오픈소스<span class="nav-cat-cnt">(3)</span></a>
+</li>
+
+
+
+</ul>
+</div>
+<script>
+let catToggle = document.getElementById("catToggle");
+let headerBtn = document.getElementById("headerBtn");
+let navBar = document.getElementById("navBar");
+catToggle.addEventListener("click", () => {
+navBar.classList.toggle("show");
+});
+headerBtn.addEventListener("click", () => {
+navBar.classList.toggle("show");
+})
+</script>
+<div class="kigui frame">
+<p class="category-path">
+
+<a href="/c/전체보기/1/">전체보기</a>
+<span> > </span>
+
+<a href="/c/OS/1/">OS</a>
+<span> > </span>
+
+<a href="/c/Linux/1/">Linux</a>
+<span> > </span>
+
+</p>
+<h1 class="article-title"><a href="https://devblog.lazyig.com/31/">라즈비안에 한글 설정하기</a></h1>
+<p class="write-date">2021-11-03 00:30:21</p>
+<div class="markdown-body">
+<p>라즈비안의 설치에 관련한 글은</p>
+<p><a href="/30/index.html">/30/index.html</a></p>
+<p>위의 글에서 진행하였으며, 한글 설정까지는 마친 상태이다.</p>
+<h3>1. 한글 폰트 설치</h3>
+<p>한글 설정을 마친 후 웹 브라우저를 실행해보면 한글이 깨져있다.</p>
+<p><img src="/static/img-5js3YNbyQdOn8HkvNL_-xtzZhahL5CD6fwVnbvjmBro.png" alt="image-20211102225223367"></p>
+<p>원인은 폰트가 없어서이다.</p>
+<p><img src="/static/img-W_zsulC5D0JYYUquBH-8sJUF3myR1O8PpmuQDa7isSc.png" alt="image-20211102225338221"></p>
+<p>상단의 터미널을 열고 다음과 같이 설치를 진행하면 된다.</p>
+<pre><code class="language-sh">sudo apt-get install fonts-nanum
+</code></pre>
+<p>설치를 마치게 되면 다음과 같이 한글이 정상적으로 뜨게 된다.</p>
+<p><img src="/static/img-oWfcWHZQjzyf8FK68lE3x2lZEgmZj7iWOM5hTuuSmb4.png" alt="image-20211102225445614"></p>
+<h3>2. 한글 입력기 설치</h3>
+<p>이제 한글을 입력할 수 있도록 입력기 설정을 해야할 차례이다.</p>
+<p><img src="/static/img-KttzCvnPlTT0u77o3Yc-hQZ5uBl2W_4k58r7cZ7ZyS8.png" alt="image-20211103002127350"></p>
+<pre><code class="language-sh">sudo apt-get install im-config nabi -y
+</code></pre>
+<p>다음 명령어로 입력기 설정과 한글 입력기를 설치해주자.</p>
+<p>im-config : 입력기 설정</p>
+<p>nabi : 한글 입력기</p>
+<p>그 다음 터미널에</p>
+<pre><code class="language-sh">im-config
+</code></pre>
+<p>명령어를 입력하여 입력기 설정을 실행한다.</p>
+<p><img src="/static/img-dFi7wSdXayKMEhvnM54Iph02CvCe5nJXioxba6pam3A.png" alt="image-20211103002437513"></p>
+<p>OK</p>
+<p><img src="/static/img-Kn0KGWuZdPOqgtGA88C7qUKIYX8QTY6dUn-Zifyj_Yw.png" alt="image-20211103002452727"></p>
+<p>Yes</p>
+<p><img src="/static/img-Cb1oOO0h-d3DcgKWrFEm2cICgGusLYL7YxVD2-zAwiE.png" alt="image-20211103002511912"></p>
+<p>hangle 체크 후 OK</p>
+<p><img src="/static/img-J1HTaR55xE5cQv5ErUUiO2ST8Y5KtCeTpt74b-w-OjU.png" alt="image-20211103002538949"></p>
+<p>OK</p>
+<p>그 다음 재부팅을 진행해주면 nabi 입력기가 자동으로 적용되어 있을 것이고 언어 설정도 제대로 적용되어 있을 것 입니다.</p>
+<p>한/영 전환은 Shift + Enter로 하면 됩니다.</p>
+<p><img src="/static/img-tO9CktCY8Cur-DkyWzmi8EqTSIp5HYJ_2lDOomgGdaE.png" alt="image-20211103002802676"></p>
+<p>끝.</p>
+
+</div>
+</div>
+<div class="kigui frame">
+<script src="https://utteranc.es/client.js"
+repo="lazyig/blog-comment"
+issue-term="pathname"
+label="blog-comment"
+theme="github-light"
+crossorigin="anonymous"
+async>
+</script>
+</div>
+</section>
+</body>
+</html>

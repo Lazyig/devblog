@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gitlab Runner Shared Runner(공유 러너) 세팅</title>
+<meta
+name="description"
+content="정적페이지로 운영하는 개발 블로그입니다."
+/>
+<link
+rel="shortcut icon"
+type="image/png"
+sizes="144x144"
+href="/static/favicon-144x144.png"
+/>
+<link
+rel="icon"
+type="image/png"
+sizes="16x16"
+href="/static/favicon-16x16.png"
+/>
+<link
+rel="icon"
+type="image/png"
+sizes="32x32"
+href="/static/favicon-32x32.png"
+/>
+<link
+rel="icon"
+type="image/png"
+sizes="192x192"
+href="/static/favicon-192x192.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="57x57"
+href="/static/apple-touch-icon-57x57.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="72x72"
+href="/static/apple-touch-icon-72x72.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="76x76"
+href="/static/apple-touch-icon-76x76.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="114x114"
+href="/static/apple-touch-icon-114x114.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="120x120"
+href="/static/apple-touch-icon-120x120.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="144x144"
+href="/static/apple-touch-icon-144x144.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="152x152"
+href="/static/apple-touch-icon-152x152.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="154x154"
+href="/static/apple-touch-icon-154x154.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="180x180"
+href="/static/apple-touch-icon-180x180.png"
+/>
+<link rel="stylesheet" href="/static/style.css">
+<meta name="theme-color" content="#ff5722">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Gitlab Runner Shared Runner(공유 러너) 세팅">
+<meta property="og:description" content="공부한 개발 정보를 공유합니다.">
+<meta property="og:image" content="https://devblog.lazyig.com/83//static/ogimg.png">
+<meta property="og:url" content="https://devblog.lazyig.com/83/">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8149987977999297" crossorigin="anonymous"></script>
+<link rel="stylesheet"
+href="/static/highlight.css">
+</head>
+<body class="kigui one">
+<header class="kigui header">
+<a href="/">
+<h1 class="title">
+메모용 개발 블로그
+</h1>
+</a>
+<div class="header-buttons">
+<span id="headerBtn" class="nav-header-btn"><img src="/static/menu-w.svg" alt="Menu"></span>
+</div>
+</header>
+<div class="kigui header-space"></div>
+<section class="kigui">
+<div id="navBar" class="nav-bar">
+
+<div class="nav-header">
+<span id="catToggle" class="nav-header-btn"><img src="/static/menu.svg" alt="Menu"></span>
+</div>
+<ul class="category">
+
+<li style="padding-left: 0px">
+<a href="/c/전체보기/1/">전체보기<span class="nav-cat-cnt">(99)</span></a>
+</li>
+
+<li style="padding-left: 15px">
+<a href="/c/OS/1/">OS<span class="nav-cat-cnt">(34)</span></a>
+</li>
+
+<li style="padding-left: 30px">
+<a href="/c/Linux/1/">Linux<span class="nav-cat-cnt">(23)</span></a>
+</li>
+
+
+<li style="padding-left: 30px">
+<a href="/c/MacOS/1/">MacOS<span class="nav-cat-cnt">(8)</span></a>
+</li>
+
+
+<li style="padding-left: 30px">
+<a href="/c/Windows/1/">Windows<span class="nav-cat-cnt">(3)</span></a>
+</li>
+
+
+
+<li style="padding-left: 15px">
+<a href="/c/데이터베이스/1/">데이터베이스<span class="nav-cat-cnt">(3)</span></a>
+</li>
+
+<li style="padding-left: 30px">
+<a href="/c/Oracle/1/">Oracle<span class="nav-cat-cnt">(1)</span></a>
+</li>
+
+
+<li style="padding-left: 30px">
+<a href="/c/Postgresql/1/">Postgresql<span class="nav-cat-cnt">(1)</span></a>
+</li>
+
+
+
+<li style="padding-left: 15px">
+<a href="/c/Develop/1/">Develop<span class="nav-cat-cnt">(20)</span></a>
+</li>
+
+<li style="padding-left: 30px">
+<a href="/c/CSS3/1/">CSS3<span class="nav-cat-cnt">(3)</span></a>
+</li>
+
+
+<li style="padding-left: 30px">
+<a href="/c/HTML5/1/">HTML5<span class="nav-cat-cnt">(2)</span></a>
+</li>
+
+
+<li style="padding-left: 30px">
+<a href="/c/JavaScript/1/">JavaScript<span class="nav-cat-cnt">(4)</span></a>
+</li>
+
+
+<li style="padding-left: 30px">
+<a href="/c/React/1/">React<span class="nav-cat-cnt">(1)</span></a>
+</li>
+
+
+<li style="padding-left: 30px">
+<a href="/c/Svelte/1/">Svelte<span class="nav-cat-cnt">(2)</span></a>
+</li>
+
+
+
+<li style="padding-left: 15px">
+<a href="/c/개발일기/1/">개발일기<span class="nav-cat-cnt">(9)</span></a>
+</li>
+
+
+<li style="padding-left: 15px">
+<a href="/c/Git/1/">Git<span class="nav-cat-cnt">(3)</span></a>
+</li>
+
+
+<li style="padding-left: 15px">
+<a href="/c/GitLab/1/">GitLab<span class="nav-cat-cnt">(11)</span></a>
+</li>
+
+
+<li style="padding-left: 15px">
+<a href="/c/Nginx/1/">Nginx<span class="nav-cat-cnt">(7)</span></a>
+</li>
+
+
+<li style="padding-left: 15px">
+<a href="/c/기타/1/">기타<span class="nav-cat-cnt">(9)</span></a>
+</li>
+
+
+<li style="padding-left: 15px">
+<a href="/c/이 블로그의 오픈소스/1/">이 블로그의 오픈소스<span class="nav-cat-cnt">(3)</span></a>
+</li>
+
+
+
+</ul>
+</div>
+<script>
+let catToggle = document.getElementById("catToggle");
+let headerBtn = document.getElementById("headerBtn");
+let navBar = document.getElementById("navBar");
+catToggle.addEventListener("click", () => {
+navBar.classList.toggle("show");
+});
+headerBtn.addEventListener("click", () => {
+navBar.classList.toggle("show");
+})
+</script>
+<div class="kigui frame">
+<p class="category-path">
+
+<a href="/c/전체보기/1/">전체보기</a>
+<span> > </span>
+
+<a href="/c/GitLab/1/">GitLab</a>
+<span> > </span>
+
+</p>
+<h1 class="article-title"><a href="https://devblog.lazyig.com/83/">Gitlab Runner Shared Runner(공유 러너) 세팅</a></h1>
+<p class="write-date">2022-12-20 12:45:25</p>
+<div class="markdown-body">
+<h2>서론</h2>
+<p>그간 GitLab Runner는 프로젝트 별로 하나하나 연결해주고 있었다.</p>
+<p>즉 &quot;프로젝트&quot; 단위 러너인 셈이다.</p>
+<p>하지만 후에 gitlab을 이동하다던지 서버 환경이 변경되면 모든 프로젝트에 대해서 새롭게 연결작업을 해주어야하는데.</p>
+<p>여간 귀찮은일이 아닐 수 없다.</p>
+<p>그래서 보니 Shared Runner, Group Runner라는 것이 있었다.</p>
+<p>이들은 특정 범위내에서 러너를 같이 공유해서 사용하는 것이다.</p>
+<p>Shared Runner는 GitLab 내부에서 모두 공유해서 사용하고, Group Runner는 그룹 내에서만 공유해서 사용한다.</p>
+<p>적절한 환경에 따라 세팅하면 될 듯하다.</p>
+<p>이 글에서는 Shared Runner로 할 것이다. 이 러너가 잘못되면 이를 사용하는 모든 프로젝트에 문제가 갈 수 있으므로 우려되는 경우 Group Runner로 범위를 제한 시켜서 대체하시기 바라고, 모조리 개인프로젝트인 제 GitLab 특성 상 문제가 없기 때문에 Shared Runner로 진행한다.</p>
+<h2>본론</h2>
+<p>GitLab 전체에 영향이 가는 만큼 관리자 계정에서 생성할 수 있다.</p>
+<ol>
+<li>Admin을 눌러 관리자 페이지로 이동한다.</li>
+</ol>
+<p><img src="/static/img-91E0a9qTjEyZDT0UUFK8gOr-hUwJt0LZ3Zb6FjrdLQI.png" alt="image-20221220212830562"></p>
+<ol start="2">
+<li>Overview -&gt; Runners 메뉴로 이동한다.</li>
+</ol>
+<p><img src="/static/img-c6Plel6BUhURdy8o7zRiSYZAkjSGZnhjS8m2P2FHqok.png" alt="image-20221220212913944"></p>
+<ol start="3">
+<li>
+<p>현재 깃랩에 등록된 모든 러너를 관리하는 메뉴가 열리고 우측 상단 Register an instance runner 버튼을 클릭한다.</p>
+<p><img src="/static/img-86_cI-XXQw1affOqstDBvPBnb2_PyCxQMpE5iU6cyZk.png" alt="image-20221220213106260"></p>
+<ol start="4">
+<li>설치된 GitLab Runner로 이동하여 등록을 진행한다. (GitLab Runner 설치에 관해서는 다루지 않는다.)</li>
+</ol>
+<pre><code>sudo gitlab-runner register
+</code></pre>
+<p>위 명령어를 입력하면 대화형으로 러너에 대한 정보를 입력하는 프로그램이 실행된다.</p>
+<p>메시지에 따라 입력해주면 된다.</p>
+<pre><code>Enter the GitLab instance URL (for example, https://gitlab.com/):
+</code></pre>
+<p>GitLab이 구동되고 있는 URL을 입력한다.</p>
+<pre><code>Enter the registration token:
+</code></pre>
+<p>3번 단계에서 토큰을 복사하여 입력한다.</p>
+<pre><code>Enter a description for the runner:
+</code></pre>
+<p>러너에 대한 설명을 입력하면 된다.</p>
+<pre><code>Enter tags for the runner (comma-separated):
+</code></pre>
+<p>러너 태그를 입력한다. 특히나 공유되는 러너이므로 태그를 정해주어 해당 태그를 부여할 경우에만 러너가 사용되도록 정해줘야 한다.</p>
+<pre><code>Enter optional maintenance note for the runner:
+</code></pre>
+<p>메모를 남기는 것인데. 넘겨도 좋다.</p>
+<pre><code>Enter an executor: custom, docker, shell, docker+machine, docker-ssh+machine, docker-ssh, parallels, ssh, virtualbox, kubernetes:
+</code></pre>
+<p>이어서 어떤 환경에서 실행할지 지정해주면 된다. 아무래도 공유하여 사용하는 만큼 docker같이 격리될 환경을 사용해주는 편이 좋다.</p>
+<pre><code>Enter the default Docker image (for example, ruby:2.7):
+</code></pre>
+<p>도커의 경우 위와 같이 기본 이미지를 지정하라고 하는데. 어디까지나 기본이미지이므로 무난한 알파인 리눅스 같은 것을 지정해두면 된다.</p>
+<p>실제 사용 시에는 CI/CD 설정 파일에서 이미지를 지정하면 그 이미지로 실행되므로 문제 없다.</p>
+</li>
+</ol>
+<p>사용은 간단하게 기존 CI/CD 스크립트에서 태그를 위에서 지정한 태그로 설정해주면 된다.</p>
+
+</div>
+</div>
+<div class="kigui frame">
+<script src="https://utteranc.es/client.js"
+repo="lazyig/blog-comment"
+issue-term="pathname"
+label="blog-comment"
+theme="github-light"
+crossorigin="anonymous"
+async>
+</script>
+</div>
+</section>
+</body>
+</html>

@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WSL2+Gitlab runner+Docker executor에서 cache 안되는 문제</title>
+<meta
+name="description"
+content="정적페이지로 운영하는 개발 블로그입니다."
+/>
+<link
+rel="shortcut icon"
+type="image/png"
+sizes="144x144"
+href="/static/favicon-144x144.png"
+/>
+<link
+rel="icon"
+type="image/png"
+sizes="16x16"
+href="/static/favicon-16x16.png"
+/>
+<link
+rel="icon"
+type="image/png"
+sizes="32x32"
+href="/static/favicon-32x32.png"
+/>
+<link
+rel="icon"
+type="image/png"
+sizes="192x192"
+href="/static/favicon-192x192.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="57x57"
+href="/static/apple-touch-icon-57x57.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="72x72"
+href="/static/apple-touch-icon-72x72.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="76x76"
+href="/static/apple-touch-icon-76x76.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="114x114"
+href="/static/apple-touch-icon-114x114.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="120x120"
+href="/static/apple-touch-icon-120x120.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="144x144"
+href="/static/apple-touch-icon-144x144.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="152x152"
+href="/static/apple-touch-icon-152x152.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="154x154"
+href="/static/apple-touch-icon-154x154.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="180x180"
+href="/static/apple-touch-icon-180x180.png"
+/>
+<link rel="stylesheet" href="/static/style.css">
+<meta name="theme-color" content="#ff5722">
+<meta property="og:type" content="website">
+<meta property="og:title" content="WSL2+Gitlab runner+Docker executor에서 cache 안되는 문제">
+<meta property="og:description" content="공부한 개발 정보를 공유합니다.">
+<meta property="og:image" content="https://devblog.lazyig.com/94//static/ogimg.png">
+<meta property="og:url" content="https://devblog.lazyig.com/94/">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8149987977999297" crossorigin="anonymous"></script>
+<link rel="stylesheet"
+href="/static/highlight.css">
+</head>
+<body class="kigui one">
+<header class="kigui header">
+<a href="/">
+<h1 class="title">
+메모용 개발 블로그
+</h1>
+</a>
+<div class="header-buttons">
+<span id="headerBtn" class="nav-header-btn"><img src="/static/menu-w.svg" alt="Menu"></span>
+</div>
+</header>
+<div class="kigui header-space"></div>
+<section class="kigui">
+<div id="navBar" class="nav-bar">
+
+<div class="nav-header">
+<span id="catToggle" class="nav-header-btn"><img src="/static/menu.svg" alt="Menu"></span>
+</div>
+<ul class="category">
+
+<li style="padding-left: 0px">
+<a href="/c/전체보기/1/">전체보기<span class="nav-cat-cnt">(99)</span></a>
+</li>
+
+<li style="padding-left: 15px">
+<a href="/c/OS/1/">OS<span class="nav-cat-cnt">(34)</span></a>
+</li>
+
+<li style="padding-left: 30px">
+<a href="/c/Linux/1/">Linux<span class="nav-cat-cnt">(23)</span></a>
+</li>
+
+
+<li style="padding-left: 30px">
+<a href="/c/MacOS/1/">MacOS<span class="nav-cat-cnt">(8)</span></a>
+</li>
+
+
+<li style="padding-left: 30px">
+<a href="/c/Windows/1/">Windows<span class="nav-cat-cnt">(3)</span></a>
+</li>
+
+
+
+<li style="padding-left: 15px">
+<a href="/c/데이터베이스/1/">데이터베이스<span class="nav-cat-cnt">(3)</span></a>
+</li>
+
+<li style="padding-left: 30px">
+<a href="/c/Oracle/1/">Oracle<span class="nav-cat-cnt">(1)</span></a>
+</li>
+
+
+<li style="padding-left: 30px">
+<a href="/c/Postgresql/1/">Postgresql<span class="nav-cat-cnt">(1)</span></a>
+</li>
+
+
+
+<li style="padding-left: 15px">
+<a href="/c/Develop/1/">Develop<span class="nav-cat-cnt">(20)</span></a>
+</li>
+
+<li style="padding-left: 30px">
+<a href="/c/CSS3/1/">CSS3<span class="nav-cat-cnt">(3)</span></a>
+</li>
+
+
+<li style="padding-left: 30px">
+<a href="/c/HTML5/1/">HTML5<span class="nav-cat-cnt">(2)</span></a>
+</li>
+
+
+<li style="padding-left: 30px">
+<a href="/c/JavaScript/1/">JavaScript<span class="nav-cat-cnt">(4)</span></a>
+</li>
+
+
+<li style="padding-left: 30px">
+<a href="/c/React/1/">React<span class="nav-cat-cnt">(1)</span></a>
+</li>
+
+
+<li style="padding-left: 30px">
+<a href="/c/Svelte/1/">Svelte<span class="nav-cat-cnt">(2)</span></a>
+</li>
+
+
+
+<li style="padding-left: 15px">
+<a href="/c/개발일기/1/">개발일기<span class="nav-cat-cnt">(9)</span></a>
+</li>
+
+
+<li style="padding-left: 15px">
+<a href="/c/Git/1/">Git<span class="nav-cat-cnt">(3)</span></a>
+</li>
+
+
+<li style="padding-left: 15px">
+<a href="/c/GitLab/1/">GitLab<span class="nav-cat-cnt">(11)</span></a>
+</li>
+
+
+<li style="padding-left: 15px">
+<a href="/c/Nginx/1/">Nginx<span class="nav-cat-cnt">(7)</span></a>
+</li>
+
+
+<li style="padding-left: 15px">
+<a href="/c/기타/1/">기타<span class="nav-cat-cnt">(9)</span></a>
+</li>
+
+
+<li style="padding-left: 15px">
+<a href="/c/이 블로그의 오픈소스/1/">이 블로그의 오픈소스<span class="nav-cat-cnt">(3)</span></a>
+</li>
+
+
+
+</ul>
+</div>
+<script>
+let catToggle = document.getElementById("catToggle");
+let headerBtn = document.getElementById("headerBtn");
+let navBar = document.getElementById("navBar");
+catToggle.addEventListener("click", () => {
+navBar.classList.toggle("show");
+});
+headerBtn.addEventListener("click", () => {
+navBar.classList.toggle("show");
+})
+</script>
+<div class="kigui frame">
+<p class="category-path">
+
+<a href="/c/전체보기/1/">전체보기</a>
+<span> > </span>
+
+<a href="/c/GitLab/1/">GitLab</a>
+<span> > </span>
+
+</p>
+<h1 class="article-title"><a href="https://devblog.lazyig.com/94/">WSL2+Gitlab runner+Docker executor에서 cache 안되는 문제</a></h1>
+<p class="write-date">2023-02-13 12:32:24</p>
+<div class="markdown-body">
+<h2>대상 환경</h2>
+<p>GitLab Runner를 윈도우 11에서 구동하고 실행 환경을 Docker로 설정하였다.</p>
+<p>Docker는 리눅스로 구동되며 사용하는 이미지는 <code>maven:latest</code>이다.</p>
+<h2><code>gitlab-ci.yml</code> 예시</h2>
+<pre><code class="language-yaml"><span class="hljs-attr">build:</span>
+  <span class="hljs-attr">image:</span> <span class="hljs-string">maven:latest</span>
+  <span class="hljs-attr">stage:</span> <span class="hljs-string">build</span>
+  <span class="hljs-attr">script:</span>
+    <span class="hljs-bullet">-</span> <span class="hljs-string">...</span>
+  <span class="hljs-attr">cache:</span>
+      <span class="hljs-attr">key:</span> <span class="hljs-string">&quot;key&quot;</span>
+      <span class="hljs-attr">paths:</span>
+        <span class="hljs-bullet">-</span> <span class="hljs-string">target/</span>
+  <span class="hljs-attr">tag:</span>
+    <span class="hljs-bullet">-</span> <span class="hljs-string">docker-tag</span>
+</code></pre>
+<p>위의 예시처럼 작성하였다.</p>
+<p>그러나 캐시가 제대로 저장이 되지 않았고 동작한 스크립트를 보니 다음과 같은 로그를 확인할 수 있었다.</p>
+<pre><code>Getting source from Git repository
+00:02
+Fetching changes with git depth set to 20...
+Reinitialized existing Git repository in /builds/ezinc/prof/.git/
+Checking out fca7546c as master...
+Removing &quot;..\\..\\..\\cache\\계정명\\프로젝트명\\key-2-protected\\cache.zip&quot;
+</code></pre>
+<p>GitLab Runner는 각 Job마다 저장소를 리셋하는데.</p>
+<p>fetch 방식으로 할 경우 변경된 파일들만 지운다.</p>
+<p>여기서 <code>..\\..\\..\\cache\\계정명\\프로젝트명\\key-2-protected\\cache.zip</code>라는 파일이 삭제되었는데.</p>
+<p>실제로 확인해보니 캐시 파일이 저장되어야 할 위치가 아닌 엉뚱한 위치에 생성되었다.</p>
+<h2>해결</h2>
+<p>제대로 된 해결 방법은 찾지 못하였고, gitlab의 <code>config.toml</code>을 수정하여 docker 내부 경로는 host로 바인딩해서 직접 저장하는 방식으로 우회하였다.</p>
+<p>예시)</p>
+<pre><code class="language-toml">...
+<span class="hljs-section">[runners.docker]</span>
+    <span class="hljs-attr">tls_verify</span> = <span class="hljs-literal">false</span>
+    <span class="hljs-attr">image</span> = <span class="hljs-string">&quot;alphin:latest&quot;</span>
+    <span class="hljs-attr">privileged</span> = <span class="hljs-literal">false</span>
+    <span class="hljs-attr">disable_entrypoint_overwrite</span> = <span class="hljs-literal">false</span>
+    <span class="hljs-attr">oom_kill_disable</span> = <span class="hljs-literal">false</span>
+    <span class="hljs-attr">disable_cache</span> = <span class="hljs-literal">false</span>
+    <span class="hljs-attr">volumes</span> = [<span class="hljs-string">&quot;/cache&quot;</span>, <span class="hljs-string">&quot;/c/바인딩_경로:/바인딩_경로&quot;</span>]
+    <span class="hljs-attr">shm_size</span> = <span class="hljs-number">0</span>
+...
+</code></pre>
+
+</div>
+</div>
+<div class="kigui frame">
+<script src="https://utteranc.es/client.js"
+repo="lazyig/blog-comment"
+issue-term="pathname"
+label="blog-comment"
+theme="github-light"
+crossorigin="anonymous"
+async>
+</script>
+</div>
+</section>
+</body>
+</html>

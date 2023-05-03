@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gitlab 업데이트 시 공간부족 오류</title>
+<meta
+name="description"
+content="정적페이지로 운영하는 개발 블로그입니다."
+/>
+<link
+rel="shortcut icon"
+type="image/png"
+sizes="144x144"
+href="/static/favicon-144x144.png"
+/>
+<link
+rel="icon"
+type="image/png"
+sizes="16x16"
+href="/static/favicon-16x16.png"
+/>
+<link
+rel="icon"
+type="image/png"
+sizes="32x32"
+href="/static/favicon-32x32.png"
+/>
+<link
+rel="icon"
+type="image/png"
+sizes="192x192"
+href="/static/favicon-192x192.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="57x57"
+href="/static/apple-touch-icon-57x57.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="72x72"
+href="/static/apple-touch-icon-72x72.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="76x76"
+href="/static/apple-touch-icon-76x76.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="114x114"
+href="/static/apple-touch-icon-114x114.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="120x120"
+href="/static/apple-touch-icon-120x120.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="144x144"
+href="/static/apple-touch-icon-144x144.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="152x152"
+href="/static/apple-touch-icon-152x152.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="154x154"
+href="/static/apple-touch-icon-154x154.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="180x180"
+href="/static/apple-touch-icon-180x180.png"
+/>
+<link rel="stylesheet" href="/static/style.css">
+<meta name="theme-color" content="#ff5722">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Gitlab 업데이트 시 공간부족 오류">
+<meta property="og:description" content="공부한 개발 정보를 공유합니다.">
+<meta property="og:image" content="https://devblog.lazyig.com/5//static/ogimg.png">
+<meta property="og:url" content="https://devblog.lazyig.com/5/">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8149987977999297" crossorigin="anonymous"></script>
+<link rel="stylesheet"
+href="/static/highlight.css">
+</head>
+<body class="kigui one">
+<header class="kigui header">
+<a href="/">
+<h1 class="title">
+메모용 개발 블로그
+</h1>
+</a>
+<div class="header-buttons">
+<span id="headerBtn" class="nav-header-btn"><img src="/static/menu-w.svg" alt="Menu"></span>
+</div>
+</header>
+<div class="kigui header-space"></div>
+<section class="kigui">
+<div id="navBar" class="nav-bar">
+
+<div class="nav-header">
+<span id="catToggle" class="nav-header-btn"><img src="/static/menu.svg" alt="Menu"></span>
+</div>
+<ul class="category">
+
+<li style="padding-left: 0px">
+<a href="/c/전체보기/1/">전체보기<span class="nav-cat-cnt">(99)</span></a>
+</li>
+
+<li style="padding-left: 15px">
+<a href="/c/OS/1/">OS<span class="nav-cat-cnt">(34)</span></a>
+</li>
+
+<li style="padding-left: 30px">
+<a href="/c/Linux/1/">Linux<span class="nav-cat-cnt">(23)</span></a>
+</li>
+
+
+<li style="padding-left: 30px">
+<a href="/c/MacOS/1/">MacOS<span class="nav-cat-cnt">(8)</span></a>
+</li>
+
+
+<li style="padding-left: 30px">
+<a href="/c/Windows/1/">Windows<span class="nav-cat-cnt">(3)</span></a>
+</li>
+
+
+
+<li style="padding-left: 15px">
+<a href="/c/데이터베이스/1/">데이터베이스<span class="nav-cat-cnt">(3)</span></a>
+</li>
+
+<li style="padding-left: 30px">
+<a href="/c/Oracle/1/">Oracle<span class="nav-cat-cnt">(1)</span></a>
+</li>
+
+
+<li style="padding-left: 30px">
+<a href="/c/Postgresql/1/">Postgresql<span class="nav-cat-cnt">(1)</span></a>
+</li>
+
+
+
+<li style="padding-left: 15px">
+<a href="/c/Develop/1/">Develop<span class="nav-cat-cnt">(20)</span></a>
+</li>
+
+<li style="padding-left: 30px">
+<a href="/c/CSS3/1/">CSS3<span class="nav-cat-cnt">(3)</span></a>
+</li>
+
+
+<li style="padding-left: 30px">
+<a href="/c/HTML5/1/">HTML5<span class="nav-cat-cnt">(2)</span></a>
+</li>
+
+
+<li style="padding-left: 30px">
+<a href="/c/JavaScript/1/">JavaScript<span class="nav-cat-cnt">(4)</span></a>
+</li>
+
+
+<li style="padding-left: 30px">
+<a href="/c/React/1/">React<span class="nav-cat-cnt">(1)</span></a>
+</li>
+
+
+<li style="padding-left: 30px">
+<a href="/c/Svelte/1/">Svelte<span class="nav-cat-cnt">(2)</span></a>
+</li>
+
+
+
+<li style="padding-left: 15px">
+<a href="/c/개발일기/1/">개발일기<span class="nav-cat-cnt">(9)</span></a>
+</li>
+
+
+<li style="padding-left: 15px">
+<a href="/c/Git/1/">Git<span class="nav-cat-cnt">(3)</span></a>
+</li>
+
+
+<li style="padding-left: 15px">
+<a href="/c/GitLab/1/">GitLab<span class="nav-cat-cnt">(11)</span></a>
+</li>
+
+
+<li style="padding-left: 15px">
+<a href="/c/Nginx/1/">Nginx<span class="nav-cat-cnt">(7)</span></a>
+</li>
+
+
+<li style="padding-left: 15px">
+<a href="/c/기타/1/">기타<span class="nav-cat-cnt">(9)</span></a>
+</li>
+
+
+<li style="padding-left: 15px">
+<a href="/c/이 블로그의 오픈소스/1/">이 블로그의 오픈소스<span class="nav-cat-cnt">(3)</span></a>
+</li>
+
+
+
+</ul>
+</div>
+<script>
+let catToggle = document.getElementById("catToggle");
+let headerBtn = document.getElementById("headerBtn");
+let navBar = document.getElementById("navBar");
+catToggle.addEventListener("click", () => {
+navBar.classList.toggle("show");
+});
+headerBtn.addEventListener("click", () => {
+navBar.classList.toggle("show");
+})
+</script>
+<div class="kigui frame">
+<p class="category-path">
+
+<a href="/c/전체보기/1/">전체보기</a>
+<span> > </span>
+
+<a href="/c/GitLab/1/">GitLab</a>
+<span> > </span>
+
+</p>
+<h1 class="article-title"><a href="https://devblog.lazyig.com/5/">Gitlab 업데이트 시 공간부족 오류</a></h1>
+<p class="write-date">2021-10-13 21:55:00</p>
+<div class="markdown-body">
+<p>Gitlab을 업데이트하고자 하는데 다음과 같은 오류가 발생한다면 저장공간의 부족이다.</p>
+<pre><code>Creating backup archive: 1633647885_2021_10_08_14.3.0_gitlab_backup.tar ... done
+Uploading backup archive to remote storage gitlab_backups ... rake aborted!
+Errno::ENOSPC: No space left on device - sendfile
+/opt/gitlab/embedded/service/gitlab-rails/lib/backup/manager.rb:51:in `upload'
+/opt/gitlab/embedded/service/gitlab-rails/lib/tasks/gitlab/backup.rake:28:in `block (3 levels) in &lt;top (required)&gt;'
+/opt/gitlab/embedded/bin/bundle:23:in `load'
+/opt/gitlab/embedded/bin/bundle:23:in `&lt;main&gt;'
+Tasks: TOP =&gt; gitlab:backup:create
+(See full trace by running task with --trace)
+gitlab preinstall:
+gitlab preinstall: Database backup failed! If you want to skip this backup, run the following command and try again:
+gitlab preinstall:
+gitlab preinstall:  sudo touch /etc/gitlab/skip-auto-backup
+gitlab preinstall:
+dpkg: error processing archive /var/cache/apt/archives/gitlab-ce_14.3.2-ce.0_amd64.deb (--unpack):
+ new gitlab-ce package pre-installation script subprocess returned error exit status 1
+Errors were encountered while processing:
+ /var/cache/apt/archives/gitlab-ce_14.3.2-ce.0_amd64.deb
+E: Sub-process /usr/bin/dpkg returned an error code (1)
+</code></pre>
+<p>저장 공간을 확보하는 것은 개인이 처한 사항마다 다르니 다음 방법들을 이용하여 해결하기 바란다.</p>
+<ol>
+<li>
+<p>물리적으로 공간 확장</p>
+<p>새로운 저장장치를 사서 기기에 연결하거나 클라우드라면 관련 요금을 추가지불하여 사양을 업그레이드 하자.</p>
+</li>
+<li>
+<p>필요없는 공간 비우기</p>
+<p>사실 이런 오류를 찾아왔다면 이쪽이 더 필요할 것이다.</p>
+<p>다음 명령어들을 활용하여 용량들을 찾아서 문제되는 부분을 제거하자.</p>
+<p><code>$ df -h</code></p>
+<p>df 명령어는 연결된 장치의 용량을 보여주며, -h는 크기를 사람이 보기 편하게 출력해주는 옵션이다.</p>
+<p><code>$ du -h -d 1</code></p>
+<p>du 명령어는 디렉터리에 용량을 보여준다.</p>
+<p>-h는 크기를 사람이 보기 편하게 출력해주는 것이다</p>
+<p>-d는 명령어 경로에서 지정한 깊이만큼만 탐색하여 보여준다.</p>
+<p>(지정안하면 그 하위 디렉터리를 모조리 출력한다.)</p>
+</li>
+</ol>
+<h3>여담</h3>
+<p>나 같은 경우는 시간지난 백업파일을 제거하는 스크립트를 잘못 예약해놔서 오류가 있어서 무작정 쌓이기만하고 최신 백업도 똑바로 되지 않고 있었다.</p>
+<p>예상치 못한 오류라면 보통 이런문제로 공간을 잡아먹고 있을 것이라 생각한다.</p>
+<p>그러니 스크립트는 신중하게 작성하자...</p>
+
+</div>
+</div>
+<div class="kigui frame">
+<script src="https://utteranc.es/client.js"
+repo="lazyig/blog-comment"
+issue-term="pathname"
+label="blog-comment"
+theme="github-light"
+crossorigin="anonymous"
+async>
+</script>
+</div>
+</section>
+</body>
+</html>

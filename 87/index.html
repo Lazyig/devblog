@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>highlight.js를 이용한 구문강조 추가 - 정적 블로그 개발기</title>
+<meta
+name="description"
+content="정적페이지로 운영하는 개발 블로그입니다."
+/>
+<link
+rel="shortcut icon"
+type="image/png"
+sizes="144x144"
+href="/static/favicon-144x144.png"
+/>
+<link
+rel="icon"
+type="image/png"
+sizes="16x16"
+href="/static/favicon-16x16.png"
+/>
+<link
+rel="icon"
+type="image/png"
+sizes="32x32"
+href="/static/favicon-32x32.png"
+/>
+<link
+rel="icon"
+type="image/png"
+sizes="192x192"
+href="/static/favicon-192x192.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="57x57"
+href="/static/apple-touch-icon-57x57.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="72x72"
+href="/static/apple-touch-icon-72x72.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="76x76"
+href="/static/apple-touch-icon-76x76.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="114x114"
+href="/static/apple-touch-icon-114x114.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="120x120"
+href="/static/apple-touch-icon-120x120.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="144x144"
+href="/static/apple-touch-icon-144x144.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="152x152"
+href="/static/apple-touch-icon-152x152.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="154x154"
+href="/static/apple-touch-icon-154x154.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="180x180"
+href="/static/apple-touch-icon-180x180.png"
+/>
+<link rel="stylesheet" href="/static/style.css">
+<meta name="theme-color" content="#ff5722">
+<meta property="og:type" content="website">
+<meta property="og:title" content="highlight.js를 이용한 구문강조 추가 - 정적 블로그 개발기">
+<meta property="og:description" content="공부한 개발 정보를 공유합니다.">
+<meta property="og:image" content="https://devblog.lazyig.com/87//static/ogimg.png">
+<meta property="og:url" content="https://devblog.lazyig.com/87/">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8149987977999297" crossorigin="anonymous"></script>
+<link rel="stylesheet"
+href="/static/highlight.css">
+</head>
+<body class="kigui one">
+<header class="kigui header">
+<a href="/">
+<h1 class="title">
+메모용 개발 블로그
+</h1>
+</a>
+<div class="header-buttons">
+<span id="headerBtn" class="nav-header-btn"><img src="/static/menu-w.svg" alt="Menu"></span>
+</div>
+</header>
+<div class="kigui header-space"></div>
+<section class="kigui">
+<div id="navBar" class="nav-bar">
+
+<div class="nav-header">
+<span id="catToggle" class="nav-header-btn"><img src="/static/menu.svg" alt="Menu"></span>
+</div>
+<ul class="category">
+
+<li style="padding-left: 0px">
+<a href="/c/전체보기/1/">전체보기<span class="nav-cat-cnt">(99)</span></a>
+</li>
+
+<li style="padding-left: 15px">
+<a href="/c/OS/1/">OS<span class="nav-cat-cnt">(34)</span></a>
+</li>
+
+<li style="padding-left: 30px">
+<a href="/c/Linux/1/">Linux<span class="nav-cat-cnt">(23)</span></a>
+</li>
+
+
+<li style="padding-left: 30px">
+<a href="/c/MacOS/1/">MacOS<span class="nav-cat-cnt">(8)</span></a>
+</li>
+
+
+<li style="padding-left: 30px">
+<a href="/c/Windows/1/">Windows<span class="nav-cat-cnt">(3)</span></a>
+</li>
+
+
+
+<li style="padding-left: 15px">
+<a href="/c/데이터베이스/1/">데이터베이스<span class="nav-cat-cnt">(3)</span></a>
+</li>
+
+<li style="padding-left: 30px">
+<a href="/c/Oracle/1/">Oracle<span class="nav-cat-cnt">(1)</span></a>
+</li>
+
+
+<li style="padding-left: 30px">
+<a href="/c/Postgresql/1/">Postgresql<span class="nav-cat-cnt">(1)</span></a>
+</li>
+
+
+
+<li style="padding-left: 15px">
+<a href="/c/Develop/1/">Develop<span class="nav-cat-cnt">(20)</span></a>
+</li>
+
+<li style="padding-left: 30px">
+<a href="/c/CSS3/1/">CSS3<span class="nav-cat-cnt">(3)</span></a>
+</li>
+
+
+<li style="padding-left: 30px">
+<a href="/c/HTML5/1/">HTML5<span class="nav-cat-cnt">(2)</span></a>
+</li>
+
+
+<li style="padding-left: 30px">
+<a href="/c/JavaScript/1/">JavaScript<span class="nav-cat-cnt">(4)</span></a>
+</li>
+
+
+<li style="padding-left: 30px">
+<a href="/c/React/1/">React<span class="nav-cat-cnt">(1)</span></a>
+</li>
+
+
+<li style="padding-left: 30px">
+<a href="/c/Svelte/1/">Svelte<span class="nav-cat-cnt">(2)</span></a>
+</li>
+
+
+
+<li style="padding-left: 15px">
+<a href="/c/개발일기/1/">개발일기<span class="nav-cat-cnt">(9)</span></a>
+</li>
+
+
+<li style="padding-left: 15px">
+<a href="/c/Git/1/">Git<span class="nav-cat-cnt">(3)</span></a>
+</li>
+
+
+<li style="padding-left: 15px">
+<a href="/c/GitLab/1/">GitLab<span class="nav-cat-cnt">(11)</span></a>
+</li>
+
+
+<li style="padding-left: 15px">
+<a href="/c/Nginx/1/">Nginx<span class="nav-cat-cnt">(7)</span></a>
+</li>
+
+
+<li style="padding-left: 15px">
+<a href="/c/기타/1/">기타<span class="nav-cat-cnt">(9)</span></a>
+</li>
+
+
+<li style="padding-left: 15px">
+<a href="/c/이 블로그의 오픈소스/1/">이 블로그의 오픈소스<span class="nav-cat-cnt">(3)</span></a>
+</li>
+
+
+
+</ul>
+</div>
+<script>
+let catToggle = document.getElementById("catToggle");
+let headerBtn = document.getElementById("headerBtn");
+let navBar = document.getElementById("navBar");
+catToggle.addEventListener("click", () => {
+navBar.classList.toggle("show");
+});
+headerBtn.addEventListener("click", () => {
+navBar.classList.toggle("show");
+})
+</script>
+<div class="kigui frame">
+<p class="category-path">
+
+<a href="/c/전체보기/1/">전체보기</a>
+<span> > </span>
+
+<a href="/c/개발일기/1/">개발일기</a>
+<span> > </span>
+
+</p>
+<h1 class="article-title"><a href="https://devblog.lazyig.com/87/">highlight.js를 이용한 구문강조 추가 - 정적 블로그 개발기</a></h1>
+<p class="write-date">2023-02-01 23:17:11</p>
+<div class="markdown-body">
+<p>이 블로그의 특성 상 코드가 많이 작성되게 되는데. 현재는 그냥 코드 블럭으로만 되어있다.</p>
+<p><img src="/static/img-dtHc2K4PokzD8D0vS2ppTLlxeZMKnFcwoNHhNlQm7i4.png" alt="image-20230201211811776"></p>
+<p>위와 같은 이미지로 되어 있는데. 아무래도 색상을 입히면 읽는데 있어서 편리하고 있어보인다(...)</p>
+<p>그래서 이를 작업하려고 찾아보니 기존에 사용하고 있던 markdown-it 패키지 README 파일에 이미 방법이 소개되어 있었다.</p>
+<p>이를 참고하여 작업을 하였다.</p>
+<h3>환경</h3>
+<ul>
+<li>
+<p>Node.js v17.2.0</p>
+</li>
+<li>
+<p>NPM 8.1.4</p>
+</li>
+<li>
+<p>markdown-it ^12.2.0</p>
+</li>
+<li>
+<p>typescript ^4.4.3</p>
+</li>
+</ul>
+<h3>패키지 설치</h3>
+<p>사용하는 패키지는 highlight.js를 사용한다.</p>
+<p>패키지 링크 : <a href="https://www.npmjs.com/package/highlight.js?activeTab=readme">https://www.npmjs.com/package/highlight.js?activeTab=readme</a></p>
+<p>Github : <a href="https://github.com/highlightjs/highlight.js">https://github.com/highlightjs/highlight.js</a></p>
+<pre><code>npm i highlight.js
+</code></pre>
+<h3>코드에 적용</h3>
+<p>해당 패키지 npm 페이지에 가면 이를 적용하는 소스코드가 간단히 있다.</p>
+<p>그대로 참고해서 사용하니 아주 잘된다. 아래는 예시</p>
+<pre><code class="language-js"><span class="hljs-keyword">import</span> <span class="hljs-title class_">MarkdownIt</span> <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;markdown-it&quot;</span>;
+<span class="hljs-keyword">import</span> <span class="hljs-title class_">Highlight</span> <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;highlight.js&quot;</span>;
+
+<span class="hljs-comment">/* 생략 */</span>
+
+<span class="hljs-keyword">const</span> md = <span class="hljs-keyword">new</span> <span class="hljs-title class_">MarkdownIt</span>({
+    <span class="hljs-attr">html</span>: <span class="hljs-literal">true</span>,
+    <span class="hljs-attr">highlight</span>: <span class="hljs-keyword">function</span>(<span class="hljs-params">str, lang</span>) {
+        <span class="hljs-keyword">if</span>(lang &amp;&amp; <span class="hljs-title class_">Highlight</span>.<span class="hljs-title function_">getLanguage</span>(lang)) {
+            <span class="hljs-keyword">try</span> {
+                <span class="hljs-keyword">return</span> <span class="hljs-title class_">Highlight</span>.<span class="hljs-title function_">highlight</span>(str, {<span class="hljs-attr">language</span>: lang}).<span class="hljs-property">value</span>;
+            } <span class="hljs-keyword">catch</span> {}
+        }
+        <span class="hljs-keyword">return</span> <span class="hljs-string">&#x27;&#x27;</span>;
+    }
+});
+</code></pre>
+<h3>스타일 선택</h3>
+<p>이제 코드를 어떤 스타일로 적용할지 정하여야 한다.</p>
+<p>Github에 가면 여러 스타일이 있으니 이를 추가해주기만 하면 된다.</p>
+<p><a href="https://github.com/highlightjs/highlight.js/tree/main/src/styles">https://github.com/highlightjs/highlight.js/tree/main/src/styles</a></p>
+<p>여기서는 Github 스타일을 사용해보겠다.</p>
+<p>해당 파일을 받아 위치에 두고 그저 스타일을 링크하기만 하면 된다.</p>
+<pre><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">link</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">&quot;stylesheet&quot;</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;/static/highlight.css&quot;</span>&gt;</span>
+</code></pre>
+<h3>끝</h3>
+<p><img src="/static/img-ZJRB7yxv8eNJvKk2QvKywkxPhtTqFP2ab-sYyoocFMc.png" alt="image-20230201234235144"></p>
+<p>로컬에서 블로그를 빌드하여 사용해보았다. 정상적으로 적용된다.</p>
+
+</div>
+</div>
+<div class="kigui frame">
+<script src="https://utteranc.es/client.js"
+repo="lazyig/blog-comment"
+issue-term="pathname"
+label="blog-comment"
+theme="github-light"
+crossorigin="anonymous"
+async>
+</script>
+</div>
+</section>
+</body>
+</html>

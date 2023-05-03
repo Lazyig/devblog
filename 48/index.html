@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MacOS iterm2 설치 및 세팅</title>
+<meta
+name="description"
+content="정적페이지로 운영하는 개발 블로그입니다."
+/>
+<link
+rel="shortcut icon"
+type="image/png"
+sizes="144x144"
+href="/static/favicon-144x144.png"
+/>
+<link
+rel="icon"
+type="image/png"
+sizes="16x16"
+href="/static/favicon-16x16.png"
+/>
+<link
+rel="icon"
+type="image/png"
+sizes="32x32"
+href="/static/favicon-32x32.png"
+/>
+<link
+rel="icon"
+type="image/png"
+sizes="192x192"
+href="/static/favicon-192x192.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="57x57"
+href="/static/apple-touch-icon-57x57.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="72x72"
+href="/static/apple-touch-icon-72x72.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="76x76"
+href="/static/apple-touch-icon-76x76.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="114x114"
+href="/static/apple-touch-icon-114x114.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="120x120"
+href="/static/apple-touch-icon-120x120.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="144x144"
+href="/static/apple-touch-icon-144x144.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="152x152"
+href="/static/apple-touch-icon-152x152.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="154x154"
+href="/static/apple-touch-icon-154x154.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="180x180"
+href="/static/apple-touch-icon-180x180.png"
+/>
+<link rel="stylesheet" href="/static/style.css">
+<meta name="theme-color" content="#ff5722">
+<meta property="og:type" content="website">
+<meta property="og:title" content="MacOS iterm2 설치 및 세팅">
+<meta property="og:description" content="공부한 개발 정보를 공유합니다.">
+<meta property="og:image" content="https://devblog.lazyig.com/48//static/ogimg.png">
+<meta property="og:url" content="https://devblog.lazyig.com/48/">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8149987977999297" crossorigin="anonymous"></script>
+<link rel="stylesheet"
+href="/static/highlight.css">
+</head>
+<body class="kigui one">
+<header class="kigui header">
+<a href="/">
+<h1 class="title">
+메모용 개발 블로그
+</h1>
+</a>
+<div class="header-buttons">
+<span id="headerBtn" class="nav-header-btn"><img src="/static/menu-w.svg" alt="Menu"></span>
+</div>
+</header>
+<div class="kigui header-space"></div>
+<section class="kigui">
+<div id="navBar" class="nav-bar">
+
+<div class="nav-header">
+<span id="catToggle" class="nav-header-btn"><img src="/static/menu.svg" alt="Menu"></span>
+</div>
+<ul class="category">
+
+<li style="padding-left: 0px">
+<a href="/c/전체보기/1/">전체보기<span class="nav-cat-cnt">(99)</span></a>
+</li>
+
+<li style="padding-left: 15px">
+<a href="/c/OS/1/">OS<span class="nav-cat-cnt">(34)</span></a>
+</li>
+
+<li style="padding-left: 30px">
+<a href="/c/Linux/1/">Linux<span class="nav-cat-cnt">(23)</span></a>
+</li>
+
+
+<li style="padding-left: 30px">
+<a href="/c/MacOS/1/">MacOS<span class="nav-cat-cnt">(8)</span></a>
+</li>
+
+
+<li style="padding-left: 30px">
+<a href="/c/Windows/1/">Windows<span class="nav-cat-cnt">(3)</span></a>
+</li>
+
+
+
+<li style="padding-left: 15px">
+<a href="/c/데이터베이스/1/">데이터베이스<span class="nav-cat-cnt">(3)</span></a>
+</li>
+
+<li style="padding-left: 30px">
+<a href="/c/Oracle/1/">Oracle<span class="nav-cat-cnt">(1)</span></a>
+</li>
+
+
+<li style="padding-left: 30px">
+<a href="/c/Postgresql/1/">Postgresql<span class="nav-cat-cnt">(1)</span></a>
+</li>
+
+
+
+<li style="padding-left: 15px">
+<a href="/c/Develop/1/">Develop<span class="nav-cat-cnt">(20)</span></a>
+</li>
+
+<li style="padding-left: 30px">
+<a href="/c/CSS3/1/">CSS3<span class="nav-cat-cnt">(3)</span></a>
+</li>
+
+
+<li style="padding-left: 30px">
+<a href="/c/HTML5/1/">HTML5<span class="nav-cat-cnt">(2)</span></a>
+</li>
+
+
+<li style="padding-left: 30px">
+<a href="/c/JavaScript/1/">JavaScript<span class="nav-cat-cnt">(4)</span></a>
+</li>
+
+
+<li style="padding-left: 30px">
+<a href="/c/React/1/">React<span class="nav-cat-cnt">(1)</span></a>
+</li>
+
+
+<li style="padding-left: 30px">
+<a href="/c/Svelte/1/">Svelte<span class="nav-cat-cnt">(2)</span></a>
+</li>
+
+
+
+<li style="padding-left: 15px">
+<a href="/c/개발일기/1/">개발일기<span class="nav-cat-cnt">(9)</span></a>
+</li>
+
+
+<li style="padding-left: 15px">
+<a href="/c/Git/1/">Git<span class="nav-cat-cnt">(3)</span></a>
+</li>
+
+
+<li style="padding-left: 15px">
+<a href="/c/GitLab/1/">GitLab<span class="nav-cat-cnt">(11)</span></a>
+</li>
+
+
+<li style="padding-left: 15px">
+<a href="/c/Nginx/1/">Nginx<span class="nav-cat-cnt">(7)</span></a>
+</li>
+
+
+<li style="padding-left: 15px">
+<a href="/c/기타/1/">기타<span class="nav-cat-cnt">(9)</span></a>
+</li>
+
+
+<li style="padding-left: 15px">
+<a href="/c/이 블로그의 오픈소스/1/">이 블로그의 오픈소스<span class="nav-cat-cnt">(3)</span></a>
+</li>
+
+
+
+</ul>
+</div>
+<script>
+let catToggle = document.getElementById("catToggle");
+let headerBtn = document.getElementById("headerBtn");
+let navBar = document.getElementById("navBar");
+catToggle.addEventListener("click", () => {
+navBar.classList.toggle("show");
+});
+headerBtn.addEventListener("click", () => {
+navBar.classList.toggle("show");
+})
+</script>
+<div class="kigui frame">
+<p class="category-path">
+
+<a href="/c/전체보기/1/">전체보기</a>
+<span> > </span>
+
+<a href="/c/OS/1/">OS</a>
+<span> > </span>
+
+<a href="/c/MacOS/1/">MacOS</a>
+<span> > </span>
+
+</p>
+<h1 class="article-title"><a href="https://devblog.lazyig.com/48/">MacOS iterm2 설치 및 세팅</a></h1>
+<p class="write-date">2022-01-24 22:06:03</p>
+<div class="markdown-body">
+<h2>개요</h2>
+<p>터미널 프로그램은 사실 기본만해도 큰 불편함 없이 사용은 하고 있었지만 그래도 예쁘고 편리한 기능이 많으면 좋다.</p>
+<h2>라이선스</h2>
+<p>해당 소프트웨어의 라이센스는 GPL v2를 따르고 있다.</p>
+<p>공식 홈페이지에서 확인 가능하다. (https://iterm2.com/)</p>
+<h2>다운로드</h2>
+<p>다운로드는 공식 홈페이지를 통해서 수행하거나 homebrew를 통해서 설치하면 된다.</p>
+<p>공식 홈페이지 : https://iterm2.com/</p>
+<p>homebrew 설치 명령어</p>
+<p><code>brew install iterm2</code></p>
+<h2>설정</h2>
+<h3>1. 설정 진입</h3>
+<p>설정을 진입하는 것은 명령어로 수행하면 간편하다.</p>
+<p>`Command(⌘) + ,</p>
+<p><img src="/static/img-2-yayZ-joYi4TQUnArLxpzat0GtdjIrTIBgCjZkYwKo.png" alt="image-20220124212404756"></p>
+<p>너무나 다양한 설정이 있어서 좋으면서도 막막하다.</p>
+<p>사용하면서 차차 알아볼 계획</p>
+<h3>2. 폰트 설정</h3>
+<p><code>Profiles &gt; Text &gt; Font</code></p>
+<p>한국인이 사랑하는 D2Coding으로 설정해주었다.</p>
+<h3>3. 타이틀바 텍스트 수정</h3>
+<p><code>Profiles &gt; Window</code></p>
+<p>Custom window title : 윈도우 타이틀 영역</p>
+<p>Custom tab title : 탭의 타이틀영역</p>
+<p>두 항목을 빈 상태로 두었다.</p>
+<img src="/static/img-C1KcK2RlNZ-I502njz1fWkozKO4UTdpmtrsJWpe9uig.png" alt="image-20220124214118620" style="zoom:50%;" />
+<h3>4. 상태바 활성화 및 설정</h3>
+<p><code>Profiles &gt; Session</code></p>
+<p>Status bar enabled 체크 &gt; Configure Status Bar 선택</p>
+<img src="/static/img-hkO16eplmYFadysKWrbW_k7I7Y_YDketj6gC3ESGGx0.png" alt="image-20220124215223095" style="zoom:50%;" />
+<p>그럼 위와 같이 다양한 항목들을 둘 수 있다.</p>
+<img src="/static/img-32OIAY9e6XBsNKzl2WlRBCc9eZhSqdbYBL_x-PuxkqU.png" alt="image-20220124220217055" style="zoom:50%;" />
+<p>현재 자주 사용하는 원격지 서버 버튼과 자원 표시정도를 해두었다.</p>
+<p>우선은 이대로 사용하고 무언가 더 설정할 일이 있으면 추가로 작성할 예정이다.</p>
+
+</div>
+</div>
+<div class="kigui frame">
+<script src="https://utteranc.es/client.js"
+repo="lazyig/blog-comment"
+issue-term="pathname"
+label="blog-comment"
+theme="github-light"
+crossorigin="anonymous"
+async>
+</script>
+</div>
+</section>
+</body>
+</html>

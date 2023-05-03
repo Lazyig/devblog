@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>리눅스 서버 시간 변경</title>
+<meta
+name="description"
+content="정적페이지로 운영하는 개발 블로그입니다."
+/>
+<link
+rel="shortcut icon"
+type="image/png"
+sizes="144x144"
+href="/static/favicon-144x144.png"
+/>
+<link
+rel="icon"
+type="image/png"
+sizes="16x16"
+href="/static/favicon-16x16.png"
+/>
+<link
+rel="icon"
+type="image/png"
+sizes="32x32"
+href="/static/favicon-32x32.png"
+/>
+<link
+rel="icon"
+type="image/png"
+sizes="192x192"
+href="/static/favicon-192x192.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="57x57"
+href="/static/apple-touch-icon-57x57.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="72x72"
+href="/static/apple-touch-icon-72x72.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="76x76"
+href="/static/apple-touch-icon-76x76.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="114x114"
+href="/static/apple-touch-icon-114x114.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="120x120"
+href="/static/apple-touch-icon-120x120.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="144x144"
+href="/static/apple-touch-icon-144x144.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="152x152"
+href="/static/apple-touch-icon-152x152.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="154x154"
+href="/static/apple-touch-icon-154x154.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="180x180"
+href="/static/apple-touch-icon-180x180.png"
+/>
+<link rel="stylesheet" href="/static/style.css">
+<meta name="theme-color" content="#ff5722">
+<meta property="og:type" content="website">
+<meta property="og:title" content="리눅스 서버 시간 변경">
+<meta property="og:description" content="공부한 개발 정보를 공유합니다.">
+<meta property="og:image" content="https://devblog.lazyig.com/17//static/ogimg.png">
+<meta property="og:url" content="https://devblog.lazyig.com/17/">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8149987977999297" crossorigin="anonymous"></script>
+<link rel="stylesheet"
+href="/static/highlight.css">
+</head>
+<body class="kigui one">
+<header class="kigui header">
+<a href="/">
+<h1 class="title">
+메모용 개발 블로그
+</h1>
+</a>
+<div class="header-buttons">
+<span id="headerBtn" class="nav-header-btn"><img src="/static/menu-w.svg" alt="Menu"></span>
+</div>
+</header>
+<div class="kigui header-space"></div>
+<section class="kigui">
+<div id="navBar" class="nav-bar">
+
+<div class="nav-header">
+<span id="catToggle" class="nav-header-btn"><img src="/static/menu.svg" alt="Menu"></span>
+</div>
+<ul class="category">
+
+<li style="padding-left: 0px">
+<a href="/c/전체보기/1/">전체보기<span class="nav-cat-cnt">(99)</span></a>
+</li>
+
+<li style="padding-left: 15px">
+<a href="/c/OS/1/">OS<span class="nav-cat-cnt">(34)</span></a>
+</li>
+
+<li style="padding-left: 30px">
+<a href="/c/Linux/1/">Linux<span class="nav-cat-cnt">(23)</span></a>
+</li>
+
+
+<li style="padding-left: 30px">
+<a href="/c/MacOS/1/">MacOS<span class="nav-cat-cnt">(8)</span></a>
+</li>
+
+
+<li style="padding-left: 30px">
+<a href="/c/Windows/1/">Windows<span class="nav-cat-cnt">(3)</span></a>
+</li>
+
+
+
+<li style="padding-left: 15px">
+<a href="/c/데이터베이스/1/">데이터베이스<span class="nav-cat-cnt">(3)</span></a>
+</li>
+
+<li style="padding-left: 30px">
+<a href="/c/Oracle/1/">Oracle<span class="nav-cat-cnt">(1)</span></a>
+</li>
+
+
+<li style="padding-left: 30px">
+<a href="/c/Postgresql/1/">Postgresql<span class="nav-cat-cnt">(1)</span></a>
+</li>
+
+
+
+<li style="padding-left: 15px">
+<a href="/c/Develop/1/">Develop<span class="nav-cat-cnt">(20)</span></a>
+</li>
+
+<li style="padding-left: 30px">
+<a href="/c/CSS3/1/">CSS3<span class="nav-cat-cnt">(3)</span></a>
+</li>
+
+
+<li style="padding-left: 30px">
+<a href="/c/HTML5/1/">HTML5<span class="nav-cat-cnt">(2)</span></a>
+</li>
+
+
+<li style="padding-left: 30px">
+<a href="/c/JavaScript/1/">JavaScript<span class="nav-cat-cnt">(4)</span></a>
+</li>
+
+
+<li style="padding-left: 30px">
+<a href="/c/React/1/">React<span class="nav-cat-cnt">(1)</span></a>
+</li>
+
+
+<li style="padding-left: 30px">
+<a href="/c/Svelte/1/">Svelte<span class="nav-cat-cnt">(2)</span></a>
+</li>
+
+
+
+<li style="padding-left: 15px">
+<a href="/c/개발일기/1/">개발일기<span class="nav-cat-cnt">(9)</span></a>
+</li>
+
+
+<li style="padding-left: 15px">
+<a href="/c/Git/1/">Git<span class="nav-cat-cnt">(3)</span></a>
+</li>
+
+
+<li style="padding-left: 15px">
+<a href="/c/GitLab/1/">GitLab<span class="nav-cat-cnt">(11)</span></a>
+</li>
+
+
+<li style="padding-left: 15px">
+<a href="/c/Nginx/1/">Nginx<span class="nav-cat-cnt">(7)</span></a>
+</li>
+
+
+<li style="padding-left: 15px">
+<a href="/c/기타/1/">기타<span class="nav-cat-cnt">(9)</span></a>
+</li>
+
+
+<li style="padding-left: 15px">
+<a href="/c/이 블로그의 오픈소스/1/">이 블로그의 오픈소스<span class="nav-cat-cnt">(3)</span></a>
+</li>
+
+
+
+</ul>
+</div>
+<script>
+let catToggle = document.getElementById("catToggle");
+let headerBtn = document.getElementById("headerBtn");
+let navBar = document.getElementById("navBar");
+catToggle.addEventListener("click", () => {
+navBar.classList.toggle("show");
+});
+headerBtn.addEventListener("click", () => {
+navBar.classList.toggle("show");
+})
+</script>
+<div class="kigui frame">
+<p class="category-path">
+
+<a href="/c/전체보기/1/">전체보기</a>
+<span> > </span>
+
+<a href="/c/OS/1/">OS</a>
+<span> > </span>
+
+<a href="/c/Linux/1/">Linux</a>
+<span> > </span>
+
+</p>
+<h1 class="article-title"><a href="https://devblog.lazyig.com/17/">리눅스 서버 시간 변경</a></h1>
+<p class="write-date">2021-10-17 00:39:17</p>
+<div class="markdown-body">
+<p>이 글은 이전 티스토리 블로그에서 옮겨왔습니다.</p>
+<p><a href="https://kim-19.tistory.com/136">https://kim-19.tistory.com/136</a></p>
+<p>(최초 작성일 : 2017. 3. 22. 15:10)</p>
+<p>예전 컴퓨터가 오래되어서 리눅스를 설치한 이후에 서버 시간이 이상하였다. 아무래도 컴퓨터가 오래되서 배터리(종료된 상태에서도 시간이 흐르게 해주는 거)성능이 좋지 못하였다.</p>
+<p>이러한 상황이 되면 시간이 맞지 않을 수 있다.</p>
+<h3>현재 시간 확인</h3>
+<pre><code>$ date
+2017. 03. 12. (일) 05:38:26 KST
+</code></pre>
+<h3>시간 재 설정</h3>
+<p>관리자 권한이 필요한 명령어이다.</p>
+<pre><code># date MMDDhhmmYY
+</code></pre>
+<ul>
+<li>MM : 월</li>
+<li>DD : 일</li>
+<li>hh : 시</li>
+<li>mm : 분</li>
+<li>YY : 연</li>
+</ul>
+<p>다음 순서대로 입력을 하면 된다.</p>
+<h3>타임 서버를 통한 동기화</h3>
+<p>인터넷이 된다면 이 방법으로 시간을 맞추는 것이 옳다.</p>
+<pre><code># rdate [옵션] [타임서버]
+</code></pre>
+<p>옵션</p>
+<ul>
+<li>-p : 타임서버의 시간 출력</li>
+<li>-s : 타임서버의 시간으로 동기화</li>
+</ul>
+<p>주로 사용하는 타임서버는</p>
+<p>'time.bora.net'이 있다.</p>
+<p>해당 명령어의 실행 시 아무런 출력이 없다면 정상적으로 실행된 것이다.</p>
+<h3>확인</h3>
+<p>처음에 실행하였던 명령어를 다시 실행하여 확인하자.</p>
+<pre><code>$ date
+2017. 03. 22. (수) 14:53:50 KST
+</code></pre>
+<h3>설치</h3>
+<p>명령어를 쳤을 때. 다음과 같이 뜰 수 있다.</p>
+<pre><code># rdate
+bash: rdate: command not found
+</code></pre>
+<p>배포판의 최소 설치일 경우 없을 수 있다.</p>
+<p>그냥 패키지 매니저를 통해서 설치해주면 된다.</p>
+<p>역시나 관리자 권한은 필수이며, 각 배포판에 맞는 패키지 매니저를 사용하자.</p>
+<p>ex) apt-get, yum</p>
+<pre><code># yum install -y rdate
+Loaded plugins: fastestmirror
+Setting up Install Process
+Loading mirror speeds from cached hostfile
+ * base: ftp.kaist.ac.kr
+ * extras: ftp.kaist.ac.kr
+ * updates: ftp.kaist.ac.kr
+Resolving Dependencies
+--&gt; Running transaction check
+---&gt; Package rdate.i686 0:1.4-16.el6 will be installed
+--&gt; Finished Dependency Resolution
+
+Dependencies Resolved
+
+================================================================================
+ Package          Arch            Version                 Repository       Size
+================================================================================
+Installing:
+ rdate            i686            1.4-16.el6              base             18 k
+
+Transaction Summary
+================================================================================
+Install       1 Package(s)
+
+Total download size: 18 k
+Installed size: 26 k
+Downloading Packages:
+rdate-1.4-16.el6.i686.rpm                                |  18 kB     00:00
+Running rpm_check_debug
+Running Transaction Test
+Transaction Test Succeeded
+Running Transaction
+  Installing : rdate-1.4-16.el6.i686                                        1/1
+  Verifying  : rdate-1.4-16.el6.i686                                        1/1
+
+Installed:
+  rdate.i686 0:1.4-16.el6
+
+Complete!
+</code></pre>
+<p>-y 옵션은 설치중에 yes/no를 묻는 것에서 모두다 yes를 답한다는 뜻. 알아서 하자.</p>
+
+</div>
+</div>
+<div class="kigui frame">
+<script src="https://utteranc.es/client.js"
+repo="lazyig/blog-comment"
+issue-term="pathname"
+label="blog-comment"
+theme="github-light"
+crossorigin="anonymous"
+async>
+</script>
+</div>
+</section>
+</body>
+</html>

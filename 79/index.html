@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Go 구조체 리터널 태그 정리</title>
+<meta
+name="description"
+content="정적페이지로 운영하는 개발 블로그입니다."
+/>
+<link
+rel="shortcut icon"
+type="image/png"
+sizes="144x144"
+href="/static/favicon-144x144.png"
+/>
+<link
+rel="icon"
+type="image/png"
+sizes="16x16"
+href="/static/favicon-16x16.png"
+/>
+<link
+rel="icon"
+type="image/png"
+sizes="32x32"
+href="/static/favicon-32x32.png"
+/>
+<link
+rel="icon"
+type="image/png"
+sizes="192x192"
+href="/static/favicon-192x192.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="57x57"
+href="/static/apple-touch-icon-57x57.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="72x72"
+href="/static/apple-touch-icon-72x72.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="76x76"
+href="/static/apple-touch-icon-76x76.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="114x114"
+href="/static/apple-touch-icon-114x114.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="120x120"
+href="/static/apple-touch-icon-120x120.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="144x144"
+href="/static/apple-touch-icon-144x144.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="152x152"
+href="/static/apple-touch-icon-152x152.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="154x154"
+href="/static/apple-touch-icon-154x154.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="180x180"
+href="/static/apple-touch-icon-180x180.png"
+/>
+<link rel="stylesheet" href="/static/style.css">
+<meta name="theme-color" content="#ff5722">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Go 구조체 리터널 태그 정리">
+<meta property="og:description" content="공부한 개발 정보를 공유합니다.">
+<meta property="og:image" content="https://devblog.lazyig.com/79//static/ogimg.png">
+<meta property="og:url" content="https://devblog.lazyig.com/79/">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8149987977999297" crossorigin="anonymous"></script>
+<link rel="stylesheet"
+href="/static/highlight.css">
+</head>
+<body class="kigui one">
+<header class="kigui header">
+<a href="/">
+<h1 class="title">
+메모용 개발 블로그
+</h1>
+</a>
+<div class="header-buttons">
+<span id="headerBtn" class="nav-header-btn"><img src="/static/menu-w.svg" alt="Menu"></span>
+</div>
+</header>
+<div class="kigui header-space"></div>
+<section class="kigui">
+<div id="navBar" class="nav-bar">
+
+<div class="nav-header">
+<span id="catToggle" class="nav-header-btn"><img src="/static/menu.svg" alt="Menu"></span>
+</div>
+<ul class="category">
+
+<li style="padding-left: 0px">
+<a href="/c/전체보기/1/">전체보기<span class="nav-cat-cnt">(99)</span></a>
+</li>
+
+<li style="padding-left: 15px">
+<a href="/c/OS/1/">OS<span class="nav-cat-cnt">(34)</span></a>
+</li>
+
+<li style="padding-left: 30px">
+<a href="/c/Linux/1/">Linux<span class="nav-cat-cnt">(23)</span></a>
+</li>
+
+
+<li style="padding-left: 30px">
+<a href="/c/MacOS/1/">MacOS<span class="nav-cat-cnt">(8)</span></a>
+</li>
+
+
+<li style="padding-left: 30px">
+<a href="/c/Windows/1/">Windows<span class="nav-cat-cnt">(3)</span></a>
+</li>
+
+
+
+<li style="padding-left: 15px">
+<a href="/c/데이터베이스/1/">데이터베이스<span class="nav-cat-cnt">(3)</span></a>
+</li>
+
+<li style="padding-left: 30px">
+<a href="/c/Oracle/1/">Oracle<span class="nav-cat-cnt">(1)</span></a>
+</li>
+
+
+<li style="padding-left: 30px">
+<a href="/c/Postgresql/1/">Postgresql<span class="nav-cat-cnt">(1)</span></a>
+</li>
+
+
+
+<li style="padding-left: 15px">
+<a href="/c/Develop/1/">Develop<span class="nav-cat-cnt">(20)</span></a>
+</li>
+
+<li style="padding-left: 30px">
+<a href="/c/CSS3/1/">CSS3<span class="nav-cat-cnt">(3)</span></a>
+</li>
+
+
+<li style="padding-left: 30px">
+<a href="/c/HTML5/1/">HTML5<span class="nav-cat-cnt">(2)</span></a>
+</li>
+
+
+<li style="padding-left: 30px">
+<a href="/c/JavaScript/1/">JavaScript<span class="nav-cat-cnt">(4)</span></a>
+</li>
+
+
+<li style="padding-left: 30px">
+<a href="/c/React/1/">React<span class="nav-cat-cnt">(1)</span></a>
+</li>
+
+
+<li style="padding-left: 30px">
+<a href="/c/Svelte/1/">Svelte<span class="nav-cat-cnt">(2)</span></a>
+</li>
+
+
+
+<li style="padding-left: 15px">
+<a href="/c/개발일기/1/">개발일기<span class="nav-cat-cnt">(9)</span></a>
+</li>
+
+
+<li style="padding-left: 15px">
+<a href="/c/Git/1/">Git<span class="nav-cat-cnt">(3)</span></a>
+</li>
+
+
+<li style="padding-left: 15px">
+<a href="/c/GitLab/1/">GitLab<span class="nav-cat-cnt">(11)</span></a>
+</li>
+
+
+<li style="padding-left: 15px">
+<a href="/c/Nginx/1/">Nginx<span class="nav-cat-cnt">(7)</span></a>
+</li>
+
+
+<li style="padding-left: 15px">
+<a href="/c/기타/1/">기타<span class="nav-cat-cnt">(9)</span></a>
+</li>
+
+
+<li style="padding-left: 15px">
+<a href="/c/이 블로그의 오픈소스/1/">이 블로그의 오픈소스<span class="nav-cat-cnt">(3)</span></a>
+</li>
+
+
+
+</ul>
+</div>
+<script>
+let catToggle = document.getElementById("catToggle");
+let headerBtn = document.getElementById("headerBtn");
+let navBar = document.getElementById("navBar");
+catToggle.addEventListener("click", () => {
+navBar.classList.toggle("show");
+});
+headerBtn.addEventListener("click", () => {
+navBar.classList.toggle("show");
+})
+</script>
+<div class="kigui frame">
+<p class="category-path">
+
+<a href="/c/전체보기/1/">전체보기</a>
+<span> > </span>
+
+<a href="/c/Develop/1/">Develop</a>
+<span> > </span>
+
+</p>
+<h1 class="article-title"><a href="https://devblog.lazyig.com/79/">Go 구조체 리터널 태그 정리</a></h1>
+<p class="write-date">2022-11-01 23:16:35</p>
+<div class="markdown-body">
+<p>공부 목적 겸 개인 프로젝트로 Go 언어를 사용하다가 구조체를 json으로 변경할 일이 생겼다.</p>
+<p>이 때 Go언어의 특성 상 대/소문자를 제약하여야 하는데. 이 경우 json에서 key의 값을 지정하는 과정 중 독특한 문법을 보게 되었다.</p>
+<pre><code class="language-go"><span class="hljs-keyword">type</span> Json <span class="hljs-keyword">struct</span> {
+	Ok   <span class="hljs-type">bool</span>   <span class="hljs-string">`json:&quot;ok&quot;`</span>
+	Data <span class="hljs-type">string</span> <span class="hljs-string">`json:&quot;data&quot;`</span>
+}
+</code></pre>
+<p>상당히 편리하고 직관적이게 지정할 수 있었다.</p>
+<p>과연 이것이 무언인지 궁금해서 찾아보고 이를 정리하게 되었다.</p>
+<h3>리터널 태그란?</h3>
+<p>간단하게 설명하면 구조체의 각 필드에 문자열로 된 태그를 정의할 수 있는 기능이다.</p>
+<p>go의 스펙 문서는 다음에 위치하고 있다. 해당 단락 하단부에 나온다.</p>
+<p><a href="https://go.dev/ref/spec#Struct_types">https://go.dev/ref/spec#Struct_types</a></p>
+<h3>리터널 태그  가져오기</h3>
+<p>대충 훑어보면 Tag에 대한 설명과 이에 대한 접근은 Reflection 인터페이스를 통해서 접근해볼 수 있는 모양이다.</p>
+<p><a href="https://pkg.go.dev/reflect">https://pkg.go.dev/reflect</a></p>
+<p>위 문서 상단에 보면 TypeOf를 호출하여 정보를 가져올 수 있다.</p>
+<pre><code class="language-go">reflect.TypeOf(Json{})
+</code></pre>
+<p>TypeOf 문서 : <a href="https://pkg.go.dev/reflect#TypeOf">https://pkg.go.dev/reflect#TypeOf</a></p>
+<p>위와 같이 가져오게 되면 리턴으로 Type 형식이 반환된다.</p>
+<p>Type 문서 : <a href="https://pkg.go.dev/reflect#Type">https://pkg.go.dev/reflect#Type</a></p>
+<p>이제 필드에 접근을 하여야 하므로 가장 간단하게 이름을 기반으로 필드를 찾아보도록 하겠다.</p>
+<pre><code>FieldByName(name string) (StructField, bool)
+</code></pre>
+<p>FieldByName을 통해서 구조체 필드를 가져올 수 있다.</p>
+<p>그 이후 반환된 StructField 객체에서 필드의 이름, 타입, 태그 등을 가져올 수 있다.</p>
+<pre><code class="language-go"><span class="hljs-keyword">package</span> main
+
+<span class="hljs-keyword">import</span> (
+	<span class="hljs-string">&quot;fmt&quot;</span>
+	<span class="hljs-string">&quot;reflect&quot;</span>
+)
+
+<span class="hljs-keyword">type</span> Json <span class="hljs-keyword">struct</span> {
+	Ok   <span class="hljs-type">bool</span>   <span class="hljs-string">`json:&quot;ok&quot;`</span>
+	Data <span class="hljs-type">string</span> <span class="hljs-string">`json:&quot;data&quot;`</span>
+}
+
+<span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span> {
+	t := reflect.TypeOf(Json{})
+
+	f, _ := t.FieldByName(<span class="hljs-string">&quot;Ok&quot;</span>)
+
+	fmt.Println(f.Tag)
+}
+</code></pre>
+<p>위 코드를 실행하면 다음 결과가 나온다.</p>
+<pre><code>json:&quot;ok&quot;
+</code></pre>
+<p>그러면 이제 이걸 알아서 잘 파싱해서 활용하면 되는가? 아니다.</p>
+<p>이미 다 준비가 되어 있다.</p>
+<p>Tag는 StructTag인데. 문서를 참고하자. <a href="https://pkg.go.dev/reflect#StructTag">https://pkg.go.dev/reflect#StructTag</a></p>
+<p><strong>Lookup</strong>을 활용하면 된다.</p>
+<pre><code>func (tag StructTag) Lookup(key string) (value string, ok bool)
+</code></pre>
+<p>리턴으로 값과 존재여부를 리턴하는데. 리턴 형이 두개면 번거로우므로 이를 생략해주는 간단한 Wrapper도 이미 마련해놓았다.</p>
+<p><strong>Get</strong></p>
+<pre><code>func (tag StructTag) Get(key string) string
+</code></pre>
+<p><a href="https://cs.opensource.google/go/go/+/refs/tags/go1.19.2:src/reflect/type.go;l=1183">https://cs.opensource.google/go/go/+/refs/tags/go1.19.2:src/reflect/type.go;l=1183</a></p>
+<p>위 링크를 가서 확인해보면 확인 가능하다.</p>
+<h3>예제 1 - Get으로 태그 정보 가져오기</h3>
+<pre><code class="language-go"><span class="hljs-keyword">package</span> main
+
+<span class="hljs-keyword">import</span> (
+	<span class="hljs-string">&quot;fmt&quot;</span>
+	<span class="hljs-string">&quot;reflect&quot;</span>
+)
+
+<span class="hljs-keyword">type</span> Json <span class="hljs-keyword">struct</span> {
+	Ok   <span class="hljs-type">bool</span>   <span class="hljs-string">`json:&quot;ok&quot;`</span>
+	Data <span class="hljs-type">string</span> <span class="hljs-string">`json:&quot;data&quot;`</span>
+}
+
+<span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span> {
+	t := reflect.TypeOf(Json{})
+
+	f, _ := t.FieldByName(<span class="hljs-string">&quot;Ok&quot;</span>)
+
+	fmt.Println(f.Tag.Get(<span class="hljs-string">&quot;json&quot;</span>))
+}
+</code></pre>
+<p>최종으로 활용한 코드이다. 실행하면 다음과 같이 출력된다.</p>
+<pre><code>ok
+</code></pre>
+<h3>예제 2 - Lookup으로 태그 정보 가져오기</h3>
+<p>lookup을 통해서 태그 정보를 가져오는 코드이다. 여기서 없는 xml 태그를 가져오는 것도 포함되어 있다.</p>
+<p>태그가 없을 경우 ok에 false가 리턴되는 모습을 볼 수 있다.</p>
+<pre><code class="language-go"><span class="hljs-keyword">package</span> main
+
+<span class="hljs-keyword">import</span> (
+	<span class="hljs-string">&quot;fmt&quot;</span>
+	<span class="hljs-string">&quot;reflect&quot;</span>
+)
+
+<span class="hljs-keyword">type</span> Json <span class="hljs-keyword">struct</span> {
+	Ok   <span class="hljs-type">bool</span>   <span class="hljs-string">`json:&quot;ok&quot;`</span>
+	Data <span class="hljs-type">string</span> <span class="hljs-string">`json:&quot;data&quot;`</span>
+}
+
+<span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span> {
+	t := reflect.TypeOf(Json{})
+
+	f, _ := t.FieldByName(<span class="hljs-string">&quot;Ok&quot;</span>)
+	v, ok := f.Tag.Lookup(<span class="hljs-string">&quot;json&quot;</span>)
+
+	fmt.Println(v)
+	fmt.Println(ok)
+
+	v2, ok2 := f.Tag.Lookup(<span class="hljs-string">&quot;xml&quot;</span>)
+	fmt.Println(v2)
+	fmt.Println(ok2)
+}
+</code></pre>
+<p>출력</p>
+<pre><code>ok
+true
+
+false
+</code></pre>
+<h3>3. 멀티 태그</h3>
+<p>여러 태그를 달 수도 있다.</p>
+<pre><code class="language-go"><span class="hljs-keyword">package</span> main
+
+<span class="hljs-keyword">import</span> (
+	<span class="hljs-string">&quot;fmt&quot;</span>
+	<span class="hljs-string">&quot;reflect&quot;</span>
+)
+
+<span class="hljs-keyword">type</span> Json <span class="hljs-keyword">struct</span> {
+	Ok   <span class="hljs-type">bool</span>   <span class="hljs-string">`json:&quot;ok&quot; xml:&quot;XmlOk&quot;`</span>
+	Data <span class="hljs-type">string</span> <span class="hljs-string">`json:&quot;data&quot;`</span>
+}
+
+<span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span> {
+	t := reflect.TypeOf(Json{})
+
+	f, _ := t.FieldByName(<span class="hljs-string">&quot;Ok&quot;</span>)
+	v, ok := f.Tag.Lookup(<span class="hljs-string">&quot;json&quot;</span>)
+
+	fmt.Println(v)
+	fmt.Println(ok)
+
+	v2, ok2 := f.Tag.Lookup(<span class="hljs-string">&quot;xml&quot;</span>)
+	fmt.Println(v2)
+	fmt.Println(ok2)
+}
+</code></pre>
+<p>출력</p>
+<pre><code>ok
+true
+XmlOk
+true
+</code></pre>
+<p>정상적으로 가져오는 모습을 볼 수 있다.</p>
+<h2>마치며</h2>
+<p>실제로 태그를 사용하는 무언가를 구현한다기 보다는 구현되어 있는 것을 활용할 일이 많을 것 이므로 몰라도 쓰는데 지장은 없다.</p>
+<p>그래도 사용하다보니 참으로 편리하고 깔끔한 기능구현이 되다보니 이게 무엇인가.. 싶은 마음에 찾아보고 정리해보았다.</p>
+
+</div>
+</div>
+<div class="kigui frame">
+<script src="https://utteranc.es/client.js"
+repo="lazyig/blog-comment"
+issue-term="pathname"
+label="blog-comment"
+theme="github-light"
+crossorigin="anonymous"
+async>
+</script>
+</div>
+</section>
+</body>
+</html>

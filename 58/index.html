@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>자바스크립트 Native Code, 간단한 속도 비교</title>
+<meta
+name="description"
+content="정적페이지로 운영하는 개발 블로그입니다."
+/>
+<link
+rel="shortcut icon"
+type="image/png"
+sizes="144x144"
+href="/static/favicon-144x144.png"
+/>
+<link
+rel="icon"
+type="image/png"
+sizes="16x16"
+href="/static/favicon-16x16.png"
+/>
+<link
+rel="icon"
+type="image/png"
+sizes="32x32"
+href="/static/favicon-32x32.png"
+/>
+<link
+rel="icon"
+type="image/png"
+sizes="192x192"
+href="/static/favicon-192x192.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="57x57"
+href="/static/apple-touch-icon-57x57.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="72x72"
+href="/static/apple-touch-icon-72x72.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="76x76"
+href="/static/apple-touch-icon-76x76.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="114x114"
+href="/static/apple-touch-icon-114x114.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="120x120"
+href="/static/apple-touch-icon-120x120.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="144x144"
+href="/static/apple-touch-icon-144x144.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="152x152"
+href="/static/apple-touch-icon-152x152.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="154x154"
+href="/static/apple-touch-icon-154x154.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="180x180"
+href="/static/apple-touch-icon-180x180.png"
+/>
+<link rel="stylesheet" href="/static/style.css">
+<meta name="theme-color" content="#ff5722">
+<meta property="og:type" content="website">
+<meta property="og:title" content="자바스크립트 Native Code, 간단한 속도 비교">
+<meta property="og:description" content="공부한 개발 정보를 공유합니다.">
+<meta property="og:image" content="https://devblog.lazyig.com/58//static/ogimg.png">
+<meta property="og:url" content="https://devblog.lazyig.com/58/">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8149987977999297" crossorigin="anonymous"></script>
+<link rel="stylesheet"
+href="/static/highlight.css">
+</head>
+<body class="kigui one">
+<header class="kigui header">
+<a href="/">
+<h1 class="title">
+메모용 개발 블로그
+</h1>
+</a>
+<div class="header-buttons">
+<span id="headerBtn" class="nav-header-btn"><img src="/static/menu-w.svg" alt="Menu"></span>
+</div>
+</header>
+<div class="kigui header-space"></div>
+<section class="kigui">
+<div id="navBar" class="nav-bar">
+
+<div class="nav-header">
+<span id="catToggle" class="nav-header-btn"><img src="/static/menu.svg" alt="Menu"></span>
+</div>
+<ul class="category">
+
+<li style="padding-left: 0px">
+<a href="/c/전체보기/1/">전체보기<span class="nav-cat-cnt">(99)</span></a>
+</li>
+
+<li style="padding-left: 15px">
+<a href="/c/OS/1/">OS<span class="nav-cat-cnt">(34)</span></a>
+</li>
+
+<li style="padding-left: 30px">
+<a href="/c/Linux/1/">Linux<span class="nav-cat-cnt">(23)</span></a>
+</li>
+
+
+<li style="padding-left: 30px">
+<a href="/c/MacOS/1/">MacOS<span class="nav-cat-cnt">(8)</span></a>
+</li>
+
+
+<li style="padding-left: 30px">
+<a href="/c/Windows/1/">Windows<span class="nav-cat-cnt">(3)</span></a>
+</li>
+
+
+
+<li style="padding-left: 15px">
+<a href="/c/데이터베이스/1/">데이터베이스<span class="nav-cat-cnt">(3)</span></a>
+</li>
+
+<li style="padding-left: 30px">
+<a href="/c/Oracle/1/">Oracle<span class="nav-cat-cnt">(1)</span></a>
+</li>
+
+
+<li style="padding-left: 30px">
+<a href="/c/Postgresql/1/">Postgresql<span class="nav-cat-cnt">(1)</span></a>
+</li>
+
+
+
+<li style="padding-left: 15px">
+<a href="/c/Develop/1/">Develop<span class="nav-cat-cnt">(20)</span></a>
+</li>
+
+<li style="padding-left: 30px">
+<a href="/c/CSS3/1/">CSS3<span class="nav-cat-cnt">(3)</span></a>
+</li>
+
+
+<li style="padding-left: 30px">
+<a href="/c/HTML5/1/">HTML5<span class="nav-cat-cnt">(2)</span></a>
+</li>
+
+
+<li style="padding-left: 30px">
+<a href="/c/JavaScript/1/">JavaScript<span class="nav-cat-cnt">(4)</span></a>
+</li>
+
+
+<li style="padding-left: 30px">
+<a href="/c/React/1/">React<span class="nav-cat-cnt">(1)</span></a>
+</li>
+
+
+<li style="padding-left: 30px">
+<a href="/c/Svelte/1/">Svelte<span class="nav-cat-cnt">(2)</span></a>
+</li>
+
+
+
+<li style="padding-left: 15px">
+<a href="/c/개발일기/1/">개발일기<span class="nav-cat-cnt">(9)</span></a>
+</li>
+
+
+<li style="padding-left: 15px">
+<a href="/c/Git/1/">Git<span class="nav-cat-cnt">(3)</span></a>
+</li>
+
+
+<li style="padding-left: 15px">
+<a href="/c/GitLab/1/">GitLab<span class="nav-cat-cnt">(11)</span></a>
+</li>
+
+
+<li style="padding-left: 15px">
+<a href="/c/Nginx/1/">Nginx<span class="nav-cat-cnt">(7)</span></a>
+</li>
+
+
+<li style="padding-left: 15px">
+<a href="/c/기타/1/">기타<span class="nav-cat-cnt">(9)</span></a>
+</li>
+
+
+<li style="padding-left: 15px">
+<a href="/c/이 블로그의 오픈소스/1/">이 블로그의 오픈소스<span class="nav-cat-cnt">(3)</span></a>
+</li>
+
+
+
+</ul>
+</div>
+<script>
+let catToggle = document.getElementById("catToggle");
+let headerBtn = document.getElementById("headerBtn");
+let navBar = document.getElementById("navBar");
+catToggle.addEventListener("click", () => {
+navBar.classList.toggle("show");
+});
+headerBtn.addEventListener("click", () => {
+navBar.classList.toggle("show");
+})
+</script>
+<div class="kigui frame">
+<p class="category-path">
+
+<a href="/c/전체보기/1/">전체보기</a>
+<span> > </span>
+
+<a href="/c/Develop/1/">Develop</a>
+<span> > </span>
+
+<a href="/c/JavaScript/1/">JavaScript</a>
+<span> > </span>
+
+</p>
+<h1 class="article-title"><a href="https://devblog.lazyig.com/58/">자바스크립트 Native Code, 간단한 속도 비교</a></h1>
+<p class="write-date">2022-02-25 02:29:23</p>
+<div class="markdown-body">
+<h2>본론</h2>
+<p>종종 기본 제공 메소드들을 로그 찍어보면 Native Code라는 출력을 볼 수 있다.</p>
+<pre><code>&gt; console.log(Promise)
+VM130:1 ƒ Promise() { [native code] }
+</code></pre>
+<p>이러한 메소드들은 브라우저 자체에 컴파일되어 있기 때문에 내부 코드를 볼 수 없다.</p>
+<p>컴파일된 기본 내장함수들은 C나 C++등으로 개발하여 Js가 실행되는 환경 자체에 탑재되어 있기 때문에 호출 시에 우수한 속도를 보여준다.</p>
+<h2>번외 1</h2>
+<p>유명한 자바스크립트 엔진 중에 하나인 v8은 오픈소스이므로 들어가서 작성된 코드를 확인해볼 수도 있다.</p>
+<p>https://github.com/v8/v8</p>
+<h2>번외 2</h2>
+<p>평소에는 당연한 듯이 사용하는 기능이지만 가끔 동일한 기능에 대해서 네이티브 코드와 Js코드의 속도차이를 볼 만한 상황이 있는데.</p>
+<p>대표적으로 Promise가 있다.</p>
+<p>Promise는 IE에서 지원하지 않는 대표적인 기능중 하나이나 별도의 문법을 지닌 형태의 기능이 아니다보니 babel으로 변환하거나 혹은 polyfill 코드를 그대로 넣어서 IE에서도 Promise를 사용하기도 한다.</p>
+<p>그래서 Promise를 통한 속도 비교를 해보겠다.</p>
+<h3>실험 환경</h3>
+<pre><code class="language-js"><span class="hljs-keyword">let</span> run = <span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) {
+    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">time</span>();
+    <span class="hljs-keyword">var</span> promise = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Promise</span>(<span class="hljs-keyword">function</span>(<span class="hljs-params">resolve, reject</span>) {
+        <span class="hljs-title function_">resolve</span>(<span class="hljs-string">&quot;Hello&quot;</span>);
+    });
+    promise.<span class="hljs-title function_">then</span>(<span class="hljs-keyword">function</span>(<span class="hljs-params">v</span>) {
+        <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(v);
+        <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">timeEnd</span>();
+    });
+}
+</code></pre>
+<p>위와 같이 간단한 코드를 사용하였다.</p>
+<p>실행환경 : Chrome - 버전 98.0.4758.102(공식 빌드) (arm64)</p>
+<h4>polyfill 코드</h4>
+<p>polyfill코드는 https://www.npmjs.com/package/promise-polyfill 해당 링크에서 min으로 압축된 코드를 받아서 마지막단에 무조건 기존의 Promise를 대체하도록만 간단한 수정만 해주었다.</p>
+<pre><code>&gt; Promise
+ƒ r(e){if(!(this instanceof r))throw new TypeError(&quot;Promises must be constructed via new&quot;);if(&quot;function&quot;!=typeof e)throw new TypeError(&quot;not a function&quot;);this._state=0,this._handled=!1,this._value=undef…
+&gt; run();
+undefined
+(index):15 Hello
+(index):16 default: 1.640869140625 ms
+&gt; run();
+undefined
+(index):15 Hello
+(index):16 default: 1.29296875 ms
+&gt; run();
+undefined
+(index):15 Hello
+(index):16 default: 1.596923828125 ms
+</code></pre>
+<h4>Native 코드</h4>
+<pre><code>&gt; Promise
+ƒ Promise() { [native code] }
+&gt; run();
+(index):14 Hello
+(index):15 default: 0.194091796875 ms
+undefined
+&gt; run();
+(index):14 Hello
+(index):15 default: 0.218994140625 ms
+undefined
+&gt; run();
+(index):14 Hello
+(index):15 default: 0.170166015625 ms
+undefined
+</code></pre>
+<p>네이티브 코드가 압도적으로 빠른 결과를 보여주는 모습을 볼 수 있다.</p>
+
+</div>
+</div>
+<div class="kigui frame">
+<script src="https://utteranc.es/client.js"
+repo="lazyig/blog-comment"
+issue-term="pathname"
+label="blog-comment"
+theme="github-light"
+crossorigin="anonymous"
+async>
+</script>
+</div>
+</section>
+</body>
+</html>

@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>도커 이미지 설치 위치 변경</title>
+<meta
+name="description"
+content="정적페이지로 운영하는 개발 블로그입니다."
+/>
+<link
+rel="shortcut icon"
+type="image/png"
+sizes="144x144"
+href="/static/favicon-144x144.png"
+/>
+<link
+rel="icon"
+type="image/png"
+sizes="16x16"
+href="/static/favicon-16x16.png"
+/>
+<link
+rel="icon"
+type="image/png"
+sizes="32x32"
+href="/static/favicon-32x32.png"
+/>
+<link
+rel="icon"
+type="image/png"
+sizes="192x192"
+href="/static/favicon-192x192.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="57x57"
+href="/static/apple-touch-icon-57x57.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="72x72"
+href="/static/apple-touch-icon-72x72.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="76x76"
+href="/static/apple-touch-icon-76x76.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="114x114"
+href="/static/apple-touch-icon-114x114.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="120x120"
+href="/static/apple-touch-icon-120x120.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="144x144"
+href="/static/apple-touch-icon-144x144.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="152x152"
+href="/static/apple-touch-icon-152x152.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="154x154"
+href="/static/apple-touch-icon-154x154.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="180x180"
+href="/static/apple-touch-icon-180x180.png"
+/>
+<link rel="stylesheet" href="/static/style.css">
+<meta name="theme-color" content="#ff5722">
+<meta property="og:type" content="website">
+<meta property="og:title" content="도커 이미지 설치 위치 변경">
+<meta property="og:description" content="공부한 개발 정보를 공유합니다.">
+<meta property="og:image" content="https://devblog.lazyig.com/103//static/ogimg.png">
+<meta property="og:url" content="https://devblog.lazyig.com/103/">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8149987977999297" crossorigin="anonymous"></script>
+<link rel="stylesheet"
+href="/static/highlight.css">
+</head>
+<body class="kigui one">
+<header class="kigui header">
+<a href="/">
+<h1 class="title">
+메모용 개발 블로그
+</h1>
+</a>
+<div class="header-buttons">
+<span id="headerBtn" class="nav-header-btn"><img src="/static/menu-w.svg" alt="Menu"></span>
+</div>
+</header>
+<div class="kigui header-space"></div>
+<section class="kigui">
+<div id="navBar" class="nav-bar">
+
+<div class="nav-header">
+<span id="catToggle" class="nav-header-btn"><img src="/static/menu.svg" alt="Menu"></span>
+</div>
+<ul class="category">
+
+<li style="padding-left: 0px">
+<a href="/c/전체보기/1/">전체보기<span class="nav-cat-cnt">(99)</span></a>
+</li>
+
+<li style="padding-left: 15px">
+<a href="/c/OS/1/">OS<span class="nav-cat-cnt">(34)</span></a>
+</li>
+
+<li style="padding-left: 30px">
+<a href="/c/Linux/1/">Linux<span class="nav-cat-cnt">(23)</span></a>
+</li>
+
+
+<li style="padding-left: 30px">
+<a href="/c/MacOS/1/">MacOS<span class="nav-cat-cnt">(8)</span></a>
+</li>
+
+
+<li style="padding-left: 30px">
+<a href="/c/Windows/1/">Windows<span class="nav-cat-cnt">(3)</span></a>
+</li>
+
+
+
+<li style="padding-left: 15px">
+<a href="/c/데이터베이스/1/">데이터베이스<span class="nav-cat-cnt">(3)</span></a>
+</li>
+
+<li style="padding-left: 30px">
+<a href="/c/Oracle/1/">Oracle<span class="nav-cat-cnt">(1)</span></a>
+</li>
+
+
+<li style="padding-left: 30px">
+<a href="/c/Postgresql/1/">Postgresql<span class="nav-cat-cnt">(1)</span></a>
+</li>
+
+
+
+<li style="padding-left: 15px">
+<a href="/c/Develop/1/">Develop<span class="nav-cat-cnt">(20)</span></a>
+</li>
+
+<li style="padding-left: 30px">
+<a href="/c/CSS3/1/">CSS3<span class="nav-cat-cnt">(3)</span></a>
+</li>
+
+
+<li style="padding-left: 30px">
+<a href="/c/HTML5/1/">HTML5<span class="nav-cat-cnt">(2)</span></a>
+</li>
+
+
+<li style="padding-left: 30px">
+<a href="/c/JavaScript/1/">JavaScript<span class="nav-cat-cnt">(4)</span></a>
+</li>
+
+
+<li style="padding-left: 30px">
+<a href="/c/React/1/">React<span class="nav-cat-cnt">(1)</span></a>
+</li>
+
+
+<li style="padding-left: 30px">
+<a href="/c/Svelte/1/">Svelte<span class="nav-cat-cnt">(2)</span></a>
+</li>
+
+
+
+<li style="padding-left: 15px">
+<a href="/c/개발일기/1/">개발일기<span class="nav-cat-cnt">(9)</span></a>
+</li>
+
+
+<li style="padding-left: 15px">
+<a href="/c/Git/1/">Git<span class="nav-cat-cnt">(3)</span></a>
+</li>
+
+
+<li style="padding-left: 15px">
+<a href="/c/GitLab/1/">GitLab<span class="nav-cat-cnt">(11)</span></a>
+</li>
+
+
+<li style="padding-left: 15px">
+<a href="/c/Nginx/1/">Nginx<span class="nav-cat-cnt">(7)</span></a>
+</li>
+
+
+<li style="padding-left: 15px">
+<a href="/c/기타/1/">기타<span class="nav-cat-cnt">(9)</span></a>
+</li>
+
+
+<li style="padding-left: 15px">
+<a href="/c/이 블로그의 오픈소스/1/">이 블로그의 오픈소스<span class="nav-cat-cnt">(3)</span></a>
+</li>
+
+
+
+</ul>
+</div>
+<script>
+let catToggle = document.getElementById("catToggle");
+let headerBtn = document.getElementById("headerBtn");
+let navBar = document.getElementById("navBar");
+catToggle.addEventListener("click", () => {
+navBar.classList.toggle("show");
+});
+headerBtn.addEventListener("click", () => {
+navBar.classList.toggle("show");
+})
+</script>
+<div class="kigui frame">
+<p class="category-path">
+
+<a href="/c/전체보기/1/">전체보기</a>
+<span> > </span>
+
+<a href="/c/OS/1/">OS</a>
+<span> > </span>
+
+<a href="/c/Linux/1/">Linux</a>
+<span> > </span>
+
+</p>
+<h1 class="article-title"><a href="https://devblog.lazyig.com/103/">도커 이미지 설치 위치 변경</a></h1>
+<p class="write-date">2023-04-05 13:30:18</p>
+<div class="markdown-body">
+<p>도커의 이미지는 예상은 하지만 역시나 용량이 크다.</p>
+<p>필요없는 이미지를 정리하면서 사용하면서 사용하여 해결되면 좋겠으나, 원래부터 용량이 작다면 결국 새로운 디스크를 구매하게 된다.</p>
+<pre><code class="language-sh">sudo <span class="hljs-built_in">df</span> -h
+</code></pre>
+<pre><code>...
+/dev/sdb2       228G  192G   25G  89% /
+...
+</code></pre>
+<p>이렇게 250 GB의 SSD로는 필요없는 이미지를 주기적으로 지운다고 해도 애시당초에 용량이 부족한 셈이다.</p>
+<p>그렇기에 새로운 디스크를 구매하고 이 디스크 내의 경로로 도커 이미지를 저장할 예정이다.</p>
+<p>새로운 디스크의 파티션부터 포맷은 이 글을 참고.</p>
+<p><a href="/68">리눅스 하드디스크 연결(Parted)</a></p>
+<pre><code>/dev/sdc1       1.8T   28K  1.7T   1% /mnt/ssd1
+</code></pre>
+<p>새롭게 구매한 디스크는 <code>/mnt/ssd1</code>에 마운트 해놓았다.</p>
+<h2>기존 이미지 저장 위치 확인</h2>
+<p>기존 저장 위치는 <code>/var/lib/docker</code>위치에 저장된다.</p>
+<p>더 확실하게 알고 넘어가고자 한다면 <code>docker info</code> 명령어를 통해서 알 수 있다.</p>
+<pre><code class="language-sh">sudo docker info | grep Dir
+</code></pre>
+<p>위 명령어를 입력하면 아래처럼 결과가 나온다.</p>
+<pre><code>Docker Root Dir: /var/lib/docker
+</code></pre>
+<h2>이미지 저장 위치 변경</h2>
+<p>변경에는 두 가지 방법이 있으니 편한 것으로 변경하면 된다.</p>
+<p>안정적인 작업을 위하여 시작전 도커 서비스를 내린다.</p>
+<pre><code class="language-sh">sudo systemctl stop docker
+</code></pre>
+<h3>1. 설정 파일</h3>
+<p><code>/etc/docker/daemon.json</code>파일을 수정하면 된다. 없다면 생성한다.</p>
+<pre><code class="language-sh">sudo vim /etc/docker/daemon.json
+</code></pre>
+<pre><code class="language-json"><span class="hljs-punctuation">{</span>
+  <span class="hljs-attr">&quot;data-root&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;경로&quot;</span>
+<span class="hljs-punctuation">}</span>
+</code></pre>
+<p>위 처럼 입력하고 서비스를 다시 켠다.</p>
+<h3>2. 실행 인수</h3>
+<p>도커 서비스를 실행할 때 인수로 저장 경로를 지정하는 방식이다.</p>
+<p>실행 시 <code>--data-root</code>옵션에 경로를 추가하면 된다.</p>
+<pre><code class="language-sh">sudo vim /lib/systemd/system/docker.service
+</code></pre>
+<pre><code>[Service]
+ExecStart=/usr/bin/dockerd -H fd:// --containerd=/run/containerd/containerd.sock --data-root=경로
+</code></pre>
+<p>서비스 설정을 변경하였으므로 다시 불러와야한다.</p>
+<pre><code class="language-sh">sudo systemctl daemon-reload
+</code></pre>
+<h2>도커 재시작</h2>
+<pre><code class="language-sh">sudo systemctl start docker
+</code></pre>
+<p>이후 제대로 적용되었는지 확인하고 기존의 컨테이너들도 다시 올려서 정상 동작하는지 반드시 확인한다.</p>
+<pre><code>sudo docker info
+</code></pre>
+
+</div>
+</div>
+<div class="kigui frame">
+<script src="https://utteranc.es/client.js"
+repo="lazyig/blog-comment"
+issue-term="pathname"
+label="blog-comment"
+theme="github-light"
+crossorigin="anonymous"
+async>
+</script>
+</div>
+</section>
+</body>
+</html>

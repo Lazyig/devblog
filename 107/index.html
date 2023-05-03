@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GitLab+Docker+Nginx+ReverseProxy 환경 container registry</title>
+<meta
+name="description"
+content="정적페이지로 운영하는 개발 블로그입니다."
+/>
+<link
+rel="shortcut icon"
+type="image/png"
+sizes="144x144"
+href="/static/favicon-144x144.png"
+/>
+<link
+rel="icon"
+type="image/png"
+sizes="16x16"
+href="/static/favicon-16x16.png"
+/>
+<link
+rel="icon"
+type="image/png"
+sizes="32x32"
+href="/static/favicon-32x32.png"
+/>
+<link
+rel="icon"
+type="image/png"
+sizes="192x192"
+href="/static/favicon-192x192.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="57x57"
+href="/static/apple-touch-icon-57x57.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="72x72"
+href="/static/apple-touch-icon-72x72.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="76x76"
+href="/static/apple-touch-icon-76x76.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="114x114"
+href="/static/apple-touch-icon-114x114.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="120x120"
+href="/static/apple-touch-icon-120x120.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="144x144"
+href="/static/apple-touch-icon-144x144.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="152x152"
+href="/static/apple-touch-icon-152x152.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="154x154"
+href="/static/apple-touch-icon-154x154.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="180x180"
+href="/static/apple-touch-icon-180x180.png"
+/>
+<link rel="stylesheet" href="/static/style.css">
+<meta name="theme-color" content="#ff5722">
+<meta property="og:type" content="website">
+<meta property="og:title" content="GitLab+Docker+Nginx+ReverseProxy 환경 container registry">
+<meta property="og:description" content="공부한 개발 정보를 공유합니다.">
+<meta property="og:image" content="https://devblog.lazyig.com/107//static/ogimg.png">
+<meta property="og:url" content="https://devblog.lazyig.com/107/">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8149987977999297" crossorigin="anonymous"></script>
+<link rel="stylesheet"
+href="/static/highlight.css">
+</head>
+<body class="kigui one">
+<header class="kigui header">
+<a href="/">
+<h1 class="title">
+메모용 개발 블로그
+</h1>
+</a>
+<div class="header-buttons">
+<span id="headerBtn" class="nav-header-btn"><img src="/static/menu-w.svg" alt="Menu"></span>
+</div>
+</header>
+<div class="kigui header-space"></div>
+<section class="kigui">
+<div id="navBar" class="nav-bar">
+
+<div class="nav-header">
+<span id="catToggle" class="nav-header-btn"><img src="/static/menu.svg" alt="Menu"></span>
+</div>
+<ul class="category">
+
+<li style="padding-left: 0px">
+<a href="/c/전체보기/1/">전체보기<span class="nav-cat-cnt">(99)</span></a>
+</li>
+
+<li style="padding-left: 15px">
+<a href="/c/OS/1/">OS<span class="nav-cat-cnt">(34)</span></a>
+</li>
+
+<li style="padding-left: 30px">
+<a href="/c/Linux/1/">Linux<span class="nav-cat-cnt">(23)</span></a>
+</li>
+
+
+<li style="padding-left: 30px">
+<a href="/c/MacOS/1/">MacOS<span class="nav-cat-cnt">(8)</span></a>
+</li>
+
+
+<li style="padding-left: 30px">
+<a href="/c/Windows/1/">Windows<span class="nav-cat-cnt">(3)</span></a>
+</li>
+
+
+
+<li style="padding-left: 15px">
+<a href="/c/데이터베이스/1/">데이터베이스<span class="nav-cat-cnt">(3)</span></a>
+</li>
+
+<li style="padding-left: 30px">
+<a href="/c/Oracle/1/">Oracle<span class="nav-cat-cnt">(1)</span></a>
+</li>
+
+
+<li style="padding-left: 30px">
+<a href="/c/Postgresql/1/">Postgresql<span class="nav-cat-cnt">(1)</span></a>
+</li>
+
+
+
+<li style="padding-left: 15px">
+<a href="/c/Develop/1/">Develop<span class="nav-cat-cnt">(20)</span></a>
+</li>
+
+<li style="padding-left: 30px">
+<a href="/c/CSS3/1/">CSS3<span class="nav-cat-cnt">(3)</span></a>
+</li>
+
+
+<li style="padding-left: 30px">
+<a href="/c/HTML5/1/">HTML5<span class="nav-cat-cnt">(2)</span></a>
+</li>
+
+
+<li style="padding-left: 30px">
+<a href="/c/JavaScript/1/">JavaScript<span class="nav-cat-cnt">(4)</span></a>
+</li>
+
+
+<li style="padding-left: 30px">
+<a href="/c/React/1/">React<span class="nav-cat-cnt">(1)</span></a>
+</li>
+
+
+<li style="padding-left: 30px">
+<a href="/c/Svelte/1/">Svelte<span class="nav-cat-cnt">(2)</span></a>
+</li>
+
+
+
+<li style="padding-left: 15px">
+<a href="/c/개발일기/1/">개발일기<span class="nav-cat-cnt">(9)</span></a>
+</li>
+
+
+<li style="padding-left: 15px">
+<a href="/c/Git/1/">Git<span class="nav-cat-cnt">(3)</span></a>
+</li>
+
+
+<li style="padding-left: 15px">
+<a href="/c/GitLab/1/">GitLab<span class="nav-cat-cnt">(11)</span></a>
+</li>
+
+
+<li style="padding-left: 15px">
+<a href="/c/Nginx/1/">Nginx<span class="nav-cat-cnt">(7)</span></a>
+</li>
+
+
+<li style="padding-left: 15px">
+<a href="/c/기타/1/">기타<span class="nav-cat-cnt">(9)</span></a>
+</li>
+
+
+<li style="padding-left: 15px">
+<a href="/c/이 블로그의 오픈소스/1/">이 블로그의 오픈소스<span class="nav-cat-cnt">(3)</span></a>
+</li>
+
+
+
+</ul>
+</div>
+<script>
+let catToggle = document.getElementById("catToggle");
+let headerBtn = document.getElementById("headerBtn");
+let navBar = document.getElementById("navBar");
+catToggle.addEventListener("click", () => {
+navBar.classList.toggle("show");
+});
+headerBtn.addEventListener("click", () => {
+navBar.classList.toggle("show");
+})
+</script>
+<div class="kigui frame">
+<p class="category-path">
+
+<a href="/c/전체보기/1/">전체보기</a>
+<span> > </span>
+
+<a href="/c/GitLab/1/">GitLab</a>
+<span> > </span>
+
+</p>
+<h1 class="article-title"><a href="https://devblog.lazyig.com/107/">GitLab+Docker+Nginx+ReverseProxy 환경 container registry</a></h1>
+<p class="write-date">2023-05-02 16:08:54</p>
+<div class="markdown-body">
+<h2>환경</h2>
+<p>아래와 같은 환경에서 GitLab Container Registry를 활성화하여 사용하는 과정을 메모하였다.</p>
+<p>GitLab은 Gitlab CE 15.10.1 버전을 도커로 운용하고 있으며, GitLab 자체 Nginx가 구동되고 있다.</p>
+<p>또한 다른 컨테이너에서 Nginx를 구동하여 GitLab을 리버스 프록시로 바라보며 외부에 서비스하고 있다.</p>
+<p>Nginx 컨테이너와 GitLab 컨테이너는 동일한 네트워크로 묶여있으며, 각각 nginx, gitlab 이라는 컨테이너명으로 서로 접근한다.</p>
+<h2>구축하고자 하는 환경</h2>
+<p>별도의 컨테이너에 구축된 Nginx에 접근한 뒤 도메인에 따라(vhost) gitlab 웹 페이지(80)와 레지스트리(5050)포트로 역방향 프록시를 걸어준다.</p>
+<p>여기서는 GitLab 도커 컨테이너 내부의 Nginx는 유지한다.</p>
+<h2>GitLab 설정</h2>
+<p><code>compose.yml</code>파일 수정 혹은 <code>gitlab.rb</code>파일 수정</p>
+<pre><code class="language-ruby"><span class="hljs-comment"># Registry Config</span>
+registry[<span class="hljs-string">&#x27;enable&#x27;</span>] = <span class="hljs-literal">true</span>
+registry_external_url <span class="hljs-string">&#x27;도메인&#x27;</span>
+
+<span class="hljs-comment"># Registry Nginx Config</span>
+registry_nginx[<span class="hljs-string">&#x27;enable&#x27;</span>] = <span class="hljs-literal">true</span>
+registry_nginx[<span class="hljs-string">&#x27;listen_port&#x27;</span>] = <span class="hljs-number">5050</span>
+registry_nginx[<span class="hljs-string">&#x27;listen_https&#x27;</span>] = <span class="hljs-literal">false</span>
+registry_nginx[<span class="hljs-string">&#x27;proxy_set_headers&#x27;</span>] = {
+  <span class="hljs-string">&quot;X-Forwarded-Proto&quot;</span> =&gt; <span class="hljs-string">&quot;https&quot;</span>,
+  <span class="hljs-string">&quot;X-Forwarded-Ssl&quot;</span> =&gt; <span class="hljs-string">&quot;on&quot;</span>
+}
+</code></pre>
+<p>위 설정을 추가한다.</p>
+<p>이렇게하면 registry nginx는 사용하면서 http로 제공하며 로드밸런서에 접속 시 어떤 프로토콜을 이용했는지 명시한다.</p>
+<p>컨테이너 레지스트리는 https 프로토콜을 필수로 사용하도록 하고 있으며, 사용하지 않는 방법은 안전하지도 않고 귀찮은 설정을 동반한다.</p>
+<h2>Nginx 설정</h2>
+<pre><code class="language-nginx"><span class="hljs-section">server</span> {
+  <span class="hljs-attribute">listen</span> <span class="hljs-number">80</span>;
+  <span class="hljs-attribute">listen</span> [::]:<span class="hljs-number">80</span>;
+
+  <span class="hljs-attribute">server_name</span> 도메인;
+  <span class="hljs-attribute">server_tokens</span> <span class="hljs-literal">off</span>;
+  <span class="hljs-attribute">return</span> <span class="hljs-number">301</span> https://<span class="hljs-variable">$http_host</span><span class="hljs-variable">$request_uri</span>;
+  <span class="hljs-attribute">access_log</span>  /var/log/nginx/gitlab_access.log;
+  <span class="hljs-attribute">error_log</span>   /var/log/nginx/gitlab_error.log;
+}
+
+<span class="hljs-comment">## HTTPS host</span>
+<span class="hljs-section">server</span> {
+  <span class="hljs-attribute">listen</span> <span class="hljs-number">443</span> http2 ssl;
+  <span class="hljs-attribute">listen</span> [::]:<span class="hljs-number">443</span> http2 ssl;
+  <span class="hljs-attribute">server_name</span> 도메인;
+  <span class="hljs-attribute">server_tokens</span> <span class="hljs-literal">off</span>;
+
+  <span class="hljs-attribute">ssl_certificate</span>  /etc/letsencrypt/live/도메인/fullchain.pem;
+  <span class="hljs-attribute">ssl_certificate_key</span>  /etc/letsencrypt/live/도메인/privkey.pem;
+
+  <span class="hljs-comment"># GitLab needs backwards compatible ciphers to retain compatibility with Java IDEs</span>
+  <span class="hljs-attribute">ssl_ciphers</span> <span class="hljs-string">&quot;ECDHE-RSA-AES256-GCM-SHA384:ECDHE-RSA-AES128-GCM-SHA256:ECDHE-RSA-AES256-SHA384:ECDHE-RSA-AES128-SHA256:ECDHE-RSA-AES256-SHA:ECDHE-RSA-AES128-SHA:ECDHE-RSA-DES-CBC3-SHA:AES256-GCM-SHA384:AES128-GCM-SHA256:AES256-SHA256:AES128-SHA256:AES256-SHA:AES128-SHA:DES-CBC3-SHA:!aNULL:!eNULL:!EXPORT:!DES:!MD5:!PSK:!RC4&quot;</span>;
+  <span class="hljs-attribute">ssl_protocols</span> TLSv1 TLSv1.<span class="hljs-number">1</span> TLSv1.<span class="hljs-number">2</span>;
+  <span class="hljs-attribute">ssl_prefer_server_ciphers</span> <span class="hljs-literal">on</span>;
+  <span class="hljs-attribute">ssl_session_cache</span> shared:SSL:<span class="hljs-number">10m</span>;
+  <span class="hljs-attribute">ssl_session_timeout</span> <span class="hljs-number">5m</span>;
+
+  <span class="hljs-comment">## Individual nginx logs for this GitLab vhost</span>
+  <span class="hljs-attribute">access_log</span>  /var/log/nginx/gitlab_access.log;
+  <span class="hljs-attribute">error_log</span>   /var/log/nginx/gitlab_error.log;
+
+  <span class="hljs-section">location</span> / {
+    <span class="hljs-attribute">client_max_body_size</span> <span class="hljs-number">0</span>;
+    <span class="hljs-attribute">gzip</span> <span class="hljs-literal">off</span>;
+
+    <span class="hljs-attribute">proxy_read_timeout</span>      <span class="hljs-number">300</span>;
+    <span class="hljs-attribute">proxy_connect_timeout</span>   <span class="hljs-number">300</span>;
+    <span class="hljs-attribute">proxy_redirect</span>          <span class="hljs-literal">off</span>;
+
+    <span class="hljs-attribute">proxy_http_version</span> <span class="hljs-number">1</span>.<span class="hljs-number">1</span>;
+
+    <span class="hljs-attribute">proxy_set_header</span>    Host                <span class="hljs-variable">$http_host</span>;
+    <span class="hljs-attribute">proxy_set_header</span>    X-Real-IP           <span class="hljs-variable">$remote_addr</span>;
+    <span class="hljs-attribute">proxy_set_header</span>    X-Forwarded-Ssl     <span class="hljs-literal">on</span>;
+    <span class="hljs-attribute">proxy_set_header</span>    X-Forwarded-For     <span class="hljs-variable">$proxy_add_x_forwarded_for</span>;
+    <span class="hljs-attribute">proxy_set_header</span>    X-Forwarded-Proto   <span class="hljs-variable">$scheme</span>;
+    
+    <span class="hljs-attribute">proxy_pass</span> http://gitlab:5050; <span class="hljs-comment"># GitLab 컨테이너</span>
+  }
+}
+</code></pre>
+<h2>확인</h2>
+<p>설정을 마쳤다면 모든 서비스를 재시작해주어야 한다.</p>
+<h3>nginx</h3>
+<p>우선 nginx 문법 검사를 수행하여 문제가 없는지 확인한다.</p>
+<pre><code class="language-sh">sudo docker <span class="hljs-built_in">exec</span> -it nginx nginx -t
+</code></pre>
+<p>문제가 없다면 reload 해준다.</p>
+<pre><code class="language-sh">sudo docker <span class="hljs-built_in">exec</span> -it nginx nginx -s reload
+</code></pre>
+<h3>GitLab</h3>
+<p>GitLab은 <code>compose.yaml</code>파일을 수정하였으므로 컨테이너를 다시 올려준다.</p>
+<pre><code class="language-sh">sudo docker compose up -d
+</code></pre>
+<p>이후 아래 명령어를 통해서 GitLab에 올라가 있는 서비스를 확인할 수 있다.</p>
+<pre><code class="language-sh">sudo docker <span class="hljs-built_in">exec</span> -it gitlab gitlab-ctl status
+</code></pre>
+<p>서비스들이 올라오는데 다소 시간이 걸릴 수 있다.</p>
+<p><code>registry</code> 라는 서비스가 올라와있는지 확인하고 GItLab에 접속한다.</p>
+<p><img src="/static/img-E_gZSYcPDxo2aqGsL94F2Dq4Z5DOk8z1JzdQZvgX4hU.png" alt="image-20230503010628052"></p>
+<p>위 사진 처럼 아무 저장소에 들어가서 <code>Packages and registries</code>에 <code>Container Registry</code>가 추가되면 사용할 수 있다.</p>
+<p>해당 화면 하단에 사용 명령어로 간단하게 명시되어 있다.</p>
+
+</div>
+</div>
+<div class="kigui frame">
+<script src="https://utteranc.es/client.js"
+repo="lazyig/blog-comment"
+issue-term="pathname"
+label="blog-comment"
+theme="github-light"
+crossorigin="anonymous"
+async>
+</script>
+</div>
+</section>
+</body>
+</html>

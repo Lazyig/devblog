@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>리눅스 우분투 postgresql 설치 및 설정</title>
+<meta
+name="description"
+content="정적페이지로 운영하는 개발 블로그입니다."
+/>
+<link
+rel="shortcut icon"
+type="image/png"
+sizes="144x144"
+href="/static/favicon-144x144.png"
+/>
+<link
+rel="icon"
+type="image/png"
+sizes="16x16"
+href="/static/favicon-16x16.png"
+/>
+<link
+rel="icon"
+type="image/png"
+sizes="32x32"
+href="/static/favicon-32x32.png"
+/>
+<link
+rel="icon"
+type="image/png"
+sizes="192x192"
+href="/static/favicon-192x192.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="57x57"
+href="/static/apple-touch-icon-57x57.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="72x72"
+href="/static/apple-touch-icon-72x72.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="76x76"
+href="/static/apple-touch-icon-76x76.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="114x114"
+href="/static/apple-touch-icon-114x114.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="120x120"
+href="/static/apple-touch-icon-120x120.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="144x144"
+href="/static/apple-touch-icon-144x144.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="152x152"
+href="/static/apple-touch-icon-152x152.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="154x154"
+href="/static/apple-touch-icon-154x154.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="180x180"
+href="/static/apple-touch-icon-180x180.png"
+/>
+<link rel="stylesheet" href="/static/style.css">
+<meta name="theme-color" content="#ff5722">
+<meta property="og:type" content="website">
+<meta property="og:title" content="리눅스 우분투 postgresql 설치 및 설정">
+<meta property="og:description" content="공부한 개발 정보를 공유합니다.">
+<meta property="og:image" content="https://devblog.lazyig.com/35//static/ogimg.png">
+<meta property="og:url" content="https://devblog.lazyig.com/35/">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8149987977999297" crossorigin="anonymous"></script>
+<link rel="stylesheet"
+href="/static/highlight.css">
+</head>
+<body class="kigui one">
+<header class="kigui header">
+<a href="/">
+<h1 class="title">
+메모용 개발 블로그
+</h1>
+</a>
+<div class="header-buttons">
+<span id="headerBtn" class="nav-header-btn"><img src="/static/menu-w.svg" alt="Menu"></span>
+</div>
+</header>
+<div class="kigui header-space"></div>
+<section class="kigui">
+<div id="navBar" class="nav-bar">
+
+<div class="nav-header">
+<span id="catToggle" class="nav-header-btn"><img src="/static/menu.svg" alt="Menu"></span>
+</div>
+<ul class="category">
+
+<li style="padding-left: 0px">
+<a href="/c/전체보기/1/">전체보기<span class="nav-cat-cnt">(99)</span></a>
+</li>
+
+<li style="padding-left: 15px">
+<a href="/c/OS/1/">OS<span class="nav-cat-cnt">(34)</span></a>
+</li>
+
+<li style="padding-left: 30px">
+<a href="/c/Linux/1/">Linux<span class="nav-cat-cnt">(23)</span></a>
+</li>
+
+
+<li style="padding-left: 30px">
+<a href="/c/MacOS/1/">MacOS<span class="nav-cat-cnt">(8)</span></a>
+</li>
+
+
+<li style="padding-left: 30px">
+<a href="/c/Windows/1/">Windows<span class="nav-cat-cnt">(3)</span></a>
+</li>
+
+
+
+<li style="padding-left: 15px">
+<a href="/c/데이터베이스/1/">데이터베이스<span class="nav-cat-cnt">(3)</span></a>
+</li>
+
+<li style="padding-left: 30px">
+<a href="/c/Oracle/1/">Oracle<span class="nav-cat-cnt">(1)</span></a>
+</li>
+
+
+<li style="padding-left: 30px">
+<a href="/c/Postgresql/1/">Postgresql<span class="nav-cat-cnt">(1)</span></a>
+</li>
+
+
+
+<li style="padding-left: 15px">
+<a href="/c/Develop/1/">Develop<span class="nav-cat-cnt">(20)</span></a>
+</li>
+
+<li style="padding-left: 30px">
+<a href="/c/CSS3/1/">CSS3<span class="nav-cat-cnt">(3)</span></a>
+</li>
+
+
+<li style="padding-left: 30px">
+<a href="/c/HTML5/1/">HTML5<span class="nav-cat-cnt">(2)</span></a>
+</li>
+
+
+<li style="padding-left: 30px">
+<a href="/c/JavaScript/1/">JavaScript<span class="nav-cat-cnt">(4)</span></a>
+</li>
+
+
+<li style="padding-left: 30px">
+<a href="/c/React/1/">React<span class="nav-cat-cnt">(1)</span></a>
+</li>
+
+
+<li style="padding-left: 30px">
+<a href="/c/Svelte/1/">Svelte<span class="nav-cat-cnt">(2)</span></a>
+</li>
+
+
+
+<li style="padding-left: 15px">
+<a href="/c/개발일기/1/">개발일기<span class="nav-cat-cnt">(9)</span></a>
+</li>
+
+
+<li style="padding-left: 15px">
+<a href="/c/Git/1/">Git<span class="nav-cat-cnt">(3)</span></a>
+</li>
+
+
+<li style="padding-left: 15px">
+<a href="/c/GitLab/1/">GitLab<span class="nav-cat-cnt">(11)</span></a>
+</li>
+
+
+<li style="padding-left: 15px">
+<a href="/c/Nginx/1/">Nginx<span class="nav-cat-cnt">(7)</span></a>
+</li>
+
+
+<li style="padding-left: 15px">
+<a href="/c/기타/1/">기타<span class="nav-cat-cnt">(9)</span></a>
+</li>
+
+
+<li style="padding-left: 15px">
+<a href="/c/이 블로그의 오픈소스/1/">이 블로그의 오픈소스<span class="nav-cat-cnt">(3)</span></a>
+</li>
+
+
+
+</ul>
+</div>
+<script>
+let catToggle = document.getElementById("catToggle");
+let headerBtn = document.getElementById("headerBtn");
+let navBar = document.getElementById("navBar");
+catToggle.addEventListener("click", () => {
+navBar.classList.toggle("show");
+});
+headerBtn.addEventListener("click", () => {
+navBar.classList.toggle("show");
+})
+</script>
+<div class="kigui frame">
+<p class="category-path">
+
+<a href="/c/전체보기/1/">전체보기</a>
+<span> > </span>
+
+<a href="/c/OS/1/">OS</a>
+<span> > </span>
+
+<a href="/c/Linux/1/">Linux</a>
+<span> > </span>
+
+</p>
+<h1 class="article-title"><a href="https://devblog.lazyig.com/35/">리눅스 우분투 postgresql 설치 및 설정</a></h1>
+<p class="write-date">2021-11-30 01:35:17</p>
+<div class="markdown-body">
+<p>우분투 환경에서 postgresql 설치하는 과정을 정리하고자 한다.</p>
+<h3>1. 패키지 매니저 업데이트 및 설치</h3>
+<p>이 글에서는 배포판의 기본 저장소 목록을 통한 바로 설치와 postgresql 공식 저장소를 통하여 최신 혹은 특정버전 설치를 나누어 담고 있습니다. 원하는 하위 문단으로 가서 따라해주시면 됩니다.</p>
+<h4>1. 바로 설치</h4>
+<p>모든 패키지 매니저를 통한 설치전에는 패키지 매니저 업데이트를 진행해주는 것이 좋다.</p>
+<pre><code class="language-sh">sudo apt-get update
+</code></pre>
+<p>그 이후 postgresql을 설치</p>
+<pre><code class="language-sh">sudo apt-get install postgresql -y
+</code></pre>
+<p>위와 같이 기본 저장소 목록 내에서 설치를 할 경우 대부분의 경우 유명한 소프트웨어라 설치가 진행된다.</p>
+<pre><code class="language-sh">➜  ~ psql --version
+psql (PostgreSQL) 10.19 (Ubuntu 10.19-0ubuntu0.18.04.1)
+</code></pre>
+<p>대신 기본버전을 대부분 보수적으로 적용하기에 원하는 버전에 대한 설치는 공식 홈페이지에서 저장소를 추가하여 진행하도록 한다.</p>
+<h4>2. postgresql 공식 저장소를 통하여 설치</h4>
+<p>https://www.postgresql.org/download/</p>
+<p>이 글의 작성자는 어짜피 혼자 쓰는 용도이므로 가급적 최신버전을 설치하기로 하였다.</p>
+<pre><code class="language-sh"><span class="hljs-comment"># 패키지 매니저 저장소 목록 파일 :</span>
+sudo sh -c <span class="hljs-string">&#x27;echo &quot;deb http://apt.postgresql.org/pub/repos/apt $(lsb_release -cs)-pgdg main&quot; &gt; /etc/apt/sources.list.d/pgdg.list&#x27;</span>
+
+<span class="hljs-comment"># 패키지 매니저 인증키 등록:</span>
+wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -
+
+<span class="hljs-comment"># 패키지 목록 갱신:</span>
+sudo apt-get update
+
+<span class="hljs-comment"># 최신 버전의 postgresql 설치</span>
+<span class="hljs-comment"># 만약 특정 버전을 원한다면 다음과 같이 입력 &#x27;postgresql-12&#x27;:</span>
+sudo apt-get -y install postgresql
+</code></pre>
+<p>공식 홈페이지에 명시되어있는 설치방법이며 간략하게 한글로 주석을 변경하였다.</p>
+<p>주석만 참고하고 스크립트는 변경될 가능성이 있으므로 공식 홈페이지를 이용하는 것이 좋다.</p>
+<pre><code class="language-sh">➜  ~ psql --version
+psql (PostgreSQL) 14.1 (Ubuntu 14.1-1.pgdg18.04+1)
+</code></pre>
+<p>공식 홈페이지의 설치방법대로 설치를 하니 14.1버전으로 설치가 되었다.</p>
+<h3>2. postgresql 최초 접속</h3>
+<p>최초 접속시 postgres 리눅스 계정으로 psql 명령어를 실행해주면 된다.</p>
+<p>다음 명령어는 postgres 유저 권한으로 psql 명령을 실행한다.</p>
+<pre><code class="language-sh">sudo -u postgres psql
+</code></pre>
+<p>해당 기본 계정은 비밀번호가 없다. 비밀번호 지정을 원한다면 다음 명령으로 변경해주자.</p>
+<pre><code class="language-sql"><span class="hljs-keyword">ALTER</span> <span class="hljs-keyword">USER</span> postgres <span class="hljs-keyword">WITH</span> PASSWORD <span class="hljs-string">&#x27;비밀번호&#x27;</span>;
+</code></pre>
+<p>정상실행 시:</p>
+<pre><code class="language-sql">postgres<span class="hljs-operator">=</span># <span class="hljs-keyword">ALTER</span> <span class="hljs-keyword">USER</span> postgres <span class="hljs-keyword">WITH</span> PASSWORD <span class="hljs-string">&#x27;비밀번호&#x27;</span>;
+<span class="hljs-keyword">ALTER</span> ROLE
+</code></pre>
+<p>ALTER ROLE이라는 응답이 발생하면 정삭으로 변경된 것 이다.</p>
+<p>종료는 '\q'를 입력하면 종료된다</p>
+<h3>3. 포트 변경</h3>
+<p>데이터베이스의 포트를 변경하는 작업이다.</p>
+<p>기본포트는 5433이지만</p>
+<p>아무래도 기본 포트는 침입시도가 많을 것이기 때문에 별 것아닌 일이지만 기왕이면 이런 포트들은 변경해주는 편이다.</p>
+<p>설정파일들은 전부 postgres 계정의 소유다. su 명령으로 해당 계정으로 변경 후 진행하거나 다음 명령어를 통해 postgres 계정의 권한으로 실행하자.</p>
+<pre><code class="language-sh">sudo -u postgres vim /etc/postgresql/14/main/postgresql.conf
+</code></pre>
+<p>port = 항목을 찾아서 수정해주면 된다.</p>
+<p>vim 기본 모드에서 ''?port ='를 검색하면 바로 나온다!</p>
+<h3>4. 외부 접속 허용</h3>
+<p>외부에서 접속하기 위해서는 방화벽 설정은 기본이고 postgresql 설정 파일도 수정을 해주어야 합니다.</p>
+<p>3번에서 포트 수정을 해주었던 파일에 들어가서 포트 설정 위에 있습니다.</p>
+<pre><code class="language-sh">sudo -u postgres vim /etc/postgresql/14/main/postgresql.conf
+</code></pre>
+<p>기본적으로 주석처리되어있으며 해당 행의 주석을 해제하고 다음과 같이 변경하여 줍니다.</p>
+<pre><code>listen_addresses = '*'                  # what IP address(es) to listen on;
+                                        # comma-separated list of addresses;
+                                        # defaults to 'localhost'; use '*' for all
+                                        # (change requires restart)
+</code></pre>
+<p>본인이 원하는 대로 설정을 원하는 경우 주석에 설명이 잘 되어 있습니다.</p>
+<p>그 다음 해당 파일을 열어서 수정해줍니다.</p>
+<pre><code>sudo -u postgres vim /etc/postgresql/14/main/pg_hba.conf
+</code></pre>
+<p>제일 밑으로 가서 다음 행을 작성해줍니다.</p>
+<pre><code>host    all             all             0.0.0.0/0               password
+</code></pre>
+<p>완료했다면 postgresql 데몬을 재시작하여 줍니다.</p>
+<pre><code class="language-sh">sudo systemctl restart postgresql
+</code></pre>
+<p>별 다른 출력 메시지가 안뜨면 정상적인 실행입니다.</p>
+<h3>5. 방화벽 설정</h3>
+<p>이 글에서는 우분투 환경이며 ufw를 이용하여 방화벽을 열어줄 예정입니다.</p>
+<pre><code class="language-sh">sudo ufw allow 5433/tcp
+</code></pre>
+<p>실행 예시:</p>
+<pre><code class="language-sh">➜  main sudo ufw allow 5433/tcp
+Rule added
+Rule added (v6)
+</code></pre>
+<p>방화벽 재실행</p>
+<pre><code class="language-sh">sudo ufw reload
+</code></pre>
+<p>실행 예시:</p>
+<pre><code>➜  main sudo ufw reload
+Firewall reloaded
+</code></pre>
+<h3>마치며</h3>
+<p>기본적으로 해야할 만한 것에 대해서만 진행을 해보았습니다.</p>
+<p>데이터베이스에 대한 포트와 방화벽은 무작정열어두기만 하였는데. 데이터베이스는 보안이 중요한 것이기 때문에 개인과 환경에 맞는 적절한 설정을 해주어야합니다.</p>
+
+</div>
+</div>
+<div class="kigui frame">
+<script src="https://utteranc.es/client.js"
+repo="lazyig/blog-comment"
+issue-term="pathname"
+label="blog-comment"
+theme="github-light"
+crossorigin="anonymous"
+async>
+</script>
+</div>
+</section>
+</body>
+</html>

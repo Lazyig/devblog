@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>React에서 라우팅한 경로를 새로고침하면 404가 떠요 해결</title>
+<meta
+name="description"
+content="정적페이지로 운영하는 개발 블로그입니다."
+/>
+<link
+rel="shortcut icon"
+type="image/png"
+sizes="144x144"
+href="/static/favicon-144x144.png"
+/>
+<link
+rel="icon"
+type="image/png"
+sizes="16x16"
+href="/static/favicon-16x16.png"
+/>
+<link
+rel="icon"
+type="image/png"
+sizes="32x32"
+href="/static/favicon-32x32.png"
+/>
+<link
+rel="icon"
+type="image/png"
+sizes="192x192"
+href="/static/favicon-192x192.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="57x57"
+href="/static/apple-touch-icon-57x57.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="72x72"
+href="/static/apple-touch-icon-72x72.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="76x76"
+href="/static/apple-touch-icon-76x76.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="114x114"
+href="/static/apple-touch-icon-114x114.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="120x120"
+href="/static/apple-touch-icon-120x120.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="144x144"
+href="/static/apple-touch-icon-144x144.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="152x152"
+href="/static/apple-touch-icon-152x152.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="154x154"
+href="/static/apple-touch-icon-154x154.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="180x180"
+href="/static/apple-touch-icon-180x180.png"
+/>
+<link rel="stylesheet" href="/static/style.css">
+<meta name="theme-color" content="#ff5722">
+<meta property="og:type" content="website">
+<meta property="og:title" content="React에서 라우팅한 경로를 새로고침하면 404가 떠요 해결">
+<meta property="og:description" content="공부한 개발 정보를 공유합니다.">
+<meta property="og:image" content="https://devblog.lazyig.com/86//static/ogimg.png">
+<meta property="og:url" content="https://devblog.lazyig.com/86/">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8149987977999297" crossorigin="anonymous"></script>
+<link rel="stylesheet"
+href="/static/highlight.css">
+</head>
+<body class="kigui one">
+<header class="kigui header">
+<a href="/">
+<h1 class="title">
+메모용 개발 블로그
+</h1>
+</a>
+<div class="header-buttons">
+<span id="headerBtn" class="nav-header-btn"><img src="/static/menu-w.svg" alt="Menu"></span>
+</div>
+</header>
+<div class="kigui header-space"></div>
+<section class="kigui">
+<div id="navBar" class="nav-bar">
+
+<div class="nav-header">
+<span id="catToggle" class="nav-header-btn"><img src="/static/menu.svg" alt="Menu"></span>
+</div>
+<ul class="category">
+
+<li style="padding-left: 0px">
+<a href="/c/전체보기/1/">전체보기<span class="nav-cat-cnt">(99)</span></a>
+</li>
+
+<li style="padding-left: 15px">
+<a href="/c/OS/1/">OS<span class="nav-cat-cnt">(34)</span></a>
+</li>
+
+<li style="padding-left: 30px">
+<a href="/c/Linux/1/">Linux<span class="nav-cat-cnt">(23)</span></a>
+</li>
+
+
+<li style="padding-left: 30px">
+<a href="/c/MacOS/1/">MacOS<span class="nav-cat-cnt">(8)</span></a>
+</li>
+
+
+<li style="padding-left: 30px">
+<a href="/c/Windows/1/">Windows<span class="nav-cat-cnt">(3)</span></a>
+</li>
+
+
+
+<li style="padding-left: 15px">
+<a href="/c/데이터베이스/1/">데이터베이스<span class="nav-cat-cnt">(3)</span></a>
+</li>
+
+<li style="padding-left: 30px">
+<a href="/c/Oracle/1/">Oracle<span class="nav-cat-cnt">(1)</span></a>
+</li>
+
+
+<li style="padding-left: 30px">
+<a href="/c/Postgresql/1/">Postgresql<span class="nav-cat-cnt">(1)</span></a>
+</li>
+
+
+
+<li style="padding-left: 15px">
+<a href="/c/Develop/1/">Develop<span class="nav-cat-cnt">(20)</span></a>
+</li>
+
+<li style="padding-left: 30px">
+<a href="/c/CSS3/1/">CSS3<span class="nav-cat-cnt">(3)</span></a>
+</li>
+
+
+<li style="padding-left: 30px">
+<a href="/c/HTML5/1/">HTML5<span class="nav-cat-cnt">(2)</span></a>
+</li>
+
+
+<li style="padding-left: 30px">
+<a href="/c/JavaScript/1/">JavaScript<span class="nav-cat-cnt">(4)</span></a>
+</li>
+
+
+<li style="padding-left: 30px">
+<a href="/c/React/1/">React<span class="nav-cat-cnt">(1)</span></a>
+</li>
+
+
+<li style="padding-left: 30px">
+<a href="/c/Svelte/1/">Svelte<span class="nav-cat-cnt">(2)</span></a>
+</li>
+
+
+
+<li style="padding-left: 15px">
+<a href="/c/개발일기/1/">개발일기<span class="nav-cat-cnt">(9)</span></a>
+</li>
+
+
+<li style="padding-left: 15px">
+<a href="/c/Git/1/">Git<span class="nav-cat-cnt">(3)</span></a>
+</li>
+
+
+<li style="padding-left: 15px">
+<a href="/c/GitLab/1/">GitLab<span class="nav-cat-cnt">(11)</span></a>
+</li>
+
+
+<li style="padding-left: 15px">
+<a href="/c/Nginx/1/">Nginx<span class="nav-cat-cnt">(7)</span></a>
+</li>
+
+
+<li style="padding-left: 15px">
+<a href="/c/기타/1/">기타<span class="nav-cat-cnt">(9)</span></a>
+</li>
+
+
+<li style="padding-left: 15px">
+<a href="/c/이 블로그의 오픈소스/1/">이 블로그의 오픈소스<span class="nav-cat-cnt">(3)</span></a>
+</li>
+
+
+
+</ul>
+</div>
+<script>
+let catToggle = document.getElementById("catToggle");
+let headerBtn = document.getElementById("headerBtn");
+let navBar = document.getElementById("navBar");
+catToggle.addEventListener("click", () => {
+navBar.classList.toggle("show");
+});
+headerBtn.addEventListener("click", () => {
+navBar.classList.toggle("show");
+})
+</script>
+<div class="kigui frame">
+<p class="category-path">
+
+<a href="/c/전체보기/1/">전체보기</a>
+<span> > </span>
+
+<a href="/c/Develop/1/">Develop</a>
+<span> > </span>
+
+<a href="/c/React/1/">React</a>
+<span> > </span>
+
+</p>
+<h1 class="article-title"><a href="https://devblog.lazyig.com/86/">React에서 라우팅한 경로를 새로고침하면 404가 떠요 해결</a></h1>
+<p class="write-date">2023-02-01 23:17:11</p>
+<div class="markdown-body">
+<p>웹 관련해서 질문을 보다보면 위와 같은 질문이 꽤나 자주 보이는데.</p>
+<p>리액트를 배우고 프로젝트를 실행보다가 이런 문제를 겪고 질문을 하는 듯 하다.</p>
+<h2>원인</h2>
+<p>리액트뿐만 아니라 Vue나 Svelte같은 SPA에 대한 특성을 놓치고 있기 때문에 이러한 이슈에 대해서 당황하게 되는 것으로 보인다.</p>
+<p>SPA는 Single Page Application이다.</p>
+<p>페이지의 레이아웃이 바뀌더라도 해당 부분만 새롭게 교체해주는 것이며 페이지를 새롭게 로드한다던가 하는 일은 발생하지 않는다.</p>
+<p>아무리 react-route 같은 것을 사용해도 변하지 않는 사실이며 히스토리를 기반으로 주소가 바뀌어서 페이지가 이동한 것처럼 보여줄 뿐이지 실제로 페이지를 완전히 새로고침한다거나 하는 일은 일어나지 않는다.</p>
+<h2>예시</h2>
+<h3>바닐라 웹 페이지 예시</h3>
+<p>React 같은 것을 사용하지 않고 기본적인 웹 페이지를 작성한다고 가정해보자.</p>
+<p>두 경로(파일)가 있다.</p>
+<pre><code>index.html
+new.html
+</code></pre>
+<p>간단한 시나리오로 index.html로 처음 접속한 뒤 new.html로 이동하는 a태그를 클릭하여 페이지를 옮기는 것을 생각해보자.</p>
+<p>그러면 브라우저에서 다음 요청을 보내고 응답을 받을 것이다.</p>
+<pre><code>GET /index.html 200
+GET /new.html 200
+</code></pre>
+<p>완전히 페이지를 이동한 것이므로 서버에서 new.html을 받아와서 보여준다.</p>
+<p>이어서 /new.html로 바로 접속하는 시나리오를 생각해보자.</p>
+<pre><code>GET /new.html 200
+</code></pre>
+<p>당연하게도 정상적으로 접근이 될 것 이다.</p>
+<h3>SPA 예시</h3>
+<p>만약 SPA라면 어떨까?</p>
+<pre><code>index.html
+src.js
+</code></pre>
+<p>진입할 페이지인 index.html이 있을 것이고 빌드된 자바스크립트 파일이 있을 것이다.</p>
+<p>기타 라이브러리 같은 것은 예시이므로 생략하고 간략하게 살펴보자.</p>
+<p>이번에도 같은 시나리오로 index.html로 접속하고 new.html을 라우팅기능을 이용해서 처리해놓았다.</p>
+<pre><code>GET /index.html 200
+GET /src.js 200
+</code></pre>
+<p>이러한 결과가 나올 것 이다.</p>
+<p>실제로 요청이 발생하는 것이 아닌 클라이언트에서 새롭게 그려준것에 불과하기 때문이다.</p>
+<p>그렇다면 여기서 new.html로 처음 접속하는 시나리오를 생각해보자.</p>
+<pre><code>GET /new.html 404
+</code></pre>
+<p>/new.html이라는 파일은 실존하지 않으므로 파일을 찾을 수 없다.</p>
+<p>이제 맨 처음의 질문이 무엇이 문제인지 감이 올 것이다.</p>
+<h2>해결</h2>
+<h3>1. 웹 서버에서 라우팅</h3>
+<p>몹시 간단하게도 라우팅한 모든 경로에 대해서 index.html을 반환하면 해결되는 문제이다.</p>
+<p>웹 서버에서든 백엔드에서든 처리할 서버단에서 라우팅한 대상 경로로 들어오는 요청에 대해서 index.html 파일을 반환해주면 해결된다.</p>
+<h3>2. SSG</h3>
+<p>SSG(Static Site Generation)는 모든 라우팅 경로에 대해서 미리 정적파일로 생성 해놓는 방식이다.</p>
+<p>빌드 당시에 모든 경로에 대해서 미리 생성해놓고 클라이언트에 이를 보내주는 방식으로 검색엔진의 검색이나 속도측면의 사용자 경험 등을 위해서 사용한다.</p>
+
+</div>
+</div>
+<div class="kigui frame">
+<script src="https://utteranc.es/client.js"
+repo="lazyig/blog-comment"
+issue-term="pathname"
+label="blog-comment"
+theme="github-light"
+crossorigin="anonymous"
+async>
+</script>
+</div>
+</section>
+</body>
+</html>

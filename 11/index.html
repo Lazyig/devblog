@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>정적 블로그 생성기 개발기</title>
+<meta
+name="description"
+content="정적페이지로 운영하는 개발 블로그입니다."
+/>
+<link
+rel="shortcut icon"
+type="image/png"
+sizes="144x144"
+href="/static/favicon-144x144.png"
+/>
+<link
+rel="icon"
+type="image/png"
+sizes="16x16"
+href="/static/favicon-16x16.png"
+/>
+<link
+rel="icon"
+type="image/png"
+sizes="32x32"
+href="/static/favicon-32x32.png"
+/>
+<link
+rel="icon"
+type="image/png"
+sizes="192x192"
+href="/static/favicon-192x192.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="57x57"
+href="/static/apple-touch-icon-57x57.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="72x72"
+href="/static/apple-touch-icon-72x72.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="76x76"
+href="/static/apple-touch-icon-76x76.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="114x114"
+href="/static/apple-touch-icon-114x114.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="120x120"
+href="/static/apple-touch-icon-120x120.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="144x144"
+href="/static/apple-touch-icon-144x144.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="152x152"
+href="/static/apple-touch-icon-152x152.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="154x154"
+href="/static/apple-touch-icon-154x154.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="180x180"
+href="/static/apple-touch-icon-180x180.png"
+/>
+<link rel="stylesheet" href="/static/style.css">
+<meta name="theme-color" content="#ff5722">
+<meta property="og:type" content="website">
+<meta property="og:title" content="정적 블로그 생성기 개발기">
+<meta property="og:description" content="공부한 개발 정보를 공유합니다.">
+<meta property="og:image" content="https://devblog.lazyig.com/11//static/ogimg.png">
+<meta property="og:url" content="https://devblog.lazyig.com/11/">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8149987977999297" crossorigin="anonymous"></script>
+<link rel="stylesheet"
+href="/static/highlight.css">
+</head>
+<body class="kigui one">
+<header class="kigui header">
+<a href="/">
+<h1 class="title">
+메모용 개발 블로그
+</h1>
+</a>
+<div class="header-buttons">
+<span id="headerBtn" class="nav-header-btn"><img src="/static/menu-w.svg" alt="Menu"></span>
+</div>
+</header>
+<div class="kigui header-space"></div>
+<section class="kigui">
+<div id="navBar" class="nav-bar">
+
+<div class="nav-header">
+<span id="catToggle" class="nav-header-btn"><img src="/static/menu.svg" alt="Menu"></span>
+</div>
+<ul class="category">
+
+<li style="padding-left: 0px">
+<a href="/c/전체보기/1/">전체보기<span class="nav-cat-cnt">(99)</span></a>
+</li>
+
+<li style="padding-left: 15px">
+<a href="/c/OS/1/">OS<span class="nav-cat-cnt">(34)</span></a>
+</li>
+
+<li style="padding-left: 30px">
+<a href="/c/Linux/1/">Linux<span class="nav-cat-cnt">(23)</span></a>
+</li>
+
+
+<li style="padding-left: 30px">
+<a href="/c/MacOS/1/">MacOS<span class="nav-cat-cnt">(8)</span></a>
+</li>
+
+
+<li style="padding-left: 30px">
+<a href="/c/Windows/1/">Windows<span class="nav-cat-cnt">(3)</span></a>
+</li>
+
+
+
+<li style="padding-left: 15px">
+<a href="/c/데이터베이스/1/">데이터베이스<span class="nav-cat-cnt">(3)</span></a>
+</li>
+
+<li style="padding-left: 30px">
+<a href="/c/Oracle/1/">Oracle<span class="nav-cat-cnt">(1)</span></a>
+</li>
+
+
+<li style="padding-left: 30px">
+<a href="/c/Postgresql/1/">Postgresql<span class="nav-cat-cnt">(1)</span></a>
+</li>
+
+
+
+<li style="padding-left: 15px">
+<a href="/c/Develop/1/">Develop<span class="nav-cat-cnt">(20)</span></a>
+</li>
+
+<li style="padding-left: 30px">
+<a href="/c/CSS3/1/">CSS3<span class="nav-cat-cnt">(3)</span></a>
+</li>
+
+
+<li style="padding-left: 30px">
+<a href="/c/HTML5/1/">HTML5<span class="nav-cat-cnt">(2)</span></a>
+</li>
+
+
+<li style="padding-left: 30px">
+<a href="/c/JavaScript/1/">JavaScript<span class="nav-cat-cnt">(4)</span></a>
+</li>
+
+
+<li style="padding-left: 30px">
+<a href="/c/React/1/">React<span class="nav-cat-cnt">(1)</span></a>
+</li>
+
+
+<li style="padding-left: 30px">
+<a href="/c/Svelte/1/">Svelte<span class="nav-cat-cnt">(2)</span></a>
+</li>
+
+
+
+<li style="padding-left: 15px">
+<a href="/c/개발일기/1/">개발일기<span class="nav-cat-cnt">(9)</span></a>
+</li>
+
+
+<li style="padding-left: 15px">
+<a href="/c/Git/1/">Git<span class="nav-cat-cnt">(3)</span></a>
+</li>
+
+
+<li style="padding-left: 15px">
+<a href="/c/GitLab/1/">GitLab<span class="nav-cat-cnt">(11)</span></a>
+</li>
+
+
+<li style="padding-left: 15px">
+<a href="/c/Nginx/1/">Nginx<span class="nav-cat-cnt">(7)</span></a>
+</li>
+
+
+<li style="padding-left: 15px">
+<a href="/c/기타/1/">기타<span class="nav-cat-cnt">(9)</span></a>
+</li>
+
+
+<li style="padding-left: 15px">
+<a href="/c/이 블로그의 오픈소스/1/">이 블로그의 오픈소스<span class="nav-cat-cnt">(3)</span></a>
+</li>
+
+
+
+</ul>
+</div>
+<script>
+let catToggle = document.getElementById("catToggle");
+let headerBtn = document.getElementById("headerBtn");
+let navBar = document.getElementById("navBar");
+catToggle.addEventListener("click", () => {
+navBar.classList.toggle("show");
+});
+headerBtn.addEventListener("click", () => {
+navBar.classList.toggle("show");
+})
+</script>
+<div class="kigui frame">
+<p class="category-path">
+
+<a href="/c/전체보기/1/">전체보기</a>
+<span> > </span>
+
+<a href="/c/개발일기/1/">개발일기</a>
+<span> > </span>
+
+</p>
+<h1 class="article-title"><a href="https://devblog.lazyig.com/11/">정적 블로그 생성기 개발기</a></h1>
+<p class="write-date">2021-10-13 21:55:00</p>
+<div class="markdown-body">
+<h2>개발하게 된 이유</h2>
+<p>개발하게 된 이유는 사실 크게 없다.</p>
+<p>공부나 개발을 하거나 오류를 해결하면서 그에 대한 로그를 블로그에 아주 가끔씩 남기고는 하였는데.</p>
+<p>티스토리에 작성한 글은 어디 백업을 하기에도 애매하였기 때문에 직접 블로그를 관리해보고 싶은 생각이 들었다.</p>
+<p>그래서 예전이지만 워드프레스도 사용하려 했지만 이 또한 별도의 관리를 해주어야하고 서버를 항상 내가 제공해야하는 문제점이 있었다.</p>
+<p>그 후로 시간이 흘러 블로그에 다시 관심이 생겼고, 어느정도 여유 시간이 있어서 자체 블로그를 개발하여 사용해보고자 하는 쓸대없는 생각이 들었다.</p>
+<p>처음에는 워드프레스를 포기한 시행착오를 잊고 또 서버를 사용하고자 하는 생각을 하였지만 금새 다시 포기하고</p>
+<p>서버의 자원을 사용하는 것이 그닥 반갑지는 않았기 때문에 github에 정적 블로그 생성기를 통하여 업로드하는 것으로 생각을 하게 되었다.</p>
+<p>정적 블로그 생성기를 알아보았으나, 남이 만들어놓은 환경에 내가 배워서 맞춰야하고 원하지 않는 테마는 수정을 해야하고 이를 수정하는 것에는 또 공부가 필요하다.</p>
+<p>그리하여 그냥 재미로 직접 정적 페이지 생성기를 만들어서 사용해보자라는 비효율적인 생각으로 흘러 개발을 시작하였다.</p>
+<h2>개발 환경</h2>
+<ul>
+<li>Node.js
+<ul>
+<li>NPM</li>
+<li>TypeScript</li>
+<li>ejs</li>
+<li>markdown-it</li>
+</ul>
+</li>
+<li>CSS
+<ul>
+<li>자체 제작한 돌려쓰기 스타일</li>
+<li>github markdown 스타일</li>
+</ul>
+</li>
+<li>버전관리
+<ul>
+<li>Git</li>
+<li>Gitlab</li>
+</ul>
+</li>
+</ul>
+<p>개발 환경의 이유는 그냥 익숙하고 편하며 당장 생각나는 것들로 대충 구성하였다.</p>
+<p>Node.js를 이용해서 생성에 관한 부분을 처리하고 쉽게 페이지를 개발하도록 템플릿 엔진을 ejs로 사용하였다.</p>
+<p>마크 다운은 마땅한게 없어서 선택지가 없는 터라 그냥 사용하게 되었고, TypeScript는 안쓸 이유가 없어서 선택.</p>
+<p>CSS의 경우에는 마크다운에 쓸만한 스타일을 github에서 공개하고 있어서 이를 가지고 왔다. 그리고 자체 제작한 돌려쓰기 스타일은 온갖 개발을 할 때 귀찮아서 돌려쓰려고 만든 조잡하게 너프된 머티리얼 스타일을 재탕하였다.</p>
+<p>버전관리는 Git으로 했다. 사실 이것 외에는 쓸 줄 모른다...</p>
+<h2>진행 상황</h2>
+<p>아쉽게도 철저한 계획을 가지고 한 것도 아니라서 그때그때 생각나는 기능을 집어넣기 때문에 완성의 기준이 없다.</p>
+<p>일단 기능은 나의 기준으로 얼추 올려도 어느정도는 볼만한 정도로 만들었다.</p>
+<h3>블로그 포스트</h3>
+<p><img src="/static/img-N4BLas2fB5nALK1ocG77uGHXL2cN-x0tXWAcJc3NMqY.png" alt=""></p>
+<p>우선 블로그의 화면이다.</p>
+<p>포스트와 이미지의 처리 부분을 완료되었고, 작성일에 대한 처리를 잊어 작성일은 없다.</p>
+<h3>이미지 처리</h3>
+<p><img src="/static/img-3HWGPcemxq8hidRVcLFmEnudxkA5CbUfiU5oKXItNBQ.png" alt=""></p>
+<p>위는 변환된 이미지 파일이다.</p>
+<p>이미지는 파일을 해시함수를 돌려서 이름을 정하도록 하였다.</p>
+<p>같은 이미지를 사용할 경우 용량을 절약할 수 있게 하고 싶었다.</p>
+<p>현재 미흡한 점으로는 이미지 변환에 분기를 하지 않아 외부 링크 이미지도 변환시도를 하다가 오류가 날 것이라는 점이다.</p>
+<p>이 부분은 금방 수정이 되니 시간나면 수정할 예정.</p>
+<h3>카테고리</h3>
+<p><img src="/static/img-V_jXQ1MOouzyjrMNAKqNg7Js_rMfMWjpP_-i01aBnZU.png" alt=""></p>
+<p>그 다음은 카테고리.</p>
+<p>현재는 위와 같은 카테고리 계층을 통해서만 접근이 가능하다.</p>
+<p><img src="/static/img-IwlfCWqoRhQE5PSMV8KhTpAKwBkaCXFdl6ErMwvkxs8.png" alt=""></p>
+<p>카테고리 화면으로 넘어간 모습.</p>
+<p><img src="/static/img-7FPlfRJUbNfF_BV2UWLUMEUb0Zp1eI2Zqhu7eMUNsNM.png" alt=""></p>
+<p>각 항목은 간단한 강조효과로 처리하였다.</p>
+<p><img src="/static/img-aXn3-QwmySyDA4Wmmwa_uZhj-DD3YiPhu7TxC9bOs2o.png" alt=""></p>
+<p>카테고리는 경로를 기반으로 한다. 경로를 만들고 거기에 blogcat.json 파일이 있다면 그 하위는 전부다 해당 카테고리 밑으로 들어가게 된다.</p>
+<p>설정은 현재 저렇게 간소한 편</p>
+<h2>앞으로의 계획</h2>
+<p>일단 아직 미흡한 점이 많다.</p>
+<p>작성일 처리나 오픈소스에 대한 라이선스 명시 페이지 등이 추가로 필요하고, 카테고리를 제대로 표시하는 페이지 또한 필요하다.</p>
+
+</div>
+</div>
+<div class="kigui frame">
+<script src="https://utteranc.es/client.js"
+repo="lazyig/blog-comment"
+issue-term="pathname"
+label="blog-comment"
+theme="github-light"
+crossorigin="anonymous"
+async>
+</script>
+</div>
+</section>
+</body>
+</html>

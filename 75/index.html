@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nginx 1.19.0 컴파일 방식으로 설치</title>
+<meta
+name="description"
+content="정적페이지로 운영하는 개발 블로그입니다."
+/>
+<link
+rel="shortcut icon"
+type="image/png"
+sizes="144x144"
+href="/static/favicon-144x144.png"
+/>
+<link
+rel="icon"
+type="image/png"
+sizes="16x16"
+href="/static/favicon-16x16.png"
+/>
+<link
+rel="icon"
+type="image/png"
+sizes="32x32"
+href="/static/favicon-32x32.png"
+/>
+<link
+rel="icon"
+type="image/png"
+sizes="192x192"
+href="/static/favicon-192x192.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="57x57"
+href="/static/apple-touch-icon-57x57.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="72x72"
+href="/static/apple-touch-icon-72x72.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="76x76"
+href="/static/apple-touch-icon-76x76.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="114x114"
+href="/static/apple-touch-icon-114x114.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="120x120"
+href="/static/apple-touch-icon-120x120.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="144x144"
+href="/static/apple-touch-icon-144x144.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="152x152"
+href="/static/apple-touch-icon-152x152.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="154x154"
+href="/static/apple-touch-icon-154x154.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="180x180"
+href="/static/apple-touch-icon-180x180.png"
+/>
+<link rel="stylesheet" href="/static/style.css">
+<meta name="theme-color" content="#ff5722">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Nginx 1.19.0 컴파일 방식으로 설치">
+<meta property="og:description" content="공부한 개발 정보를 공유합니다.">
+<meta property="og:image" content="https://devblog.lazyig.com/75//static/ogimg.png">
+<meta property="og:url" content="https://devblog.lazyig.com/75/">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8149987977999297" crossorigin="anonymous"></script>
+<link rel="stylesheet"
+href="/static/highlight.css">
+</head>
+<body class="kigui one">
+<header class="kigui header">
+<a href="/">
+<h1 class="title">
+메모용 개발 블로그
+</h1>
+</a>
+<div class="header-buttons">
+<span id="headerBtn" class="nav-header-btn"><img src="/static/menu-w.svg" alt="Menu"></span>
+</div>
+</header>
+<div class="kigui header-space"></div>
+<section class="kigui">
+<div id="navBar" class="nav-bar">
+
+<div class="nav-header">
+<span id="catToggle" class="nav-header-btn"><img src="/static/menu.svg" alt="Menu"></span>
+</div>
+<ul class="category">
+
+<li style="padding-left: 0px">
+<a href="/c/전체보기/1/">전체보기<span class="nav-cat-cnt">(99)</span></a>
+</li>
+
+<li style="padding-left: 15px">
+<a href="/c/OS/1/">OS<span class="nav-cat-cnt">(34)</span></a>
+</li>
+
+<li style="padding-left: 30px">
+<a href="/c/Linux/1/">Linux<span class="nav-cat-cnt">(23)</span></a>
+</li>
+
+
+<li style="padding-left: 30px">
+<a href="/c/MacOS/1/">MacOS<span class="nav-cat-cnt">(8)</span></a>
+</li>
+
+
+<li style="padding-left: 30px">
+<a href="/c/Windows/1/">Windows<span class="nav-cat-cnt">(3)</span></a>
+</li>
+
+
+
+<li style="padding-left: 15px">
+<a href="/c/데이터베이스/1/">데이터베이스<span class="nav-cat-cnt">(3)</span></a>
+</li>
+
+<li style="padding-left: 30px">
+<a href="/c/Oracle/1/">Oracle<span class="nav-cat-cnt">(1)</span></a>
+</li>
+
+
+<li style="padding-left: 30px">
+<a href="/c/Postgresql/1/">Postgresql<span class="nav-cat-cnt">(1)</span></a>
+</li>
+
+
+
+<li style="padding-left: 15px">
+<a href="/c/Develop/1/">Develop<span class="nav-cat-cnt">(20)</span></a>
+</li>
+
+<li style="padding-left: 30px">
+<a href="/c/CSS3/1/">CSS3<span class="nav-cat-cnt">(3)</span></a>
+</li>
+
+
+<li style="padding-left: 30px">
+<a href="/c/HTML5/1/">HTML5<span class="nav-cat-cnt">(2)</span></a>
+</li>
+
+
+<li style="padding-left: 30px">
+<a href="/c/JavaScript/1/">JavaScript<span class="nav-cat-cnt">(4)</span></a>
+</li>
+
+
+<li style="padding-left: 30px">
+<a href="/c/React/1/">React<span class="nav-cat-cnt">(1)</span></a>
+</li>
+
+
+<li style="padding-left: 30px">
+<a href="/c/Svelte/1/">Svelte<span class="nav-cat-cnt">(2)</span></a>
+</li>
+
+
+
+<li style="padding-left: 15px">
+<a href="/c/개발일기/1/">개발일기<span class="nav-cat-cnt">(9)</span></a>
+</li>
+
+
+<li style="padding-left: 15px">
+<a href="/c/Git/1/">Git<span class="nav-cat-cnt">(3)</span></a>
+</li>
+
+
+<li style="padding-left: 15px">
+<a href="/c/GitLab/1/">GitLab<span class="nav-cat-cnt">(11)</span></a>
+</li>
+
+
+<li style="padding-left: 15px">
+<a href="/c/Nginx/1/">Nginx<span class="nav-cat-cnt">(7)</span></a>
+</li>
+
+
+<li style="padding-left: 15px">
+<a href="/c/기타/1/">기타<span class="nav-cat-cnt">(9)</span></a>
+</li>
+
+
+<li style="padding-left: 15px">
+<a href="/c/이 블로그의 오픈소스/1/">이 블로그의 오픈소스<span class="nav-cat-cnt">(3)</span></a>
+</li>
+
+
+
+</ul>
+</div>
+<script>
+let catToggle = document.getElementById("catToggle");
+let headerBtn = document.getElementById("headerBtn");
+let navBar = document.getElementById("navBar");
+catToggle.addEventListener("click", () => {
+navBar.classList.toggle("show");
+});
+headerBtn.addEventListener("click", () => {
+navBar.classList.toggle("show");
+})
+</script>
+<div class="kigui frame">
+<p class="category-path">
+
+<a href="/c/전체보기/1/">전체보기</a>
+<span> > </span>
+
+<a href="/c/Nginx/1/">Nginx</a>
+<span> > </span>
+
+</p>
+<h1 class="article-title"><a href="https://devblog.lazyig.com/75/">Nginx 1.19.0 컴파일 방식으로 설치</a></h1>
+<p class="write-date">2022-08-09 00:59:25</p>
+<div class="markdown-body">
+<h2>서론</h2>
+<p>개인적으로 컴파일 방식으로 무언가를 설치하는 것을 선호하지 않는다.</p>
+<p>패키지매니저로 편리하게 설치하고 관리하는 것을 좋아하는데. 가끔은 그렇지 못한경우가 있는데. 하필 지금이다.</p>
+<p>WebDav 구축 중 원하는 확장 모듈이 full버전에서 설치된걸로 보이는데... 제대로 동작하지도 않고 검색해도 결과가 잘 나오지도 않으며 대부분 컴파일 설치로 진행하는 모양이였다.</p>
+<h2>설치 준비</h2>
+<p>컴파일 방식 설치이므로 당연하게도 컴파일러가 필요하다.</p>
+<p>컴파일러까지 컴파일해야하면 설치할 방도가 없으므로 이미 빌드된 패키지를 각자 배포판에 맞는 패키지 매니저를 통하여 편리하게 설치한다.</p>
+<pre><code>sudo apt update
+sudo apt install gcc g++
+sudo apt install libxslt-dev
+</code></pre>
+<h2>설치</h2>
+<h3>1. 다운로드</h3>
+<p>적당한 경로를 생성하고 이동 한 후 작업한다.</p>
+<p>다운로드 후 압축을 푸는 것의 연속이다.</p>
+<h4>1. Nginx</h4>
+<pre><code>wget wget https://nginx.org/download/nginx-1.19.0.tar.gz
+tar zxvf nginx-1.19.0.tar.gz
+</code></pre>
+<h4>2. OpenSSL</h4>
+<pre><code>wget http://www.openssl.org/source/openssl-1.1.1g.tar.gz
+tar -zxvf openssl-1.1.1g.tar.gz
+</code></pre>
+<h4>3. zlib</h4>
+<pre><code>wget https://sourceforge.net/projects/libpng/files/zlib/1.2.11/zlib-1.2.11.tar.gz
+tar -zxvf zlib-1.2.11.tar.gz
+</code></pre>
+<h4>4. pcre</h4>
+<pre><code>wget https://sourceforge.net/projects/pcre/files/pcre/8.44/pcre-8.44.tar.gz
+tar -zxvf pcre-8.44.tar.gz
+</code></pre>
+<h4>5. nginx-dav-ext-module</h4>
+<p>여기는 필수는 아니다. webdav 관련한 외부 모듈이다.</p>
+<pre><code>git clone https://github.com/arut/nginx-dav-ext-module.git --depth=1
+</code></pre>
+<h3>2. 빌드</h3>
+<h4>1. pcre</h4>
+<pre><code>cd pcre-8.44
+./configure
+make
+sudo make install
+</code></pre>
+<h4>2. OpenSSL</h4>
+<pre><code>cd openssl-1.1.1g
+./Configure linux-x86_64 --prefix=/usr
+make
+sudo make install
+</code></pre>
+<p>OpenSSL은 Configure 명령 첫 인수에 아키텍처 명시가 있다.</p>
+<p>아래 명령어로 자신의 환경에 맞는 것으로 선택하자.</p>
+<pre><code class="language-c">./Configure LIST
+</code></pre>
+<h4>3. zlib</h4>
+<pre><code>cd zlib-1.2.11
+./configure
+make
+sudo make install
+</code></pre>
+<h4>3. Nginx</h4>
+<p>편리하게 nginx-extra니 nginx-full이니 하는 친절한 통합 패키지가 그리워지는 첫번째 순간이다.</p>
+<p>우선 자세한 설명에 대한 공식 문서이다.</p>
+<p><a href="http://nginx.org/en/docs/configure.html">http://nginx.org/en/docs/configure.html</a></p>
+<p>필요한 외부 의존라이브러리 경로나 같이 빌드할 내부 모듈, 외부 모듈 등을 설정하여 컴파일할 준비를 해줘야한다.</p>
+<pre><code>sudo ./configure \
+--prefix=/opt/nginx \
+--with-compat \
+--with-file-aio \
+--with-http_ssl_module \
+--with-http_realip_module \
+--with-http_gunzip_module \
+--with-http_gunzip_module \
+--with-http_gzip_static_module \
+--with-http_dav_module \
+--with-http_mp4_module \
+--with-http_slice_module \
+--with-stream \
+--with-stream_realip_module \
+--with-threads \
+--with-http_v2_module \
+--with-pcre=../pcre-8.44 \
+--with-zlib=../zlib-1.2.11 \
+--add-module=../nginx-dav-ext-module \
+--user=www-data \
+--group=www-data
+</code></pre>
+<p>--with-file-aio : 비동기 파일 IO 관련을 사용할 수 있음.</p>
+<p>--with-http_ssl_module : https프로토콜 지원 모듈</p>
+<p>--with-http_realip_module : 리버스 프록시 등을 사용할 때. 클라이언트의 실제 아이피로 쉽게 대체 가능하는데 사용하는 모듈</p>
+<p>--with-http_gunzip_module : gzip 관련</p>
+<p>--with-http_gunzip_module : gzip 관련</p>
+<p>--with-http_dav_module : webdav 관련</p>
+<p>--with-http_mp4_module : mp4 스트리밍 기능</p>
+<p>--with-http_slice_module : 응답분할관련 기능</p>
+<p>--with-stream : TCP/UDP를 프록시 가능한 스트림 기능</p>
+<p>--with-stream_realip_module : stream realip 관련 기능</p>
+<p>--with-threads : 스레드 관련</p>
+<p>--with-http_v2_module : http2 지원</p>
+<p>--add-module=nginx-dav-ext-module : webdav 관련 확장 모듈</p>
+<p>--with-pcre : pcre 모듈 위치 지정</p>
+<p>--with-openssl : openssl 모듈 위치 지정(이 글 대로 하면 알아서 찾으니 빼도 무방하다. 독특한 곳에 설치했다면 명시할 것.)</p>
+<p>--user : 서버 실행 유저 지정</p>
+<p>--group : 서버 실행 그룹 지정</p>
+<p>유저와 그룹의 경우 해당 글에서는 이미 nginx를 패키지로 운영하다가 전환하는 것이라 기존에 기본 계정을 지정했지만 그렇지 않다면 적절한 계정을 만들어서 지정해도 된다.</p>
+<p>대충 실행하면</p>
+<pre><code>checking for getaddrinfo() ... found
+configuring additional modules
+adding module in ../nginx-dav-ext-module
+ + ngx_http_dav_ext_module was configured
+checking for libxslt ... found
+checking for libexslt ... found
+creating objs/Makefile
+
+Configuration summary
+  + using threads
+  + using PCRE2 library: ../pcre2
+  + using OpenSSL library: ../openssl
+  + using zlib library: ../zlib
+
+  nginx path prefix: &quot;/opt/nginx&quot;
+  nginx binary file: &quot;/opt/nginx/sbin/nginx&quot;
+  nginx modules path: &quot;/opt/nginx/modules&quot;
+  nginx configuration prefix: &quot;/opt/nginx/conf&quot;
+  nginx configuration file: &quot;/opt/nginx/conf/nginx.conf&quot;
+  nginx pid file: &quot;/opt/nginx/logs/nginx.pid&quot;
+  nginx error log file: &quot;/opt/nginx/logs/error.log&quot;
+  nginx http access log file: &quot;/opt/nginx/logs/access.log&quot;
+  nginx http client request body temporary files: &quot;client_body_temp&quot;
+  nginx http proxy temporary files: &quot;proxy_temp&quot;
+  nginx http fastcgi temporary files: &quot;fastcgi_temp&quot;
+  nginx http uwsgi temporary files: &quot;uwsgi_temp&quot;
+  nginx http scgi temporary files: &quot;scgi_temp&quot;
+</code></pre>
+<p>이런 로그와 함께 마무리된다.</p>
+<p>이제 컴파일 이후 설치</p>
+<pre><code>sudo make
+sudo make install
+</code></pre>
+<h2>실행, 기타 설정</h2>
+<p>우선 항상 nginx를 입력해서 실행할 수 없으므로 시스템 데몬으로 등록하도록 한다.</p>
+<p>기존 패키지에서 작성된 스크립트를 조금 손봐서 그대로 사용하도록 하였다.</p>
+<pre><code>sudo vim /lib/systemd/system/nginx.service
+</code></pre>
+<pre><code># Stop dance for nginx
+# =======================
+#
+# ExecStop sends SIGSTOP (graceful stop) to the nginx process.
+# If, after 5s (--retry QUIT/5) nginx is still running, systemd takes control
+# and sends SIGTERM (fast shutdown) to the main process.
+# After another 5s (TimeoutStopSec=5), and if nginx is alive, systemd sends
+# SIGKILL to all the remaining processes in the process group (KillMode=mixed).
+#
+# nginx signals reference doc:
+# http://nginx.org/en/docs/control.html
+#
+[Unit]
+Description=A high performance web server and a reverse proxy server
+Documentation=man:nginx(8)
+After=network.target
+
+[Service]
+Type=forking
+PIDFile=/run/nginx.pid
+ExecStartPre=/opt/nginx/sbin/nginx -t -q -g 'daemon on; master_process on;'
+ExecStart=/opt/nginx/sbin/nginx -g 'daemon on; master_process on;'
+ExecReload=/opt/nginx/sbin/nginx -g 'daemon on; master_process on;' -s reload
+ExecStop=-/sbin/start-stop-daemon --quiet --stop --retry QUIT/5 --pidfile /run/nginx.pid
+TimeoutStopSec=5
+KillMode=mixed
+
+[Install]
+WantedBy=multi-user.target
+</code></pre>
+<p>ExecStartPre, ExecStart, ExecReload 항목에 대해서 경로를 변경해주었다.</p>
+<p>이후 변경된 사항에 대하여 적용</p>
+<pre><code>sudo systemctl enable nginx
+</code></pre>
+<p>그리고 기존 nginx가 설치되었다면 이를 제거하고 새로 설치한 nginx를 PATH에 등록해야 한다.</p>
+<p>여러 방법이 있지만 그냥 기존 위치에 삭제 해주고 그대로 링크를 만들었다.</p>
+<pre><code>where nginx
+cd /usr/sbin
+sudo rm -rf ./nginx
+sudo ln -s /opt/nginx/sbin/nginx nginx
+</code></pre>
+<p>끝.</p>
+
+</div>
+</div>
+<div class="kigui frame">
+<script src="https://utteranc.es/client.js"
+repo="lazyig/blog-comment"
+issue-term="pathname"
+label="blog-comment"
+theme="github-light"
+crossorigin="anonymous"
+async>
+</script>
+</div>
+</section>
+</body>
+</html>

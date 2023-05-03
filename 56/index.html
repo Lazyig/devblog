@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Svelte 템플릿의 구조 간단히 살펴보기</title>
+<meta
+name="description"
+content="정적페이지로 운영하는 개발 블로그입니다."
+/>
+<link
+rel="shortcut icon"
+type="image/png"
+sizes="144x144"
+href="/static/favicon-144x144.png"
+/>
+<link
+rel="icon"
+type="image/png"
+sizes="16x16"
+href="/static/favicon-16x16.png"
+/>
+<link
+rel="icon"
+type="image/png"
+sizes="32x32"
+href="/static/favicon-32x32.png"
+/>
+<link
+rel="icon"
+type="image/png"
+sizes="192x192"
+href="/static/favicon-192x192.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="57x57"
+href="/static/apple-touch-icon-57x57.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="72x72"
+href="/static/apple-touch-icon-72x72.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="76x76"
+href="/static/apple-touch-icon-76x76.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="114x114"
+href="/static/apple-touch-icon-114x114.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="120x120"
+href="/static/apple-touch-icon-120x120.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="144x144"
+href="/static/apple-touch-icon-144x144.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="152x152"
+href="/static/apple-touch-icon-152x152.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="154x154"
+href="/static/apple-touch-icon-154x154.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="180x180"
+href="/static/apple-touch-icon-180x180.png"
+/>
+<link rel="stylesheet" href="/static/style.css">
+<meta name="theme-color" content="#ff5722">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Svelte 템플릿의 구조 간단히 살펴보기">
+<meta property="og:description" content="공부한 개발 정보를 공유합니다.">
+<meta property="og:image" content="https://devblog.lazyig.com/56//static/ogimg.png">
+<meta property="og:url" content="https://devblog.lazyig.com/56/">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8149987977999297" crossorigin="anonymous"></script>
+<link rel="stylesheet"
+href="/static/highlight.css">
+</head>
+<body class="kigui one">
+<header class="kigui header">
+<a href="/">
+<h1 class="title">
+메모용 개발 블로그
+</h1>
+</a>
+<div class="header-buttons">
+<span id="headerBtn" class="nav-header-btn"><img src="/static/menu-w.svg" alt="Menu"></span>
+</div>
+</header>
+<div class="kigui header-space"></div>
+<section class="kigui">
+<div id="navBar" class="nav-bar">
+
+<div class="nav-header">
+<span id="catToggle" class="nav-header-btn"><img src="/static/menu.svg" alt="Menu"></span>
+</div>
+<ul class="category">
+
+<li style="padding-left: 0px">
+<a href="/c/전체보기/1/">전체보기<span class="nav-cat-cnt">(99)</span></a>
+</li>
+
+<li style="padding-left: 15px">
+<a href="/c/OS/1/">OS<span class="nav-cat-cnt">(34)</span></a>
+</li>
+
+<li style="padding-left: 30px">
+<a href="/c/Linux/1/">Linux<span class="nav-cat-cnt">(23)</span></a>
+</li>
+
+
+<li style="padding-left: 30px">
+<a href="/c/MacOS/1/">MacOS<span class="nav-cat-cnt">(8)</span></a>
+</li>
+
+
+<li style="padding-left: 30px">
+<a href="/c/Windows/1/">Windows<span class="nav-cat-cnt">(3)</span></a>
+</li>
+
+
+
+<li style="padding-left: 15px">
+<a href="/c/데이터베이스/1/">데이터베이스<span class="nav-cat-cnt">(3)</span></a>
+</li>
+
+<li style="padding-left: 30px">
+<a href="/c/Oracle/1/">Oracle<span class="nav-cat-cnt">(1)</span></a>
+</li>
+
+
+<li style="padding-left: 30px">
+<a href="/c/Postgresql/1/">Postgresql<span class="nav-cat-cnt">(1)</span></a>
+</li>
+
+
+
+<li style="padding-left: 15px">
+<a href="/c/Develop/1/">Develop<span class="nav-cat-cnt">(20)</span></a>
+</li>
+
+<li style="padding-left: 30px">
+<a href="/c/CSS3/1/">CSS3<span class="nav-cat-cnt">(3)</span></a>
+</li>
+
+
+<li style="padding-left: 30px">
+<a href="/c/HTML5/1/">HTML5<span class="nav-cat-cnt">(2)</span></a>
+</li>
+
+
+<li style="padding-left: 30px">
+<a href="/c/JavaScript/1/">JavaScript<span class="nav-cat-cnt">(4)</span></a>
+</li>
+
+
+<li style="padding-left: 30px">
+<a href="/c/React/1/">React<span class="nav-cat-cnt">(1)</span></a>
+</li>
+
+
+<li style="padding-left: 30px">
+<a href="/c/Svelte/1/">Svelte<span class="nav-cat-cnt">(2)</span></a>
+</li>
+
+
+
+<li style="padding-left: 15px">
+<a href="/c/개발일기/1/">개발일기<span class="nav-cat-cnt">(9)</span></a>
+</li>
+
+
+<li style="padding-left: 15px">
+<a href="/c/Git/1/">Git<span class="nav-cat-cnt">(3)</span></a>
+</li>
+
+
+<li style="padding-left: 15px">
+<a href="/c/GitLab/1/">GitLab<span class="nav-cat-cnt">(11)</span></a>
+</li>
+
+
+<li style="padding-left: 15px">
+<a href="/c/Nginx/1/">Nginx<span class="nav-cat-cnt">(7)</span></a>
+</li>
+
+
+<li style="padding-left: 15px">
+<a href="/c/기타/1/">기타<span class="nav-cat-cnt">(9)</span></a>
+</li>
+
+
+<li style="padding-left: 15px">
+<a href="/c/이 블로그의 오픈소스/1/">이 블로그의 오픈소스<span class="nav-cat-cnt">(3)</span></a>
+</li>
+
+
+
+</ul>
+</div>
+<script>
+let catToggle = document.getElementById("catToggle");
+let headerBtn = document.getElementById("headerBtn");
+let navBar = document.getElementById("navBar");
+catToggle.addEventListener("click", () => {
+navBar.classList.toggle("show");
+});
+headerBtn.addEventListener("click", () => {
+navBar.classList.toggle("show");
+})
+</script>
+<div class="kigui frame">
+<p class="category-path">
+
+<a href="/c/전체보기/1/">전체보기</a>
+<span> > </span>
+
+<a href="/c/Develop/1/">Develop</a>
+<span> > </span>
+
+<a href="/c/Svelte/1/">Svelte</a>
+<span> > </span>
+
+</p>
+<h1 class="article-title"><a href="https://devblog.lazyig.com/56/">Svelte 템플릿의 구조 간단히 살펴보기</a></h1>
+<p class="write-date">2022-02-11 08:21:44</p>
+<div class="markdown-body">
+<h2>서론</h2>
+<p>이 글은 Svelte의 기본 템플릿의 파일들의 구조와 역할을 간단하게 살펴보면서 기록하는 용도이다.</p>
+<p>아무래도 공부하면서 하는 것이라 분명히 부족한 글이다.</p>
+<h2>본론</h2>
+<h3>파일 구조 살펴보기</h3>
+<p>우선 파일의 구조를 살펴보고자 한다.</p>
+<ul>
+<li>public : 실제 배포될 코드가 위치하는 곳
+<ul>
+<li>build : 빌드된 Svelte 스크립트 파일이 위치하는 곳. gitignore에 등록되어 있다.</li>
+<li>favicon.png : 기본 파비콘 파일</li>
+<li>index.html : 진입 페이지</li>
+</ul>
+</li>
+<li>src : Svelte의 스크립트가 위치하는 곳
+<ul>
+<li>App.svelte : svelte 파일</li>
+<li>global.d.ts : 전역 타입스크립트 인터페이스/타입스크립트</li>
+<li>main.ts : 스크립트 진입점</li>
+</ul>
+</li>
+<li>.gitignore : git 추적 제외 파일 목록</li>
+<li>rollup.config.js : 롤업에 대한 설정 파일</li>
+<li>tsconfig.json : 타입스크립트 설정 파일</li>
+</ul>
+<p>꽤 간결하게 생성되어 있는 모습을 볼 수 있다. 딱히 더 살펴볼 것도 없어보이는 모습</p>
+<h3>일부 파일 살펴보기</h3>
+<h4>src/main.ts</h4>
+<pre><code>import App from './App.svelte';
+
+const app = new App({
+	target: document.body,
+	props: {
+		name: 'world'
+	}
+});
+
+export default app;
+</code></pre>
+<p>위와 같은 간단한 스크립트가 들어있다.</p>
+<p>App 컴포넌트를 불러온 다음 public/index.html의 어떤 태그(target)에 그릴지 작성되어 있다.</p>
+<p>위 코드대로라면 App은 body태그에 그려질 것이다.</p>
+<p>props는 App컴포넌트에 값을 넘겨주는 역할을 한다.</p>
+<p>name에 'world'라는 값을 넘겨주고 있다.</p>
+<h4>src/App.svelte</h4>
+<pre><code>&lt;script lang=&quot;ts&quot;&gt;
+	export let name: string;
+&lt;/script&gt;
+
+&lt;main&gt;
+	&lt;h1&gt;Hello {name}!&lt;/h1&gt;
+	&lt;p&gt;Visit the &lt;a href=&quot;https://svelte.dev/tutorial&quot;&gt;Svelt tutorial&lt;/a&gt; to learn how to build Svelte apps.&lt;/p&gt;
+&lt;/main&gt;
+
+&lt;style&gt;
+	main {
+		text-align: center;
+		padding: 1em;
+		max-width: 240px;
+		margin: 0 auto;
+	}
+
+	h1 {
+		color: #ff3e00;
+		text-transform: uppercase;
+		font-size: 4em;
+		font-weight: 100;
+	}
+
+	@media (min-width: 640px) {
+		main {
+			max-width: none;
+		}
+	}
+&lt;/style&gt;
+</code></pre>
+<p>App.svelte 파일이다.</p>
+<p>script, main, style 세 가지 태그가 눈에 띈다.</p>
+<p>Svelte파일은 script, style, html 세 가지 영역으로 구분되어 있는 모습을 볼 수 있으며, 흔하게 알던 기본 html,css,js 문법을 거의 그대로 사용가능해 익숙한 모습을 볼 수 있다.</p>
+<p><strong>script</strong></p>
+<pre><code>&lt;script lang=&quot;ts&quot;&gt;
+	export let name: string;
+&lt;/script&gt;
+</code></pre>
+<p>우선 script 부분을 살펴보면 lang이라는 속성에 ts라는 값이 들어가있다. 이것으로 사용하는 개발언어 타입을 명시할 수 있는 것으로 보인다.</p>
+<p>다음은 export 구문이다. name은 이전 main.ts 파일에서 props를 통해서 값을 넘겨받을 수 있도록 한다.</p>
+<p><strong>html</strong></p>
+<pre><code>&lt;main&gt;
+	&lt;h1&gt;Hello {name}!&lt;/h1&gt;
+	&lt;p&gt;Visit the &lt;a href=&quot;https://svelte.dev/tutorial&quot;&gt;Svelt tutorial&lt;/a&gt; to learn how to build Svelte apps.&lt;/p&gt;
+&lt;/main&gt;
+</code></pre>
+<p>main 태그 안에는 평범한 html 태그가 들어있으나 독특한 부분은 <code>{name}</code> 부분이다.</p>
+<p>이를 보면 변수에 있는 값을 해당 영역에 출력해주는 것을 볼 수 있다.</p>
+<p><strong>style</strong></p>
+<p>스타일 부분은 크게 볼 것 없이 그냥 스타일을 다루고 있는 모습이다.</p>
+
+</div>
+</div>
+<div class="kigui frame">
+<script src="https://utteranc.es/client.js"
+repo="lazyig/blog-comment"
+issue-term="pathname"
+label="blog-comment"
+theme="github-light"
+crossorigin="anonymous"
+async>
+</script>
+</div>
+</section>
+</body>
+</html>

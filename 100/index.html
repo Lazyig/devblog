@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GitLab Omnibus에서 Docker로 이동</title>
+<meta
+name="description"
+content="정적페이지로 운영하는 개발 블로그입니다."
+/>
+<link
+rel="shortcut icon"
+type="image/png"
+sizes="144x144"
+href="/static/favicon-144x144.png"
+/>
+<link
+rel="icon"
+type="image/png"
+sizes="16x16"
+href="/static/favicon-16x16.png"
+/>
+<link
+rel="icon"
+type="image/png"
+sizes="32x32"
+href="/static/favicon-32x32.png"
+/>
+<link
+rel="icon"
+type="image/png"
+sizes="192x192"
+href="/static/favicon-192x192.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="57x57"
+href="/static/apple-touch-icon-57x57.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="72x72"
+href="/static/apple-touch-icon-72x72.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="76x76"
+href="/static/apple-touch-icon-76x76.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="114x114"
+href="/static/apple-touch-icon-114x114.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="120x120"
+href="/static/apple-touch-icon-120x120.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="144x144"
+href="/static/apple-touch-icon-144x144.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="152x152"
+href="/static/apple-touch-icon-152x152.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="154x154"
+href="/static/apple-touch-icon-154x154.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="180x180"
+href="/static/apple-touch-icon-180x180.png"
+/>
+<link rel="stylesheet" href="/static/style.css">
+<meta name="theme-color" content="#ff5722">
+<meta property="og:type" content="website">
+<meta property="og:title" content="GitLab Omnibus에서 Docker로 이동">
+<meta property="og:description" content="공부한 개발 정보를 공유합니다.">
+<meta property="og:image" content="https://devblog.lazyig.com/100//static/ogimg.png">
+<meta property="og:url" content="https://devblog.lazyig.com/100/">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8149987977999297" crossorigin="anonymous"></script>
+<link rel="stylesheet"
+href="/static/highlight.css">
+</head>
+<body class="kigui one">
+<header class="kigui header">
+<a href="/">
+<h1 class="title">
+메모용 개발 블로그
+</h1>
+</a>
+<div class="header-buttons">
+<span id="headerBtn" class="nav-header-btn"><img src="/static/menu-w.svg" alt="Menu"></span>
+</div>
+</header>
+<div class="kigui header-space"></div>
+<section class="kigui">
+<div id="navBar" class="nav-bar">
+
+<div class="nav-header">
+<span id="catToggle" class="nav-header-btn"><img src="/static/menu.svg" alt="Menu"></span>
+</div>
+<ul class="category">
+
+<li style="padding-left: 0px">
+<a href="/c/전체보기/1/">전체보기<span class="nav-cat-cnt">(99)</span></a>
+</li>
+
+<li style="padding-left: 15px">
+<a href="/c/OS/1/">OS<span class="nav-cat-cnt">(34)</span></a>
+</li>
+
+<li style="padding-left: 30px">
+<a href="/c/Linux/1/">Linux<span class="nav-cat-cnt">(23)</span></a>
+</li>
+
+
+<li style="padding-left: 30px">
+<a href="/c/MacOS/1/">MacOS<span class="nav-cat-cnt">(8)</span></a>
+</li>
+
+
+<li style="padding-left: 30px">
+<a href="/c/Windows/1/">Windows<span class="nav-cat-cnt">(3)</span></a>
+</li>
+
+
+
+<li style="padding-left: 15px">
+<a href="/c/데이터베이스/1/">데이터베이스<span class="nav-cat-cnt">(3)</span></a>
+</li>
+
+<li style="padding-left: 30px">
+<a href="/c/Oracle/1/">Oracle<span class="nav-cat-cnt">(1)</span></a>
+</li>
+
+
+<li style="padding-left: 30px">
+<a href="/c/Postgresql/1/">Postgresql<span class="nav-cat-cnt">(1)</span></a>
+</li>
+
+
+
+<li style="padding-left: 15px">
+<a href="/c/Develop/1/">Develop<span class="nav-cat-cnt">(20)</span></a>
+</li>
+
+<li style="padding-left: 30px">
+<a href="/c/CSS3/1/">CSS3<span class="nav-cat-cnt">(3)</span></a>
+</li>
+
+
+<li style="padding-left: 30px">
+<a href="/c/HTML5/1/">HTML5<span class="nav-cat-cnt">(2)</span></a>
+</li>
+
+
+<li style="padding-left: 30px">
+<a href="/c/JavaScript/1/">JavaScript<span class="nav-cat-cnt">(4)</span></a>
+</li>
+
+
+<li style="padding-left: 30px">
+<a href="/c/React/1/">React<span class="nav-cat-cnt">(1)</span></a>
+</li>
+
+
+<li style="padding-left: 30px">
+<a href="/c/Svelte/1/">Svelte<span class="nav-cat-cnt">(2)</span></a>
+</li>
+
+
+
+<li style="padding-left: 15px">
+<a href="/c/개발일기/1/">개발일기<span class="nav-cat-cnt">(9)</span></a>
+</li>
+
+
+<li style="padding-left: 15px">
+<a href="/c/Git/1/">Git<span class="nav-cat-cnt">(3)</span></a>
+</li>
+
+
+<li style="padding-left: 15px">
+<a href="/c/GitLab/1/">GitLab<span class="nav-cat-cnt">(11)</span></a>
+</li>
+
+
+<li style="padding-left: 15px">
+<a href="/c/Nginx/1/">Nginx<span class="nav-cat-cnt">(7)</span></a>
+</li>
+
+
+<li style="padding-left: 15px">
+<a href="/c/기타/1/">기타<span class="nav-cat-cnt">(9)</span></a>
+</li>
+
+
+<li style="padding-left: 15px">
+<a href="/c/이 블로그의 오픈소스/1/">이 블로그의 오픈소스<span class="nav-cat-cnt">(3)</span></a>
+</li>
+
+
+
+</ul>
+</div>
+<script>
+let catToggle = document.getElementById("catToggle");
+let headerBtn = document.getElementById("headerBtn");
+let navBar = document.getElementById("navBar");
+catToggle.addEventListener("click", () => {
+navBar.classList.toggle("show");
+});
+headerBtn.addEventListener("click", () => {
+navBar.classList.toggle("show");
+})
+</script>
+<div class="kigui frame">
+<p class="category-path">
+
+<a href="/c/전체보기/1/">전체보기</a>
+<span> > </span>
+
+<a href="/c/GitLab/1/">GitLab</a>
+<span> > </span>
+
+</p>
+<h1 class="article-title"><a href="https://devblog.lazyig.com/100/">GitLab Omnibus에서 Docker로 이동</a></h1>
+<p class="write-date">2023-03-30 16:49:43</p>
+<div class="markdown-body">
+<h2>서론</h2>
+<p>이 글은 설치형 GitLab을 패키지 매니저로 설치한 상태에서 Docker로 이전하는 과정을 담은 글 입니다.</p>
+<p>환경이 달라 다른 동작을 보이거나 불필요한 내용이 있을 수 있습니다.</p>
+<h3>각종 환경</h3>
+<ul>
+<li>
+<p>OS/배포판:</p>
+<ul>
+<li>Ubuntu 18.04.5 LTS</li>
+</ul>
+</li>
+<li>
+<p>Docker:</p>
+<ul>
+<li>version: 23.0.0</li>
+</ul>
+</li>
+<li>
+<p>Nginx:</p>
+<ul>
+<li>
+<p>GitLab 내장 Nginx를 사용하지 않으며, 별도 설치한 Nginx를 사용함.</p>
+</li>
+<li>
+<p>컴파일 방식으로 설치됨.</p>
+</li>
+<li>
+<p>version: nginx/1.19.0</p>
+</li>
+</ul>
+</li>
+</ul>
+<h2>본론</h2>
+<p>이 글에서는 용이한 관리를 위하여 <code>docker-compose</code>를 이용해서 진행합니다.</p>
+<p>또한, 작업 경로는 <code>/srv/gitlab</code>으로 작업을 하며 글에서 해당 경로가 나올 시 원하는 경로로 변경하여 진행하면 됩니다.</p>
+<h3>목표</h3>
+<h4>1. 기존의 데이터를 손실시키지 않고 그대로 이동한다.</h4>
+<h4>2. 설정 복잡도 개선</h4>
+<p>현재 GitLab은 오래전에 구축하였다. 현재 2023년 3월인데. 2019년 9월 30일에 구축하였다. (최초 계정 생성일)</p>
+<p>그러므로 설정 템플릿도 안맞을 것이다. 중간에 기억나는 것만 unicorn이라는 것에서 puma로 바꾸면서 업데이트를 귀찮게 했던 기억이 있다.</p>
+<p>또한 이런저런 시도를 해본다고 불필요한 설정도 했을 것이고, 이번에 nginx를 그냥 다시 내장 nginx를 사용하는 것으로 설정을 바꿀 것이므로 이에 대한 설정을 진행하고 <code>gitlab.rb</code>파일은 설정 참고 템플릿으로만 보고 <code>compose.yaml</code>파일에 설정을 하도록 변경할 것 이다.</p>
+<h3>Docker Compose 작성</h3>
+<p>우선 docker compose를 작성하여야 합니다.</p>
+<p>Docker 버전으로 깃랩을 설치하는 공식 가이드 문서를 참고하여 작성합니다.</p>
+<p><a href="https://docs.gitlab.com/ee/install/docker.html">https://docs.gitlab.com/ee/install/docker.html</a></p>
+<pre><code class="language-sh">sudo <span class="hljs-built_in">mkdir</span> -r /srv/gitlab
+<span class="hljs-built_in">cd</span> /srv/gitlab
+sudo vim compose.yaml
+</code></pre>
+<p>이후 아래 내용을 수정하여 작성합니다.</p>
+<pre><code class="language-yaml"><span class="hljs-attr">services:</span>
+  <span class="hljs-attr">web:</span>
+    <span class="hljs-attr">image:</span> <span class="hljs-string">&#x27;gitlab/gitlab-ce:latest&#x27;</span>
+    <span class="hljs-attr">container_name:</span> <span class="hljs-string">&#x27;gitlab&#x27;</span>
+    <span class="hljs-attr">restart:</span> <span class="hljs-string">always</span>
+    <span class="hljs-attr">hostname:</span> <span class="hljs-string">&#x27;gitlab.example.com&#x27;</span>
+    <span class="hljs-attr">environment:</span>
+      <span class="hljs-attr">GITLAB_OMNIBUS_CONFIG:</span> <span class="hljs-string">|
+        external_url &#x27;https://gitlab.example.com&#x27;
+        # gitlab.rb 파일의 설정 내용을 여기 추가합니다.
+</span>    <span class="hljs-attr">ports:</span>
+      <span class="hljs-bullet">-</span> <span class="hljs-string">&#x27;80:80&#x27;</span>
+      <span class="hljs-bullet">-</span> <span class="hljs-string">&#x27;443:443&#x27;</span>
+      <span class="hljs-bullet">-</span> <span class="hljs-string">&#x27;22:22&#x27;</span>
+    <span class="hljs-attr">volumes:</span>
+      <span class="hljs-bullet">-</span> <span class="hljs-string">&#x27;./config:/etc/gitlab&#x27;</span>
+      <span class="hljs-bullet">-</span> <span class="hljs-string">&#x27;./logs:/var/log/gitlab&#x27;</span>
+      <span class="hljs-bullet">-</span> <span class="hljs-string">&#x27;./data:/var/opt/gitlab&#x27;</span>
+    <span class="hljs-attr">shm_size:</span> <span class="hljs-string">&#x27;0&#x27;</span>
+</code></pre>
+<p>기존 gitlab.rb파일의 설정을 여기다가 적을 수 있는데.</p>
+<h4>compose 설정</h4>
+<h5>container_name</h5>
+<p>컨테이너 명을 설정하지 않으면 자동으로 compose에서 <code>경로명-web-1</code> 이런식으로 짓습니다.</p>
+<p>후에 접근할 일이 생길 때 번거로우므로 정하시면 편합니다.</p>
+<h5>restart</h5>
+<p>해당 컨테이너의 재시작 정책을 정합니다. 꺼지더라도 항상 재시작이 되어야 하므로 always로 하였습니다.</p>
+<h5>hostname</h5>
+<p>컨테이너의 호스트명을 지정합니다. 평범하게 해당 GitLab의 주소로 작성하시면 됩니다.</p>
+<h5>enviroment</h5>
+<p>컨테이너에 미리 지정된 환경변수를 설정합니다.</p>
+<p>이를 설정하지 않고 gitlab.rb 파일을 직접 수정해도 무관합니다.</p>
+<p>현재 환경에서는 개선을 위해서 설정을 다시 해주었습니다.</p>
+<pre><code class="language-yaml"><span class="hljs-string">...</span>
+<span class="hljs-attr">environment:</span>
+  <span class="hljs-attr">GITLAB_OMNIBUS_CONFIG:</span> <span class="hljs-string">|
+    external_url &#x27;https://gitlab.example.com&#x27;
+</span>
+    <span class="hljs-comment"># Nginx Config</span>
+    <span class="hljs-string">nginx[&#x27;listen_port&#x27;]</span> <span class="hljs-string">=</span> <span class="hljs-number">80</span>
+    <span class="hljs-string">nginx[&#x27;listen_https&#x27;]</span> <span class="hljs-string">=</span> <span class="hljs-literal">false</span>
+    <span class="hljs-string">nginx[&#x27;redirect_http_to_https&#x27;]</span> <span class="hljs-string">=</span> <span class="hljs-literal">false</span>
+
+    <span class="hljs-comment"># Registry Nginx Config</span>
+    <span class="hljs-string">registry_nginx[&#x27;redirect_http_to_https&#x27;]</span> <span class="hljs-string">=</span> <span class="hljs-literal">false</span>
+
+    <span class="hljs-comment"># Let&#x27;s Encrypt Settings</span>
+    <span class="hljs-string">letsencrypt[&#x27;enable&#x27;]</span> <span class="hljs-string">=</span> <span class="hljs-literal">false</span>
+        
+    <span class="hljs-comment"># Email Settings</span>
+    <span class="hljs-string">gitlab_rails[&#x27;gitlab_email_enabled&#x27;]</span> <span class="hljs-string">=</span> <span class="hljs-literal">true</span>
+    <span class="hljs-string">gitlab_rails[&#x27;gitlab_email_from&#x27;]</span> <span class="hljs-string">=</span> <span class="hljs-string">&#x27;이메일&#x27;</span>
+    <span class="hljs-string">gitlab_rails[&#x27;gitlab_email_display_name&#x27;]</span> <span class="hljs-string">=</span> <span class="hljs-string">&#x27;이메일 이름&#x27;</span>
+    <span class="hljs-string">gitlab_rails[&#x27;gitlab_email_reply_to&#x27;]</span> <span class="hljs-string">=</span> <span class="hljs-string">&#x27;이메일&#x27;</span>
+
+    <span class="hljs-comment"># OmniAuth Settings</span>
+    <span class="hljs-string">gitlab_rails[&#x27;omniauth_providers&#x27;]</span> <span class="hljs-string">=</span> [
+      {
+        <span class="hljs-string">&quot;name&quot;</span> <span class="hljs-string">=&gt;</span> <span class="hljs-string">&quot;google_oauth2&quot;</span>,
+        <span class="hljs-string">&quot;app_id&quot;</span> <span class="hljs-string">=&gt;</span> <span class="hljs-string">&quot;app_id&quot;</span>,
+        <span class="hljs-string">&quot;app_secret&quot;</span> <span class="hljs-string">=&gt;</span> <span class="hljs-string">&quot;token&quot;</span>,
+        <span class="hljs-string">&quot;args&quot;</span> <span class="hljs-string">=&gt;</span> { <span class="hljs-string">&quot;access_type&quot;</span> <span class="hljs-string">=&gt;</span> <span class="hljs-string">&quot;offline&quot;</span>, <span class="hljs-string">&quot;approval_prompt&quot;</span> <span class="hljs-string">=&gt;</span> <span class="hljs-string">&#x27;&#x27;</span> }
+      }
+    ]
+
+    <span class="hljs-comment"># Backup Settings</span>
+    <span class="hljs-string">gitlab_rails[&#x27;backup_archive_permissions&#x27;]</span> <span class="hljs-string">=</span> <span class="hljs-number">0644</span>
+    <span class="hljs-string">gitlab_rails[&#x27;backup_keep_time&#x27;]</span> <span class="hljs-string">=</span> <span class="hljs-number">604800</span>
+
+    <span class="hljs-comment"># GitLab email server settings</span>
+    <span class="hljs-string">gitlab_rails[&#x27;smtp_enable&#x27;]</span> <span class="hljs-string">=</span> <span class="hljs-literal">true</span>
+    <span class="hljs-string">gitlab_rails[&#x27;smtp_address&#x27;]</span> <span class="hljs-string">=</span> <span class="hljs-string">&quot;smtp.gmail.com&quot;</span>
+    <span class="hljs-string">gitlab_rails[&#x27;smtp_port&#x27;]</span> <span class="hljs-string">=</span> <span class="hljs-number">587</span>
+    <span class="hljs-string">gitlab_rails[&#x27;smtp_user_name&#x27;]</span> <span class="hljs-string">=</span> <span class="hljs-string">&quot;smtp_유저명&quot;</span>
+    <span class="hljs-string">gitlab_rails[&#x27;smtp_password&#x27;]</span> <span class="hljs-string">=</span> <span class="hljs-string">&quot;비밀번호 or 토큰&quot;</span>
+    <span class="hljs-string">gitlab_rails[&#x27;smtp_domain&#x27;]</span> <span class="hljs-string">=</span> <span class="hljs-string">&quot;smtp.gmail.com&quot;</span>
+    <span class="hljs-string">gitlab_rails[&#x27;smtp_authentication&#x27;]</span> <span class="hljs-string">=</span> <span class="hljs-string">&quot;login&quot;</span>
+    <span class="hljs-string">gitlab_rails[&#x27;smtp_enable_starttls_auto&#x27;]</span> <span class="hljs-string">=</span> <span class="hljs-literal">true</span>
+    <span class="hljs-string">gitlab_rails[&#x27;smtp_tls&#x27;]</span> <span class="hljs-string">=</span> <span class="hljs-literal">false</span>
+<span class="hljs-string">...</span>
+</code></pre>
+<h5>ports</h5>
+<p>컨테이너 내부와 외부간 포트를 연결해줍니다.</p>
+<p>각자의 환경에 따라 적절하게 설정합니다.</p>
+<p>이 글의 환경에서는 외부 nginx에서 gitlab nginx로 프록시를 할 것이므로 http 포트인 80번과 ssh 포트인 22번만 노출하도록 수정할 것 입니다.</p>
+<h3>데이터 이동</h3>
+<p>volumes 하위에 경로들은 깃랩의 설정, 로그, 데이터 등을 보관하는 영역입니다.</p>
+<p>기존 패키지 매니저로 설치한 것과 동일한 경로이나 아쉽게도 파일의 권한에 문제가 있으므로 config 하위의 파일만 복사하고 데이터 부분은 깃랩 자체 백업/복원기능을 사용하여 이동합니다.</p>
+<p>이 과정에서 기존 깃랩과 새로운 깃랩간의 버전이 동일하여야 합니다. 기존 깃랩의 버전을 업데이트 하거나 컨테이너의 버전을 맞춰야합니다.</p>
+<p>우선 백업부터 진행합니다.</p>
+<pre><code class="language-sh">sudo gitlab-backup create
+</code></pre>
+<p>백업이 완료되면 다음과 같이 마지막 문단에 일부 파일은 수동으로 옮겨야 한다라는 경고와 백업된 파일명을 알려줍니다.</p>
+<p>이를 메모해둡니다.</p>
+<pre><code>...
+2023-03-30 14:03:29 UTC -- Warning: Your gitlab.rb and gitlab-secrets.json files contain sensitive data 
+and are not included in this backup. You will need these files to restore a backup.
+Please back them up manually.
+2023-03-30 14:03:29 UTC -- Backup 백업_파일_명 is done.
+2023-03-30 23:03:29 +0900 -- Deleting backup and restore lock file
+</code></pre>
+<p>다음은 기존 깃랩을 중단합니다.</p>
+<pre><code class="language-sh">sudo gitlab-ctl stop
+</code></pre>
+<p>이후 설정파일을 복사한 뒤, 기존에 사용하던 <code>gitlab.rb</code>파일은 이 글에서 사용하지 않는 것으로 변경할 것이므로 삭제합니다.</p>
+<pre><code class="language-sh">sudo <span class="hljs-built_in">cp</span> -r /etc/gitlab ./config
+sudo <span class="hljs-built_in">rm</span> -rf ./config/gitlab.rb
+</code></pre>
+<p>컨테이너를 시작합니다.</p>
+<pre><code class="language-sh">sudo docker compose up -d
+</code></pre>
+<p>정상 구동을 확인 후 백업파일을 복사해넣고 복원 작업을 수행합니다.</p>
+<pre><code class="language-sh">sudo <span class="hljs-built_in">cp</span> /var/opt/gitlab/backups/백업_파일_명_gitlab_backup.tar /srv/gitlab/data/backups
+</code></pre>
+<p>이후 복원을 위해 컨테이너 쉘로 접속합니다.</p>
+<pre><code class="language-sh">sudo docker <span class="hljs-built_in">exec</span> -it gitlab bash
+</code></pre>
+<p>접속 한 다음 복원을 진행합니다.</p>
+<pre><code class="language-sh">gitlab-backup restore BACKUP=백업_파일_명
+</code></pre>
+<p>이후 기다리면 몇번씩 계속 하겠냐고 묻습니다.</p>
+<p>yes를 적어 계속진행하여 완료하면 끝 입니다.</p>
+
+</div>
+</div>
+<div class="kigui frame">
+<script src="https://utteranc.es/client.js"
+repo="lazyig/blog-comment"
+issue-term="pathname"
+label="blog-comment"
+theme="github-light"
+crossorigin="anonymous"
+async>
+</script>
+</div>
+</section>
+</body>
+</html>

@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>자바스크립트의 호이스팅</title>
+<meta
+name="description"
+content="정적페이지로 운영하는 개발 블로그입니다."
+/>
+<link
+rel="shortcut icon"
+type="image/png"
+sizes="144x144"
+href="/static/favicon-144x144.png"
+/>
+<link
+rel="icon"
+type="image/png"
+sizes="16x16"
+href="/static/favicon-16x16.png"
+/>
+<link
+rel="icon"
+type="image/png"
+sizes="32x32"
+href="/static/favicon-32x32.png"
+/>
+<link
+rel="icon"
+type="image/png"
+sizes="192x192"
+href="/static/favicon-192x192.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="57x57"
+href="/static/apple-touch-icon-57x57.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="72x72"
+href="/static/apple-touch-icon-72x72.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="76x76"
+href="/static/apple-touch-icon-76x76.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="114x114"
+href="/static/apple-touch-icon-114x114.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="120x120"
+href="/static/apple-touch-icon-120x120.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="144x144"
+href="/static/apple-touch-icon-144x144.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="152x152"
+href="/static/apple-touch-icon-152x152.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="154x154"
+href="/static/apple-touch-icon-154x154.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="180x180"
+href="/static/apple-touch-icon-180x180.png"
+/>
+<link rel="stylesheet" href="/static/style.css">
+<meta name="theme-color" content="#ff5722">
+<meta property="og:type" content="website">
+<meta property="og:title" content="자바스크립트의 호이스팅">
+<meta property="og:description" content="공부한 개발 정보를 공유합니다.">
+<meta property="og:image" content="https://devblog.lazyig.com/106//static/ogimg.png">
+<meta property="og:url" content="https://devblog.lazyig.com/106/">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8149987977999297" crossorigin="anonymous"></script>
+<link rel="stylesheet"
+href="/static/highlight.css">
+</head>
+<body class="kigui one">
+<header class="kigui header">
+<a href="/">
+<h1 class="title">
+메모용 개발 블로그
+</h1>
+</a>
+<div class="header-buttons">
+<span id="headerBtn" class="nav-header-btn"><img src="/static/menu-w.svg" alt="Menu"></span>
+</div>
+</header>
+<div class="kigui header-space"></div>
+<section class="kigui">
+<div id="navBar" class="nav-bar">
+
+<div class="nav-header">
+<span id="catToggle" class="nav-header-btn"><img src="/static/menu.svg" alt="Menu"></span>
+</div>
+<ul class="category">
+
+<li style="padding-left: 0px">
+<a href="/c/전체보기/1/">전체보기<span class="nav-cat-cnt">(99)</span></a>
+</li>
+
+<li style="padding-left: 15px">
+<a href="/c/OS/1/">OS<span class="nav-cat-cnt">(34)</span></a>
+</li>
+
+<li style="padding-left: 30px">
+<a href="/c/Linux/1/">Linux<span class="nav-cat-cnt">(23)</span></a>
+</li>
+
+
+<li style="padding-left: 30px">
+<a href="/c/MacOS/1/">MacOS<span class="nav-cat-cnt">(8)</span></a>
+</li>
+
+
+<li style="padding-left: 30px">
+<a href="/c/Windows/1/">Windows<span class="nav-cat-cnt">(3)</span></a>
+</li>
+
+
+
+<li style="padding-left: 15px">
+<a href="/c/데이터베이스/1/">데이터베이스<span class="nav-cat-cnt">(3)</span></a>
+</li>
+
+<li style="padding-left: 30px">
+<a href="/c/Oracle/1/">Oracle<span class="nav-cat-cnt">(1)</span></a>
+</li>
+
+
+<li style="padding-left: 30px">
+<a href="/c/Postgresql/1/">Postgresql<span class="nav-cat-cnt">(1)</span></a>
+</li>
+
+
+
+<li style="padding-left: 15px">
+<a href="/c/Develop/1/">Develop<span class="nav-cat-cnt">(20)</span></a>
+</li>
+
+<li style="padding-left: 30px">
+<a href="/c/CSS3/1/">CSS3<span class="nav-cat-cnt">(3)</span></a>
+</li>
+
+
+<li style="padding-left: 30px">
+<a href="/c/HTML5/1/">HTML5<span class="nav-cat-cnt">(2)</span></a>
+</li>
+
+
+<li style="padding-left: 30px">
+<a href="/c/JavaScript/1/">JavaScript<span class="nav-cat-cnt">(4)</span></a>
+</li>
+
+
+<li style="padding-left: 30px">
+<a href="/c/React/1/">React<span class="nav-cat-cnt">(1)</span></a>
+</li>
+
+
+<li style="padding-left: 30px">
+<a href="/c/Svelte/1/">Svelte<span class="nav-cat-cnt">(2)</span></a>
+</li>
+
+
+
+<li style="padding-left: 15px">
+<a href="/c/개발일기/1/">개발일기<span class="nav-cat-cnt">(9)</span></a>
+</li>
+
+
+<li style="padding-left: 15px">
+<a href="/c/Git/1/">Git<span class="nav-cat-cnt">(3)</span></a>
+</li>
+
+
+<li style="padding-left: 15px">
+<a href="/c/GitLab/1/">GitLab<span class="nav-cat-cnt">(11)</span></a>
+</li>
+
+
+<li style="padding-left: 15px">
+<a href="/c/Nginx/1/">Nginx<span class="nav-cat-cnt">(7)</span></a>
+</li>
+
+
+<li style="padding-left: 15px">
+<a href="/c/기타/1/">기타<span class="nav-cat-cnt">(9)</span></a>
+</li>
+
+
+<li style="padding-left: 15px">
+<a href="/c/이 블로그의 오픈소스/1/">이 블로그의 오픈소스<span class="nav-cat-cnt">(3)</span></a>
+</li>
+
+
+
+</ul>
+</div>
+<script>
+let catToggle = document.getElementById("catToggle");
+let headerBtn = document.getElementById("headerBtn");
+let navBar = document.getElementById("navBar");
+catToggle.addEventListener("click", () => {
+navBar.classList.toggle("show");
+});
+headerBtn.addEventListener("click", () => {
+navBar.classList.toggle("show");
+})
+</script>
+<div class="kigui frame">
+<p class="category-path">
+
+<a href="/c/전체보기/1/">전체보기</a>
+<span> > </span>
+
+<a href="/c/Develop/1/">Develop</a>
+<span> > </span>
+
+<a href="/c/JavaScript/1/">JavaScript</a>
+<span> > </span>
+
+</p>
+<h1 class="article-title"><a href="https://devblog.lazyig.com/106/">자바스크립트의 호이스팅</a></h1>
+<p class="write-date">2023-04-27 17:27:49</p>
+<div class="markdown-body">
+<h2>호이스팅이란?</h2>
+<p>자바스크립트의 변수 혹은 함수의 선언이 위로 올려지는 특징이 있습니다. 이를 호이스팅이라고 합니다.</p>
+<h3>호이스팅의 동작</h3>
+<p>자바스크립트는 많은 언어들 처럼 무언가를 호출하면 이를 콜 스택에 올리고 실행하면 꺼내는 식으로 동작합니다.</p>
+<p>간략하게 이야기하면 이때 올라가는 객체가 실행 컨텍스트이며, 내부에 전역 혹은 함수가 실행(ES6 이후로는 블록도 포함)될 때마다 이 실행 컨텍스트가 콜 스택에 올라갑니다. 이 실행 컨텍스트 내부에는 매개변수, 변수, 함수 등을 정보 등이 함께 들어있습니다.</p>
+<p>즉, 사용되는 변수나 함수 정보를 미리 알고 있게되므로 호이스팅이 동작하게 되는 것 입니다. 이를 간단하고 이해하기 쉽게 표현 하는 것이 '선언이 위로 끌어올려진다.'인 셈 입니다.</p>
+<h3>호이스팅의 이유</h3>
+<p>자바스크립트를 보다 쉽게 사용하기 위해서라고 합니다.</p>
+<p>아무래도 '함수의 사용보다 선언이 앞에 있어야 한다.'라는 규칙은 가볍게 사용하는 언어에 어려운 규칙이라 생각한 모양입니다.</p>
+<p>덕에 메인으로 동작하는 스크립트를 위에 위치하고 세세한 함수들을 밑으로 몰아넣어 관리할 수도 있게 되며, 각 함수간에 순서를 신경안쓰고 유사기능끼리 아무 순서로 묶어도 상관없게 됩니다.</p>
+<h3>함수 호이스팅 예시</h3>
+<pre><code class="language-js"><span class="hljs-title function_">printHelloWorld</span>();
+
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">printHelloWorld</span>(<span class="hljs-params"></span>) {
+    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&quot;Hello World!!!&quot;</span>);
+}
+</code></pre>
+<p>분명히 함수의 선언은 뒤에 작성했으나, 아래와 같이 함수 호출이 정상적으로 됩니다.</p>
+<h4>실행결과</h4>
+<pre><code>Hello World!!!
+</code></pre>
+<h3>변수 호이스팅 예시</h3>
+<pre><code class="language-js"><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(a);
+<span class="hljs-keyword">var</span> a = <span class="hljs-string">&quot;Variable&quot;</span>;
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(a);
+</code></pre>
+<p>변수의 경우도 마찬가지로 선언은 뒤에 작성하였으나, 별다른 오류가 없습니다</p>
+<h4>실행결과</h4>
+<pre><code>undefined
+Variable
+</code></pre>
+<p>실행 결과를 보면 변수의 호이스팅이 일어나고 값을 <code>undefined</code>로 초기화해버린다는 것을 확인할 수 있습니다.</p>
+<h2>호이스팅의 문제점</h2>
+<p>꼭 호이스팅 이야기와 함께 따라오는 것이 <code>let</code>, <code>const</code> 같은 것을 써라! 입니다.</p>
+<p>사실 <code>var</code>를 써도 문제가 생기는 일은 드뭅니다. 전역 변수를 남발하는 것 자체를 권장하지 않기도 하니 대충 지켜서 짜면 별 문제가 안생기나 가끔은 이런 문제가 생길 수 있습니다.</p>
+<pre><code class="language-js"><span class="hljs-keyword">var</span> a = <span class="hljs-number">5</span>;
+
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">func</span>(<span class="hljs-params"></span>) {
+    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(a);
+
+    <span class="hljs-keyword">var</span> a = <span class="hljs-number">3</span>;
+}
+
+<span class="hljs-title function_">func</span>();
+</code></pre>
+<p>위 코드를 호이스팅을 모르는 누군가가 본다고 하면 당연히 <code>5</code>가 출력되리라 기대합니다.</p>
+<p>하지만 호이스팅에 의해 다음과 같은 결과가 나타납니다.</p>
+<pre><code>undefined
+</code></pre>
+<p>이 문제점을 풀이를 해봅시다.</p>
+<p>우선 <code>var</code>로 선언한 변수는 함수 단위로 스코프를 가진다는 사실을 알고 가면,</p>
+<p>처음 1행에 선언한 변수 a는 전역 스코프에 초기화가 되었습니다.</p>
+<p>이후 함수에 들어가보면 아래 존재하는 <code>var a = 3</code>이라는 함수 단위 스코프의 변수 <code>a</code>가 선언되어 있습니다.</p>
+<p>변수의 선언이므로 호이스팅이 발생하여 선언은 함수의 최상단으로 끌어올려지고 <code>undefined</code>로 초기화 됩니다.</p>
+<p>직관적인 코드로 풀어보면 다음과 같습니다.</p>
+<pre><code class="language-js"><span class="hljs-keyword">var</span> a = <span class="hljs-number">5</span>;
+
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">func</span>(<span class="hljs-params"></span>) {
+    <span class="hljs-keyword">var</span> a = <span class="hljs-literal">undefined</span>;
+    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(a);
+
+    a = <span class="hljs-number">3</span>;
+}
+
+<span class="hljs-title function_">a</span>();
+</code></pre>
+<h2>let, const</h2>
+<p><code>let</code>, <code>const</code>를 사용하라 한다면 위와 같은 문제점이 해결된 상태일 것 입니다.</p>
+<p>간혹 <code>let</code>, <code>const</code>는 호이스팅이 발생하지 않는다는 이야기를 하는데. 이는 틀렸습니다.</p>
+<p>이 글의 앞부분인 [호이스팅의 동작](#호이스팅의 동작) 부분을 굳이 작성한 이유이기도 합니다.</p>
+<p>실행 컨텍스트의 구성에 '변수'의 정보가 들어가는데 <code>let</code>, <code>const</code>역시 변수이므로 동일하게 동작합니다.</p>
+<p>그러므로 <code>let</code>, <code>const</code> 역시 호이스팅이 발생하나, <code>var</code>과 달리 <code>undefined</code>로 초기화 되는 일이 발생하지 않습니다.</p>
+<p>그렇기에 선언 이전에 변수를 참조하면 오류가 발생합니다.</p>
+<h3>시간상 사각지대(<code>Temporal Dead Zone</code>)</h3>
+<p><code>TDZ</code>라고 줄이기도 하는 <code>시간상 사각지대</code>는 해당 변수가 초기화 되기 이전 시점까지를 말합니다.</p>
+<p>이 시점에 해당 변수에 접근하려하면 오류를 발생시킵니다.</p>
+<h4>예시 1</h4>
+<pre><code class="language-js"><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(a);
+
+<span class="hljs-keyword">let</span> a = <span class="hljs-number">5</span>;
+</code></pre>
+<h4>결과</h4>
+<pre><code>ReferenceError: Cannot access 'a' before initialization
+</code></pre>
+<p>이러한 특성으로 호이스팅에 의한 문제가 발생하지 않으며, 사용 전 선언이라는 명확한 규칙을 적용할 수 있어 <code>let</code>과 <code>const</code>를 사용하라고 하는 것 입니다.</p>
+
+</div>
+</div>
+<div class="kigui frame">
+<script src="https://utteranc.es/client.js"
+repo="lazyig/blog-comment"
+issue-term="pathname"
+label="blog-comment"
+theme="github-light"
+crossorigin="anonymous"
+async>
+</script>
+</div>
+</section>
+</body>
+</html>

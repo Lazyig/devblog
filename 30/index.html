@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>라즈비안(라즈베리 파이 OS) 설치기</title>
+<meta
+name="description"
+content="정적페이지로 운영하는 개발 블로그입니다."
+/>
+<link
+rel="shortcut icon"
+type="image/png"
+sizes="144x144"
+href="/static/favicon-144x144.png"
+/>
+<link
+rel="icon"
+type="image/png"
+sizes="16x16"
+href="/static/favicon-16x16.png"
+/>
+<link
+rel="icon"
+type="image/png"
+sizes="32x32"
+href="/static/favicon-32x32.png"
+/>
+<link
+rel="icon"
+type="image/png"
+sizes="192x192"
+href="/static/favicon-192x192.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="57x57"
+href="/static/apple-touch-icon-57x57.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="72x72"
+href="/static/apple-touch-icon-72x72.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="76x76"
+href="/static/apple-touch-icon-76x76.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="114x114"
+href="/static/apple-touch-icon-114x114.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="120x120"
+href="/static/apple-touch-icon-120x120.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="144x144"
+href="/static/apple-touch-icon-144x144.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="152x152"
+href="/static/apple-touch-icon-152x152.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="154x154"
+href="/static/apple-touch-icon-154x154.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="180x180"
+href="/static/apple-touch-icon-180x180.png"
+/>
+<link rel="stylesheet" href="/static/style.css">
+<meta name="theme-color" content="#ff5722">
+<meta property="og:type" content="website">
+<meta property="og:title" content="라즈비안(라즈베리 파이 OS) 설치기">
+<meta property="og:description" content="공부한 개발 정보를 공유합니다.">
+<meta property="og:image" content="https://devblog.lazyig.com/30//static/ogimg.png">
+<meta property="og:url" content="https://devblog.lazyig.com/30/">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8149987977999297" crossorigin="anonymous"></script>
+<link rel="stylesheet"
+href="/static/highlight.css">
+</head>
+<body class="kigui one">
+<header class="kigui header">
+<a href="/">
+<h1 class="title">
+메모용 개발 블로그
+</h1>
+</a>
+<div class="header-buttons">
+<span id="headerBtn" class="nav-header-btn"><img src="/static/menu-w.svg" alt="Menu"></span>
+</div>
+</header>
+<div class="kigui header-space"></div>
+<section class="kigui">
+<div id="navBar" class="nav-bar">
+
+<div class="nav-header">
+<span id="catToggle" class="nav-header-btn"><img src="/static/menu.svg" alt="Menu"></span>
+</div>
+<ul class="category">
+
+<li style="padding-left: 0px">
+<a href="/c/전체보기/1/">전체보기<span class="nav-cat-cnt">(99)</span></a>
+</li>
+
+<li style="padding-left: 15px">
+<a href="/c/OS/1/">OS<span class="nav-cat-cnt">(34)</span></a>
+</li>
+
+<li style="padding-left: 30px">
+<a href="/c/Linux/1/">Linux<span class="nav-cat-cnt">(23)</span></a>
+</li>
+
+
+<li style="padding-left: 30px">
+<a href="/c/MacOS/1/">MacOS<span class="nav-cat-cnt">(8)</span></a>
+</li>
+
+
+<li style="padding-left: 30px">
+<a href="/c/Windows/1/">Windows<span class="nav-cat-cnt">(3)</span></a>
+</li>
+
+
+
+<li style="padding-left: 15px">
+<a href="/c/데이터베이스/1/">데이터베이스<span class="nav-cat-cnt">(3)</span></a>
+</li>
+
+<li style="padding-left: 30px">
+<a href="/c/Oracle/1/">Oracle<span class="nav-cat-cnt">(1)</span></a>
+</li>
+
+
+<li style="padding-left: 30px">
+<a href="/c/Postgresql/1/">Postgresql<span class="nav-cat-cnt">(1)</span></a>
+</li>
+
+
+
+<li style="padding-left: 15px">
+<a href="/c/Develop/1/">Develop<span class="nav-cat-cnt">(20)</span></a>
+</li>
+
+<li style="padding-left: 30px">
+<a href="/c/CSS3/1/">CSS3<span class="nav-cat-cnt">(3)</span></a>
+</li>
+
+
+<li style="padding-left: 30px">
+<a href="/c/HTML5/1/">HTML5<span class="nav-cat-cnt">(2)</span></a>
+</li>
+
+
+<li style="padding-left: 30px">
+<a href="/c/JavaScript/1/">JavaScript<span class="nav-cat-cnt">(4)</span></a>
+</li>
+
+
+<li style="padding-left: 30px">
+<a href="/c/React/1/">React<span class="nav-cat-cnt">(1)</span></a>
+</li>
+
+
+<li style="padding-left: 30px">
+<a href="/c/Svelte/1/">Svelte<span class="nav-cat-cnt">(2)</span></a>
+</li>
+
+
+
+<li style="padding-left: 15px">
+<a href="/c/개발일기/1/">개발일기<span class="nav-cat-cnt">(9)</span></a>
+</li>
+
+
+<li style="padding-left: 15px">
+<a href="/c/Git/1/">Git<span class="nav-cat-cnt">(3)</span></a>
+</li>
+
+
+<li style="padding-left: 15px">
+<a href="/c/GitLab/1/">GitLab<span class="nav-cat-cnt">(11)</span></a>
+</li>
+
+
+<li style="padding-left: 15px">
+<a href="/c/Nginx/1/">Nginx<span class="nav-cat-cnt">(7)</span></a>
+</li>
+
+
+<li style="padding-left: 15px">
+<a href="/c/기타/1/">기타<span class="nav-cat-cnt">(9)</span></a>
+</li>
+
+
+<li style="padding-left: 15px">
+<a href="/c/이 블로그의 오픈소스/1/">이 블로그의 오픈소스<span class="nav-cat-cnt">(3)</span></a>
+</li>
+
+
+
+</ul>
+</div>
+<script>
+let catToggle = document.getElementById("catToggle");
+let headerBtn = document.getElementById("headerBtn");
+let navBar = document.getElementById("navBar");
+catToggle.addEventListener("click", () => {
+navBar.classList.toggle("show");
+});
+headerBtn.addEventListener("click", () => {
+navBar.classList.toggle("show");
+})
+</script>
+<div class="kigui frame">
+<p class="category-path">
+
+<a href="/c/전체보기/1/">전체보기</a>
+<span> > </span>
+
+<a href="/c/OS/1/">OS</a>
+<span> > </span>
+
+<a href="/c/Linux/1/">Linux</a>
+<span> > </span>
+
+</p>
+<h1 class="article-title"><a href="https://devblog.lazyig.com/30/">라즈비안(라즈베리 파이 OS) 설치기</a></h1>
+<p class="write-date">2021-11-02 22:30:58</p>
+<div class="markdown-body">
+<p>어쩌다 라즈비안을 설치해야되는 일이 생겼다. 데스크탑 가상머신에 설치를 해야하는데. 가상머신에 설치를 해야하는 일을 왜 하필 라즈비안으로 진행해야하는지 모르겠지만 지시사항이니 따르면서 과정을 작성해보고자 한다.</p>
+<p>해당 환경에서는 VMware Workstation 16 Player를 이용해서 진행한다. 관련한 설치 방법은 다음 링크를 참고한다.</p>
+<p><a href="https://devblog.lazyig.com/28/">https://devblog.lazyig.com/28/</a></p>
+<p>다음은 라즈베리파이 OS의 공식 다운로드 페이지이다.</p>
+<p><a href="https://www.raspberrypi.com/software/operating-systems/">https://www.raspberrypi.com/software/operating-systems/</a></p>
+<p>해당 링크에가서 실제 라즈베리파이에 설치할 것이라면</p>
+<p><img src="/static/img-BJMGlMNflweSVQ2MfJv_lnd_ZlZ4OtDG4jQRHDMVtsA.png" alt="image-20211102015720476"></p>
+<p>해당 목록 중에서 선택을 하도록 하고 여기처럼 가상머신에 설치할 예정이라면 다음을 받도록한다.</p>
+<p><img src="/static/img-06f-8x6G4LYMnHwSr7SFWq8VPGFxAdwsCaR3fLgtr0c.png" alt="image-20211102015845613"></p>
+<p>참고로 설치가 상당히 오래걸린다. 그러므로 미리미리 다운 받아놓고 다른 일을 하기 바란다.</p>
+<p>그 다음 VMware Workstation 15 Player에서 가상머신을 구축할 것 이다.</p>
+<p><img src="/static/img-zqnEsbxG63osCbh6sbAwum4_5F85CiZuUZP9Qk4fiCE.png" alt="image-20211102020309689"></p>
+<p>가상머신 프로그램을 켰다면 새로운 가상머신을 만들 차례이다.</p>
+<p>VMware로 진행한다면 여기서 Create a New Virutal Machine을 클릭하여 진행한다.</p>
+<p><img src="/static/img-dIvSbxIC06fhvcgnDuXMKtQuX2NxoSP0VdrZC1V8cQ4.png" alt="image-20211102080839525"></p>
+<p>Installer disc image file을 클릭한 후에 Browse...를 클릭하여 설치할 OS의 iso파일을 지정해주자.</p>
+<p><img src="/static/img-My0Ej4gRNgroeITxDb0dhaY9VsEFllOkKTtlHza_-CY.png" alt="image-20211102214311913"></p>
+<p>그 다음은 대략 OS를 선택하는 화면인데. 라즈비안 혹은 라즈베리파이 OS라는 항목이 있으면 선택하고, 없다면 적당한 데비안으로 설정해야 하며 적당한 버전의 데비안 버전이나 리눅스 커널의 버전은 다음 위키피디아 최하단에 정리된 것이 있으니 참고하자.</p>
+<p><a href="https://ko.wikipedia.org/wiki/%EB%9D%BC%EC%A6%88%EB%B2%A0%EB%A6%AC_%ED%8C%8C%EC%9D%B4_OS">https://ko.wikipedia.org/wiki/%EB%9D%BC%EC%A6%88%EB%B2%A0%EB%A6%AC_%ED%8C%8C%EC%9D%B4_OS</a></p>
+<p>그 다음은 가상머신의 이름을 정해주는 것이니 자신이 구분하기 편하게 작성한다.</p>
+<p><img src="/static/img-kFfLiECFRFb0VrNi5A1IerBGWtpsfSWlCnVPhQdM4zM.png" alt="image-20211102081600139"></p>
+<p>그 다음 화면은 가상머신의 디스크에 관련한 설정이다.</p>
+<p>최대 디스크 크기와 디스크 파일의 저장형태를 설정하는 화면이다.</p>
+<p><img src="/static/img-6_hi7DsNz_a5hYEF0HfLo-1PrT_0vHJzQg-03073nrE.png" alt="image-20211102214122817"></p>
+<p>이 화면에서는 하드웨어의 사양을 수정해주면 된다.</p>
+<p>Customize Hardware를 눌러서 원하는대로 수정한다.</p>
+<p>그 이후로는 다음을 넘겨서 설정을 완료해주면 된다.</p>
+<p><img src="/static/img-Y0FClFF0cFJGbBDV1_z0oK6o-NPIw0zy5EbaIE1jhiY.png" alt="image-20211102081831766"></p>
+<p>그 다음은 Play virtual machine을 클릭하여 가상머신을 구동해주고,</p>
+<p><img src="/static/img-ELycSQ-o3XyfDLZAjdnU4cCqn8c8zsWL3bsy6FmIBzg.png" alt="image-20211102082006197"></p>
+<p>방향키로 조작하여 Install에 위차한 다음 엔터를 눌러 설치</p>
+<p><img src="/static/img-6tc387VsSecsWsIdSEYLAgHrB5A7s-cM8Q0k1ZusuNU.png" alt="image-20211102082038532"></p>
+<p>여유 메모리가 낮을 경우 다음과 같은 오류를 뱉기도 한다.</p>
+<p>필요하다면 가상머신 설정에서 추가로 할당해주면 된다.</p>
+<p>Enter 키를 눌러 계속 진행하자.</p>
+<p><img src="/static/img-fgS1JCTGuoFnF7uJYx9x2lSc0NWfiXzkljhh-7ozTt0.png" alt="image-20211102082405489"></p>
+<p>다음은 계속하여 지역 설정이다. 본인의 거주 대륙을 방향키로 조작한 후 Enter</p>
+<p>혹시라도 바로 키보드 설정으로 넘어갈 수도 있다. 별 문제는 아니고 작성자도 제대로 설치가 되었으니 별 문제없으므로 과정을 넘어가서 설치를 이어가면 된다.</p>
+<p><img src="/static/img-jInPdrHAzBoZSB2Z0mo2QDn9jxY_qGLYQx2pmfWX7kI.png" alt="image-20211102082452136"></p>
+<p>다음은 세부 국가 설정이다.</p>
+<p>한국에 거주 중이라면 Korea, Republic of 방향키로 선택 후 Enter</p>
+<p>위에 Korea는 위쪽의 그 곳이기 때문에 주의, 표준시 자체는 2018년에 다시 통일되어 시간 설정에는 문제가 없으나 혹시나 다시 변경하게 되면 따라가질 못한다.</p>
+<p>해당 설정은 이 후 OS에서 변경가능하니 큰 문제는 없다.</p>
+<p><img src="/static/img-jx-AgFlyZAsCUO0eyj99c9K48Bqh1mgT7HIxU6dImFw.png" alt="image-20211102082830369"></p>
+<p>키보드 설정은 그냥 American English로 진행 후 부팅이 끝난 후에 재 설정 해줄 것이다.</p>
+<p><img src="/static/img-j2jHoMKgkdRiDBjbTq6CO3FHH2iFmUB2ymRPST7APEE.png" alt="image-20211102082937934"></p>
+<p>Enter</p>
+<p><img src="/static/img-iBA6ycdwWW8aaIP4BXLtuZ1u-wIsdErwhB3DXYsI7G8.png" alt="image-20211102082957821"></p>
+<p>파티션 분할에 관련된 것이다. 가상머신이니 그냥 Enter</p>
+<p><img src="/static/img-PreVZsgDjSJ3eKYoIHQeL0tXobvx5WkaKZDfFL4-2Qg.png" alt="image-20211102083024469"></p>
+<p>확인 후 Enter</p>
+<p><img src="/static/img-yW9-C09w4WcXcMTlCwcLlD6USpk5GolkYzx9lHZSlhc.png" alt="image-20211102083058390"></p>
+<p>Yes를 방향키로 선택 후 Enter</p>
+<p><img src="/static/img-4xklP-snJktWx57aNf6A7Dk7QJxtQSzOcnX1TI9DfiA.png" alt="image-20211102215021893"></p>
+<p>그러면 다음과 같이 열심히 설치한다.</p>
+<p>기다려주자</p>
+<p><img src="/static/img-3G5Nrv2y80eUo2eQcShjwHKMLSXBJPRQFMwcnSn5M-M.png" alt="image-20211102215251102"></p>
+<p>설치를 하다가 중간에 다음과 같은 질문이 뜬다.</p>
+<p>GRUB 부트로더에 관련한 것이다. 설치를 해주어야 한다.</p>
+<p><img src="/static/img-I2Yc0qu4cQYpWNukL0dTIl-vcTedpg_GdFIVsM73URw.png" alt="image-20211102215346526"></p>
+<p>메뉴얼대로 설치할 것인지 혹은 다른 장치에 설치를 할 것인지 묻는다.</p>
+<p>해당 환경에서는 단일 디스크이므로 /dev/sda를 선택해주었다.</p>
+<p><img src="/static/img-6mVdPpMG71bRb4tDhk09yt_zM_foXQgNTv6BvPa4ZeI.png" alt="image-20211102215440030"></p>
+<p>방향키를 조작하여 바로 Continue로 넘어가서 설치해주었다.</p>
+<p><img src="/static/img-5jpdMZo7W6_bjs1qCykcRQ1zCFwv-PFg2Xe4aVH4nC0.png" alt="image-20211102215513737"></p>
+<p>설치가 완료되면 다음과 같은 메시지가 뜨고 또 Continue를 선택해주면 된다.</p>
+<p>그 이후에는 작업을 추가로 진행 한뒤 자동으로 재시작을 하게 된다.</p>
+<p>이 때, 가상머신의 게스트를 종료한다음</p>
+<p><img src="/static/img-Y0FClFF0cFJGbBDV1_z0oK6o-NPIw0zy5EbaIE1jhiY.png" alt=""></p>
+<p>Edit virtual machine settings에 들어간다.</p>
+<p><img src="/static/img-A2my-ES5T_9ZLg6O7b15_RtIP9RnVE3vbtFbQqWUaY0.png" alt="image-20211102220112360"></p>
+<p>이후에 필요없어진 CD를 제거해준다.</p>
+<p><img src="/static/img-2Q_eim7abRN7JqCW2zkYYPAtlQJZJaFu_-IcaSDhWCk.png" alt="image-20211102222115105"></p>
+<p>만약 설치 시 타임존 설정등을 수행하지 않았다면 여기서 진행을 할 수도 있다.</p>
+<p><img src="/static/img-bwqOTEeBNF9mKCTHsz2O81ceFkHSJ-8--8M7Wf6Yo0s.png" alt="image-20211102222504193"></p>
+<p>언어 설정을 해주고 Next</p>
+<p><img src="/static/img-Y7KSAtUhbb45Ty9T0PTwRuku8h7zC3T5ljCh2v9asT8.png" alt="image-20211102222547885"></p>
+<p>기본 계정인 pi의 비밀번호를 정하는 화면이다.</p>
+<p>만약 외부 네트워크로 노출된다면 반드시 안전한 비밀번호를 설정하고 ssh 포트도 변경하기를 바란다.</p>
+<p>외부에서 무차별 대입 공격이 상당히 많이 일어난다. 쉬운 비밀번호는 바로 뚫리므로 꼭꼭 주의하기 바란다.</p>
+<p>그 다음 화면은 소프트웨어 업데이트 화면이다. 그냥 Next를 눌러서 업데이트를 진행해주자.</p>
+<p>이렇게 하면 설치가 완료된 것이다.</p>
+
+</div>
+</div>
+<div class="kigui frame">
+<script src="https://utteranc.es/client.js"
+repo="lazyig/blog-comment"
+issue-term="pathname"
+label="blog-comment"
+theme="github-light"
+crossorigin="anonymous"
+async>
+</script>
+</div>
+</section>
+</body>
+</html>

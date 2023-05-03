@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gitlab 14에서 15로 업데이트</title>
+<meta
+name="description"
+content="정적페이지로 운영하는 개발 블로그입니다."
+/>
+<link
+rel="shortcut icon"
+type="image/png"
+sizes="144x144"
+href="/static/favicon-144x144.png"
+/>
+<link
+rel="icon"
+type="image/png"
+sizes="16x16"
+href="/static/favicon-16x16.png"
+/>
+<link
+rel="icon"
+type="image/png"
+sizes="32x32"
+href="/static/favicon-32x32.png"
+/>
+<link
+rel="icon"
+type="image/png"
+sizes="192x192"
+href="/static/favicon-192x192.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="57x57"
+href="/static/apple-touch-icon-57x57.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="72x72"
+href="/static/apple-touch-icon-72x72.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="76x76"
+href="/static/apple-touch-icon-76x76.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="114x114"
+href="/static/apple-touch-icon-114x114.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="120x120"
+href="/static/apple-touch-icon-120x120.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="144x144"
+href="/static/apple-touch-icon-144x144.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="152x152"
+href="/static/apple-touch-icon-152x152.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="154x154"
+href="/static/apple-touch-icon-154x154.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="180x180"
+href="/static/apple-touch-icon-180x180.png"
+/>
+<link rel="stylesheet" href="/static/style.css">
+<meta name="theme-color" content="#ff5722">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Gitlab 14에서 15로 업데이트">
+<meta property="og:description" content="공부한 개발 정보를 공유합니다.">
+<meta property="og:image" content="https://devblog.lazyig.com/72//static/ogimg.png">
+<meta property="og:url" content="https://devblog.lazyig.com/72/">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8149987977999297" crossorigin="anonymous"></script>
+<link rel="stylesheet"
+href="/static/highlight.css">
+</head>
+<body class="kigui one">
+<header class="kigui header">
+<a href="/">
+<h1 class="title">
+메모용 개발 블로그
+</h1>
+</a>
+<div class="header-buttons">
+<span id="headerBtn" class="nav-header-btn"><img src="/static/menu-w.svg" alt="Menu"></span>
+</div>
+</header>
+<div class="kigui header-space"></div>
+<section class="kigui">
+<div id="navBar" class="nav-bar">
+
+<div class="nav-header">
+<span id="catToggle" class="nav-header-btn"><img src="/static/menu.svg" alt="Menu"></span>
+</div>
+<ul class="category">
+
+<li style="padding-left: 0px">
+<a href="/c/전체보기/1/">전체보기<span class="nav-cat-cnt">(99)</span></a>
+</li>
+
+<li style="padding-left: 15px">
+<a href="/c/OS/1/">OS<span class="nav-cat-cnt">(34)</span></a>
+</li>
+
+<li style="padding-left: 30px">
+<a href="/c/Linux/1/">Linux<span class="nav-cat-cnt">(23)</span></a>
+</li>
+
+
+<li style="padding-left: 30px">
+<a href="/c/MacOS/1/">MacOS<span class="nav-cat-cnt">(8)</span></a>
+</li>
+
+
+<li style="padding-left: 30px">
+<a href="/c/Windows/1/">Windows<span class="nav-cat-cnt">(3)</span></a>
+</li>
+
+
+
+<li style="padding-left: 15px">
+<a href="/c/데이터베이스/1/">데이터베이스<span class="nav-cat-cnt">(3)</span></a>
+</li>
+
+<li style="padding-left: 30px">
+<a href="/c/Oracle/1/">Oracle<span class="nav-cat-cnt">(1)</span></a>
+</li>
+
+
+<li style="padding-left: 30px">
+<a href="/c/Postgresql/1/">Postgresql<span class="nav-cat-cnt">(1)</span></a>
+</li>
+
+
+
+<li style="padding-left: 15px">
+<a href="/c/Develop/1/">Develop<span class="nav-cat-cnt">(20)</span></a>
+</li>
+
+<li style="padding-left: 30px">
+<a href="/c/CSS3/1/">CSS3<span class="nav-cat-cnt">(3)</span></a>
+</li>
+
+
+<li style="padding-left: 30px">
+<a href="/c/HTML5/1/">HTML5<span class="nav-cat-cnt">(2)</span></a>
+</li>
+
+
+<li style="padding-left: 30px">
+<a href="/c/JavaScript/1/">JavaScript<span class="nav-cat-cnt">(4)</span></a>
+</li>
+
+
+<li style="padding-left: 30px">
+<a href="/c/React/1/">React<span class="nav-cat-cnt">(1)</span></a>
+</li>
+
+
+<li style="padding-left: 30px">
+<a href="/c/Svelte/1/">Svelte<span class="nav-cat-cnt">(2)</span></a>
+</li>
+
+
+
+<li style="padding-left: 15px">
+<a href="/c/개발일기/1/">개발일기<span class="nav-cat-cnt">(9)</span></a>
+</li>
+
+
+<li style="padding-left: 15px">
+<a href="/c/Git/1/">Git<span class="nav-cat-cnt">(3)</span></a>
+</li>
+
+
+<li style="padding-left: 15px">
+<a href="/c/GitLab/1/">GitLab<span class="nav-cat-cnt">(11)</span></a>
+</li>
+
+
+<li style="padding-left: 15px">
+<a href="/c/Nginx/1/">Nginx<span class="nav-cat-cnt">(7)</span></a>
+</li>
+
+
+<li style="padding-left: 15px">
+<a href="/c/기타/1/">기타<span class="nav-cat-cnt">(9)</span></a>
+</li>
+
+
+<li style="padding-left: 15px">
+<a href="/c/이 블로그의 오픈소스/1/">이 블로그의 오픈소스<span class="nav-cat-cnt">(3)</span></a>
+</li>
+
+
+
+</ul>
+</div>
+<script>
+let catToggle = document.getElementById("catToggle");
+let headerBtn = document.getElementById("headerBtn");
+let navBar = document.getElementById("navBar");
+catToggle.addEventListener("click", () => {
+navBar.classList.toggle("show");
+});
+headerBtn.addEventListener("click", () => {
+navBar.classList.toggle("show");
+})
+</script>
+<div class="kigui frame">
+<p class="category-path">
+
+<a href="/c/전체보기/1/">전체보기</a>
+<span> > </span>
+
+<a href="/c/GitLab/1/">GitLab</a>
+<span> > </span>
+
+</p>
+<h1 class="article-title"><a href="https://devblog.lazyig.com/72/">Gitlab 14에서 15로 업데이트</a></h1>
+<p class="write-date">2022-07-27 01:58:14</p>
+<div class="markdown-body">
+<h2>1. 서론</h2>
+<p>깃랩을 한동안 업데이트 안하다가 보니 어느새 14에서 15로 버전이 올라가있었다.</p>
+<p>예전에도 오래안하다가 업데이트하다가 이런저런 이슈에 시달렸는데.</p>
+<p>다시 그러한 상황이 닥치게되었다.</p>
+<p>글을 작성하면서 발생한 오류 사항에 대해서는 글 하단에 별도 포스트에 링크를 걸어놓았습니다.</p>
+<h2>2. 환경</h2>
+<p>Gitlab 버전 : Gitlab CE 14.8.2 (Omnibus)</p>
+<p>OS : Ubuntu 18.04.5 LTS</p>
+<p>이 글에서는 여러가지 Gitlab 설치방법 중 Omnibus 방식으로 사용하는 버전을 다룹니다.</p>
+<h2>3. 순차 업그레이드</h2>
+<p>깃랩은 특정 버전대별로 업데이트를 순차적으로 거쳐가야한다. 단번에 13-&gt;15로 업데이트 할 수는 없고 중간중간에 거쳐야하는 버전들을 반드시 거쳐야하는 문제가 있다.</p>
+<p><a href="https://docs.gitlab.com/ee/update/index.html#upgrade-paths">https://docs.gitlab.com/ee/update/index.html#upgrade-paths</a></p>
+<p>위 링크를 들어가게 되면 거쳐야하는 버전을 확인할 수 있다.</p>
+<p>이 글에서는 현재 버전이 14.8.2이므로 다음 순서대로 업데이트를 진행하여야 한다.</p>
+<p>14.9.5 -&gt; 14.10.Z -&gt; 15.0.Z -&gt; 최신버전</p>
+<h3>업데이트 방법</h3>
+<p><a href="https://docs.gitlab.com/ee/update/package/">https://docs.gitlab.com/ee/update/package/</a></p>
+<p>위 글에가면 업데이트 방법에 대해서 나와있다. 현재 환경이 우분투이므로 apt 패키지 매니저를 통한 업데이트 항목을 참고하여 진행합니다.</p>
+<pre><code># apt update	
+</code></pre>
+<p>이 후 업데이트 가능한 패키지를 확인합니다.</p>
+<pre><code># apt list --upgradable gitlab-ce -a
+</code></pre>
+<p>아래는 실행 결과의 일부입니다.</p>
+<pre><code>Listing... Done
+gitlab-ce/bionic 15.2.0-ce.0 amd64 [upgradable from: 14.8.2-ce.0]
+gitlab-ce/bionic 15.1.3-ce.0 amd64
+gitlab-ce/bionic 15.1.2-ce.0 amd64
+gitlab-ce/bionic 15.1.1-ce.0 amd64
+gitlab-ce/bionic 15.1.0-ce.0 amd64
+gitlab-ce/bionic 15.0.4-ce.0 amd64
+gitlab-ce/bionic 15.0.3-ce.0 amd64
+gitlab-ce/bionic 15.0.2-ce.0 amd64
+gitlab-ce/bionic 15.0.1-ce.0 amd64
+gitlab-ce/bionic 15.0.0-ce.0 amd64
+gitlab-ce/bionic 14.10.5-ce.0 amd64
+gitlab-ce/bionic 14.10.4-ce.0 amd64
+gitlab-ce/bionic 14.10.3-ce.0 amd64
+gitlab-ce/bionic 14.10.2-ce.0 amd64
+gitlab-ce/bionic 14.10.1-ce.0 amd64
+gitlab-ce/bionic 14.10.0-ce.0 amd64
+gitlab-ce/bionic 14.9.5-ce.0 amd64
+gitlab-ce/bionic 14.9.4-ce.0 amd64
+gitlab-ce/bionic 14.9.3-ce.0 amd64
+gitlab-ce/bionic 14.9.2-ce.0 amd64
+gitlab-ce/bionic 14.9.1-ce.0 amd64
+gitlab-ce/bionic 14.9.0-ce.0 amd64
+gitlab-ce/bionic 14.8.6-ce.0 amd64
+gitlab-ce/bionic 14.8.5-ce.0 amd64
+gitlab-ce/bionic 14.8.4-ce.0 amd64
+gitlab-ce/bionic 14.8.3-ce.0 amd64
+gitlab-ce/bionic,now 14.8.2-ce.0 amd64 [installed,upgradable to: 15.2.0-ce.0]
+gitlab-ce/bionic 14.8.1-ce.0 amd64
+gitlab-ce/bionic 14.8.0-ce.0 amd64
+gitlab-ce/bionic 14.7.7-ce.0 amd64
+gitlab-ce/bionic 14.7.6-ce.0 amd64
+gitlab-ce/bionic 14.7.5-ce.0 amd64
+gitlab-ce/bionic 14.7.4-ce.0 amd64
+gitlab-ce/bionic 14.7.3-ce.0 amd64
+gitlab-ce/bionic 14.7.2-ce.0 amd64
+gitlab-ce/bionic 14.7.1-ce.0 amd64
+gitlab-ce/bionic 14.7.0-ce.0 amd64
+gitlab-ce/bionic 14.6.7-ce.0 amd64
+...
+</code></pre>
+<p>현재 설치된 버전은 14.8.2-ce.0인 것으로 나와있으며 15.2.0-ce.0 까지 업데이트 가능하다고 나와있으나 앞서 언급한대로 순차적으로 업그레이드를 진행하여야 합니다.</p>
+<p><strong>주의하세요</strong></p>
+<p>어떤 업데이트 작업을 수행하던 간에 백업은 필수사항이며, gitlab은 업데이트 과정 중에 기존 버전을 백업하는 과정을 수행합니다. 혹여나 해당 과정을 스킵하도록 설정(/etc/gitlab 하단의 스킵 파일을 생성)하지 않았는지 확인 후 진행하시기 바랍니다.</p>
+<p>현재 1차 목표 버전은 14.9.5이므로 다음과 같은 명령어로 업데이트를 실행합니다.</p>
+<pre><code># apt install gitlab-ce=14.9.5-ce.0
+</code></pre>
+<p>에러없이 실행되었다면 다음과 같은 출력으로 마칩니다.</p>
+<pre><code>     _______ __  __          __
+    / ____(_) /_/ /   ____ _/ /_
+   / / __/ / __/ /   / __ `/ __ \
+  / /_/ / / /_/ /___/ /_/ / /_/ /
+  \____/_/\__/_____/\__,_/_.___/
+
+
+Upgrade complete! If your GitLab server is misbehaving try running
+  sudo gitlab-ctl restart
+before anything else.
+If you need to roll back to the previous version you can use the database
+backup made during the upgrade (scroll up for the filename).
+</code></pre>
+<p>다음 명령어로 gitlab을 재시작하여 정상 동작하는지 확인합니다.</p>
+<pre><code># gitlab-ctl restart 
+</code></pre>
+<pre><code>➜  backup sudo gitlab-ctl restart
+ok: run: alertmanager: (pid 23788) 0s
+ok: run: gitaly: (pid 23799) 0s
+ok: run: gitlab-exporter: (pid 23814) 0s
+ok: run: gitlab-kas: (pid 23816) 1s
+ok: run: gitlab-workhorse: (pid 23828) 0s
+ok: run: grafana: (pid 23837) 1s
+ok: run: logrotate: (pid 23851) 0s
+ok: run: node-exporter: (pid 23857) 0s
+ok: run: postgres-exporter: (pid 23865) 1s
+ok: run: postgresql: (pid 23874) 0s
+ok: run: prometheus: (pid 23876) 1s
+ok: run: puma: (pid 23895) 0s
+ok: run: redis: (pid 23900) 1s
+ok: run: redis-exporter: (pid 23906) 0s
+ok: run: registry: (pid 23915) 0s
+ok: run: sidekiq: (pid 23926) 0s
+</code></pre>
+<p>재시작 이후 다음 화면으로 502가 뜨는 경우 일정시간 기다려야 할 수도 있습니다.</p>
+<p><img src="/static/img-DSqI5OTRcmSLAr703WVgk19lspho7BCvk8Z18L5n-oQ.png" alt="image-20220727004100819"></p>
+<p>버전을 확인합니다.</p>
+<p><img src="/static/img-7dJQ8lMlTIo1mDSxKbJlFzCewT6lFoNN8G7XNfr259E.png" alt="image-20220727004350895"></p>
+<p>잘 설치되었습니다.</p>
+<p>이후로는 이 행동을 거쳐가야하는 버전만큼 반복합니다(...)</p>
+<pre><code>sudo apt install gitlab-ce=14.9.5-ce.0
+sudo gitlab-ctl restart
+sudo apt install gitlab-ce=14.10.5-ce.0
+sudo gitlab-ctl restart
+sudo apt install gitlab-ce=15.0.0-ce.0
+sudo gitlab-ctl restart
+sudo apt install gitlab-ce
+sudo gitlab-ctl restart
+</code></pre>
+<p>...</p>
+<p>그러면 비로소 업데이트가 끝납니다.</p>
+<p><img src="/static/img-B22m0dN3XBfTlt9rikQOL5bfSei8maL5OtSOhvliyUg.png" alt="image-20220727013056993"></p>
+<h2>발생한 에러와 해결</h2>
+<ul>
+<li>
+<p>apt update시 에러</p>
+<p><a href="/70/">apt update signatures were invalid 에러</a></p>
+</li>
+<li>
+<p>apt install gitlab-ce 에러</p>
+<p><a href="/71/">Gitlab CE 업데이트 중 Permission denied dir_s_mkdir 에러</a></p>
+</li>
+</ul>
+
+</div>
+</div>
+<div class="kigui frame">
+<script src="https://utteranc.es/client.js"
+repo="lazyig/blog-comment"
+issue-term="pathname"
+label="blog-comment"
+theme="github-light"
+crossorigin="anonymous"
+async>
+</script>
+</div>
+</section>
+</body>
+</html>

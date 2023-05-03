@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>git pager 설정, (END) 제거</title>
+<meta
+name="description"
+content="정적페이지로 운영하는 개발 블로그입니다."
+/>
+<link
+rel="shortcut icon"
+type="image/png"
+sizes="144x144"
+href="/static/favicon-144x144.png"
+/>
+<link
+rel="icon"
+type="image/png"
+sizes="16x16"
+href="/static/favicon-16x16.png"
+/>
+<link
+rel="icon"
+type="image/png"
+sizes="32x32"
+href="/static/favicon-32x32.png"
+/>
+<link
+rel="icon"
+type="image/png"
+sizes="192x192"
+href="/static/favicon-192x192.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="57x57"
+href="/static/apple-touch-icon-57x57.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="72x72"
+href="/static/apple-touch-icon-72x72.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="76x76"
+href="/static/apple-touch-icon-76x76.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="114x114"
+href="/static/apple-touch-icon-114x114.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="120x120"
+href="/static/apple-touch-icon-120x120.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="144x144"
+href="/static/apple-touch-icon-144x144.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="152x152"
+href="/static/apple-touch-icon-152x152.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="154x154"
+href="/static/apple-touch-icon-154x154.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="180x180"
+href="/static/apple-touch-icon-180x180.png"
+/>
+<link rel="stylesheet" href="/static/style.css">
+<meta name="theme-color" content="#ff5722">
+<meta property="og:type" content="website">
+<meta property="og:title" content="git pager 설정, (END) 제거">
+<meta property="og:description" content="공부한 개발 정보를 공유합니다.">
+<meta property="og:image" content="https://devblog.lazyig.com/42//static/ogimg.png">
+<meta property="og:url" content="https://devblog.lazyig.com/42/">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8149987977999297" crossorigin="anonymous"></script>
+<link rel="stylesheet"
+href="/static/highlight.css">
+</head>
+<body class="kigui one">
+<header class="kigui header">
+<a href="/">
+<h1 class="title">
+메모용 개발 블로그
+</h1>
+</a>
+<div class="header-buttons">
+<span id="headerBtn" class="nav-header-btn"><img src="/static/menu-w.svg" alt="Menu"></span>
+</div>
+</header>
+<div class="kigui header-space"></div>
+<section class="kigui">
+<div id="navBar" class="nav-bar">
+
+<div class="nav-header">
+<span id="catToggle" class="nav-header-btn"><img src="/static/menu.svg" alt="Menu"></span>
+</div>
+<ul class="category">
+
+<li style="padding-left: 0px">
+<a href="/c/전체보기/1/">전체보기<span class="nav-cat-cnt">(99)</span></a>
+</li>
+
+<li style="padding-left: 15px">
+<a href="/c/OS/1/">OS<span class="nav-cat-cnt">(34)</span></a>
+</li>
+
+<li style="padding-left: 30px">
+<a href="/c/Linux/1/">Linux<span class="nav-cat-cnt">(23)</span></a>
+</li>
+
+
+<li style="padding-left: 30px">
+<a href="/c/MacOS/1/">MacOS<span class="nav-cat-cnt">(8)</span></a>
+</li>
+
+
+<li style="padding-left: 30px">
+<a href="/c/Windows/1/">Windows<span class="nav-cat-cnt">(3)</span></a>
+</li>
+
+
+
+<li style="padding-left: 15px">
+<a href="/c/데이터베이스/1/">데이터베이스<span class="nav-cat-cnt">(3)</span></a>
+</li>
+
+<li style="padding-left: 30px">
+<a href="/c/Oracle/1/">Oracle<span class="nav-cat-cnt">(1)</span></a>
+</li>
+
+
+<li style="padding-left: 30px">
+<a href="/c/Postgresql/1/">Postgresql<span class="nav-cat-cnt">(1)</span></a>
+</li>
+
+
+
+<li style="padding-left: 15px">
+<a href="/c/Develop/1/">Develop<span class="nav-cat-cnt">(20)</span></a>
+</li>
+
+<li style="padding-left: 30px">
+<a href="/c/CSS3/1/">CSS3<span class="nav-cat-cnt">(3)</span></a>
+</li>
+
+
+<li style="padding-left: 30px">
+<a href="/c/HTML5/1/">HTML5<span class="nav-cat-cnt">(2)</span></a>
+</li>
+
+
+<li style="padding-left: 30px">
+<a href="/c/JavaScript/1/">JavaScript<span class="nav-cat-cnt">(4)</span></a>
+</li>
+
+
+<li style="padding-left: 30px">
+<a href="/c/React/1/">React<span class="nav-cat-cnt">(1)</span></a>
+</li>
+
+
+<li style="padding-left: 30px">
+<a href="/c/Svelte/1/">Svelte<span class="nav-cat-cnt">(2)</span></a>
+</li>
+
+
+
+<li style="padding-left: 15px">
+<a href="/c/개발일기/1/">개발일기<span class="nav-cat-cnt">(9)</span></a>
+</li>
+
+
+<li style="padding-left: 15px">
+<a href="/c/Git/1/">Git<span class="nav-cat-cnt">(3)</span></a>
+</li>
+
+
+<li style="padding-left: 15px">
+<a href="/c/GitLab/1/">GitLab<span class="nav-cat-cnt">(11)</span></a>
+</li>
+
+
+<li style="padding-left: 15px">
+<a href="/c/Nginx/1/">Nginx<span class="nav-cat-cnt">(7)</span></a>
+</li>
+
+
+<li style="padding-left: 15px">
+<a href="/c/기타/1/">기타<span class="nav-cat-cnt">(9)</span></a>
+</li>
+
+
+<li style="padding-left: 15px">
+<a href="/c/이 블로그의 오픈소스/1/">이 블로그의 오픈소스<span class="nav-cat-cnt">(3)</span></a>
+</li>
+
+
+
+</ul>
+</div>
+<script>
+let catToggle = document.getElementById("catToggle");
+let headerBtn = document.getElementById("headerBtn");
+let navBar = document.getElementById("navBar");
+catToggle.addEventListener("click", () => {
+navBar.classList.toggle("show");
+});
+headerBtn.addEventListener("click", () => {
+navBar.classList.toggle("show");
+})
+</script>
+<div class="kigui frame">
+<p class="category-path">
+
+<a href="/c/전체보기/1/">전체보기</a>
+<span> > </span>
+
+<a href="/c/Git/1/">Git</a>
+<span> > </span>
+
+</p>
+<h1 class="article-title"><a href="https://devblog.lazyig.com/42/">git pager 설정, (END) 제거</a></h1>
+<p class="write-date">2022-01-14 02:14:35</p>
+<div class="markdown-body">
+<p>Git을 커맨드로 사용을 하면 명령어를 입력했을때 다음과 같이 나타난다.</p>
+<pre><code>git branch
+</code></pre>
+<p><img src="/static/img-GJqdvH2ebP0gWcLs_sWFyMFcmS6ypXObG_QpKXjdixQ.png" alt="image-20220114014803573"></p>
+<p>긴 로그 같은 것을 볼때는 편하겠지만 브랜치를 확인한다던지 할 때 그냥 바로 출력이되고 그걸 보면서 체크아웃을 하고 싶을 때가 있다.</p>
+<p>이는 깃에서 이러한 동작에 대한 출력을 less 명령어를 파이프라인해서 보여주고 있는 것 이다.</p>
+<p>이를 위해서 다양한 방법이 있는데.</p>
+<p>원할만한 설정은 첫번째를 적용하면 된다.</p>
+<h3>1. pager 설정</h3>
+<pre><code>git config --global core.pager &quot;less -F -X&quot;
+</code></pre>
+<p>위  명령어를 입력하면 Git의 설정으로 터미널이 표시할 수 있는 크기 내라면 바로 출력하고 더 크다면 기존처럼 페이지를 넘기면서 볼 수 있게 된다.</p>
+<p>만약 less를 완전히 거치지 않기 원한다면 다음 처럼 아에 삭제해버려도 된다.</p>
+<pre><code>git config --global core.pager &quot;&quot;
+</code></pre>
+<h3>2. Git에서 파이프라인을 해제하여 출력하기</h3>
+<pre><code>git --no-pager branch
+git -P branch
+</code></pre>
+<p>위 명령어 두 줄은 같은 명령어이고 --no-pager 혹은 -P 는 해당 명령어에 옵션으로 줄 시 pager를 거치지 않고 출력한다.</p>
+<h3>3. 특정 명령어에 대해서 설정</h3>
+<pre><code>git config --global pager.branch false
+</code></pre>
+<p>위 명령어는 특정한 git명령어에 대해서 pager를 활성/비활성화 가능한 설정이다.</p>
+<h2>명령어 글자색 문제</h2>
+<p>위의 기능을 하다가 명령어의 글자색이 사라지는 경우가 있을 수 있다.</p>
+<p>아래 사항들을 참고하여 해결해보자.</p>
+<h3>1. 모든 Git 명령에 대하여 강제 색상 적용</h3>
+<pre><code>git config --global color.ui on
+</code></pre>
+<p>모든 Git 명령에 대해서 색상을 적용한다.</p>
+<h3>2. less 명령어가 색상을 표현하도록 옵션 추가</h3>
+<h4>1) 환경 변수로 설정</h4>
+<pre><code>LESS=-R
+</code></pre>
+<h4>2) 명령어 인수로 설정</h4>
+<pre><code>git config --global --replace-all core.pager &quot;less -F -X -R&quot;
+</code></pre>
+<p>-R 옵션을 추가하여 pager를 호출하도록 설정하면 된다.</p>
+<p>여기서 --replace-all 옵션은 동일한 설정이 있을 시 덮어쓰는 옵션이다.</p>
+
+</div>
+</div>
+<div class="kigui frame">
+<script src="https://utteranc.es/client.js"
+repo="lazyig/blog-comment"
+issue-term="pathname"
+label="blog-comment"
+theme="github-light"
+crossorigin="anonymous"
+async>
+</script>
+</div>
+</section>
+</body>
+</html>

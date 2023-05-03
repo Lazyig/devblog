@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Windows11+GitLab+Docker 설치</title>
+<meta
+name="description"
+content="정적페이지로 운영하는 개발 블로그입니다."
+/>
+<link
+rel="shortcut icon"
+type="image/png"
+sizes="144x144"
+href="/static/favicon-144x144.png"
+/>
+<link
+rel="icon"
+type="image/png"
+sizes="16x16"
+href="/static/favicon-16x16.png"
+/>
+<link
+rel="icon"
+type="image/png"
+sizes="32x32"
+href="/static/favicon-32x32.png"
+/>
+<link
+rel="icon"
+type="image/png"
+sizes="192x192"
+href="/static/favicon-192x192.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="57x57"
+href="/static/apple-touch-icon-57x57.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="72x72"
+href="/static/apple-touch-icon-72x72.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="76x76"
+href="/static/apple-touch-icon-76x76.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="114x114"
+href="/static/apple-touch-icon-114x114.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="120x120"
+href="/static/apple-touch-icon-120x120.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="144x144"
+href="/static/apple-touch-icon-144x144.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="152x152"
+href="/static/apple-touch-icon-152x152.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="154x154"
+href="/static/apple-touch-icon-154x154.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="180x180"
+href="/static/apple-touch-icon-180x180.png"
+/>
+<link rel="stylesheet" href="/static/style.css">
+<meta name="theme-color" content="#ff5722">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Windows11+GitLab+Docker 설치">
+<meta property="og:description" content="공부한 개발 정보를 공유합니다.">
+<meta property="og:image" content="https://devblog.lazyig.com/95//static/ogimg.png">
+<meta property="og:url" content="https://devblog.lazyig.com/95/">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8149987977999297" crossorigin="anonymous"></script>
+<link rel="stylesheet"
+href="/static/highlight.css">
+</head>
+<body class="kigui one">
+<header class="kigui header">
+<a href="/">
+<h1 class="title">
+메모용 개발 블로그
+</h1>
+</a>
+<div class="header-buttons">
+<span id="headerBtn" class="nav-header-btn"><img src="/static/menu-w.svg" alt="Menu"></span>
+</div>
+</header>
+<div class="kigui header-space"></div>
+<section class="kigui">
+<div id="navBar" class="nav-bar">
+
+<div class="nav-header">
+<span id="catToggle" class="nav-header-btn"><img src="/static/menu.svg" alt="Menu"></span>
+</div>
+<ul class="category">
+
+<li style="padding-left: 0px">
+<a href="/c/전체보기/1/">전체보기<span class="nav-cat-cnt">(99)</span></a>
+</li>
+
+<li style="padding-left: 15px">
+<a href="/c/OS/1/">OS<span class="nav-cat-cnt">(34)</span></a>
+</li>
+
+<li style="padding-left: 30px">
+<a href="/c/Linux/1/">Linux<span class="nav-cat-cnt">(23)</span></a>
+</li>
+
+
+<li style="padding-left: 30px">
+<a href="/c/MacOS/1/">MacOS<span class="nav-cat-cnt">(8)</span></a>
+</li>
+
+
+<li style="padding-left: 30px">
+<a href="/c/Windows/1/">Windows<span class="nav-cat-cnt">(3)</span></a>
+</li>
+
+
+
+<li style="padding-left: 15px">
+<a href="/c/데이터베이스/1/">데이터베이스<span class="nav-cat-cnt">(3)</span></a>
+</li>
+
+<li style="padding-left: 30px">
+<a href="/c/Oracle/1/">Oracle<span class="nav-cat-cnt">(1)</span></a>
+</li>
+
+
+<li style="padding-left: 30px">
+<a href="/c/Postgresql/1/">Postgresql<span class="nav-cat-cnt">(1)</span></a>
+</li>
+
+
+
+<li style="padding-left: 15px">
+<a href="/c/Develop/1/">Develop<span class="nav-cat-cnt">(20)</span></a>
+</li>
+
+<li style="padding-left: 30px">
+<a href="/c/CSS3/1/">CSS3<span class="nav-cat-cnt">(3)</span></a>
+</li>
+
+
+<li style="padding-left: 30px">
+<a href="/c/HTML5/1/">HTML5<span class="nav-cat-cnt">(2)</span></a>
+</li>
+
+
+<li style="padding-left: 30px">
+<a href="/c/JavaScript/1/">JavaScript<span class="nav-cat-cnt">(4)</span></a>
+</li>
+
+
+<li style="padding-left: 30px">
+<a href="/c/React/1/">React<span class="nav-cat-cnt">(1)</span></a>
+</li>
+
+
+<li style="padding-left: 30px">
+<a href="/c/Svelte/1/">Svelte<span class="nav-cat-cnt">(2)</span></a>
+</li>
+
+
+
+<li style="padding-left: 15px">
+<a href="/c/개발일기/1/">개발일기<span class="nav-cat-cnt">(9)</span></a>
+</li>
+
+
+<li style="padding-left: 15px">
+<a href="/c/Git/1/">Git<span class="nav-cat-cnt">(3)</span></a>
+</li>
+
+
+<li style="padding-left: 15px">
+<a href="/c/GitLab/1/">GitLab<span class="nav-cat-cnt">(11)</span></a>
+</li>
+
+
+<li style="padding-left: 15px">
+<a href="/c/Nginx/1/">Nginx<span class="nav-cat-cnt">(7)</span></a>
+</li>
+
+
+<li style="padding-left: 15px">
+<a href="/c/기타/1/">기타<span class="nav-cat-cnt">(9)</span></a>
+</li>
+
+
+<li style="padding-left: 15px">
+<a href="/c/이 블로그의 오픈소스/1/">이 블로그의 오픈소스<span class="nav-cat-cnt">(3)</span></a>
+</li>
+
+
+
+</ul>
+</div>
+<script>
+let catToggle = document.getElementById("catToggle");
+let headerBtn = document.getElementById("headerBtn");
+let navBar = document.getElementById("navBar");
+catToggle.addEventListener("click", () => {
+navBar.classList.toggle("show");
+});
+headerBtn.addEventListener("click", () => {
+navBar.classList.toggle("show");
+})
+</script>
+<div class="kigui frame">
+<p class="category-path">
+
+<a href="/c/전체보기/1/">전체보기</a>
+<span> > </span>
+
+<a href="/c/GitLab/1/">GitLab</a>
+<span> > </span>
+
+</p>
+<h1 class="article-title"><a href="https://devblog.lazyig.com/95/">Windows11+GitLab+Docker 설치</a></h1>
+<p class="write-date">2023-02-14 14:35:30</p>
+<div class="markdown-body">
+<h2>서론</h2>
+<p>Windows 11 + WSL2 + Docker 환경에서 GitLab CE 설치, 구동했던 기록입니다.</p>
+<p><strong>주의사항</strong></p>
+<ul>
+<li>
+<p>윈도우에서 구동하는 Docker는 오류가 상당히 많으니 주의바라며 되도록 공부용도로만 사용하는 것을 권장합니다.</p>
+</li>
+<li>
+<p>OS 버전이 낮을 경우 WSL2 설치에서 막힐 수 있으므로 OS 업데이트를 선행 후 진행해주세요.</p>
+</li>
+<li>
+<p>윈도우 도커 데스크탑은 일정 규모 이상의 기업에서는 유료입니다. 공식 홈페이지에서 정책을 확인해주세요.</p>
+<p>(해당 된다면 도커 데스크탑을 제외하고 엔진만 설치하셔도 동일하게 진행가능합니다.)</p>
+</li>
+</ul>
+<h2>환경</h2>
+<p>OS : Windows 11 Pro</p>
+<p>OS 버전 : 22H2</p>
+<p>WSL 버전 : 1.0.3.0</p>
+<p>WSL OS 버전 : Ubuntu 22.04.1 LTS (GNU/Linux 5.15.79.1-microsoft-standard-WSL2 x86_64)</p>
+<p>머신 환경 : 가상머신</p>
+<h2>WSL2 설치</h2>
+<p>시작메뉴 아이콘을 우클릭 후 관리자 권한으로 파워쉘을 여신 다음 진행하여야 합니다.</p>
+<pre><code class="language-powershell">wsl <span class="hljs-literal">--install</span>
+</code></pre>
+<p><img src="/static/img-V8T7aI8NwEXQIGCpJmuts0nSEf5IYqWnusnW6Mr_fXw.png" alt="image-20230207113342115"></p>
+<p>설치 완료 후 재부팅하여 설치를 완료합니다.</p>
+<p>이후에는 자동으로 설치되는 우분투의 초기 계정 생성이니 알아서 진행하면 됩니다.</p>
+<h2>Docker 설치</h2>
+<p>설치 가이드 : <a href="https://docs.docker.com/desktop/install/windows-install/">https://docs.docker.com/desktop/install/windows-install/</a></p>
+<p>위 설치 가이드 페이지 들어가서 아래 버튼으로 다운로드</p>
+<p><img src="/static/img-NT9Zspt5TLD4mqW74Z0P664gQRpz-aJ05YgfnVNDXXU.png" alt="image-20230207130048740"></p>
+<p><img src="/static/img-5CvSrhMmDXxqnHUbFOc--RVaUWR6UntWz3rA1X4u_Sw.png" alt="image-20230207130141761"></p>
+<p><code>Ok</code> 클릭</p>
+<p><img src="/static/img-ZAmM83aWWO0OWWGhR3mIuT_3oGQuWFAutVruZMJ1nZs.png" alt="image-20230207130154422"></p>
+<p>설치를 기다린 다음 완료되면 윈도우를 재부팅하여 설치를 완료한다.</p>
+<h2>docker volume 생성</h2>
+<p>GitLab의 데이터 관련 파일들은 리눅스 파일 시스템에서 저장되어야 한다.</p>
+<p>일반적으로 볼륨 마운트를 통해 윈도우에 사용하게 되면 오류가 발생하므로 별도의 볼륨을 만들어서 WSL에서 동작하도록 한다.</p>
+<pre><code class="language-powershell">docker volume create gitlab<span class="hljs-literal">-data</span>
+</code></pre>
+<h2>윈도우 깃랩+도커 설치</h2>
+<p><code>docker-compose.yml</code> 파일을 생성한다.</p>
+<pre><code class="language-yml"><span class="hljs-attr">version:</span> <span class="hljs-string">&#x27;3.6&#x27;</span>
+<span class="hljs-attr">services:</span>
+  <span class="hljs-attr">web:</span>
+    <span class="hljs-attr">image:</span> <span class="hljs-string">&#x27;gitlab/gitlab-ce:latest&#x27;</span>
+    <span class="hljs-attr">restart:</span> <span class="hljs-string">always</span>
+    <span class="hljs-attr">hostname:</span> <span class="hljs-string">&#x27;gitlab.example.com&#x27;</span>
+    <span class="hljs-attr">environment:</span>
+      <span class="hljs-attr">TZ:</span> <span class="hljs-string">&#x27;Asia/Seoul&#x27;</span>
+      <span class="hljs-attr">GITLAB_OMNIBUS_CONFIG:</span> <span class="hljs-string">|
+        external_url &#x27;외부_노출_URL&#x27;
+        # Add any other gitlab.rb configuration here, each on its own line
+</span>    <span class="hljs-attr">ports:</span>
+      <span class="hljs-bullet">-</span> <span class="hljs-string">&#x27;80:80&#x27;</span>
+      <span class="hljs-bullet">-</span> <span class="hljs-string">&#x27;443:443&#x27;</span>
+      <span class="hljs-bullet">-</span> <span class="hljs-string">&#x27;22:22&#x27;</span>
+    <span class="hljs-attr">volumes:</span>
+      <span class="hljs-bullet">-</span> <span class="hljs-string">&#x27;호스트_경로/config:/etc/gitlab&#x27;</span>
+      <span class="hljs-bullet">-</span> <span class="hljs-string">&#x27;호스트_경로/logs:/var/log/gitlab&#x27;</span>
+      <span class="hljs-bullet">-</span> <span class="hljs-string">&#x27;gitlab-data:/var/opt/gitlab&#x27;</span>
+      <span class="hljs-bullet">-</span> <span class="hljs-string">&#x27;호스트_경로/backup:/var/opt/gitlab/backups&#x27;</span>
+    <span class="hljs-attr">shm_size:</span> <span class="hljs-number">0</span>
+
+<span class="hljs-attr">volumes:</span>
+  <span class="hljs-attr">gitlab-data:</span>
+    <span class="hljs-attr">external:</span> <span class="hljs-literal">true</span>
+</code></pre>
+<p>위와 같이 입력하고 일부 설정은 본인에 맞게 수정한다.</p>
+<p>설정한 파일로 도커를 올린다.</p>
+<pre><code class="language-powershell">docker compose up <span class="hljs-literal">-d</span>
+</code></pre>
+<p>이후 기다리다 보면 끝난다.</p>
+<p><img src="/static/img-try27kNvtUdy5MZCVAKTL9QZxKctO4WvYzLWA0KOmzc.png" alt="image-20230207134010651"></p>
+<h2>초기 비밀번호 확인</h2>
+<p>아이디는 <code>root</code> 이고, 비밀번호는 위 바인드한 경로에 config/initial_root_password에 있다.</p>
+<pre><code># WARNING: This value is valid only in the following conditions
+#          1. If provided manually (either via `GITLAB_ROOT_PASSWORD` environment variable or via `gitlab_rails['initial_root_password']` setting in `gitlab.rb`, it was provided before database was seeded for the first time (usually, the first reconfigure run).
+#          2. Password hasn't been changed manually, either via UI or via command line.
+#
+#          If the password shown here doesn't work, you must reset the admin password following https://docs.gitlab.com/ee/security/reset_user_password.html#reset-your-root-password.
+
+Password: q1NyMp1NwibVRn09qsZugI73S2i/+b63wYsSfmGKYmU=
+
+# NOTE: This file will be automatically deleted in the first reconfigure run after 24 hours.
+</code></pre>
+<p>7행에 비밀번호가 위치하고 있는 모습을 확인할 수 있다.</p>
+<h2>마치며</h2>
+<p>대부분은 리눅스와 유사하나 작성일 기준으로는 일부 예외되는 이슈가 존재하니 이러한 부분을 참고하여 구동을 하길 바라며, 정말 특별한 일이 없는 경우 무료이고 안정성 좋은 리눅스에서 도커를 구동하는 것이 좋다.</p>
+
+</div>
+</div>
+<div class="kigui frame">
+<script src="https://utteranc.es/client.js"
+repo="lazyig/blog-comment"
+issue-term="pathname"
+label="blog-comment"
+theme="github-light"
+crossorigin="anonymous"
+async>
+</script>
+</div>
+</section>
+</body>
+</html>

@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>code-server 구축 (Docker)</title>
+<meta
+name="description"
+content="정적페이지로 운영하는 개발 블로그입니다."
+/>
+<link
+rel="shortcut icon"
+type="image/png"
+sizes="144x144"
+href="/static/favicon-144x144.png"
+/>
+<link
+rel="icon"
+type="image/png"
+sizes="16x16"
+href="/static/favicon-16x16.png"
+/>
+<link
+rel="icon"
+type="image/png"
+sizes="32x32"
+href="/static/favicon-32x32.png"
+/>
+<link
+rel="icon"
+type="image/png"
+sizes="192x192"
+href="/static/favicon-192x192.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="57x57"
+href="/static/apple-touch-icon-57x57.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="72x72"
+href="/static/apple-touch-icon-72x72.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="76x76"
+href="/static/apple-touch-icon-76x76.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="114x114"
+href="/static/apple-touch-icon-114x114.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="120x120"
+href="/static/apple-touch-icon-120x120.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="144x144"
+href="/static/apple-touch-icon-144x144.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="152x152"
+href="/static/apple-touch-icon-152x152.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="154x154"
+href="/static/apple-touch-icon-154x154.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="180x180"
+href="/static/apple-touch-icon-180x180.png"
+/>
+<link rel="stylesheet" href="/static/style.css">
+<meta name="theme-color" content="#ff5722">
+<meta property="og:type" content="website">
+<meta property="og:title" content="code-server 구축 (Docker)">
+<meta property="og:description" content="공부한 개발 정보를 공유합니다.">
+<meta property="og:image" content="https://devblog.lazyig.com/99//static/ogimg.png">
+<meta property="og:url" content="https://devblog.lazyig.com/99/">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8149987977999297" crossorigin="anonymous"></script>
+<link rel="stylesheet"
+href="/static/highlight.css">
+</head>
+<body class="kigui one">
+<header class="kigui header">
+<a href="/">
+<h1 class="title">
+메모용 개발 블로그
+</h1>
+</a>
+<div class="header-buttons">
+<span id="headerBtn" class="nav-header-btn"><img src="/static/menu-w.svg" alt="Menu"></span>
+</div>
+</header>
+<div class="kigui header-space"></div>
+<section class="kigui">
+<div id="navBar" class="nav-bar">
+
+<div class="nav-header">
+<span id="catToggle" class="nav-header-btn"><img src="/static/menu.svg" alt="Menu"></span>
+</div>
+<ul class="category">
+
+<li style="padding-left: 0px">
+<a href="/c/전체보기/1/">전체보기<span class="nav-cat-cnt">(99)</span></a>
+</li>
+
+<li style="padding-left: 15px">
+<a href="/c/OS/1/">OS<span class="nav-cat-cnt">(34)</span></a>
+</li>
+
+<li style="padding-left: 30px">
+<a href="/c/Linux/1/">Linux<span class="nav-cat-cnt">(23)</span></a>
+</li>
+
+
+<li style="padding-left: 30px">
+<a href="/c/MacOS/1/">MacOS<span class="nav-cat-cnt">(8)</span></a>
+</li>
+
+
+<li style="padding-left: 30px">
+<a href="/c/Windows/1/">Windows<span class="nav-cat-cnt">(3)</span></a>
+</li>
+
+
+
+<li style="padding-left: 15px">
+<a href="/c/데이터베이스/1/">데이터베이스<span class="nav-cat-cnt">(3)</span></a>
+</li>
+
+<li style="padding-left: 30px">
+<a href="/c/Oracle/1/">Oracle<span class="nav-cat-cnt">(1)</span></a>
+</li>
+
+
+<li style="padding-left: 30px">
+<a href="/c/Postgresql/1/">Postgresql<span class="nav-cat-cnt">(1)</span></a>
+</li>
+
+
+
+<li style="padding-left: 15px">
+<a href="/c/Develop/1/">Develop<span class="nav-cat-cnt">(20)</span></a>
+</li>
+
+<li style="padding-left: 30px">
+<a href="/c/CSS3/1/">CSS3<span class="nav-cat-cnt">(3)</span></a>
+</li>
+
+
+<li style="padding-left: 30px">
+<a href="/c/HTML5/1/">HTML5<span class="nav-cat-cnt">(2)</span></a>
+</li>
+
+
+<li style="padding-left: 30px">
+<a href="/c/JavaScript/1/">JavaScript<span class="nav-cat-cnt">(4)</span></a>
+</li>
+
+
+<li style="padding-left: 30px">
+<a href="/c/React/1/">React<span class="nav-cat-cnt">(1)</span></a>
+</li>
+
+
+<li style="padding-left: 30px">
+<a href="/c/Svelte/1/">Svelte<span class="nav-cat-cnt">(2)</span></a>
+</li>
+
+
+
+<li style="padding-left: 15px">
+<a href="/c/개발일기/1/">개발일기<span class="nav-cat-cnt">(9)</span></a>
+</li>
+
+
+<li style="padding-left: 15px">
+<a href="/c/Git/1/">Git<span class="nav-cat-cnt">(3)</span></a>
+</li>
+
+
+<li style="padding-left: 15px">
+<a href="/c/GitLab/1/">GitLab<span class="nav-cat-cnt">(11)</span></a>
+</li>
+
+
+<li style="padding-left: 15px">
+<a href="/c/Nginx/1/">Nginx<span class="nav-cat-cnt">(7)</span></a>
+</li>
+
+
+<li style="padding-left: 15px">
+<a href="/c/기타/1/">기타<span class="nav-cat-cnt">(9)</span></a>
+</li>
+
+
+<li style="padding-left: 15px">
+<a href="/c/이 블로그의 오픈소스/1/">이 블로그의 오픈소스<span class="nav-cat-cnt">(3)</span></a>
+</li>
+
+
+
+</ul>
+</div>
+<script>
+let catToggle = document.getElementById("catToggle");
+let headerBtn = document.getElementById("headerBtn");
+let navBar = document.getElementById("navBar");
+catToggle.addEventListener("click", () => {
+navBar.classList.toggle("show");
+});
+headerBtn.addEventListener("click", () => {
+navBar.classList.toggle("show");
+})
+</script>
+<div class="kigui frame">
+<p class="category-path">
+
+<a href="/c/전체보기/1/">전체보기</a>
+<span> > </span>
+
+<a href="/c/OS/1/">OS</a>
+<span> > </span>
+
+<a href="/c/Linux/1/">Linux</a>
+<span> > </span>
+
+</p>
+<h1 class="article-title"><a href="https://devblog.lazyig.com/99/">code-server 구축 (Docker)</a></h1>
+<p class="write-date">2023-03-28 16:52:55</p>
+<div class="markdown-body">
+<h2>서론</h2>
+<p>VSCode는 Electron을 기반으로 제작된 에디터이다.</p>
+<p>그래서 웹 기반 기술에 근간을 두고 있으므로 이를 로컬 환경이 아닌 웹으로 접근하여 사용할 수 있도록 올리고자 한 것이 code-server이다.</p>
+<p>잘만 운용한다면 여러 환경에서 성능 좋은 pc의 성능을 사용하면서 동일한 환경에서 개발을 진행할 수도 있을 것 이다.</p>
+<h2>본론</h2>
+<h3>구축 방법</h3>
+<p>깔끔한 서버의 상태를 유지하기 위해서 docker를 통해서 구축을 할 것이며, 관리의 용이함을 위해서 docker-compose를 활용한다.</p>
+<p>사용할 이미지는 <a href="https://hub.docker.com/r/linuxserver/code-server">https://hub.docker.com/r/linuxserver/code-server</a> 해당 이미지를 사용할 것 이다.</p>
+<h3>구축 과정</h3>
+<p>구축을 할 경로로 이동한다. 이 글에서는 <code>/srv/code-server</code>에서 작업한다.</p>
+<pre><code class="language-sh">sudo <span class="hljs-built_in">mkdir</span> -r /srv/code-server
+<span class="hljs-built_in">cd</span> /srv/code-server
+sudo vim compose.yaml
+</code></pre>
+<p><code>compose.yaml</code>파일의 내용이다.</p>
+<pre><code class="language-yaml"><span class="hljs-attr">services:</span>
+  <span class="hljs-attr">c1:</span>
+    <span class="hljs-attr">image:</span> <span class="hljs-string">lscr.io/linuxserver/code-server:latest</span>
+    <span class="hljs-attr">container_name:</span> <span class="hljs-string">code-server1</span>
+    <span class="hljs-attr">environment:</span>
+      <span class="hljs-bullet">-</span> <span class="hljs-string">PUID=1000</span>
+      <span class="hljs-bullet">-</span> <span class="hljs-string">PGID=1000</span>
+      <span class="hljs-bullet">-</span> <span class="hljs-string">TZ=Asia/Seoul</span>
+      <span class="hljs-bullet">-</span> <span class="hljs-string">PASSWORD=비밀번호</span> <span class="hljs-comment">#optional</span>
+      <span class="hljs-bullet">-</span> <span class="hljs-string">HASHED_PASSWORD=</span> <span class="hljs-comment">#optional</span>
+      <span class="hljs-bullet">-</span> <span class="hljs-string">SUDO_PASSWORD=비밀번호</span> <span class="hljs-comment">#optional</span>
+      <span class="hljs-bullet">-</span> <span class="hljs-string">SUDO_PASSWORD_HASH=</span> <span class="hljs-comment">#optional</span>
+      <span class="hljs-bullet">-</span> <span class="hljs-string">PROXY_DOMAIN=외부_도메인</span> <span class="hljs-comment">#optional</span>
+      <span class="hljs-bullet">-</span> <span class="hljs-string">DEFAULT_WORKSPACE=/config/workspace</span> <span class="hljs-comment">#optional</span>
+    <span class="hljs-attr">volumes:</span>
+      <span class="hljs-bullet">-</span> <span class="hljs-string">./config:/config</span>
+    <span class="hljs-attr">ports:</span>
+      <span class="hljs-bullet">-</span> <span class="hljs-number">8443</span><span class="hljs-string">:8443</span>
+    <span class="hljs-attr">restart:</span> <span class="hljs-string">unless-stopped</span>
+</code></pre>
+<p>대충 참고하여 수정후 저장</p>
+<pre><code class="language-sh">sudo docker compose up -d
+</code></pre>
+<p>이후 컨테이너를 올린 후 사용하면 된다.</p>
+<h3>Nginx 리버스 프록시 설정</h3>
+<p>만약 이를 Nginx를 통해서 리버스 프록시하여 제공할 것이라면 다음과 같은 헤더 수정이 필요합니다.</p>
+<p>아래 내용을 location 블럭 하위에 넣어주세요.</p>
+<pre><code class="language-nginx"><span class="hljs-attribute">proxy_set_header</span> Host <span class="hljs-variable">$host</span>;
+<span class="hljs-attribute">proxy_set_header</span> Upgrade <span class="hljs-variable">$http_upgrade</span>;
+<span class="hljs-attribute">proxy_set_header</span> Connection upgrade;
+<span class="hljs-attribute">proxy_set_header</span> Accept-Encoding gzip;
+</code></pre>
+<p>웹 소켓을 사용하기 위해서 필요하므로 꼭 하여야 합니다.</p>
+<p><img src="/static/img-DqNDN7stCkBWlY-LXOFslaiaeSyMA2_JJ2bDy8jjdx0.png" alt="image-20230328233221956"></p>
+<p>이후 미리 정해둔 비밀번호를 입력하고 접속하면 사용가능하다.</p>
+<p><img src="/static/img-VAQrrmMCwW72gAubGcuWF3SwUF06PVgfjVCmOM_gNTQ.png" alt="image-20230328233306911"></p>
+<p>끝.</p>
+
+</div>
+</div>
+<div class="kigui frame">
+<script src="https://utteranc.es/client.js"
+repo="lazyig/blog-comment"
+issue-term="pathname"
+label="blog-comment"
+theme="github-light"
+crossorigin="anonymous"
+async>
+</script>
+</div>
+</section>
+</body>
+</html>

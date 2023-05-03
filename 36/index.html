@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>[Postgresql] 계정 생성과 권한</title>
+<meta
+name="description"
+content="정적페이지로 운영하는 개발 블로그입니다."
+/>
+<link
+rel="shortcut icon"
+type="image/png"
+sizes="144x144"
+href="/static/favicon-144x144.png"
+/>
+<link
+rel="icon"
+type="image/png"
+sizes="16x16"
+href="/static/favicon-16x16.png"
+/>
+<link
+rel="icon"
+type="image/png"
+sizes="32x32"
+href="/static/favicon-32x32.png"
+/>
+<link
+rel="icon"
+type="image/png"
+sizes="192x192"
+href="/static/favicon-192x192.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="57x57"
+href="/static/apple-touch-icon-57x57.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="72x72"
+href="/static/apple-touch-icon-72x72.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="76x76"
+href="/static/apple-touch-icon-76x76.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="114x114"
+href="/static/apple-touch-icon-114x114.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="120x120"
+href="/static/apple-touch-icon-120x120.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="144x144"
+href="/static/apple-touch-icon-144x144.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="152x152"
+href="/static/apple-touch-icon-152x152.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="154x154"
+href="/static/apple-touch-icon-154x154.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="180x180"
+href="/static/apple-touch-icon-180x180.png"
+/>
+<link rel="stylesheet" href="/static/style.css">
+<meta name="theme-color" content="#ff5722">
+<meta property="og:type" content="website">
+<meta property="og:title" content="[Postgresql] 계정 생성과 권한">
+<meta property="og:description" content="공부한 개발 정보를 공유합니다.">
+<meta property="og:image" content="https://devblog.lazyig.com/36//static/ogimg.png">
+<meta property="og:url" content="https://devblog.lazyig.com/36/">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8149987977999297" crossorigin="anonymous"></script>
+<link rel="stylesheet"
+href="/static/highlight.css">
+</head>
+<body class="kigui one">
+<header class="kigui header">
+<a href="/">
+<h1 class="title">
+메모용 개발 블로그
+</h1>
+</a>
+<div class="header-buttons">
+<span id="headerBtn" class="nav-header-btn"><img src="/static/menu-w.svg" alt="Menu"></span>
+</div>
+</header>
+<div class="kigui header-space"></div>
+<section class="kigui">
+<div id="navBar" class="nav-bar">
+
+<div class="nav-header">
+<span id="catToggle" class="nav-header-btn"><img src="/static/menu.svg" alt="Menu"></span>
+</div>
+<ul class="category">
+
+<li style="padding-left: 0px">
+<a href="/c/전체보기/1/">전체보기<span class="nav-cat-cnt">(99)</span></a>
+</li>
+
+<li style="padding-left: 15px">
+<a href="/c/OS/1/">OS<span class="nav-cat-cnt">(34)</span></a>
+</li>
+
+<li style="padding-left: 30px">
+<a href="/c/Linux/1/">Linux<span class="nav-cat-cnt">(23)</span></a>
+</li>
+
+
+<li style="padding-left: 30px">
+<a href="/c/MacOS/1/">MacOS<span class="nav-cat-cnt">(8)</span></a>
+</li>
+
+
+<li style="padding-left: 30px">
+<a href="/c/Windows/1/">Windows<span class="nav-cat-cnt">(3)</span></a>
+</li>
+
+
+
+<li style="padding-left: 15px">
+<a href="/c/데이터베이스/1/">데이터베이스<span class="nav-cat-cnt">(3)</span></a>
+</li>
+
+<li style="padding-left: 30px">
+<a href="/c/Oracle/1/">Oracle<span class="nav-cat-cnt">(1)</span></a>
+</li>
+
+
+<li style="padding-left: 30px">
+<a href="/c/Postgresql/1/">Postgresql<span class="nav-cat-cnt">(1)</span></a>
+</li>
+
+
+
+<li style="padding-left: 15px">
+<a href="/c/Develop/1/">Develop<span class="nav-cat-cnt">(20)</span></a>
+</li>
+
+<li style="padding-left: 30px">
+<a href="/c/CSS3/1/">CSS3<span class="nav-cat-cnt">(3)</span></a>
+</li>
+
+
+<li style="padding-left: 30px">
+<a href="/c/HTML5/1/">HTML5<span class="nav-cat-cnt">(2)</span></a>
+</li>
+
+
+<li style="padding-left: 30px">
+<a href="/c/JavaScript/1/">JavaScript<span class="nav-cat-cnt">(4)</span></a>
+</li>
+
+
+<li style="padding-left: 30px">
+<a href="/c/React/1/">React<span class="nav-cat-cnt">(1)</span></a>
+</li>
+
+
+<li style="padding-left: 30px">
+<a href="/c/Svelte/1/">Svelte<span class="nav-cat-cnt">(2)</span></a>
+</li>
+
+
+
+<li style="padding-left: 15px">
+<a href="/c/개발일기/1/">개발일기<span class="nav-cat-cnt">(9)</span></a>
+</li>
+
+
+<li style="padding-left: 15px">
+<a href="/c/Git/1/">Git<span class="nav-cat-cnt">(3)</span></a>
+</li>
+
+
+<li style="padding-left: 15px">
+<a href="/c/GitLab/1/">GitLab<span class="nav-cat-cnt">(11)</span></a>
+</li>
+
+
+<li style="padding-left: 15px">
+<a href="/c/Nginx/1/">Nginx<span class="nav-cat-cnt">(7)</span></a>
+</li>
+
+
+<li style="padding-left: 15px">
+<a href="/c/기타/1/">기타<span class="nav-cat-cnt">(9)</span></a>
+</li>
+
+
+<li style="padding-left: 15px">
+<a href="/c/이 블로그의 오픈소스/1/">이 블로그의 오픈소스<span class="nav-cat-cnt">(3)</span></a>
+</li>
+
+
+
+</ul>
+</div>
+<script>
+let catToggle = document.getElementById("catToggle");
+let headerBtn = document.getElementById("headerBtn");
+let navBar = document.getElementById("navBar");
+catToggle.addEventListener("click", () => {
+navBar.classList.toggle("show");
+});
+headerBtn.addEventListener("click", () => {
+navBar.classList.toggle("show");
+})
+</script>
+<div class="kigui frame">
+<p class="category-path">
+
+<a href="/c/전체보기/1/">전체보기</a>
+<span> > </span>
+
+<a href="/c/데이터베이스/1/">데이터베이스</a>
+<span> > </span>
+
+<a href="/c/Postgresql/1/">Postgresql</a>
+<span> > </span>
+
+</p>
+<h1 class="article-title"><a href="https://devblog.lazyig.com/36/">[Postgresql] 계정 생성과 권한</a></h1>
+<p class="write-date">2021-12-28 01:08:21</p>
+<div class="markdown-body">
+<h3>서론</h3>
+<p>계정 생성이나 권한 설정을 위해서는 해당하는 권한이 있는 계정에서 진행을 하여야 한다.</p>
+<p>처음 DB를 사용한다면 우선 관리자 계정으로 접속을 하여야 하며, 이에 대한 것은 설치에 대한 글 중간에서 확인할 수 있다.</p>
+<p><a href="/35/index.html">설치기 보러 가기</a></p>
+<h3>1. 계정 생성</h3>
+<pre><code>CREATE USER 계정명 WITH PASSWORD 비밀번호;
+</code></pre>
+<h3>2. 계정 조회</h3>
+<pre><code class="language-sh">\<span class="hljs-built_in">du</span>
+</code></pre>
+<h3>3. 권한 추가</h3>
+<pre><code>ALTER ROLE 계정명 권한 [권한2 권한3 ...];
+</code></pre>
+<h4>권한 종류</h4>
+<ul>
+<li>SUPERUSER : DB의 전체 권한 (명시적 거부 : NOSUPERUSER)</li>
+<li>CREATEDB : 새 DB 생성 (명시적 거부 : NOCREATEDB)</li>
+<li>CREATEROLE : 새로운 ROLE 생성 권한 (명시적 거부 : NOCREATEROLE)</li>
+<li>INHERIT : DB의 권한을 다른 구성원에게 상속 가능한지 여부(명시적 거부 : NOINHERIT)</li>
+<li>LOGIN : 해당 계정의 로그인 허용 여부 (명시적 거부 : NOLOGIN)</li>
+<li>REPLICATION : 복제 가능 여부 (명시적 거부 : NOREPLICATION)</li>
+<li>BYPASSRLS : 해당 계정의 Row-Level-Security 무시 여부 (명시적 거부 : NOBYPASSRLS)</li>
+<li>CONNECTION LIMIT : 해당 계정으로 접속가능한 최대 동시접속 수 (기본값 : -1)</li>
+<li>PASSWORD : 비밀번호</li>
+<li>VALID UNTIL {timestamp} : 암호의 유효일시</li>
+<li>ROLE {role_name} : 해당 계정에 다른 역할을 부여</li>
+</ul>
+<p>해당 권한들에서 명시적 거부라 적힌 것은 지정하지 않아도 해당하는 권한을 가진것과 같다. 명시적으로 불가능하도록 지정하는 의미.</p>
+<p>단, LOGIN, NOLOGIN의 경우 CREATE USER를 통해 생성한 계정의 경우 LOGIN이 기본이다.</p>
+<h3>4. 테이블 권한</h3>
+<pre><code>GRANT [권한] ON 테이블명 To 역할명
+</code></pre>
+<h4>권한의 목록</h4>
+<ul>
+<li>SELECT : 조회</li>
+<li>INSERT : 삽입</li>
+<li>UPDATE : 수정</li>
+<li>DELETE  : 삭제</li>
+<li>TRUNCATE : 테이블 데이터 비움</li>
+<li>REFERENCES : 외래키 제약 조건 설정 가능</li>
+<li>TRIGGER : 테이블 트리거 생성 가능</li>
+<li>CREATE : 스키마 생성 가능</li>
+<li>CONNECT : 지정 데이터베이스 연결 가능</li>
+<li>EXECUTE : 프로시저, 함수 사용 가능</li>
+<li>ALL PRIVILEGES : 모두 허용</li>
+</ul>
+
+</div>
+</div>
+<div class="kigui frame">
+<script src="https://utteranc.es/client.js"
+repo="lazyig/blog-comment"
+issue-term="pathname"
+label="blog-comment"
+theme="github-light"
+crossorigin="anonymous"
+async>
+</script>
+</div>
+</section>
+</body>
+</html>

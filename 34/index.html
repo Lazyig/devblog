@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>리눅스에서 파일공유(samba) 서버 구축</title>
+<meta
+name="description"
+content="정적페이지로 운영하는 개발 블로그입니다."
+/>
+<link
+rel="shortcut icon"
+type="image/png"
+sizes="144x144"
+href="/static/favicon-144x144.png"
+/>
+<link
+rel="icon"
+type="image/png"
+sizes="16x16"
+href="/static/favicon-16x16.png"
+/>
+<link
+rel="icon"
+type="image/png"
+sizes="32x32"
+href="/static/favicon-32x32.png"
+/>
+<link
+rel="icon"
+type="image/png"
+sizes="192x192"
+href="/static/favicon-192x192.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="57x57"
+href="/static/apple-touch-icon-57x57.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="72x72"
+href="/static/apple-touch-icon-72x72.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="76x76"
+href="/static/apple-touch-icon-76x76.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="114x114"
+href="/static/apple-touch-icon-114x114.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="120x120"
+href="/static/apple-touch-icon-120x120.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="144x144"
+href="/static/apple-touch-icon-144x144.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="152x152"
+href="/static/apple-touch-icon-152x152.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="154x154"
+href="/static/apple-touch-icon-154x154.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="180x180"
+href="/static/apple-touch-icon-180x180.png"
+/>
+<link rel="stylesheet" href="/static/style.css">
+<meta name="theme-color" content="#ff5722">
+<meta property="og:type" content="website">
+<meta property="og:title" content="리눅스에서 파일공유(samba) 서버 구축">
+<meta property="og:description" content="공부한 개발 정보를 공유합니다.">
+<meta property="og:image" content="https://devblog.lazyig.com/34//static/ogimg.png">
+<meta property="og:url" content="https://devblog.lazyig.com/34/">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8149987977999297" crossorigin="anonymous"></script>
+<link rel="stylesheet"
+href="/static/highlight.css">
+</head>
+<body class="kigui one">
+<header class="kigui header">
+<a href="/">
+<h1 class="title">
+메모용 개발 블로그
+</h1>
+</a>
+<div class="header-buttons">
+<span id="headerBtn" class="nav-header-btn"><img src="/static/menu-w.svg" alt="Menu"></span>
+</div>
+</header>
+<div class="kigui header-space"></div>
+<section class="kigui">
+<div id="navBar" class="nav-bar">
+
+<div class="nav-header">
+<span id="catToggle" class="nav-header-btn"><img src="/static/menu.svg" alt="Menu"></span>
+</div>
+<ul class="category">
+
+<li style="padding-left: 0px">
+<a href="/c/전체보기/1/">전체보기<span class="nav-cat-cnt">(99)</span></a>
+</li>
+
+<li style="padding-left: 15px">
+<a href="/c/OS/1/">OS<span class="nav-cat-cnt">(34)</span></a>
+</li>
+
+<li style="padding-left: 30px">
+<a href="/c/Linux/1/">Linux<span class="nav-cat-cnt">(23)</span></a>
+</li>
+
+
+<li style="padding-left: 30px">
+<a href="/c/MacOS/1/">MacOS<span class="nav-cat-cnt">(8)</span></a>
+</li>
+
+
+<li style="padding-left: 30px">
+<a href="/c/Windows/1/">Windows<span class="nav-cat-cnt">(3)</span></a>
+</li>
+
+
+
+<li style="padding-left: 15px">
+<a href="/c/데이터베이스/1/">데이터베이스<span class="nav-cat-cnt">(3)</span></a>
+</li>
+
+<li style="padding-left: 30px">
+<a href="/c/Oracle/1/">Oracle<span class="nav-cat-cnt">(1)</span></a>
+</li>
+
+
+<li style="padding-left: 30px">
+<a href="/c/Postgresql/1/">Postgresql<span class="nav-cat-cnt">(1)</span></a>
+</li>
+
+
+
+<li style="padding-left: 15px">
+<a href="/c/Develop/1/">Develop<span class="nav-cat-cnt">(20)</span></a>
+</li>
+
+<li style="padding-left: 30px">
+<a href="/c/CSS3/1/">CSS3<span class="nav-cat-cnt">(3)</span></a>
+</li>
+
+
+<li style="padding-left: 30px">
+<a href="/c/HTML5/1/">HTML5<span class="nav-cat-cnt">(2)</span></a>
+</li>
+
+
+<li style="padding-left: 30px">
+<a href="/c/JavaScript/1/">JavaScript<span class="nav-cat-cnt">(4)</span></a>
+</li>
+
+
+<li style="padding-left: 30px">
+<a href="/c/React/1/">React<span class="nav-cat-cnt">(1)</span></a>
+</li>
+
+
+<li style="padding-left: 30px">
+<a href="/c/Svelte/1/">Svelte<span class="nav-cat-cnt">(2)</span></a>
+</li>
+
+
+
+<li style="padding-left: 15px">
+<a href="/c/개발일기/1/">개발일기<span class="nav-cat-cnt">(9)</span></a>
+</li>
+
+
+<li style="padding-left: 15px">
+<a href="/c/Git/1/">Git<span class="nav-cat-cnt">(3)</span></a>
+</li>
+
+
+<li style="padding-left: 15px">
+<a href="/c/GitLab/1/">GitLab<span class="nav-cat-cnt">(11)</span></a>
+</li>
+
+
+<li style="padding-left: 15px">
+<a href="/c/Nginx/1/">Nginx<span class="nav-cat-cnt">(7)</span></a>
+</li>
+
+
+<li style="padding-left: 15px">
+<a href="/c/기타/1/">기타<span class="nav-cat-cnt">(9)</span></a>
+</li>
+
+
+<li style="padding-left: 15px">
+<a href="/c/이 블로그의 오픈소스/1/">이 블로그의 오픈소스<span class="nav-cat-cnt">(3)</span></a>
+</li>
+
+
+
+</ul>
+</div>
+<script>
+let catToggle = document.getElementById("catToggle");
+let headerBtn = document.getElementById("headerBtn");
+let navBar = document.getElementById("navBar");
+catToggle.addEventListener("click", () => {
+navBar.classList.toggle("show");
+});
+headerBtn.addEventListener("click", () => {
+navBar.classList.toggle("show");
+})
+</script>
+<div class="kigui frame">
+<p class="category-path">
+
+<a href="/c/전체보기/1/">전체보기</a>
+<span> > </span>
+
+<a href="/c/OS/1/">OS</a>
+<span> > </span>
+
+<a href="/c/Linux/1/">Linux</a>
+<span> > </span>
+
+</p>
+<h1 class="article-title"><a href="https://devblog.lazyig.com/34/">리눅스에서 파일공유(samba) 서버 구축</a></h1>
+<p class="write-date">2021-11-05 08:28:34</p>
+<div class="markdown-body">
+<h2>서론</h2>
+<p>다른 장치간 파일을 공유하는 일은 생각보다 번거롭다. 클라우드를 구독하거나 이동식 저장장치를 사용하여서 공유를 하기도 한다.</p>
+<p>이런 경우 남는 PC로 유용하게 사용할 수 있는 것이 파일공유 서버이다. 한번 구축해두면 내부네트워크 간에 손쉽게 파일을 공유할 수 있으니 작업의 효율과 편리함이 증가한다.</p>
+<h3>환경</h3>
+<p>해당 설치기는 다음과 같은 환경에서 진행하나 많이 사용되는 프로그램이니 배포판에 따라 패키지 매니저나 방화벽 소프트웨어 외에는 명령어에 큰 차이가 없으리라 생각된다.</p>
+<ul>
+<li>OS / 배포판 : Linux / 라즈베리파이 OS (데비안 10 기반)</li>
+<li>비트 : x64</li>
+<li>구동 환경 : VMWare Workstation을 활용한 가상머신</li>
+</ul>
+<h2>본론</h2>
+<h3>1. samba 설치</h3>
+<p>무언가를 설치하기 전에 패키지매니저를 업데이트 해주는 편이 좋다.</p>
+<pre><code class="language-sh">sudo apt-get update
+sudo apt-get install samba -y
+</code></pre>
+<p>수행을 하면 일반적인 터미널 환경에서는 부드럽게 설치가 될 것이고 일부 배포판에서는 다음과같이 나올 수 있다.</p>
+<p><img src="/static/img-Ci6cR6k2-miVvpDg_76qrnxDDVp1lBTjYKMSodzvpo8.png" alt="image-20211115222555770"></p>
+<p>그냥 방향키로 조작해서 계속하면 된다.</p>
+<h3>2. 환경 설정</h3>
+<h4>1. smb 설정</h4>
+<p>설치를 완료하면 이제 공유할 폴더를 생성하자.</p>
+<p>이 글에서는 사용자의 홈 폴더를 통째로 공유할 예정이다.</p>
+<p>실 사용할 예정이라면 필요한 영역만 공유하는 것이 좋다.</p>
+<p>공유할 경로를 생성하였다면 설정 파일에서 설정을 해주어야 한다.</p>
+<pre><code class="language-sh">sudo vi /etc/samba/smb.conf
+</code></pre>
+<p>최하단으로 내려서 내가 아래 내용을 본인에게 맞게 수정하여 작성한다.</p>
+<pre><code>[pishare]
+comment = PI Share
+path = /home/pi
+browseable = no
+valid users = pi
+write list = pi
+create mask = 0640
+directory mask = 0750
+</code></pre>
+<p>[pishare] : 공유폴더 이름. pishare를 원하는 명으로 작성한다.</p>
+<p>path : 공유폴더의 위치</p>
+<p>valid users : 허용하는 리눅스 유저</p>
+<p>write list : 쓰기를 허용하는 리눅스 유저</p>
+<h4>2. 계정 추가</h4>
+<pre><code class="language-sh">sudo smbpasswd -a 계정명
+</code></pre>
+<p>smb 계정은 위 명령어를 입력하여 추가할 수 있으며 이후에 비밀번호를 묻는 절차가 진행된다. 리눅스 계정 생성과 같으니 진행해주면 된다.</p>
+<h4>3. 방화벽 설정</h4>
+<p>방화벽을 열어서 해당 컴퓨터로 접근할 수 있도록 하여야 한다.</p>
+<p>여기서는 ufw를 이용할 것이고 명령어가 없다면 패키지매니저로 설치하자.</p>
+<pre><code class="language-sh">sudo ufw allow samba
+</code></pre>
+<h3>3. 윈도우 클라이언트에서 연결</h3>
+<p>우선 내 PC로 들어간다.</p>
+<p><img src="/static/img-uh0JRVadPT1gEEeTMjVRgwJ5YWOOL6hWFDgKU_2KkxI.png" alt="image-20211115225210533"></p>
+<p>그 후 왼쪽 내 PC를 우클릭</p>
+<p><img src="/static/img-2ESF842N1tjRIe0ukgwASOtxa_4gps6jOb3hUA1LyqQ.png" alt="image-20211115225244285"></p>
+<p>네트워크 드라이브 연결(N)... 클릭</p>
+<p><img src="/static/img-SBFzS2EJx4B_v5hy1vic0cv7A-Wxyl-KNPeOyRCPk-I.png" alt="image-20211115225528557"></p>
+<p>아이피주소와 괄호안에 적은 공유폴더 이름으로 주소를 작성하자.</p>
+<p><img src="/static/img-C05TDQ_hyg8B6l2_GccZDR_33yW-3hUpncMAiD5hZL8.png" alt="image-20211115225618889"></p>
+<p>자격증명이 나타나게 되고 리눅스 계정 id, pw를 입력하면 된다. 안전한 pc의 경우 내 자격증명 기억으로 매번 로그인 없이 자동으로 연결되게 가능하다.</p>
+<p><img src="/static/img-3gQeOy4QwaJMIH3CsaaVxcOiuKMKtNX6MIP0vBRfn1M.png" alt="image-20211115230345114"></p>
+<p>다음과 같이 잘 연결되었다.</p>
+<p>끝.</p>
+
+</div>
+</div>
+<div class="kigui frame">
+<script src="https://utteranc.es/client.js"
+repo="lazyig/blog-comment"
+issue-term="pathname"
+label="blog-comment"
+theme="github-light"
+crossorigin="anonymous"
+async>
+</script>
+</div>
+</section>
+</body>
+</html>

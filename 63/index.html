@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>정적 블로그 개발기 7 - 자동배포</title>
+<meta
+name="description"
+content="정적페이지로 운영하는 개발 블로그입니다."
+/>
+<link
+rel="shortcut icon"
+type="image/png"
+sizes="144x144"
+href="/static/favicon-144x144.png"
+/>
+<link
+rel="icon"
+type="image/png"
+sizes="16x16"
+href="/static/favicon-16x16.png"
+/>
+<link
+rel="icon"
+type="image/png"
+sizes="32x32"
+href="/static/favicon-32x32.png"
+/>
+<link
+rel="icon"
+type="image/png"
+sizes="192x192"
+href="/static/favicon-192x192.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="57x57"
+href="/static/apple-touch-icon-57x57.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="72x72"
+href="/static/apple-touch-icon-72x72.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="76x76"
+href="/static/apple-touch-icon-76x76.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="114x114"
+href="/static/apple-touch-icon-114x114.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="120x120"
+href="/static/apple-touch-icon-120x120.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="144x144"
+href="/static/apple-touch-icon-144x144.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="152x152"
+href="/static/apple-touch-icon-152x152.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="154x154"
+href="/static/apple-touch-icon-154x154.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="180x180"
+href="/static/apple-touch-icon-180x180.png"
+/>
+<link rel="stylesheet" href="/static/style.css">
+<meta name="theme-color" content="#ff5722">
+<meta property="og:type" content="website">
+<meta property="og:title" content="정적 블로그 개발기 7 - 자동배포">
+<meta property="og:description" content="공부한 개발 정보를 공유합니다.">
+<meta property="og:image" content="https://devblog.lazyig.com/63//static/ogimg.png">
+<meta property="og:url" content="https://devblog.lazyig.com/63/">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8149987977999297" crossorigin="anonymous"></script>
+<link rel="stylesheet"
+href="/static/highlight.css">
+</head>
+<body class="kigui one">
+<header class="kigui header">
+<a href="/">
+<h1 class="title">
+메모용 개발 블로그
+</h1>
+</a>
+<div class="header-buttons">
+<span id="headerBtn" class="nav-header-btn"><img src="/static/menu-w.svg" alt="Menu"></span>
+</div>
+</header>
+<div class="kigui header-space"></div>
+<section class="kigui">
+<div id="navBar" class="nav-bar">
+
+<div class="nav-header">
+<span id="catToggle" class="nav-header-btn"><img src="/static/menu.svg" alt="Menu"></span>
+</div>
+<ul class="category">
+
+<li style="padding-left: 0px">
+<a href="/c/전체보기/1/">전체보기<span class="nav-cat-cnt">(99)</span></a>
+</li>
+
+<li style="padding-left: 15px">
+<a href="/c/OS/1/">OS<span class="nav-cat-cnt">(34)</span></a>
+</li>
+
+<li style="padding-left: 30px">
+<a href="/c/Linux/1/">Linux<span class="nav-cat-cnt">(23)</span></a>
+</li>
+
+
+<li style="padding-left: 30px">
+<a href="/c/MacOS/1/">MacOS<span class="nav-cat-cnt">(8)</span></a>
+</li>
+
+
+<li style="padding-left: 30px">
+<a href="/c/Windows/1/">Windows<span class="nav-cat-cnt">(3)</span></a>
+</li>
+
+
+
+<li style="padding-left: 15px">
+<a href="/c/데이터베이스/1/">데이터베이스<span class="nav-cat-cnt">(3)</span></a>
+</li>
+
+<li style="padding-left: 30px">
+<a href="/c/Oracle/1/">Oracle<span class="nav-cat-cnt">(1)</span></a>
+</li>
+
+
+<li style="padding-left: 30px">
+<a href="/c/Postgresql/1/">Postgresql<span class="nav-cat-cnt">(1)</span></a>
+</li>
+
+
+
+<li style="padding-left: 15px">
+<a href="/c/Develop/1/">Develop<span class="nav-cat-cnt">(20)</span></a>
+</li>
+
+<li style="padding-left: 30px">
+<a href="/c/CSS3/1/">CSS3<span class="nav-cat-cnt">(3)</span></a>
+</li>
+
+
+<li style="padding-left: 30px">
+<a href="/c/HTML5/1/">HTML5<span class="nav-cat-cnt">(2)</span></a>
+</li>
+
+
+<li style="padding-left: 30px">
+<a href="/c/JavaScript/1/">JavaScript<span class="nav-cat-cnt">(4)</span></a>
+</li>
+
+
+<li style="padding-left: 30px">
+<a href="/c/React/1/">React<span class="nav-cat-cnt">(1)</span></a>
+</li>
+
+
+<li style="padding-left: 30px">
+<a href="/c/Svelte/1/">Svelte<span class="nav-cat-cnt">(2)</span></a>
+</li>
+
+
+
+<li style="padding-left: 15px">
+<a href="/c/개발일기/1/">개발일기<span class="nav-cat-cnt">(9)</span></a>
+</li>
+
+
+<li style="padding-left: 15px">
+<a href="/c/Git/1/">Git<span class="nav-cat-cnt">(3)</span></a>
+</li>
+
+
+<li style="padding-left: 15px">
+<a href="/c/GitLab/1/">GitLab<span class="nav-cat-cnt">(11)</span></a>
+</li>
+
+
+<li style="padding-left: 15px">
+<a href="/c/Nginx/1/">Nginx<span class="nav-cat-cnt">(7)</span></a>
+</li>
+
+
+<li style="padding-left: 15px">
+<a href="/c/기타/1/">기타<span class="nav-cat-cnt">(9)</span></a>
+</li>
+
+
+<li style="padding-left: 15px">
+<a href="/c/이 블로그의 오픈소스/1/">이 블로그의 오픈소스<span class="nav-cat-cnt">(3)</span></a>
+</li>
+
+
+
+</ul>
+</div>
+<script>
+let catToggle = document.getElementById("catToggle");
+let headerBtn = document.getElementById("headerBtn");
+let navBar = document.getElementById("navBar");
+catToggle.addEventListener("click", () => {
+navBar.classList.toggle("show");
+});
+headerBtn.addEventListener("click", () => {
+navBar.classList.toggle("show");
+})
+</script>
+<div class="kigui frame">
+<p class="category-path">
+
+<a href="/c/전체보기/1/">전체보기</a>
+<span> > </span>
+
+<a href="/c/개발일기/1/">개발일기</a>
+<span> > </span>
+
+</p>
+<h1 class="article-title"><a href="https://devblog.lazyig.com/63/">정적 블로그 개발기 7 - 자동배포</a></h1>
+<p class="write-date">2022-05-20 01:34:34</p>
+<div class="markdown-body">
+<h3>지금까지 배포 방식</h3>
+<p>지금까지는 배포를 블로그 생성기를 받고 그 안에 post 경로 아래에 블로그 글들을 보관하는 형태에서 블로그 생성기에서 변환명령을 내려줘야했다.</p>
+<p>대충 배포까지 스크립트에 때려박은터라 사용성이 그렇게 안좋지는 않았지만 그래도 글들만 다운받아서 바로 수정하고 올리면 자동으로 변환하고 배포해준다면 낭만적이지 않겠는가?</p>
+<p>그래서 낭만을 위해서 간단한 삽질을 하였다.</p>
+<h3>무엇으로 배포할 것 인가?</h3>
+<p>일단 블로그 글들이 git으로 관리되고 있었으므로 이걸 gitlab에 올리는 순간 무언가 일어나는 것이 가장 자연스러운 일이라 생각하였다.</p>
+<p>그래서 gitlab runner를 블로그 글 배포용으로 사용하였다.</p>
+<h3>환경</h3>
+<p>gitlab runner 서버는 gitlab이 설치된 서버와 동일한 곳에 위치하고 있다. 아무래도 기존에 설치해놓은 것을 재탕하는 것이 제일 싸게 먹히는 법이다.</p>
+<h3>개발 과정</h3>
+<p>우선 CI/CD 스크립트를 무한으로 테스트 해먹기 위해서 브랜치를 별도로 분리하고 이리저리 삽질을 해주었다.</p>
+<p>스크립트를 한방에 완벽하게 짜내는 능력은 없으므로 어쩔 수 없다.</p>
+<pre><code class="language-yaml"><span class="hljs-attr">stages:</span>
+  <span class="hljs-bullet">-</span> <span class="hljs-string">deploy</span>
+
+<span class="hljs-attr">deploy:</span>
+  <span class="hljs-attr">stage:</span> <span class="hljs-string">deploy</span>
+  <span class="hljs-attr">script:</span>
+    <span class="hljs-bullet">-</span> <span class="hljs-string">PATH=$PATH:/home/gitlab-runner/node/node-v17.2.0-linux-x64/bin</span>
+    <span class="hljs-bullet">-</span> <span class="hljs-string">cd</span> <span class="hljs-string">..</span>
+    <span class="hljs-bullet">-</span> <span class="hljs-string">rm</span> <span class="hljs-string">-rf</span> <span class="hljs-string">./blogmaker</span> <span class="hljs-number">2</span><span class="hljs-string">&gt;</span> <span class="hljs-string">/dev/null</span>
+    <span class="hljs-bullet">-</span> <span class="hljs-string">git</span> <span class="hljs-string">clone</span> <span class="hljs-string">블로그_생성기_저장소_주소</span> <span class="hljs-string">blogmaker</span>
+    <span class="hljs-bullet">-</span> <span class="hljs-string">mv</span> <span class="hljs-string">./blog-data</span> <span class="hljs-string">./blogmaker/post</span>
+    <span class="hljs-bullet">-</span> <span class="hljs-string">cd</span> <span class="hljs-string">./blogmaker</span>
+    <span class="hljs-bullet">-</span> <span class="hljs-string">git</span> <span class="hljs-string">clone</span> <span class="hljs-string">블로그_배포_주소</span> <span class="hljs-string">export</span>
+    <span class="hljs-bullet">-</span> <span class="hljs-string">npm</span> <span class="hljs-string">i</span>
+    <span class="hljs-bullet">-</span> <span class="hljs-string">npm</span> <span class="hljs-string">run</span> <span class="hljs-string">build</span>
+    <span class="hljs-bullet">-</span> <span class="hljs-string">cd</span> <span class="hljs-string">post</span>
+    <span class="hljs-bullet">-</span> <span class="hljs-string">git</span> <span class="hljs-string">config</span> <span class="hljs-string">--local</span> <span class="hljs-string">user.email</span> <span class="hljs-string">&quot;이메일&quot;</span> <span class="hljs-string">&amp;&amp;</span> <span class="hljs-string">git</span> <span class="hljs-string">config</span> <span class="hljs-string">--local</span> <span class="hljs-string">user.name</span> <span class="hljs-string">&quot;이름&quot;</span>
+    <span class="hljs-bullet">-</span> <span class="hljs-string">git</span> <span class="hljs-string">remote</span> <span class="hljs-string">add</span> <span class="hljs-string">origin2</span> <span class="hljs-string">블로그_글_저장소</span>
+    <span class="hljs-bullet">-</span> <span class="hljs-string">git</span> <span class="hljs-string">pull</span> <span class="hljs-string">origin2</span> <span class="hljs-string">main</span>
+    <span class="hljs-bullet">-</span> <span class="hljs-string">git</span> <span class="hljs-string">checkout</span> <span class="hljs-string">-t</span> <span class="hljs-string">origin2/main</span>
+    <span class="hljs-bullet">-</span> <span class="hljs-string">git</span> <span class="hljs-string">add</span> <span class="hljs-string">.</span>
+    <span class="hljs-bullet">-</span> <span class="hljs-string">if</span> [ <span class="hljs-string">&quot;$(git diff --staged)&quot;</span> <span class="hljs-type">!=</span> <span class="hljs-string">&quot;&quot;</span> ]<span class="hljs-string">;</span> <span class="hljs-string">then</span> <span class="hljs-string">git</span> <span class="hljs-string">commit</span> <span class="hljs-string">-m</span> <span class="hljs-string">&quot;Gitlab Runner&quot;</span> <span class="hljs-string">&amp;&amp;</span> <span class="hljs-string">git</span> <span class="hljs-string">push</span> <span class="hljs-string">origin2</span> <span class="hljs-string">main;</span> <span class="hljs-string">fi</span>
+    <span class="hljs-bullet">-</span> <span class="hljs-string">cd</span> <span class="hljs-string">../export</span>
+    <span class="hljs-bullet">-</span> <span class="hljs-string">git</span> <span class="hljs-string">config</span> <span class="hljs-string">--local</span> <span class="hljs-string">user.email</span> <span class="hljs-string">&quot;이메일&quot;</span> <span class="hljs-string">&amp;&amp;</span> <span class="hljs-string">git</span> <span class="hljs-string">config</span> <span class="hljs-string">--local</span> <span class="hljs-string">user.name</span> <span class="hljs-string">&quot;이름&quot;</span>
+    <span class="hljs-bullet">-</span> <span class="hljs-string">git</span> <span class="hljs-string">add</span> <span class="hljs-string">.</span>
+    <span class="hljs-bullet">-</span> <span class="hljs-string">if</span> [ <span class="hljs-string">&quot;$(git diff --staged)&quot;</span> <span class="hljs-type">!=</span> <span class="hljs-string">&quot;&quot;</span> ]<span class="hljs-string">;</span> <span class="hljs-string">then</span> <span class="hljs-string">git</span> <span class="hljs-string">commit</span> <span class="hljs-string">-m</span> <span class="hljs-string">&quot;Gitlab Runner&quot;</span> <span class="hljs-string">&amp;&amp;</span> <span class="hljs-string">git</span> <span class="hljs-string">push</span> <span class="hljs-string">origin</span> <span class="hljs-string">main;</span> <span class="hljs-string">fi</span>
+</code></pre>
+<p>이런식으로 작성하였다. 동작환경은 쉘 환경에서 동작하도록 하였고, 아무래도 node 때문에 docker를 사용해서 분리하는편이 마음이 편안할 것 같았으나 배포할때마다 도커를 거치는 것 또한 마음이 불편하기에 그냥 node런타임을 러너 홈 경로에 따로 설치한 다음 임시로 path에 올리도록 하였다.</p>
+<ol>
+<li>node 런타임 PATH 등록</li>
+<li>이전 블로그 빌더 삭제</li>
+<li>블로그 빌더 깃에서 클론</li>
+<li>현재 블로그 글 세팅</li>
+<li>배포 저장소 클론</li>
+<li>블로그 빌더 빌드</li>
+<li>블로그 빌드</li>
+<li>post 경로 이동</li>
+<li>깃 커미터 정보 설정</li>
+<li>글 원격저장소 연결 &amp; 브랜치 가져오기 &amp; 이동</li>
+<li>글 메타 정보 변경 시 커밋 &amp; 푸시</li>
+<li>export 경로 이동</li>
+<li>깃 커미터 정보 설정</li>
+<li>커밋 &amp; 배포</li>
+</ol>
+<p>대략 위의 과정을 거쳐서 배포하도록 하였다.</p>
+<p><img src="/static/img-swfnpAWGgwPqlUnXVW14245eB53dbEW_FZzLNeAgduc.png" alt="image-20220520003259021"></p>
+<p>정상적으로 배포되는 모습을 볼 수 있다.</p>
+<h3>후기</h3>
+<p>나중에 서버가 이동된다면 잡스러운 설정을 다시해야한다는 생각에 머리가 아찔해지지만 그건 미래의 내가 하겠지...</p>
+<p>다만 아쉽게도 러너가 올린 커밋에도 반응을 한다는건데. 이건 나중에 수정하도록 해야겠다.</p>
+<p>어짜피 블로그 빌드를 두번하는건 내가 아니라 나의 컴퓨터이기 때문이다.</p>
+
+</div>
+</div>
+<div class="kigui frame">
+<script src="https://utteranc.es/client.js"
+repo="lazyig/blog-comment"
+issue-term="pathname"
+label="blog-comment"
+theme="github-light"
+crossorigin="anonymous"
+async>
+</script>
+</div>
+</section>
+</body>
+</html>
