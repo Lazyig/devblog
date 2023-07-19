@@ -1510,7 +1510,7 @@ body.sm-on .kigui.sidemenu {
   position: fixed;
   z-index: 1500;
   top:0;
-  right: -400px;
+  left: -400px;
   bottom: 0;
   width: 300px;
   background-color: #fff;
@@ -1519,25 +1519,25 @@ body.sm-on .kigui.sidemenu {
   box-shadow: 4px 0 30px rgb(0 0 0 / 50%);
 
   transition-duration: .2s;
-  transition-property: right;
+  transition-property: left;
 }
 
 .nav-bar.show {
-  right: 0;
+  left: 0;
 }
 
 .nav-header {
   height: 64px;
   display: flex;
   flex-direction: row;
-  justify-content: flex-end;
+  justify-content: flex-start;
+  flex-grow: 1;
 }
 
 .header-buttons {
   display: flex;
   height: 64px;
-  justify-content: flex-end;
-  flex-grow: 1;
+  justify-content: flex-start;
 }
 
 .nav-header-btn {
