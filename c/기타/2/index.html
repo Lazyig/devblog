@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
+<link rel="stylesheet" href="/static/catstyle.css">
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>정적 블로그 생성기 개발기 3</title>
+<title>기타 카테고리</title>
 <meta
 name="description"
 content="정적페이지로 운영하는 개발 블로그입니다."
@@ -81,13 +82,11 @@ href="/static/apple-touch-icon-180x180.png"
 <link rel="stylesheet" href="/static/style.css">
 <meta name="theme-color" content="#ff5722">
 <meta property="og:type" content="website">
-<meta property="og:title" content="정적 블로그 생성기 개발기 3">
+<meta property="og:title" content="기타 카테고리">
 <meta property="og:description" content="공부한 개발 정보를 공유합니다.">
-<meta property="og:image" content="https://devblog.lazyig.com/14//static/ogimg.png">
-<meta property="og:url" content="https://devblog.lazyig.com/14/">
+<meta property="og:image" content="https://devblog.lazyig.com/static/ogimg.png">
+<meta property="og:url" content="https://devblog.lazyig.com">
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8149987977999297" crossorigin="anonymous"></script>
-<link rel="stylesheet"
-href="/static/highlight.css">
 </head>
 <body class="kigui one">
 <header class="kigui header">
@@ -223,79 +222,29 @@ navBar.classList.toggle("show");
 })
 </script>
 <div class="kigui frame">
-<p class="category-path">
-
-<a href="/c/전체보기/1/">전체보기</a>
-<span> > </span>
-
-<a href="/c/개발일기/1/">개발일기</a>
-<span> > </span>
-
-</p>
-<h1 class="article-title"><a href="https://devblog.lazyig.com/14/">정적 블로그 생성기 개발기 3</a></h1>
-<p class="write-date">2021-10-16 22:20:09</p>
 <div class="markdown-body">
-<p>이번에는 배포까지 마쳤다!</p>
-<p><a href="https://devblog.lazyig.com/">https://devblog.lazyig.com/</a></p>
-<p>Github에 배포를 하였고, 도메인도 정해주었다.</p>
-<p>일단 배포가 되니까 사소한 기능들만 고쳐주었다.</p>
-<p>혼자 쓸 프로그램인지라 고치는 것도 그냥 덕지덕지 마구잡이로 작성해주었다.</p>
-<h3>Github 배포</h3>
-<p>깃에 올리기가 몹시 귀찮았으므로 자동으로 Git에 올려주는 것을 만들었다.</p>
-<p>사실 별건 없고 콘솔에 명령어를 넣어준다.</p>
-<pre><code>[debug] loadBlog
-[info] 배포 준비 중
-[debug] git pull 수행 중
-...
-[debug] addAndCommit 수행 중
-[debug] push 수행 중
-[info] 배포 종료
-[debug] On branch main
-nothing to commit, working tree clean
-
-[warn] Everything up-to-date
-</code></pre>
-<p>로그의 일부분을 가져왔다.</p>
-<p>어찌됬던 잘 동작하고, 혼자 쓰는 프로그램이라 예외나 오류는 내가 그럴 만한 행동을 안하면 그만이다.</p>
-<h3>경로관련 개선</h3>
-<p>마구잡이로 작성하다보니 여기저기서 특정 경로를 지정하는 것을 따로따로 하고 있었다.</p>
-<p>만약.. 한번에 수정할 일이 생기면?...</p>
-<p>물론 vscode가 잘되어있어서 한번에 수정하면 된다!</p>
-<p>그래도 일단 소스 미관상도 그렇고 자주 이용하는 경로는 변수로 지정해주었다.</p>
-<pre><code>public RUN_PATH = path.join(process.cwd());
-public BLOG_EXPORT_PATH = path.join(this.RUN_PATH, &quot;export&quot;);
-public BLOG_POST_PATH = path.join(this.RUN_PATH, &quot;post&quot;);
-public BLOG_CONFIG_PATH = path.join(this.BLOG_POST_PATH, &quot;blog.json&quot;);
-</code></pre>
-<p>음 어찌됬건 나만 편하면 되니 OK!</p>
-<h3>광고</h3>
-<p>예전에 티스토리로 애드센스 승인을 받아두었으므로 이것도 달아주었다.</p>
-<p>직접 ejs 파일에다가 넣어주면 섭섭하므로, 블로그 설정 파일을 통해서 넣도록 하였다.</p>
-<p>매우 깔끔</p>
-<h3>파비콘</h3>
-<p>블로그 아이콘이 없으면 섭섭하므로 이것도 달아주었다.</p>
-<p>대충 D2Coding 폰트로 B를 적고 주황색으로 채워주었다.</p>
-<p><img src="/static/img-8-nikW8nfj5Byau6hOBz1CMYdame34xX1iNreJHD5IM.png" alt=""></p>
-<p>각종 사이즈별로 완비하였다.</p>
-<h3>루트 정적 파일 복사</h3>
-<p>블로그 개인 설정에서 robot.txt나 CNAME 파일 같은 것을 채워줘야하는 경우가 있다.</p>
-<p>그래서 최상위 경로에다가 파일을 파일을 복사하는 기능도 소소하게 넣었다.</p>
-<h2>여담</h2>
-<p>여담으로 이 프로그램을 gitlab-runner에 물려서 포스트를 작성해서 올리면 러너가 처리해서 다시 github에 게시해주는 것도 생각해보았는데.</p>
-<p>나름 재밌는 생각인 것 같다.</p>
-<p>언젠가 안하고 있다가 이 글을 다시 보면 생각나기를...</p>
-
+<h1>기타</h1>
 </div>
+<ul class="catlist">
+
+<li>
+<a href="/0"><span class="date">2021-10-13 21:55:00</span>첫 글</a>
+</li>
+
+</ul>
 </div>
-<div class="kigui frame">
-<script src="https://utteranc.es/client.js"
-repo="lazyig/blog-comment"
-issue-term="pathname"
-label="blog-comment"
-theme="github-light"
-crossorigin="anonymous"
-async>
-</script>
+<div class="kigui frame catnum">
+<ul>
+
+<li>
+<a href="/c/기타/1">1</a>
+</li>
+
+<li>
+<a href="/c/기타/2">2</a>
+</li>
+
+</ul>
 </div>
 </section>
 </body>

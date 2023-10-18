@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>개인 서버 Traefik으로 전환 소감</title>
+<meta
+name="description"
+content="정적페이지로 운영하는 개발 블로그입니다."
+/>
+<link
+rel="shortcut icon"
+type="image/png"
+sizes="144x144"
+href="/static/favicon-144x144.png"
+/>
+<link
+rel="icon"
+type="image/png"
+sizes="16x16"
+href="/static/favicon-16x16.png"
+/>
+<link
+rel="icon"
+type="image/png"
+sizes="32x32"
+href="/static/favicon-32x32.png"
+/>
+<link
+rel="icon"
+type="image/png"
+sizes="192x192"
+href="/static/favicon-192x192.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="57x57"
+href="/static/apple-touch-icon-57x57.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="72x72"
+href="/static/apple-touch-icon-72x72.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="76x76"
+href="/static/apple-touch-icon-76x76.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="114x114"
+href="/static/apple-touch-icon-114x114.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="120x120"
+href="/static/apple-touch-icon-120x120.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="144x144"
+href="/static/apple-touch-icon-144x144.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="152x152"
+href="/static/apple-touch-icon-152x152.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="154x154"
+href="/static/apple-touch-icon-154x154.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="180x180"
+href="/static/apple-touch-icon-180x180.png"
+/>
+<link rel="stylesheet" href="/static/style.css">
+<meta name="theme-color" content="#ff5722">
+<meta property="og:type" content="website">
+<meta property="og:title" content="개인 서버 Traefik으로 전환 소감">
+<meta property="og:description" content="공부한 개발 정보를 공유합니다.">
+<meta property="og:image" content="https://devblog.lazyig.com/111//static/ogimg.png">
+<meta property="og:url" content="https://devblog.lazyig.com/111/">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8149987977999297" crossorigin="anonymous"></script>
+<link rel="stylesheet"
+href="/static/highlight.css">
+</head>
+<body class="kigui one">
+<header class="kigui header">
+<div class="header-buttons">
+<span id="headerBtn" class="nav-header-btn"><img src="/static/menu-w.svg" alt="Menu"></span>
+</div>
+<a href="/">
+<h1 class="title">
+메모용 개발 블로그
+</h1>
+</a>
+</header>
+<div class="kigui header-space"></div>
+<section class="kigui">
+<div id="navBar" class="nav-bar">
+
+<div class="nav-header">
+<span id="catToggle" class="nav-header-btn"><img src="/static/menu.svg" alt="Menu"></span>
+</div>
+<ul class="category">
+
+<li style="padding-left: 0px">
+<a href="/c/전체보기/1/">전체보기<span class="nav-cat-cnt">(101)</span></a>
+</li>
+
+<li style="padding-left: 15px">
+<a href="/c/OS/1/">OS<span class="nav-cat-cnt">(34)</span></a>
+</li>
+
+<li style="padding-left: 30px">
+<a href="/c/Linux/1/">Linux<span class="nav-cat-cnt">(23)</span></a>
+</li>
+
+
+<li style="padding-left: 30px">
+<a href="/c/MacOS/1/">MacOS<span class="nav-cat-cnt">(8)</span></a>
+</li>
+
+
+<li style="padding-left: 30px">
+<a href="/c/Windows/1/">Windows<span class="nav-cat-cnt">(3)</span></a>
+</li>
+
+
+
+<li style="padding-left: 15px">
+<a href="/c/데이터베이스/1/">데이터베이스<span class="nav-cat-cnt">(3)</span></a>
+</li>
+
+<li style="padding-left: 30px">
+<a href="/c/Oracle/1/">Oracle<span class="nav-cat-cnt">(1)</span></a>
+</li>
+
+
+<li style="padding-left: 30px">
+<a href="/c/Postgresql/1/">Postgresql<span class="nav-cat-cnt">(1)</span></a>
+</li>
+
+
+
+<li style="padding-left: 15px">
+<a href="/c/Develop/1/">Develop<span class="nav-cat-cnt">(20)</span></a>
+</li>
+
+<li style="padding-left: 30px">
+<a href="/c/CSS3/1/">CSS3<span class="nav-cat-cnt">(3)</span></a>
+</li>
+
+
+<li style="padding-left: 30px">
+<a href="/c/HTML5/1/">HTML5<span class="nav-cat-cnt">(2)</span></a>
+</li>
+
+
+<li style="padding-left: 30px">
+<a href="/c/JavaScript/1/">JavaScript<span class="nav-cat-cnt">(4)</span></a>
+</li>
+
+
+<li style="padding-left: 30px">
+<a href="/c/React/1/">React<span class="nav-cat-cnt">(1)</span></a>
+</li>
+
+
+<li style="padding-left: 30px">
+<a href="/c/Svelte/1/">Svelte<span class="nav-cat-cnt">(2)</span></a>
+</li>
+
+
+
+<li style="padding-left: 15px">
+<a href="/c/개발일기/1/">개발일기<span class="nav-cat-cnt">(9)</span></a>
+</li>
+
+
+<li style="padding-left: 15px">
+<a href="/c/Git/1/">Git<span class="nav-cat-cnt">(3)</span></a>
+</li>
+
+
+<li style="padding-left: 15px">
+<a href="/c/GitLab/1/">GitLab<span class="nav-cat-cnt">(11)</span></a>
+</li>
+
+
+<li style="padding-left: 15px">
+<a href="/c/Nginx/1/">Nginx<span class="nav-cat-cnt">(7)</span></a>
+</li>
+
+
+<li style="padding-left: 15px">
+<a href="/c/기타/1/">기타<span class="nav-cat-cnt">(11)</span></a>
+</li>
+
+
+<li style="padding-left: 15px">
+<a href="/c/이 블로그의 오픈소스/1/">이 블로그의 오픈소스<span class="nav-cat-cnt">(3)</span></a>
+</li>
+
+
+
+</ul>
+</div>
+<script>
+let catToggle = document.getElementById("catToggle");
+let headerBtn = document.getElementById("headerBtn");
+let navBar = document.getElementById("navBar");
+catToggle.addEventListener("click", () => {
+navBar.classList.toggle("show");
+});
+headerBtn.addEventListener("click", () => {
+navBar.classList.toggle("show");
+})
+</script>
+<div class="kigui frame">
+<p class="category-path">
+
+<a href="/c/전체보기/1/">전체보기</a>
+<span> > </span>
+
+<a href="/c/기타/1/">기타</a>
+<span> > </span>
+
+</p>
+<h1 class="article-title"><a href="https://devblog.lazyig.com/111/">개인 서버 Traefik으로 전환 소감</a></h1>
+<p class="write-date">2023-10-18 16:23:35</p>
+<div class="markdown-body">
+<h2>도입 계기</h2>
+<p>기존 개인 서버에서는 Nginx를 이용하여 리버스 프록시를 사용하고 있었습니다.</p>
+<p>그런데 우연하게 Traefik이라는 프로젝트를 알게되었고 모든 문서를 읽지는 않았지만 일단 본 기능만으로도 충분히 매력적이었고 기존의 불편함을 개선 가능하다고 생각하였습니다.</p>
+<p>우선은 제가 느낀 매력은 아래와 같으며, 너무 규모가 큰 서비스가 아니거나 저 처럼 컨테이너 위주로 서비스를 구축한 홈 서버 혹은 적은 규모의 서비스에서 상당히 유용한 프로젝트라고 생각하였습니다.</p>
+<h2>도입 후 만족하는 이유</h2>
+<h3>1. 도커 친화적</h3>
+<p>Traefik은 다양한 환경을 지원하는데. 이 중 도커 역시 지원합니다.</p>
+<p>컨테이너를 생성 할 때  label에 웹 설정을 붙여주는 것으로 Traefik은 알아서 도커 컨테이너의 변화를 추적하여 설정을 반영합니다.</p>
+<p>이게 상당히 매력적인 점이 기존에 Nginx를 사용하면서 새로운 서비스를 만들 때마다 Nginx를 설정파일을 생성하고 Nginx 문법 검사 한번 쳐 주고 Nginx 재시작을 해줘서 반영을 하는 방식이였는데.</p>
+<p>이건 설정파일이 도커 명령어 혹은 docker-compose 파일에 동봉되어 있다보니 관리가 같이 들어가므로 너무 편했습니다.</p>
+<h3>2. 편리한 인증서 관리</h3>
+<p>기존에 certbot을 이용해서 인증서를 관리하여 왔습니다.</p>
+<p>갱신이야 renew를 주기적으로 돌아가도록 cron에 예약걸어주면 되는 것이라 문제는 없었지만</p>
+<p>새로운 서비스를 사용할 때. 매번 명령어도 실행해주고 Nginx에서 인증을 제대로 할 수 있도록 추가 설정도 해줘야하고 Nginx도 재시작해줘야하는 것을 생각하면 상당한 불편함이였는데.</p>
+<p>Traefik은 내장되어서 정말 설정 몇 줄로 자동으로 동작합니다.</p>
+<p>제가 해줘야 할 일은 첫 Traefik 구축 시 아래 세 줄</p>
+<pre><code class="language-yaml"><span class="hljs-bullet">-</span> <span class="hljs-string">&quot;--certificatesresolvers.resolver.acme.email=이메일&quot;</span>
+<span class="hljs-bullet">-</span> <span class="hljs-string">&quot;--certificatesresolvers.resolver.acme.storage=acme.json&quot;</span>
+<span class="hljs-bullet">-</span> <span class="hljs-string">&quot;--certificatesresolvers.resolver.acme.httpchallenge.entrypoint=web&quot;</span>
+</code></pre>
+<p>서비스 당 아래 세 줄</p>
+<pre><code class="language-yaml"><span class="hljs-bullet">-</span> <span class="hljs-string">traefik.http.routers.api.tls=true</span>
+<span class="hljs-bullet">-</span> <span class="hljs-string">traefik.http.routers.api.tls.certresolver=resolver</span>
+<span class="hljs-bullet">-</span> <span class="hljs-string">traefik.http.routers.api.entrypoints=websecure</span>
+</code></pre>
+<p>이거면 그냥 컨테이너만 실행하면 알아서 인증서 받고 https로 동작합니다.</p>
+<h3>3. 간단한 서비스 추가</h3>
+<p>임시 혹은 리뷰앱 목적으로 간단하게 서비스를 추가한다면 Traefik은 그냥 구축해놓고 명령어 하나 CI/CD 동작 중에 실행만 시켜주면 그만입니다.</p>
+<pre><code class="language-sh">sudo docker run \
+    --network=net0\
+    -l <span class="hljs-string">&#x27;traefik.http.routers.[동적 생성 값].rule=Host(`[동적 생성 값].lazyig.com`)&#x27;</span>\
+    -l <span class="hljs-string">&#x27;traefik.http.routers.[동적 생성 값].tls=true&#x27;</span>\
+    -l <span class="hljs-string">&#x27;traefik.http.routers.[동적 생성 값].tls.certresolver=[인증서 설정]&#x27;</span>\
+    -l <span class="hljs-string">&#x27;traefik.http.routers.[동적 생성 값].entrypoints=websecure&#x27;</span>\
+    traefik/whoami
+</code></pre>
+<p>그냥 잘 구축된 Traefik에 이런식으로 한번만 딱 실행해주면 알아서 인증서받고 알아서 리버스 프록시도 잘 됩니다.</p>
+<p>docker-compose도 당연히 명령어와 큰 차이가 없으므로 몹시 간단하게 서비스가 추가 가능 합니다.</p>
+<h3>4. 잘 정리된 공식 문서</h3>
+<p>사용법 자체도 간편한 것도 있지만 공식 문서의 가이드가 잘되어 있다.</p>
+<p><a href="https://doc.traefik.io/traefik/">https://doc.traefik.io/traefik/</a></p>
+<p>각 옵션 항목 마다 toml, yaml, cli로 어떻게 적용하는지 복붙으로 다 해먹을 수 있도록 친절하게 설명해놓았다.</p>
+<h3>5. 대시보드</h3>
+<p><img src="/static/img-2lwbB_rBWLCVzE0KMnkiLuRd3g1csUkibuRI8uF_LE4.png" alt="image-20231019011752085"></p>
+<p>깔끔한 대시보드가 내장되어 있습니다.</p>
+<p>간단하게 서비스 상태를 볼 수 있어서 의외로 만족합니다</p>
+<h2>단점</h2>
+<h3>1. 성능</h3>
+<p>Nginx에 비해서 밀린다.</p>
+<p>아무래도 Nginx는 C로 작성했고 Traefik은 Go로 작성했으므로 구글링에서 퍼포먼스 비교 벤치마크를 보면 Nginx에 비해서 처리 가능한 요청수가 밀린다.</p>
+<p>이러한 부분이 민감하면 아쉬운 선택일 수 있다.</p>
+<h3>2. 비교적 적은 사용자 수</h3>
+<p>물론 traefik에 관심을 가지는 사람이 많다는 것은 스타수로도 확인이 가능하지만, 그래도 누적되온 자료와 사용량은 nginx가 더 많다.</p>
+<h2>후기</h2>
+<p>변경하고 매우 만족스럽습니다.</p>
+<p>전보다 설정이 간편해지니까. 너무나 좋습니다.</p>
+<p>물론 사용하면서 세세한 문제가 있다면 해결해나가야겠지만 현재로는 기존에 사용하던 것 모두 잘 동작합니다.</p>
+
+</div>
+</div>
+<div class="kigui frame">
+<script src="https://utteranc.es/client.js"
+repo="lazyig/blog-comment"
+issue-term="pathname"
+label="blog-comment"
+theme="github-light"
+crossorigin="anonymous"
+async>
+</script>
+</div>
+</section>
+</body>
+</html>
