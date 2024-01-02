@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-<link rel="stylesheet" href="/static/catstyle.css">
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>이 블로그의 오픈소스 카테고리</title>
+<title>크롬에서 https로 강제 변환되는 현상</title>
 <meta
 name="description"
 content="정적페이지로 운영하는 개발 블로그입니다."
@@ -82,11 +81,13 @@ href="/static/apple-touch-icon-180x180.png"
 <link rel="stylesheet" href="/static/style.css">
 <meta name="theme-color" content="#ff5722">
 <meta property="og:type" content="website">
-<meta property="og:title" content="이 블로그의 오픈소스 카테고리">
+<meta property="og:title" content="크롬에서 https로 강제 변환되는 현상">
 <meta property="og:description" content="공부한 개발 정보를 공유합니다.">
-<meta property="og:image" content="https://devblog.lazyig.com/static/ogimg.png">
-<meta property="og:url" content="https://devblog.lazyig.com">
+<meta property="og:image" content="https://devblog.lazyig.com/114//static/ogimg.png">
+<meta property="og:url" content="https://devblog.lazyig.com/114/">
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8149987977999297" crossorigin="anonymous"></script>
+<link rel="stylesheet"
+href="/static/highlight.css">
 </head>
 <body class="kigui one">
 <header class="kigui header">
@@ -222,33 +223,41 @@ navBar.classList.toggle("show");
 })
 </script>
 <div class="kigui frame">
+<p class="category-path">
+
+<a href="/c/전체보기/1/">전체보기</a>
+<span> > </span>
+
+<a href="/c/기타/1/">기타</a>
+<span> > </span>
+
+</p>
+<h1 class="article-title"><a href="https://devblog.lazyig.com/114/">크롬에서 https로 강제 변환되는 현상</a></h1>
+<p class="write-date">2024-01-02 23:50:07</p>
 <div class="markdown-body">
-<h1>이 블로그의 오픈소스</h1>
+<h2>현상</h2>
+<p>http로 접속하고 싶으나 크롬에서 강제로 https로 리다이렉트 함.</p>
+<p>(307 redirect)</p>
+<h2>원인</h2>
+<p>크롬은 https로 접속 시 이를 HSTS 목록에 올려두고 다음에 접속 시 http로 접속하더라도 강제로 https로 리다이렉트한다.</p>
+<p>그 외에도 특정 도메인의 경우(.dev, .app 등)에는 무조건 이 목록에 올라가있다.</p>
+<h2>해결</h2>
+<p><code>chrome://net-internals/#hsts</code></p>
+<p>위 경로 접속하여 HSTS 목록에서 삭제 후 다시 접속 하여야 하며 이때 프로토콜을 확실히 명시하여 접속한다.</p>
+<p>명시하지 않을 시 https로 먼저 시도하여 접속 성공 시 또 HSTS 목록에 올라갈 수 있다.</p>
+<p>ex) <code>http://example.com</code></p>
+
 </div>
-<ul class="catlist">
-
-<li>
-<a href="/89"><span class="date">2023-02-02 13:01:51</span>GitHub light syntax theme</a>
-</li>
-
-<li>
-<a href="/20"><span class="date">2021-10-20 01:32:56</span>material-ui-icon</a>
-</li>
-
-<li>
-<a href="/13"><span class="date">2021-10-15 00:43:02</span>github-markdown-css</a>
-</li>
-
-</ul>
 </div>
-<div class="kigui frame catnum">
-<ul>
-
-<li>
-<a href="/c/이_블로그의 오픈소스/1">1</a>
-</li>
-
-</ul>
+<div class="kigui frame">
+<script src="https://utteranc.es/client.js"
+repo="lazyig/blog-comment"
+issue-term="pathname"
+label="blog-comment"
+theme="github-light"
+crossorigin="anonymous"
+async>
+</script>
 </div>
 </section>
 </body>
