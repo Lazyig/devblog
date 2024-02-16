@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Nginx + Node.js + PM2 세팅 502 에러 등</title>
+<title>go fiber + swagger 사용기</title>
 <meta
 name="description"
 content="정적페이지로 운영하는 개발 블로그입니다."
@@ -81,10 +81,10 @@ href="/static/apple-touch-icon-180x180.png"
 <link rel="stylesheet" href="/static/style.css">
 <meta name="theme-color" content="#ff5722">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Nginx + Node.js + PM2 세팅 502 에러 등">
+<meta property="og:title" content="go fiber + swagger 사용기">
 <meta property="og:description" content="공부한 개발 정보를 공유합니다.">
-<meta property="og:image" content="https://devblog.lazyig.com/2//static/ogimg.png">
-<meta property="og:url" content="https://devblog.lazyig.com/2/">
+<meta property="og:image" content="https://devblog.lazyig.com/116//static/ogimg.png">
+<meta property="og:url" content="https://devblog.lazyig.com/116/">
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8149987977999297" crossorigin="anonymous"></script>
 <link rel="stylesheet"
 href="/static/highlight.css">
@@ -228,47 +228,86 @@ navBar.classList.toggle("show");
 <a href="/c/전체보기/1/">전체보기</a>
 <span> > </span>
 
-<a href="/c/OS/1/">OS</a>
-<span> > </span>
-
-<a href="/c/Linux/1/">Linux</a>
+<a href="/c/Develop/1/">Develop</a>
 <span> > </span>
 
 </p>
-<h1 class="article-title"><a href="https://devblog.lazyig.com/2/">Nginx + Node.js + PM2 세팅 502 에러 등</a></h1>
-<p class="write-date">2021-10-13 21:55:00</p>
+<h1 class="article-title"><a href="https://devblog.lazyig.com/116/">go fiber + swagger 사용기</a></h1>
+<p class="write-date">2024-02-16 17:53:44</p>
 <div class="markdown-body">
-<p>환경을 다시 구축하면서 겪었던 문제를 메모하기 위하여 작성되는 포스팅이며 에러에 대한 구체적인 현상에 대해서 마구잡이로 시도해보다가 까먹었기에 혹여나 이 글을 읽으시는 분들께 도움이 되지 않을 수 있습니다.</p>
-<br>
-<p>OS : CentOS 8</p>
-<br>
-<p>상황:</p>
-<p>Node.js + express로 개발된 웹 서버들을 PM2로 관리를 하기 위하여 실행시켜 놓은 상태.</p>
-<p>위 서버를 Nginx에서 리버스 프록시로 연결해주고 있었음.</p>
-<br>
-<p>그러나 홈페이지 접속이 원활하게 되지 않았음.</p>
-<br>
-<ol>
-<li>내부에서 접속이 잘되는가?</li>
-</ol>
-<p>curl 명령어로 웹 페이지를 불러온 결과 웹 페이지는 정상적으로 로딩이 되었음.</p>
-<ol start="2">
-<li>Nginx 설정은 문제없는가?</li>
-</ol>
-<p>정상 설정되었던 것을 그대로 가져와서 사용하였으며 서비스 실행에도 문제 없었음.</p>
-<ol start="3">
-<li>방화벽의 문제는 없는가?</li>
-</ol>
-<p>Nginx 오류 페이지를 그대로 볼 수 있었으므로 X</p>
-<ol start="4">
-<li>SElinux?</li>
-</ol>
-<p>비활성화 시켜 본 결과 정상 동작</p>
-<p>그리하여 문제는 SElinux인것으로 확정이났고, 이에 대한 조치사항에 대해서 찾아보기로하였음.</p>
-<p>웹 페이지 서비스에 관련된 80, 443 포트는 기본설정으로 문제없는 상황이였으므로 기타 설정을 찾아본 결과</p>
-<p>setsebool -P httpd_can_network_connect on</p>
-<p>으로 해결</p>
-<p>설명을 찾아본 결과 httpd가 네트워크 연결을 허용하겠냐? 라는 말이다.</p>
+<p>API 서버를 작성하면서 swagger 사용법을 간단하게 정리해보고자 한다</p>
+<h2>Swagger?</h2>
+<p>Go 언어로 API 서버를 작성 시 API 정보를 소스코드와 함께 주석으로 관리하면 문서를 생성해주는 라이브러리이다.</p>
+<p>다양한 웹 프레임워크가 있는 Go 언어답게 이 라이브러리도 다양한 프레임워크를 지원한다.</p>
+<p>Github 링크: <a href="https://github.com/swaggo/swag">https://github.com/swaggo/swag</a></p>
+<p>여기서 Fiber 웹 프레임워크를 이용해서 작성하고 있으며 이에 대한 설정 방법도 저장소에 잘 나와있다.</p>
+<p>Github 링크: <a href="https://github.com/gofiber/swagger">https://github.com/gofiber/swagger</a></p>
+<h2>초기 설정</h2>
+<p>swagger는 소스코드를 대상으로 문서 표현을 위한 json 파일을 생성한다.</p>
+<p>그러므로 이를 수행할 커맨드라인 프로그램을 우선 설치해준다.</p>
+<pre><code class="language-sh">go install github.com/swaggo/swag/cmd/swag@latest
+</code></pre>
+<blockquote>
+<p>정상적인 설치를 확인하기 위해서는 <code>swag</code> 명령을 입력해보자.</p>
+<p>만약 명령어를 찾을 수 없다면 GOPATH 환경변수 밑에 bin 경로를 PATH 환경변수에 등록하여야 한다.</p>
+</blockquote>
+<p>우선 간단하게 동작을 잘하는지 확인하기 위해서 main 메소드와 API 메소드 하나에 간단하게 필수 조건 정도를 샘플로 주석을 달아주었다.</p>
+<p><code>main.go</code></p>
+<pre><code class="language-go"><span class="hljs-comment">//	@title		API Doc</span>
+<span class="hljs-comment">//	@version	1.0</span>
+<span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span> {
+	...
+}
+</code></pre>
+<p>서비스 파일</p>
+<pre><code class="language-go"><span class="hljs-keyword">package</span> v1
+
+<span class="hljs-keyword">import</span> <span class="hljs-string">&quot;github.com/gofiber/fiber/v2&quot;</span>
+
+<span class="hljs-keyword">type</span> PingResponse <span class="hljs-keyword">struct</span> {
+	Msg <span class="hljs-type">string</span> <span class="hljs-string">`json:&quot;msg&quot;`</span>
+}
+
+<span class="hljs-comment">// PingService godoc</span>
+<span class="hljs-comment">//</span>
+<span class="hljs-comment">//	@summary		Send ping</span>
+<span class="hljs-comment">//	@description	Pong!을 응답받습니다.</span>
+<span class="hljs-comment">//	@accept			json</span>
+<span class="hljs-comment">//	@param			Authorization	header		string	false	&quot;인증 키&quot;</span>
+<span class="hljs-comment">//	@success		200	{object}	v1.PingResponse</span>
+<span class="hljs-comment">//	@router			/api/v1/ping [get]</span>
+<span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">PingService</span><span class="hljs-params">(c *fiber.Ctx)</span></span> <span class="hljs-type">error</span> {
+	c.JSON(PingResponse{
+		Msg: <span class="hljs-string">&quot;Pong!&quot;</span>,
+	})
+
+	<span class="hljs-keyword">return</span> <span class="hljs-literal">nil</span>
+}
+
+</code></pre>
+<p>이후 아래 명령어를 통해서 swagger 주석을 정렬해주는 것을 권장한다.</p>
+<pre><code class="language-sh">swag <span class="hljs-built_in">fmt</span>
+</code></pre>
+<p>이후 문서를 생성한다.</p>
+<pre><code class="language-sh">swag init
+</code></pre>
+<p>생성 중 오류가 발생하면 로그상에 친절하게 알려주며, 성공 시 프로젝트 폴더 하위에 <code>doc</code> 경로를 생성하고 관련 파일을 추가해준다.</p>
+<p>이제는 문서를 확인해봐야할 차례이다.</p>
+<p>문서를 fiber 웹에서 미들웨어를 통해 제공하기 위하여 아래 패키지를 추가한다.</p>
+<pre><code class="language-sh">go get -u github.com/gofiber/swagger
+</code></pre>
+<p>이후 문서를 볼 수 있도록 라우팅을 추가해야 하는데.</p>
+<p>우선 관련한 패키지 import 부터 한다.</p>
+<pre><code class="language-go"><span class="hljs-string">&quot;github.com/gofiber/swagger&quot;</span>
+_ <span class="hljs-string">&quot;모듈명/docs&quot;</span>
+</code></pre>
+<p>swagger의 fiber용 패키지와 swag init 명령어로 생성된 docs를 import 한다.</p>
+<pre><code class="language-go">app.Get(<span class="hljs-string">&quot;/라우팅경로/*&quot;</span>, swagger.HandlerDefault)
+</code></pre>
+<p>위와 같이 라우팅을 해주면 완료.</p>
+<p><img src="/static/img-2EsDJfAl80XdI6D_Xx--vIH-GL8dfyhJbGqEq1uTGS0.png" alt="image-20240217025220336"></p>
+<p>이후 웹 페이지에 들어가면 다음과 같이 깔끔하게 API 문서가 생성되어 있다.</p>
+<p>API 문서 테스트도 진행해볼 수 있다.</p>
 
 </div>
 </div>
