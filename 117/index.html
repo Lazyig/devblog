@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Svelte(스벨트) 시작 하기</title>
+<title>GitLab CI/CD collapsed multi-line command</title>
 <meta
 name="description"
 content="정적페이지로 운영하는 개발 블로그입니다."
@@ -81,10 +81,10 @@ href="/static/apple-touch-icon-180x180.png"
 <link rel="stylesheet" href="/static/style.css">
 <meta name="theme-color" content="#ff5722">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Svelte(스벨트) 시작 하기">
+<meta property="og:title" content="GitLab CI/CD collapsed multi-line command">
 <meta property="og:description" content="공부한 개발 정보를 공유합니다.">
-<meta property="og:image" content="https://devblog.lazyig.com/55//static/ogimg.png">
-<meta property="og:url" content="https://devblog.lazyig.com/55/">
+<meta property="og:image" content="https://devblog.lazyig.com/117//static/ogimg.png">
+<meta property="og:url" content="https://devblog.lazyig.com/117/">
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8149987977999297" crossorigin="anonymous"></script>
 <link rel="stylesheet"
 href="/static/highlight.css">
@@ -228,69 +228,33 @@ navBar.classList.toggle("show");
 <a href="/c/전체보기/1/">전체보기</a>
 <span> > </span>
 
-<a href="/c/Develop/1/">Develop</a>
-<span> > </span>
-
-<a href="/c/Svelte/1/">Svelte</a>
+<a href="/c/GitLab/1/">GitLab</a>
 <span> > </span>
 
 </p>
-<h1 class="article-title"><a href="https://devblog.lazyig.com/55/">Svelte(스벨트) 시작 하기</a></h1>
-<p class="write-date">2022-02-11 00:15:18</p>
+<h1 class="article-title"><a href="https://devblog.lazyig.com/117/">GitLab CI/CD collapsed multi-line command</a></h1>
+<p class="write-date">2024-02-22 15:38:01</p>
 <div class="markdown-body">
-<h2>서론</h2>
-<p>종종 취미로 간단한 프로젝트를 하면 보여주는 부분에 대한 고민이 많이 된다.</p>
-<p>지금까지는 대충 만들어뒀던 스타일을 여기저기 우려먹으면서 ejs와 같은 템플릿 엔진으로 간단하게 제작을 했다.</p>
-<p>Svelte를 배워보고 싶어서 해본 부분을 블로그에 기록해보기로 하였다.</p>
-<h3>Svelte를 선택한 이유?</h3>
-<h4>1. 쉽다</h4>
-<p>간단하게 예제 코드를 봤을때. Svelte의 쉬운 작성이 가장 이끌렸다.</p>
-<p>개발 편의성을 위해서 편리하게 마련해둔 기능들이 &quot;이거 날먹할 수 있겠다&quot;라는 생각을 가질 수 있을만하였다.</p>
-<h4>2. 짧다</h4>
-<p>소스코드가 리액트, Vue 등에 비해서 짧은 것도 장점이다.</p>
-<p>소스코드가 길어지면 아무래도 이리저리 작성하고 있으면 피곤하기 마련이다.</p>
-<p>Svelte는 리액트나 Vue에 비해서 짧은 샘플 코드를 보고 이끌렸다.</p>
-<h4>3. 빠르다</h4>
-<p>리액트나 Vue는 가상DOM을 사용하지만 Svelte는 컴파일같은 방식으로 코드를 변환한다.</p>
-<p>그로 인해서 마치 바닐라Js같은 속도를 낸다는 점에서 마음에 들었다.</p>
-<h4>4. 가볍다</h4>
-<p>위에서 언급한 것처럼 컴파일 방식으로 코드를 변환함으로 React나 Vue처럼 별도의 이를 위한 파일이 들어가지 않는다.</p>
-<p>이는 작은 개발 프로젝트를 할 때 내 코드보다 라이브러리가 큰 상황이 만들어지지 않는다는 점도 좋다.</p>
-<h4>5. 인기있다</h4>
-<p>Svelte를 개발자들이 배우고싶어하는 라이브러리로 소개하고 있었다.</p>
-<h2>본론</h2>
-<h3>템플릿 프로젝트 다운</h3>
-<p>Svelte는 리액트의 create-react-app처럼 간단하게 프로젝트를 시작할 수 있도록 지원하고 있다.</p>
-<pre><code>npx degit sveltejs/template svelte-app
+<p>GitLab CI/CD에서 도커 컨테이너를 실행하려고 대략 다음과 같이 작성하였는데. 문제가 발생한 상황이다.</p>
+<pre><code class="language-yaml"><span class="hljs-attr">script:</span>
+  <span class="hljs-bullet">-</span> <span class="hljs-string">&gt;
+    docker run 
+      --name=$CI_PROJECT_NAME 
+      --network=net0 
+</span><span class="hljs-string">...</span> <span class="hljs-string">중략</span>
 </code></pre>
-<p>위 명령어로 간단하게 프로젝트를 세팅할 수 있다.</p>
-<h3>패키지 설치</h3>
-<pre><code>npm i
+<p>yaml 문법에서 &gt;는 개행문자를 공백으로 변경하여 처리하는데.</p>
+<p>아래와 같은 결과가 나왔다.</p>
+<p><img src="/static/img-QfD4N_hieJ3HxzMbF9391JdLcOP4ikocXqJ4NcJBgHQ.png" alt="image-20240223003131964"></p>
+<p>그래서 멀티라인 텍스트 표기하는 <code>|</code>문자를 사용해서 작성하였다.</p>
+<p>개행은 이스케이프 처리하였다.</p>
+<pre><code class="language-yaml"><span class="hljs-attr">script:</span>
+	<span class="hljs-bullet">-</span> <span class="hljs-string">|
+    docker run \
+      --name=$CI_PROJECT_NAME \
+      --network=net0 \
+</span><span class="hljs-string">...</span> <span class="hljs-string">중략</span>
 </code></pre>
-<p>node 프로젝트 이므로 위 명령어로 의존성들을 모두 설치해준다.</p>
-<h3>개발용 서버 실행</h3>
-<p>바로바로 반영되는 핫리로드 방식의 개발을 역시 지원한다.</p>
-<pre><code>npm run dev
-</code></pre>
-<p>프로젝트 폴더에서 다음 명령어로 서버를 실행하며 기본 포트는 콘솔에 로그된다. (8080)</p>
-<h3>타입스크립트 프로젝트로 변환</h3>
-<p>친절하게도 타입스크립트 프로젝트로 변환해주는 스크립트가 들어있다.</p>
-<pre><code>node scripts/setupTypeScript.js
-</code></pre>
-<p>실행하면 다음 출력과 함께 프로젝트의 파일들이 타입스크립트로 변환된다.</p>
-<pre><code>Converted to TypeScript.
-
-You will need to re-run your dependency manager to get started.
-</code></pre>
-<img src="/static/img-p26FhDIBKwbwUwaA5OAA9ziziokX1BsCGvBOTOArs8E.png" alt="image-20220210002825592" style="zoom:50%;" />
-<p>이후에는 다시 의존성 설치를 진행해준다.</p>
-<pre><code>npm i
-</code></pre>
-<h3>VSCode Svelte 문법 강조</h3>
-<p>svelte파일의 문법을 강조해주는 확장 프로그램이 있으므로 이를 검색해서 설치해주면 편리하다.</p>
-<p><img src="/static/img-pCQt_vm4TiggJXOnFwwVHPacqiZ8WRhQXapGrci7SWY.png" alt="image-20220210003109394"></p>
-<p>그 다음 우측 하단에 나타나는 팝업에서 Enable Plugin &gt; Reload를 순서대로 선택하면 다음과 같이 변해있다.</p>
-<p><img src="/static/img-KTV6jCeHPr-alWjzzfQ2t1qqwmnvqHaPzo2ON6pSbsE.png" alt="image-20220210003255056"></p>
 
 </div>
 </div>
