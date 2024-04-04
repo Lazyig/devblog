@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-<link rel="stylesheet" href="/static/catstyle.css">
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>전체보기 카테고리</title>
+<title>oh-my-posh 설치</title>
 <meta
 name="description"
 content="정적페이지로 운영하는 개발 블로그입니다."
@@ -82,11 +81,13 @@ href="/static/apple-touch-icon-180x180.png"
 <link rel="stylesheet" href="/static/style.css">
 <meta name="theme-color" content="#ff5722">
 <meta property="og:type" content="website">
-<meta property="og:title" content="전체보기 카테고리">
+<meta property="og:title" content="oh-my-posh 설치">
 <meta property="og:description" content="공부한 개발 정보를 공유합니다.">
-<meta property="og:image" content="https://devblog.lazyig.com/static/ogimg.png">
-<meta property="og:url" content="https://devblog.lazyig.com">
+<meta property="og:image" content="https://devblog.lazyig.com/118//static/ogimg.png">
+<meta property="og:url" content="https://devblog.lazyig.com/118/">
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8149987977999297" crossorigin="anonymous"></script>
+<link rel="stylesheet"
+href="/static/highlight.css">
 </head>
 <body class="kigui one">
 <header class="kigui header">
@@ -222,101 +223,59 @@ navBar.classList.toggle("show");
 })
 </script>
 <div class="kigui frame">
+<p class="category-path">
+
+<a href="/c/전체보기/1/">전체보기</a>
+<span> > </span>
+
+<a href="/c/기타/1/">기타</a>
+<span> > </span>
+
+</p>
+<h1 class="article-title"><a href="https://devblog.lazyig.com/118/">oh-my-posh 설치</a></h1>
+<p class="write-date">2024-04-04 16:36:41</p>
 <div class="markdown-body">
-<h1>전체보기</h1>
+<p>개인적으로 git을 사용 시 커맨드라인으로 해결하는 편이므로 oh-my-zsh 사용 시 현재 브랜치를 쉘에서 보여준다던지 하는 기능은 당연한 듯이 사용해왔다.</p>
+<p>그러나, 윈도우에서 개발 시 당연하게 쓰던게 없으니 불편했으나 oh-my-posh가 있다. 비록 설치과정은 묘하게 번거롭기는 하나 커맨드만 복붙 여러번 하고 설정좀 하면 금방 한다.</p>
+<h3>설치</h3>
+<p>설치는 여러 옵션이 있으나 윈도우에서 패키지 관리자를 따로 사용하질 않아서 스크립트를 받아서 실행하는 식으로 했다.</p>
+<p>묘하게 복잡해보이는 명령어지만 그냥 unix계열 os에서 curl로 스크립트 받아서 바로 실행해서 설치하는 것과 같다.</p>
+<pre><code class="language-powershell"><span class="hljs-built_in">Set-ExecutionPolicy</span> Bypass <span class="hljs-literal">-Scope</span> <span class="hljs-keyword">Process</span> <span class="hljs-literal">-Force</span>; <span class="hljs-built_in">Invoke-Expression</span> ((<span class="hljs-built_in">New-Object</span> System.Net.WebClient).DownloadString(<span class="hljs-string">&#x27;https://ohmyposh.dev/install.ps1&#x27;</span>))
+</code></pre>
+<h3>설정</h3>
+<p>powershell 실행 시 실행되는 스크립트를 생성해준다.</p>
+<p>기본적으로 파일이 존재하지 않으며 <code>$PROFILE</code> 변수의 파일이다.</p>
+<pre><code class="language-powershell"><span class="hljs-built_in">New-Item</span> <span class="hljs-literal">-Path</span> <span class="hljs-variable">$PROFILE</span> <span class="hljs-literal">-Type</span> File <span class="hljs-literal">-Force</span>
+</code></pre>
+<p>메모장을 이용해서 생성한 파일을 연다.</p>
+<pre><code class="language-powershell">notepad <span class="hljs-variable">$PROFILE</span>
+</code></pre>
+<p>테마 초기화 관련 스크립트를 추가해주면 된다.</p>
+<p>기본:</p>
+<pre><code>oh-my-posh init pwsh | Invoke-Expression
+</code></pre>
+<p>로컬에 설치된 테마 사용:</p>
+<pre><code>oh-my-posh init pwsh --config &quot;$env:POSH_THEMES_PATH\robbyrussell.omp.json&quot; | Invoke-Expression
+</code></pre>
+<p>웹에서 테마 가져오기:</p>
+<pre><code>oh-my-posh init --config &quot;https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/robbyrussell.omp.json&quot; powershell | Invoke-Expression
+</code></pre>
+<p>추가로 권한 수정 명령어도 넣어줘야한다.</p>
+<pre><code class="language-powershell"><span class="hljs-built_in">Set-ExecutionPolicy</span> <span class="hljs-literal">-ExecutionPolicy</span> RemoteSigned <span class="hljs-literal">-Scope</span> CurrentUser
+</code></pre>
+<p>이런식으로 설정하면 윈도우에서도 비슷한 환경으로 작업할 수 있다.</p>
+
 </div>
-<ul class="catlist">
-
-<li>
-<a href="/84"><span class="date">2022-12-21 15:20:30</span>정적 블로그 - GitLab Runner, 도커로 자동 배포</a>
-</li>
-
-<li>
-<a href="/83"><span class="date">2022-12-20 12:45:25</span>Gitlab Runner Shared Runner(공유 러너) 세팅</a>
-</li>
-
-<li>
-<a href="/82"><span class="date">2022-12-12 22:29:12</span>Go Window 아이콘 적용 (syso)</a>
-</li>
-
-<li>
-<a href="/81"><span class="date">2022-11-24 00:32:04</span>MacOS 파인더에서 터미널 여는 단축키 추가</a>
-</li>
-
-<li>
-<a href="/80"><span class="date">2022-11-02 00:03:24</span>MacOS missing xcrun 에러</a>
-</li>
-
-<li>
-<a href="/79"><span class="date">2022-11-01 23:16:35</span>Go 구조체 리터널 태그 정리</a>
-</li>
-
-<li>
-<a href="/78"><span class="date">2022-09-08 08:15:30</span>Certbot Nginx 설치경로 설정법</a>
-</li>
-
-<li>
-<a href="/77"><span class="date">2022-08-22 23:20:17</span>git 원격 브랜치 안받아지는 문제</a>
-</li>
-
-<li>
-<a href="/76"><span class="date">2022-08-10 00:04:45</span>리눅스 Nginx에서 Webdav 설정</a>
-</li>
-
-<li>
-<a href="/75"><span class="date">2022-08-09 00:59:25</span>Nginx 1.19.0 컴파일 방식으로 설치</a>
-</li>
-
-</ul>
 </div>
-<div class="kigui frame catnum">
-<ul>
-
-<li>
-<a href="/c/전체보기/1">1</a>
-</li>
-
-<li>
-<a href="/c/전체보기/2">2</a>
-</li>
-
-<li>
-<a href="/c/전체보기/3">3</a>
-</li>
-
-<li>
-<a href="/c/전체보기/4">4</a>
-</li>
-
-<li>
-<a href="/c/전체보기/5">5</a>
-</li>
-
-<li>
-<a href="/c/전체보기/6">6</a>
-</li>
-
-<li>
-<a href="/c/전체보기/7">7</a>
-</li>
-
-<li>
-<a href="/c/전체보기/8">8</a>
-</li>
-
-<li>
-<a href="/c/전체보기/9">9</a>
-</li>
-
-<li>
-<a href="/c/전체보기/10">10</a>
-</li>
-
-<li>
-<a href="/c/전체보기/11">11</a>
-</li>
-
-</ul>
+<div class="kigui frame">
+<script src="https://utteranc.es/client.js"
+repo="lazyig/blog-comment"
+issue-term="pathname"
+label="blog-comment"
+theme="github-light"
+crossorigin="anonymous"
+async>
+</script>
 </div>
 </section>
 </body>
