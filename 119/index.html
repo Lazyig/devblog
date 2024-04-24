@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Windows 11 도커 데스크탑 없이 설치</title>
+<meta
+name="description"
+content="정적페이지로 운영하는 개발 블로그입니다."
+/>
+<link
+rel="shortcut icon"
+type="image/png"
+sizes="144x144"
+href="/static/favicon-144x144.png"
+/>
+<link
+rel="icon"
+type="image/png"
+sizes="16x16"
+href="/static/favicon-16x16.png"
+/>
+<link
+rel="icon"
+type="image/png"
+sizes="32x32"
+href="/static/favicon-32x32.png"
+/>
+<link
+rel="icon"
+type="image/png"
+sizes="192x192"
+href="/static/favicon-192x192.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="57x57"
+href="/static/apple-touch-icon-57x57.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="72x72"
+href="/static/apple-touch-icon-72x72.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="76x76"
+href="/static/apple-touch-icon-76x76.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="114x114"
+href="/static/apple-touch-icon-114x114.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="120x120"
+href="/static/apple-touch-icon-120x120.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="144x144"
+href="/static/apple-touch-icon-144x144.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="152x152"
+href="/static/apple-touch-icon-152x152.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="154x154"
+href="/static/apple-touch-icon-154x154.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="180x180"
+href="/static/apple-touch-icon-180x180.png"
+/>
+<link rel="stylesheet" href="/static/style.css">
+<meta name="theme-color" content="#ff5722">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Windows 11 도커 데스크탑 없이 설치">
+<meta property="og:description" content="공부한 개발 정보를 공유합니다.">
+<meta property="og:image" content="https://devblog.lazyig.com/119//static/ogimg.png">
+<meta property="og:url" content="https://devblog.lazyig.com/119/">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8149987977999297" crossorigin="anonymous"></script>
+<link rel="stylesheet"
+href="/static/highlight.css">
+</head>
+<body class="kigui one">
+<header class="kigui header">
+<div class="header-buttons">
+<span id="headerBtn" class="nav-header-btn"><img src="/static/menu-w.svg" alt="Menu"></span>
+</div>
+<a href="/">
+<h1 class="title">
+메모용 개발 블로그
+</h1>
+</a>
+</header>
+<div class="kigui header-space"></div>
+<section class="kigui">
+<div id="navBar" class="nav-bar">
+
+<div class="nav-header">
+<span id="catToggle" class="nav-header-btn"><img src="/static/menu.svg" alt="Menu"></span>
+</div>
+<ul class="category">
+
+<li style="padding-left: 0px">
+<a href="/c/전체보기/1/">전체보기<span class="nav-cat-cnt">(109)</span></a>
+</li>
+
+<li style="padding-left: 15px">
+<a href="/c/OS/1/">OS<span class="nav-cat-cnt">(35)</span></a>
+</li>
+
+<li style="padding-left: 30px">
+<a href="/c/Linux/1/">Linux<span class="nav-cat-cnt">(23)</span></a>
+</li>
+
+
+<li style="padding-left: 30px">
+<a href="/c/MacOS/1/">MacOS<span class="nav-cat-cnt">(8)</span></a>
+</li>
+
+
+<li style="padding-left: 30px">
+<a href="/c/Windows/1/">Windows<span class="nav-cat-cnt">(4)</span></a>
+</li>
+
+
+
+<li style="padding-left: 15px">
+<a href="/c/데이터베이스/1/">데이터베이스<span class="nav-cat-cnt">(3)</span></a>
+</li>
+
+<li style="padding-left: 30px">
+<a href="/c/Oracle/1/">Oracle<span class="nav-cat-cnt">(1)</span></a>
+</li>
+
+
+<li style="padding-left: 30px">
+<a href="/c/Postgresql/1/">Postgresql<span class="nav-cat-cnt">(1)</span></a>
+</li>
+
+
+
+<li style="padding-left: 15px">
+<a href="/c/Develop/1/">Develop<span class="nav-cat-cnt">(22)</span></a>
+</li>
+
+<li style="padding-left: 30px">
+<a href="/c/CSS3/1/">CSS3<span class="nav-cat-cnt">(3)</span></a>
+</li>
+
+
+<li style="padding-left: 30px">
+<a href="/c/HTML5/1/">HTML5<span class="nav-cat-cnt">(2)</span></a>
+</li>
+
+
+<li style="padding-left: 30px">
+<a href="/c/JavaScript/1/">JavaScript<span class="nav-cat-cnt">(4)</span></a>
+</li>
+
+
+<li style="padding-left: 30px">
+<a href="/c/React/1/">React<span class="nav-cat-cnt">(1)</span></a>
+</li>
+
+
+<li style="padding-left: 30px">
+<a href="/c/Svelte/1/">Svelte<span class="nav-cat-cnt">(2)</span></a>
+</li>
+
+
+
+<li style="padding-left: 15px">
+<a href="/c/개발일기/1/">개발일기<span class="nav-cat-cnt">(9)</span></a>
+</li>
+
+
+<li style="padding-left: 15px">
+<a href="/c/Git/1/">Git<span class="nav-cat-cnt">(3)</span></a>
+</li>
+
+
+<li style="padding-left: 15px">
+<a href="/c/GitLab/1/">GitLab<span class="nav-cat-cnt">(12)</span></a>
+</li>
+
+
+<li style="padding-left: 15px">
+<a href="/c/Nginx/1/">Nginx<span class="nav-cat-cnt">(7)</span></a>
+</li>
+
+
+<li style="padding-left: 15px">
+<a href="/c/기타/1/">기타<span class="nav-cat-cnt">(15)</span></a>
+</li>
+
+
+<li style="padding-left: 15px">
+<a href="/c/이 블로그의 오픈소스/1/">이 블로그의 오픈소스<span class="nav-cat-cnt">(3)</span></a>
+</li>
+
+
+
+</ul>
+</div>
+<script>
+let catToggle = document.getElementById("catToggle");
+let headerBtn = document.getElementById("headerBtn");
+let navBar = document.getElementById("navBar");
+catToggle.addEventListener("click", () => {
+navBar.classList.toggle("show");
+});
+headerBtn.addEventListener("click", () => {
+navBar.classList.toggle("show");
+})
+</script>
+<div class="kigui frame">
+<p class="category-path">
+
+<a href="/c/전체보기/1/">전체보기</a>
+<span> > </span>
+
+<a href="/c/OS/1/">OS</a>
+<span> > </span>
+
+<a href="/c/Windows/1/">Windows</a>
+<span> > </span>
+
+</p>
+<h1 class="article-title"><a href="https://devblog.lazyig.com/119/">Windows 11 도커 데스크탑 없이 설치</a></h1>
+<p class="write-date">2024-04-24 14:59:58</p>
+<div class="markdown-body">
+<p>윈도우에서 도커를 사용하고자 할 때, 도커 데스크탑을 설치하는 방법이 있습니다.</p>
+<p>하지만 현재 도커 데스크탑은 어느정도 규모 이상의 기업을 대상으로 사용에 대한 제약이 걸려있습니다.</p>
+<p>해당되는 사항은 아니지만 찝찝하거나 GUI를 잘 활용을 안하고 커맨드로 활용한다면 굳이 도커 데스크탑을 설치하지 않고 진행해도 상관 없습니다.</p>
+<h2>환경</h2>
+<table>
+<thead>
+<tr>
+<th>항목</th>
+<th>값</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>OS</td>
+<td>Windows 11 Pro</td>
+</tr>
+<tr>
+<td>CPU Arch.</td>
+<td>AMD64</td>
+</tr>
+<tr>
+<td>RAM</td>
+<td>16GB</td>
+</tr>
+</tbody>
+</table>
+<h2>설치</h2>
+<h3>WSL 활성화</h3>
+<p>시작메뉴를 오른쪽 클릭하여 <code>터미널(관리자)</code>를 클릭해 관리자 권한 터미널을 열어서 진행하여야 합니다.</p>
+<p>관리자가 아닌 경우 오류가 발생합니다. 반드시 관리자 권한으로 진행해주세요.</p>
+<pre><code class="language-powershell">wsl <span class="hljs-literal">--install</span>
+</code></pre>
+<p>위 명령어로 WSL을 설치 합니다.</p>
+<h3>배포판 설치</h3>
+<pre><code class="language-powershell">wsl <span class="hljs-literal">-l</span> <span class="hljs-literal">-o</span>
+</code></pre>
+<p>위 명령어를 작성하여 설치할 수 있는 리눅스 배포판을 조회합니다.</p>
+<pre><code>다음은 설치할 수 있는 유효한 배포판 목록입니다.
+'wsl.exe --install &lt;Distro&gt;'를 사용하여 설치합니다.
+
+NAME                                   FRIENDLY NAME
+Ubuntu                                 Ubuntu
+Debian                                 Debian GNU/Linux
+kali-linux                             Kali Linux Rolling
+Ubuntu-18.04                           Ubuntu 18.04 LTS
+Ubuntu-20.04                           Ubuntu 20.04 LTS
+Ubuntu-22.04                           Ubuntu 22.04 LTS
+OracleLinux_7_9                        Oracle Linux 7.9
+OracleLinux_8_7                        Oracle Linux 8.7
+OracleLinux_9_1                        Oracle Linux 9.1
+openSUSE-Leap-15.5                     openSUSE Leap 15.5
+SUSE-Linux-Enterprise-Server-15-SP4    SUSE Linux Enterprise Server 15 SP4
+SUSE-Linux-Enterprise-15-SP5           SUSE Linux Enterprise 15 SP5
+openSUSE-Tumbleweed                    openSUSE Tumbleweed
+</code></pre>
+<p>조회된 결과에서 원하는 배포판을 선택합니다.</p>
+<p>이 글에서는 Ubuntu로 진행합니다.</p>
+<pre><code class="language-powershell">wsl <span class="hljs-literal">--install</span> <span class="hljs-literal">-d</span> Ubuntu
+</code></pre>
+<p>위 명령어로 리눅스 배포판을 설치합니다.</p>
+<h3>Docker 설치</h3>
+<p>도커 설치는 일반적인 리눅스에서 설치하는 방식과 같습니다.</p>
+<p>여기서는 apt를 통하여 설치하도록 하겠습니다.</p>
+<p>공식 페이지의 가이드를 그대로 진행하였습니다.</p>
+<p><a href="https://docs.docker.com/engine/install/ubuntu/">https://docs.docker.com/engine/install/ubuntu/</a></p>
+<pre><code class="language-powershell">wsl
+</code></pre>
+<p>위 명령어로  리눅스를 엽니다.</p>
+<pre><code class="language-sh">sudo apt-get update
+sudo apt-get install ca-certificates curl
+sudo install -m 0755 -d /etc/apt/keyrings
+sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc
+sudo <span class="hljs-built_in">chmod</span> a+r /etc/apt/keyrings/docker.asc
+<span class="hljs-built_in">echo</span> \
+  <span class="hljs-string">&quot;deb [arch=<span class="hljs-subst">$(dpkg --print-architecture)</span> signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu \
+  <span class="hljs-subst">$(. /etc/os-release &amp;&amp; echo <span class="hljs-string">&quot;<span class="hljs-variable">$VERSION_CODENAME</span>&quot;</span>)</span> stable&quot;</span> | \
+  sudo <span class="hljs-built_in">tee</span> /etc/apt/sources.list.d/docker.list &gt; /dev/null
+sudo apt-get update
+sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+</code></pre>
+<p>위 명령어를 입력하여 도커를 설치합니다.</p>
+<pre><code class="language-sh">sudo docker run hello-world
+</code></pre>
+<p>정상 설치를 확인하기 위해서 위 명령어로 테스트 컨테이너를 실행합니다.</p>
+<pre><code>Hello from Docker!
+This message shows that your installation appears to be working correctly.
+
+To generate this message, Docker took the following steps:
+ 1. The Docker client contacted the Docker daemon.
+ 2. The Docker daemon pulled the &quot;hello-world&quot; image from the Docker Hub.
+    (amd64)
+ 3. The Docker daemon created a new container from that image which runs the
+    executable that produces the output you are currently reading.
+ 4. The Docker daemon streamed that output to the Docker client, which sent it
+    to your terminal.
+
+To try something more ambitious, you can run an Ubuntu container with:
+ $ docker run -it ubuntu bash
+
+Share images, automate workflows, and more with a free Docker ID:
+ https://hub.docker.com/
+
+For more examples and ideas, visit:
+ https://docs.docker.com/get-started/
+</code></pre>
+<p>위와 같은 메시지가 출력되면 정상 설치가 완료된 것 입니다.</p>
+
+</div>
+</div>
+<div class="kigui frame">
+<script src="https://utteranc.es/client.js"
+repo="lazyig/blog-comment"
+issue-term="pathname"
+label="blog-comment"
+theme="github-light"
+crossorigin="anonymous"
+async>
+</script>
+</div>
+</section>
+</body>
+</html>
