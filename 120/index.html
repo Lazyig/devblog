@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MacOS iterm2 설치 및 세팅</title>
+<title>Go 1.22 net/http 라우팅 개선</title>
 <meta
 name="description"
 content="정적페이지로 운영하는 개발 블로그입니다."
@@ -81,10 +81,10 @@ href="/static/apple-touch-icon-180x180.png"
 <link rel="stylesheet" href="/static/style.css">
 <meta name="theme-color" content="#ff5722">
 <meta property="og:type" content="website">
-<meta property="og:title" content="MacOS iterm2 설치 및 세팅">
+<meta property="og:title" content="Go 1.22 net/http 라우팅 개선">
 <meta property="og:description" content="공부한 개발 정보를 공유합니다.">
-<meta property="og:image" content="https://devblog.lazyig.com/48//static/ogimg.png">
-<meta property="og:url" content="https://devblog.lazyig.com/48/">
+<meta property="og:image" content="https://devblog.lazyig.com/120//static/ogimg.png">
+<meta property="og:url" content="https://devblog.lazyig.com/120/">
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8149987977999297" crossorigin="anonymous"></script>
 <link rel="stylesheet"
 href="/static/highlight.css">
@@ -228,50 +228,36 @@ navBar.classList.toggle("show");
 <a href="/c/전체보기/1/">전체보기</a>
 <span> > </span>
 
-<a href="/c/OS/1/">OS</a>
-<span> > </span>
-
-<a href="/c/MacOS/1/">MacOS</a>
+<a href="/c/Develop/1/">Develop</a>
 <span> > </span>
 
 </p>
-<h1 class="article-title"><a href="https://devblog.lazyig.com/48/">MacOS iterm2 설치 및 세팅</a></h1>
-<p class="write-date">2022-01-24 22:06:03</p>
+<h1 class="article-title"><a href="https://devblog.lazyig.com/120/">Go 1.22 net/http 라우팅 개선</a></h1>
+<p class="write-date">2024-04-25 15:05:47</p>
 <div class="markdown-body">
-<h2>개요</h2>
-<p>터미널 프로그램은 사실 기본만해도 큰 불편함 없이 사용은 하고 있었지만 그래도 예쁘고 편리한 기능이 많으면 좋다.</p>
-<h2>라이선스</h2>
-<p>해당 소프트웨어의 라이센스는 GPL v2를 따르고 있다.</p>
-<p>공식 홈페이지에서 확인 가능하다. (https://iterm2.com/)</p>
-<h2>다운로드</h2>
-<p>다운로드는 공식 홈페이지를 통해서 수행하거나 homebrew를 통해서 설치하면 된다.</p>
-<p>공식 홈페이지 : https://iterm2.com/</p>
-<p>homebrew 설치 명령어</p>
-<p><code>brew install iterm2</code></p>
-<h2>설정</h2>
-<h3>1. 설정 진입</h3>
-<p>설정을 진입하는 것은 명령어로 수행하면 간편하다.</p>
-<p>`Command(⌘) + ,</p>
-<p><img src="/static/img-2-yayZ-joYi4TQUnArLxpzat0GtdjIrTIBgCjZkYwKo.png" alt="image-20220124212404756"></p>
-<p>너무나 다양한 설정이 있어서 좋으면서도 막막하다.</p>
-<p>사용하면서 차차 알아볼 계획</p>
-<h3>2. 폰트 설정</h3>
-<p><code>Profiles &gt; Text &gt; Font</code></p>
-<p>한국인이 사랑하는 D2Coding으로 설정해주었다.</p>
-<h3>3. 타이틀바 텍스트 수정</h3>
-<p><code>Profiles &gt; Window</code></p>
-<p>Custom window title : 윈도우 타이틀 영역</p>
-<p>Custom tab title : 탭의 타이틀영역</p>
-<p>두 항목을 빈 상태로 두었다.</p>
-<img src="/static/img-C1KcK2RlNZ-I502njz1fWkozKO4UTdpmtrsJWpe9uig.png" alt="image-20220124214118620" style="zoom:50%;" />
-<h3>4. 상태바 활성화 및 설정</h3>
-<p><code>Profiles &gt; Session</code></p>
-<p>Status bar enabled 체크 &gt; Configure Status Bar 선택</p>
-<img src="/static/img-hkO16eplmYFadysKWrbW_k7I7Y_YDketj6gC3ESGGx0.png" alt="image-20220124215223095" style="zoom:50%;" />
-<p>그럼 위와 같이 다양한 항목들을 둘 수 있다.</p>
-<img src="/static/img-32OIAY9e6XBsNKzl2WlRBCc9eZhSqdbYBL_x-PuxkqU.png" alt="image-20220124220217055" style="zoom:50%;" />
-<p>현재 자주 사용하는 원격지 서버 버튼과 자원 표시정도를 해두었다.</p>
-<p>우선은 이대로 사용하고 무언가 더 설정할 일이 있으면 추가로 작성할 예정이다.</p>
+<p>릴리즈 노트: <a href="https://go.dev/doc/go1.22">https://go.dev/doc/go1.22</a></p>
+<p>Go 1.22 버전에서 net/http 패키지에서 서버 라우팅이 개선되었다.</p>
+<p>이제 별도의 라이브러리 없이 라우팅 핸들러를 등록할 때 메소드를 지정하고 동적인 경로를 사용할 수 있다.</p>
+<p>앞으로는 간단한 서버를 만들 때. 추가적인 의존성 없이 Go 만으로도 꽤 쓸만한 웹 서버를 작성할 수 있게 되었다.</p>
+<pre><code class="language-go"><span class="hljs-keyword">package</span> main
+
+<span class="hljs-keyword">import</span> (
+	<span class="hljs-string">&quot;net/http&quot;</span>
+)
+
+<span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span> {
+	http.HandleFunc(<span class="hljs-string">&quot;GET /{test}&quot;</span>, <span class="hljs-function"><span class="hljs-keyword">func</span><span class="hljs-params">(w http.ResponseWriter, req *http.Request)</span></span> {
+		w.Write([]<span class="hljs-type">byte</span>(req.PathValue(<span class="hljs-string">&quot;test&quot;</span>)))
+	})
+
+	http.ListenAndServe(<span class="hljs-string">&quot;:8888&quot;</span>, <span class="hljs-literal">nil</span>)
+}
+
+</code></pre>
+<p>예시 코드이다. 동작 시 GET 요청으로만 매칭되고 경로를 동적으로 지정하고 경로명을 참조할 수 있다.</p>
+<p><img src="/static/img-ksMYzrn3idJunZ7nBs-Gu9-fVgTv6eG7Z8bx3U4Cjz8.png" alt="image-20240426000142155"></p>
+<p>예제 샘플 접근 예시이다.</p>
+<p>그 외에도 <code>/file/{path...}</code> 이런 식으로 파일 경로에 사용하기 좋은 패턴도 존재한다.</p>
 
 </div>
 </div>
