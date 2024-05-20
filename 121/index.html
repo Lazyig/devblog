@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Go 1.22 net/http 라우팅 개선</title>
+<title>Go HTTP 유닉스 소켓</title>
 <meta
 name="description"
 content="정적페이지로 운영하는 개발 블로그입니다."
@@ -81,10 +81,10 @@ href="/static/apple-touch-icon-180x180.png"
 <link rel="stylesheet" href="/static/style.css">
 <meta name="theme-color" content="#ff5722">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Go 1.22 net/http 라우팅 개선">
+<meta property="og:title" content="Go HTTP 유닉스 소켓">
 <meta property="og:description" content="공부한 개발 정보를 공유합니다.">
-<meta property="og:image" content="https://devblog.lazyig.com/120//static/ogimg.png">
-<meta property="og:url" content="https://devblog.lazyig.com/120/">
+<meta property="og:image" content="https://devblog.lazyig.com/121//static/ogimg.png">
+<meta property="og:url" content="https://devblog.lazyig.com/121/">
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8149987977999297" crossorigin="anonymous"></script>
 <link rel="stylesheet"
 href="/static/highlight.css">
@@ -232,32 +232,110 @@ navBar.classList.toggle("show");
 <span> > </span>
 
 </p>
-<h1 class="article-title"><a href="https://devblog.lazyig.com/120/">Go 1.22 net/http 라우팅 개선</a></h1>
-<p class="write-date">2024-04-25 15:05:47</p>
+<h1 class="article-title"><a href="https://devblog.lazyig.com/121/">Go HTTP 유닉스 소켓</a></h1>
+<p class="write-date">2024-05-20 15:21:38</p>
 <div class="markdown-body">
-<p>릴리즈 노트: <a href="https://go.dev/doc/go1.22">https://go.dev/doc/go1.22</a></p>
-<p>Go 1.22 버전에서 net/http 패키지에서 서버 라우팅이 개선되었다.</p>
-<p>이제 별도의 라이브러리 없이 라우팅 핸들러를 등록할 때 메소드를 지정하고 동적인 경로를 사용할 수 있다.</p>
-<p>앞으로는 간단한 서버를 만들 때. 추가적인 의존성 없이 Go 만으로도 꽤 쓸만한 웹 서버를 작성할 수 있게 되었다.</p>
+<h2>유닉스 도메인 소켓(Unix Domain Socket)</h2>
+<p>유닉스 도메인 소켓(Unix domain socket)은 유닉스 계열 운영체제에서 프로세스간 통신에 사용되는 소켓이다.</p>
+<p>흔히 통신을 위해서 사용하는 TCP/UDP 통신의 경우 네트워크 상의 다른 컴퓨터와 통신이 가능하지만 유닉스 도메인 소켓은 프로세스간 통신에 사용되는 만큼 로컬에서만 사용가능하다.</p>
+<p>Unix domain socket은 TCP/UDP 통신에 비해서 과정이 간략하여 같은 기기 내 통신이라면 선택하기 좋다.</p>
+<h2>Go</h2>
+<p>Go 언어에서 유닉스 도메인 소켓을 활용하여 통신을 한 것을 남기고자 한다.</p>
+<p>편하게 관리하기 위해서 유닉스 도메인 소켓에서 HTTP 통신을 하는 예제이다.</p>
+<h3>Client</h3>
+<p><code>client.go</code></p>
 <pre><code class="language-go"><span class="hljs-keyword">package</span> main
 
 <span class="hljs-keyword">import</span> (
+	<span class="hljs-string">&quot;context&quot;</span>
+	<span class="hljs-string">&quot;io&quot;</span>
+	<span class="hljs-string">&quot;log&quot;</span>
+	<span class="hljs-string">&quot;net&quot;</span>
 	<span class="hljs-string">&quot;net/http&quot;</span>
 )
 
-<span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span> {
-	http.HandleFunc(<span class="hljs-string">&quot;GET /{test}&quot;</span>, <span class="hljs-function"><span class="hljs-keyword">func</span><span class="hljs-params">(w http.ResponseWriter, req *http.Request)</span></span> {
-		w.Write([]<span class="hljs-type">byte</span>(req.PathValue(<span class="hljs-string">&quot;test&quot;</span>)))
-	})
+<span class="hljs-comment">// SockFilePath 유닉스 도메인 소켓 파일 경로</span>
+<span class="hljs-keyword">var</span> SockFilePath <span class="hljs-type">string</span> = <span class="hljs-string">&quot;./ping-server.sock&quot;</span>
 
-	http.ListenAndServe(<span class="hljs-string">&quot;:8888&quot;</span>, <span class="hljs-literal">nil</span>)
+<span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span> {
+	<span class="hljs-comment">// http 클라이언트 생성, 유닉스 도메인 소켓으로 연결</span>
+	client := http.Client{
+		Transport: &amp;http.Transport{
+			DialContext: <span class="hljs-function"><span class="hljs-keyword">func</span><span class="hljs-params">(_ context.Context, _, _ <span class="hljs-type">string</span>)</span></span> (net.Conn, <span class="hljs-type">error</span>) {
+				<span class="hljs-keyword">return</span> net.Dial(<span class="hljs-string">&quot;unix&quot;</span>, SockFilePath)
+			},
+		},
+	}
+
+	<span class="hljs-comment">// 요청 송신</span>
+	resp, err := client.Post(<span class="hljs-string">&quot;http://unix/ping&quot;</span>, <span class="hljs-string">&quot;&quot;</span>, <span class="hljs-literal">nil</span>)
+	<span class="hljs-keyword">if</span> err != <span class="hljs-literal">nil</span> {
+		<span class="hljs-built_in">panic</span>(err)
+	}
+	<span class="hljs-keyword">defer</span> resp.Body.Close()
+
+	<span class="hljs-comment">// 응답 읽기</span>
+	body, err := io.ReadAll(resp.Body)
+	<span class="hljs-keyword">if</span> err != <span class="hljs-literal">nil</span> {
+		<span class="hljs-built_in">panic</span>(err)
+	}
+
+	log.Println(<span class="hljs-type">string</span>(body))
 }
 
 </code></pre>
-<p>예시 코드이다. 동작 시 GET 요청으로만 매칭되고 경로를 동적으로 지정하고 경로명을 참조할 수 있다.</p>
-<p><img src="/static/img-ksMYzrn3idJunZ7nBs-Gu9-fVgTv6eG7Z8bx3U4Cjz8.png" alt="image-20240426000142155"></p>
-<p>예제 샘플 접근 예시이다.</p>
-<p>그 외에도 <code>/file/{path...}</code> 이런 식으로 파일 경로에 사용하기 좋은 패턴도 존재한다.</p>
+<h3>Server</h3>
+<p><code>server.go</code></p>
+<pre><code class="language-go"><span class="hljs-keyword">package</span> main
+
+<span class="hljs-keyword">import</span> (
+	<span class="hljs-string">&quot;log&quot;</span>
+	<span class="hljs-string">&quot;net&quot;</span>
+	<span class="hljs-string">&quot;net/http&quot;</span>
+	<span class="hljs-string">&quot;os&quot;</span>
+	<span class="hljs-string">&quot;os/signal&quot;</span>
+	<span class="hljs-string">&quot;syscall&quot;</span>
+)
+
+<span class="hljs-comment">// SockFilePath 유닉스 도메인 소켓 파일 경로</span>
+<span class="hljs-keyword">var</span> SockFilePath <span class="hljs-type">string</span> = <span class="hljs-string">&quot;./ping-server.sock&quot;</span>
+
+<span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span> {
+	<span class="hljs-comment">// 유닉스 도메인 소켓 파일 생성, 수신 대기</span>
+	socket, err := net.Listen(<span class="hljs-string">&quot;unix&quot;</span>, SockFilePath)
+	<span class="hljs-keyword">if</span> err != <span class="hljs-literal">nil</span> {
+		log.Fatal(err)
+	}
+
+	<span class="hljs-comment">// 종료 시 소켓 파일 제거</span>
+	c := <span class="hljs-built_in">make</span>(<span class="hljs-keyword">chan</span> os.Signal, <span class="hljs-number">1</span>)
+	signal.Notify(c, os.Interrupt, syscall.SIGTERM)
+	<span class="hljs-keyword">go</span> <span class="hljs-function"><span class="hljs-keyword">func</span><span class="hljs-params">()</span></span> {
+		&lt;-c
+		os.Remove(SockFilePath)
+		os.Exit(<span class="hljs-number">1</span>)
+	}()
+
+	mux := http.NewServeMux()
+
+	<span class="hljs-comment">// Post 요청 핸들러 등록</span>
+	mux.HandleFunc(<span class="hljs-string">&quot;POST /ping&quot;</span>, <span class="hljs-function"><span class="hljs-keyword">func</span><span class="hljs-params">(w http.ResponseWriter, r *http.Request)</span></span> {
+		w.Write([]<span class="hljs-type">byte</span>(<span class="hljs-string">&quot;pong!&quot;</span>))
+	})
+
+	server := http.Server{
+		Handler: mux,
+	}
+
+	<span class="hljs-comment">// 유닉스 도메인 소켓으로 서버 시작</span>
+	err = server.Serve(socket)
+
+	<span class="hljs-keyword">if</span> err != <span class="hljs-literal">nil</span> {
+		log.Fatalln(err)
+	}
+}
+
+</code></pre>
 
 </div>
 </div>

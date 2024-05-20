@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
+<link rel="stylesheet" href="/static/catstyle.css">
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Go 1.22 net/http 라우팅 개선</title>
+<title>전체보기 카테고리</title>
 <meta
 name="description"
 content="정적페이지로 운영하는 개발 블로그입니다."
@@ -81,13 +82,11 @@ href="/static/apple-touch-icon-180x180.png"
 <link rel="stylesheet" href="/static/style.css">
 <meta name="theme-color" content="#ff5722">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Go 1.22 net/http 라우팅 개선">
+<meta property="og:title" content="전체보기 카테고리">
 <meta property="og:description" content="공부한 개발 정보를 공유합니다.">
-<meta property="og:image" content="https://devblog.lazyig.com/120//static/ogimg.png">
-<meta property="og:url" content="https://devblog.lazyig.com/120/">
+<meta property="og:image" content="https://devblog.lazyig.com/static/ogimg.png">
+<meta property="og:url" content="https://devblog.lazyig.com">
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8149987977999297" crossorigin="anonymous"></script>
-<link rel="stylesheet"
-href="/static/highlight.css">
 </head>
 <body class="kigui one">
 <header class="kigui header">
@@ -223,53 +222,69 @@ navBar.classList.toggle("show");
 })
 </script>
 <div class="kigui frame">
-<p class="category-path">
-
-<a href="/c/전체보기/1/">전체보기</a>
-<span> > </span>
-
-<a href="/c/Develop/1/">Develop</a>
-<span> > </span>
-
-</p>
-<h1 class="article-title"><a href="https://devblog.lazyig.com/120/">Go 1.22 net/http 라우팅 개선</a></h1>
-<p class="write-date">2024-04-25 15:05:47</p>
 <div class="markdown-body">
-<p>릴리즈 노트: <a href="https://go.dev/doc/go1.22">https://go.dev/doc/go1.22</a></p>
-<p>Go 1.22 버전에서 net/http 패키지에서 서버 라우팅이 개선되었다.</p>
-<p>이제 별도의 라이브러리 없이 라우팅 핸들러를 등록할 때 메소드를 지정하고 동적인 경로를 사용할 수 있다.</p>
-<p>앞으로는 간단한 서버를 만들 때. 추가적인 의존성 없이 Go 만으로도 꽤 쓸만한 웹 서버를 작성할 수 있게 되었다.</p>
-<pre><code class="language-go"><span class="hljs-keyword">package</span> main
-
-<span class="hljs-keyword">import</span> (
-	<span class="hljs-string">&quot;net/http&quot;</span>
-)
-
-<span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span> {
-	http.HandleFunc(<span class="hljs-string">&quot;GET /{test}&quot;</span>, <span class="hljs-function"><span class="hljs-keyword">func</span><span class="hljs-params">(w http.ResponseWriter, req *http.Request)</span></span> {
-		w.Write([]<span class="hljs-type">byte</span>(req.PathValue(<span class="hljs-string">&quot;test&quot;</span>)))
-	})
-
-	http.ListenAndServe(<span class="hljs-string">&quot;:8888&quot;</span>, <span class="hljs-literal">nil</span>)
-}
-
-</code></pre>
-<p>예시 코드이다. 동작 시 GET 요청으로만 매칭되고 경로를 동적으로 지정하고 경로명을 참조할 수 있다.</p>
-<p><img src="/static/img-ksMYzrn3idJunZ7nBs-Gu9-fVgTv6eG7Z8bx3U4Cjz8.png" alt="image-20240426000142155"></p>
-<p>예제 샘플 접근 예시이다.</p>
-<p>그 외에도 <code>/file/{path...}</code> 이런 식으로 파일 경로에 사용하기 좋은 패턴도 존재한다.</p>
-
+<h1>전체보기</h1>
 </div>
+<ul class="catlist">
+
+<li>
+<a href="/0"><span class="date">2021-10-13 21:55:00</span>첫 글</a>
+</li>
+
+</ul>
 </div>
-<div class="kigui frame">
-<script src="https://utteranc.es/client.js"
-repo="lazyig/blog-comment"
-issue-term="pathname"
-label="blog-comment"
-theme="github-light"
-crossorigin="anonymous"
-async>
-</script>
+<div class="kigui frame catnum">
+<ul>
+
+<li>
+<a href="/c/전체보기/1">1</a>
+</li>
+
+<li>
+<a href="/c/전체보기/2">2</a>
+</li>
+
+<li>
+<a href="/c/전체보기/3">3</a>
+</li>
+
+<li>
+<a href="/c/전체보기/4">4</a>
+</li>
+
+<li>
+<a href="/c/전체보기/5">5</a>
+</li>
+
+<li>
+<a href="/c/전체보기/6">6</a>
+</li>
+
+<li>
+<a href="/c/전체보기/7">7</a>
+</li>
+
+<li>
+<a href="/c/전체보기/8">8</a>
+</li>
+
+<li>
+<a href="/c/전체보기/9">9</a>
+</li>
+
+<li>
+<a href="/c/전체보기/10">10</a>
+</li>
+
+<li>
+<a href="/c/전체보기/11">11</a>
+</li>
+
+<li>
+<a href="/c/전체보기/12">12</a>
+</li>
+
+</ul>
 </div>
 </section>
 </body>
