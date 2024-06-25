@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>React + Webpack + TypeScript 세팅</title>
+<meta
+name="description"
+content="정적페이지로 운영하는 개발 블로그입니다."
+/>
+<link
+rel="shortcut icon"
+type="image/png"
+sizes="144x144"
+href="/static/favicon-144x144.png"
+/>
+<link
+rel="icon"
+type="image/png"
+sizes="16x16"
+href="/static/favicon-16x16.png"
+/>
+<link
+rel="icon"
+type="image/png"
+sizes="32x32"
+href="/static/favicon-32x32.png"
+/>
+<link
+rel="icon"
+type="image/png"
+sizes="192x192"
+href="/static/favicon-192x192.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="57x57"
+href="/static/apple-touch-icon-57x57.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="72x72"
+href="/static/apple-touch-icon-72x72.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="76x76"
+href="/static/apple-touch-icon-76x76.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="114x114"
+href="/static/apple-touch-icon-114x114.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="120x120"
+href="/static/apple-touch-icon-120x120.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="144x144"
+href="/static/apple-touch-icon-144x144.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="152x152"
+href="/static/apple-touch-icon-152x152.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="154x154"
+href="/static/apple-touch-icon-154x154.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="180x180"
+href="/static/apple-touch-icon-180x180.png"
+/>
+<link rel="stylesheet" href="/static/style.css">
+<meta name="theme-color" content="#ff5722">
+<meta property="og:type" content="website">
+<meta property="og:title" content="React + Webpack + TypeScript 세팅">
+<meta property="og:description" content="공부한 개발 정보를 공유합니다.">
+<meta property="og:image" content="https://devblog.lazyig.com/123//static/ogimg.png">
+<meta property="og:url" content="https://devblog.lazyig.com/123/">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8149987977999297" crossorigin="anonymous"></script>
+<link rel="stylesheet"
+href="/static/highlight.css">
+</head>
+<body class="kigui one">
+<header class="kigui header">
+<div class="header-buttons">
+<span id="headerBtn" class="nav-header-btn"><img src="/static/menu-w.svg" alt="Menu"></span>
+</div>
+<a href="/">
+<h1 class="title">
+메모용 개발 블로그
+</h1>
+</a>
+</header>
+<div class="kigui header-space"></div>
+<section class="kigui">
+<div id="navBar" class="nav-bar">
+
+<div class="nav-header">
+<span id="catToggle" class="nav-header-btn"><img src="/static/menu.svg" alt="Menu"></span>
+</div>
+<ul class="category">
+
+<li style="padding-left: 0px">
+<a href="/c/전체보기/1/">전체보기<span class="nav-cat-cnt">(113)</span></a>
+</li>
+
+<li style="padding-left: 15px">
+<a href="/c/OS/1/">OS<span class="nav-cat-cnt">(35)</span></a>
+</li>
+
+<li style="padding-left: 30px">
+<a href="/c/Linux/1/">Linux<span class="nav-cat-cnt">(23)</span></a>
+</li>
+
+
+<li style="padding-left: 30px">
+<a href="/c/MacOS/1/">MacOS<span class="nav-cat-cnt">(8)</span></a>
+</li>
+
+
+<li style="padding-left: 30px">
+<a href="/c/Windows/1/">Windows<span class="nav-cat-cnt">(4)</span></a>
+</li>
+
+
+
+<li style="padding-left: 15px">
+<a href="/c/데이터베이스/1/">데이터베이스<span class="nav-cat-cnt">(3)</span></a>
+</li>
+
+<li style="padding-left: 30px">
+<a href="/c/Oracle/1/">Oracle<span class="nav-cat-cnt">(1)</span></a>
+</li>
+
+
+<li style="padding-left: 30px">
+<a href="/c/Postgresql/1/">Postgresql<span class="nav-cat-cnt">(1)</span></a>
+</li>
+
+
+
+<li style="padding-left: 15px">
+<a href="/c/Develop/1/">Develop<span class="nav-cat-cnt">(25)</span></a>
+</li>
+
+<li style="padding-left: 30px">
+<a href="/c/CSS3/1/">CSS3<span class="nav-cat-cnt">(3)</span></a>
+</li>
+
+
+<li style="padding-left: 30px">
+<a href="/c/Go/1/">Go<span class="nav-cat-cnt">(8)</span></a>
+</li>
+
+
+<li style="padding-left: 30px">
+<a href="/c/HTML5/1/">HTML5<span class="nav-cat-cnt">(2)</span></a>
+</li>
+
+
+<li style="padding-left: 30px">
+<a href="/c/Java/1/">Java<span class="nav-cat-cnt">(1)</span></a>
+</li>
+
+
+<li style="padding-left: 30px">
+<a href="/c/JavaScript/1/">JavaScript<span class="nav-cat-cnt">(4)</span></a>
+</li>
+
+
+<li style="padding-left: 30px">
+<a href="/c/React/1/">React<span class="nav-cat-cnt">(2)</span></a>
+</li>
+
+
+<li style="padding-left: 30px">
+<a href="/c/Svelte/1/">Svelte<span class="nav-cat-cnt">(2)</span></a>
+</li>
+
+
+
+<li style="padding-left: 15px">
+<a href="/c/개발일기/1/">개발일기<span class="nav-cat-cnt">(10)</span></a>
+</li>
+
+
+<li style="padding-left: 15px">
+<a href="/c/Git/1/">Git<span class="nav-cat-cnt">(3)</span></a>
+</li>
+
+
+<li style="padding-left: 15px">
+<a href="/c/GitLab/1/">GitLab<span class="nav-cat-cnt">(12)</span></a>
+</li>
+
+
+<li style="padding-left: 15px">
+<a href="/c/Nginx/1/">Nginx<span class="nav-cat-cnt">(7)</span></a>
+</li>
+
+
+<li style="padding-left: 15px">
+<a href="/c/기타/1/">기타<span class="nav-cat-cnt">(15)</span></a>
+</li>
+
+
+<li style="padding-left: 15px">
+<a href="/c/이 블로그의 오픈소스/1/">이 블로그의 오픈소스<span class="nav-cat-cnt">(3)</span></a>
+</li>
+
+
+
+</ul>
+</div>
+<script>
+let catToggle = document.getElementById("catToggle");
+let headerBtn = document.getElementById("headerBtn");
+let navBar = document.getElementById("navBar");
+catToggle.addEventListener("click", () => {
+navBar.classList.toggle("show");
+});
+headerBtn.addEventListener("click", () => {
+navBar.classList.toggle("show");
+})
+</script>
+<div class="kigui frame">
+<p class="category-path">
+
+<a href="/c/전체보기/1/">전체보기</a>
+<span> > </span>
+
+<a href="/c/Develop/1/">Develop</a>
+<span> > </span>
+
+<a href="/c/React/1/">React</a>
+<span> > </span>
+
+</p>
+<h1 class="article-title"><a href="https://devblog.lazyig.com/123/">React + Webpack + TypeScript 세팅</a></h1>
+<p class="write-date">2024-06-25 12:24:10</p>
+<div class="markdown-body">
+<h3>환경</h3>
+<p>OS: Windows 11, AMD64</p>
+<p>Node.js: v20.14.0 (lts)</p>
+<h3>Package Install</h3>
+<pre><code class="language-sh">npm i react react-dom
+npm i -D webpack webpack-cli webpack-dev-server html-webpack-plugin babel-loader style-loader css-loader @babel/core @babel/preset-react @babel/preset-typescript prettier typescript @types/react-dom
+</code></pre>
+<h3>Prettier</h3>
+<p>소스코드의 일관된 컨벤션을 위함이므로 구성 설정과 무관</p>
+<p>저장 시 자동 정렬은 각 에디터마다 설정을 해주어야 함.</p>
+<p>소스코드에 DOM이 들어가는 구조상 들여쓰기가 많아서 2space를 권장하지만 싫다면 아래로 설정</p>
+<p><code>/.prettierrc</code></p>
+<pre><code>{
+    &quot;tabWidth&quot;: 4
+}
+</code></pre>
+<h3>HTML Entrypoint</h3>
+<p>진입할 html 파일 생성한다. 기준이 될 div만 자유롭게 작성한다.</p>
+<p>대부분은 root id를 찾아서 쓴다.</p>
+<p><code>/index.html</code></p>
+<pre><code class="language-html"><span class="hljs-meta">&lt;!doctype <span class="hljs-keyword">html</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">html</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">&quot;ko&quot;</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">charset</span>=<span class="hljs-string">&quot;UTF-8&quot;</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;viewport&quot;</span>
+          <span class="hljs-attr">content</span>=<span class="hljs-string">&quot;width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0&quot;</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">http-equiv</span>=<span class="hljs-string">&quot;X-UA-Compatible&quot;</span> <span class="hljs-attr">content</span>=<span class="hljs-string">&quot;ie=edge&quot;</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>Document<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;root&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span>
+</code></pre>
+<h3>Webpack</h3>
+<p>각 환경별로 설정파일을 분할한다.</p>
+<p><code>/webpack.common.js</code></p>
+<pre><code class="language-js"><span class="hljs-keyword">const</span> path = <span class="hljs-built_in">require</span>(<span class="hljs-string">&quot;path&quot;</span>);
+<span class="hljs-keyword">const</span> <span class="hljs-title class_">HtmlWebpackPlugin</span> = <span class="hljs-built_in">require</span>(<span class="hljs-string">&quot;html-webpack-plugin&quot;</span>);
+
+<span class="hljs-variable language_">module</span>.<span class="hljs-property">exports</span> = {
+    <span class="hljs-attr">entry</span>: {
+        <span class="hljs-attr">main</span>: <span class="hljs-string">&quot;./src/index.tsx&quot;</span>,
+    },
+    <span class="hljs-attr">output</span>: {
+        <span class="hljs-attr">path</span>: path.<span class="hljs-title function_">resolve</span>(__dirname, <span class="hljs-string">&quot;./dist&quot;</span>),
+    },
+    <span class="hljs-attr">resolve</span>: {
+        <span class="hljs-attr">extensions</span>: [<span class="hljs-string">&quot;.ts&quot;</span>, <span class="hljs-string">&quot;.tsx&quot;</span>, <span class="hljs-string">&quot;.js&quot;</span>],
+    },
+    <span class="hljs-attr">module</span>: {
+        <span class="hljs-attr">rules</span>: [
+            {
+                <span class="hljs-attr">test</span>: <span class="hljs-regexp">/\.(tsx|ts)?$/</span>,
+                <span class="hljs-attr">exclude</span>: <span class="hljs-regexp">/node_modules/</span>,
+                <span class="hljs-attr">loader</span>: <span class="hljs-string">&quot;babel-loader&quot;</span>,
+                <span class="hljs-attr">options</span>: {
+                    <span class="hljs-attr">presets</span>: [
+                        [<span class="hljs-string">&quot;@babel/preset-react&quot;</span>, { <span class="hljs-attr">runtime</span>: <span class="hljs-string">&quot;automatic&quot;</span> }],
+                        <span class="hljs-string">&quot;@babel/preset-typescript&quot;</span>,
+                    ],
+                },
+            },
+            {
+                <span class="hljs-attr">test</span>: <span class="hljs-regexp">/\.css$/</span>,
+                <span class="hljs-attr">use</span>: [<span class="hljs-string">&quot;style-loader&quot;</span>, <span class="hljs-string">&quot;css-loader&quot;</span>],
+            },
+        ],
+    },
+    <span class="hljs-attr">plugins</span>: [
+        <span class="hljs-keyword">new</span> <span class="hljs-title class_">HtmlWebpackPlugin</span>({
+            <span class="hljs-attr">template</span>: path.<span class="hljs-title function_">resolve</span>(__dirname, <span class="hljs-string">&quot;./src/index.html&quot;</span>),
+        }),
+    ],
+    <span class="hljs-attr">optimization</span>: {
+        <span class="hljs-attr">splitChunks</span>: {
+            <span class="hljs-attr">chunks</span>: <span class="hljs-string">&quot;all&quot;</span>,
+        },
+    },
+};
+
+</code></pre>
+<p><code>webpack.config.dev.js</code></p>
+<pre><code class="language-js"><span class="hljs-keyword">const</span> { merge } = <span class="hljs-built_in">require</span>(<span class="hljs-string">&quot;webpack-merge&quot;</span>);
+<span class="hljs-keyword">const</span> common = <span class="hljs-built_in">require</span>(<span class="hljs-string">&quot;./webpack.common.js&quot;</span>);
+
+<span class="hljs-variable language_">module</span>.<span class="hljs-property">exports</span> = <span class="hljs-title function_">merge</span>(common, {
+    <span class="hljs-attr">mode</span>: <span class="hljs-string">&quot;development&quot;</span>,
+    <span class="hljs-attr">devServer</span>: {
+        <span class="hljs-attr">hot</span>: <span class="hljs-literal">true</span>,
+        <span class="hljs-attr">liveReload</span>: <span class="hljs-literal">true</span>,
+    },
+});
+
+</code></pre>
+<p><code>webpack.config.prod.js</code></p>
+<pre><code class="language-js"><span class="hljs-keyword">const</span> { merge } = <span class="hljs-built_in">require</span>(<span class="hljs-string">&quot;webpack-merge&quot;</span>);
+<span class="hljs-keyword">const</span> common = <span class="hljs-built_in">require</span>(<span class="hljs-string">&quot;./webpack.common.js&quot;</span>);
+
+<span class="hljs-variable language_">module</span>.<span class="hljs-property">exports</span> = <span class="hljs-title function_">merge</span>(common, {
+    <span class="hljs-attr">mode</span>: <span class="hljs-string">&quot;production&quot;</span>,
+});
+
+</code></pre>
+<p><code>package.json</code>에 다음 항목 수정</p>
+<pre><code class="language-json"><span class="hljs-attr">&quot;scripts&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+    <span class="hljs-attr">&quot;build&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;webpack --config webpack.config.prod.js&quot;</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;dev&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;webpack serve --config webpack.config.dev.js&quot;</span>
+<span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+</code></pre>
+<h3>React Entrypoint</h3>
+<p>리액트 진입점 파일</p>
+<p>html에서 기준 DOM을 찾아서 그려주거나 각종 설정용 컴포넌트 위치</p>
+<p>개발 시 div 부분은<code>&lt;App /&gt;</code> 같이 앱의 최상위 컴포넌트를 넣음.</p>
+<p><code>/src/index.tsx</code></p>
+<pre><code class="language-tsx"><span class="hljs-keyword">import</span> { createRoot } <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;react-dom/client&quot;</span>;
+
+<span class="hljs-keyword">const</span> rootDOM = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">getElementById</span>(<span class="hljs-string">&quot;root&quot;</span>);
+<span class="hljs-keyword">const</span> root = <span class="hljs-title function_">createRoot</span>(rootDOM);
+
+root.<span class="hljs-title function_">render</span>(<span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span>);
+</code></pre>
+
+</div>
+</div>
+<div class="kigui frame">
+<script src="https://utteranc.es/client.js"
+repo="lazyig/blog-comment"
+issue-term="pathname"
+label="blog-comment"
+theme="github-light"
+crossorigin="anonymous"
+async>
+</script>
+</div>
+</section>
+</body>
+</html>
