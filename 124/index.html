@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>GitLab Runner artifacts 413 Request Entity Too Large 에러</title>
+<title>내부 톰캣을 사용하지 않는 IntelliJ IDEA Community Spring Boot 에러</title>
 <meta
 name="description"
 content="정적페이지로 운영하는 개발 블로그입니다."
@@ -81,10 +81,10 @@ href="/static/apple-touch-icon-180x180.png"
 <link rel="stylesheet" href="/static/style.css">
 <meta name="theme-color" content="#ff5722">
 <meta property="og:type" content="website">
-<meta property="og:title" content="GitLab Runner artifacts 413 Request Entity Too Large 에러">
+<meta property="og:title" content="내부 톰캣을 사용하지 않는 IntelliJ IDEA Community Spring Boot 에러">
 <meta property="og:description" content="공부한 개발 정보를 공유합니다.">
-<meta property="og:image" content="https://devblog.lazyig.com/98//static/ogimg.png">
-<meta property="og:url" content="https://devblog.lazyig.com/98/">
+<meta property="og:image" content="https://devblog.lazyig.com/124//static/ogimg.png">
+<meta property="og:url" content="https://devblog.lazyig.com/124/">
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8149987977999297" crossorigin="anonymous"></script>
 <link rel="stylesheet"
 href="/static/highlight.css">
@@ -238,40 +238,39 @@ navBar.classList.toggle("show");
 <a href="/c/전체보기/1/">전체보기</a>
 <span> > </span>
 
-<a href="/c/GitLab/1/">GitLab</a>
+<a href="/c/Develop/1/">Develop</a>
 <span> > </span>
 
 </p>
-<h1 class="article-title"><a href="https://devblog.lazyig.com/98/">GitLab Runner artifacts 413 Request Entity Too Large 에러</a></h1>
-<p class="write-date">2023-03-07 15:54:39</p>
+<h1 class="article-title"><a href="https://devblog.lazyig.com/124/">내부 톰캣을 사용하지 않는 IntelliJ IDEA Community Spring Boot 에러</a></h1>
+<p class="write-date">2024-11-29 07:03:32</p>
 <div class="markdown-body">
-<h2>발생 에러 구문</h2>
-<pre><code>ERROR: Uploading artifacts as &quot;archive&quot; to coordinator... 413 Request Entity Too Large
+<h2>개요</h2>
+<p>Spring Boot로 만든 프로젝트가 IntelliJ IDEA Ultimate 버전에서는 잘 되나, Community 버전에서는 아래 오류와 함께 정상 동작하지 않음.</p>
+<pre><code>java.lang.IllegalStateException: Error processing condition on org.springframework.boot.autoconfigure.context.PropertyPlaceholderAutoConfiguration.propertySourcesPlaceholderConfigurer
 </code></pre>
+<h3>환경</h3>
+<p>Java: 1.8.0 181</p>
+<p>Spring Boot: 2.7,17</p>
+<p><strong>배포 시 내부 Tomcat을 사용하지 않는 환경</strong></p>
 <h2>원인</h2>
-<p>GitLab의 아티팩트 설정 혹은 웹 서버에서 제한 용량이 걸려있는 문제</p>
-<p>각 환경에 맞게 이 용량을 늘려주면 해결.</p>
-<h2>해결 방법</h2>
-<p>아래 해결 방법 중 본인의 환경에 맞게 점검할 것.</p>
-<h3>1. 내장 nginx body size 수정</h3>
-<p><code>gitlab.rb</code>파일 수정</p>
-<pre><code class="language-ruby">...
-nginx[<span class="hljs-string">&#x27;client_max_body_size&#x27;</span>] = <span class="hljs-string">&#x27;1G&#x27;</span>
-...
+<p>자동으로 추가되는 설정의 차이로 발생한다.</p>
+<p><code>Add dependencies with &quot;provided&quot; scope to classpath</code></p>
+<p>위 설정이 Spring Boot 실행 설정으로 자동으로 인식되어 추가되는 반면 Community 버전은 그렇지 않다.</p>
+<p>Spring boot 내부의 Tomcat(<code>spring-boot-starter-tomcat</code>)은 배포 시 제거하고자 하는 프로젝트이므로 scope가 <code>provided</code>로 설정되어 있다. 그로 인해서 찾지 못해서 발생하는 문제이다.</p>
+<h2>해결</h2>
+<h3>해결 1 (권장)</h3>
+<p><code>Edit Configurations</code> &gt; 사용하는 설정 &gt; <code>Modify options</code> &gt; <code>Add dependencies with &quot;provided&quot; scope to classpath</code></p>
+<p>이후 <code>OK</code>를 눌러 적용시킨다.</p>
+<h3>해결 2</h3>
+<p>내부 톰캣의 스코프를 변경하는 방법이다. 배포와 개발 사이의 의존성 스코프가 달라지므로 권장하지 않음.</p>
+<p><code>pom.xml</code> 파일의 <code>spring-boot-starter-tomcat</code>의 <code>scope</code>를 <code>compile</code>로 변경 (기존: <code>provided</code>)</p>
+<pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.springframework.boot<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>spring-boot-starter-tomcat<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">scope</span>&gt;</span>compile<span class="hljs-tag">&lt;/<span class="hljs-name">scope</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span>
 </code></pre>
-<h3>2. 외부 웹 서버 body size 수정(nginx 기준)</h3>
-<pre><code class="language-nginx">...
-<span class="hljs-section">http</span> {
-    ...
-    <span class="hljs-attribute">client_max_body_size</span> <span class="hljs-number">1G</span>;
-    ...
-}
-...
-</code></pre>
-<h3>3. GitLab Admin 관리 영역 설정 수정</h3>
-<p>관리자로 접속 후</p>
-<p><code>Admin -&gt; Settings -&gt; CI/CD -&gt; Continuous Integration and Deployment -&gt; Maximum artifacts size (MB)</code></p>
-<p><img src="/static/img-Yp1Jnxlb8huVwfQtClaop35ggsky8bvp0Q7iq7MwWcQ.png" alt="image-20230308004834035"></p>
 
 </div>
 </div>
