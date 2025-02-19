@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>nextjs docker image 경량화</title>
+<meta
+name="description"
+content="정적페이지로 운영하는 개발 블로그입니다."
+/>
+<link
+rel="shortcut icon"
+type="image/png"
+sizes="144x144"
+href="/static/favicon-144x144.png"
+/>
+<link
+rel="icon"
+type="image/png"
+sizes="16x16"
+href="/static/favicon-16x16.png"
+/>
+<link
+rel="icon"
+type="image/png"
+sizes="32x32"
+href="/static/favicon-32x32.png"
+/>
+<link
+rel="icon"
+type="image/png"
+sizes="192x192"
+href="/static/favicon-192x192.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="57x57"
+href="/static/apple-touch-icon-57x57.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="72x72"
+href="/static/apple-touch-icon-72x72.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="76x76"
+href="/static/apple-touch-icon-76x76.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="114x114"
+href="/static/apple-touch-icon-114x114.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="120x120"
+href="/static/apple-touch-icon-120x120.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="144x144"
+href="/static/apple-touch-icon-144x144.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="152x152"
+href="/static/apple-touch-icon-152x152.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="154x154"
+href="/static/apple-touch-icon-154x154.png"
+/>
+<link
+rel="apple-touch-icon"
+sizes="180x180"
+href="/static/apple-touch-icon-180x180.png"
+/>
+<link rel="stylesheet" href="/static/style.css">
+<meta name="theme-color" content="#ff5722">
+<meta property="og:type" content="website">
+<meta property="og:title" content="nextjs docker image 경량화">
+<meta property="og:description" content="공부한 개발 정보를 공유합니다.">
+<meta property="og:image" content="https://devblog.lazyig.com/125//static/ogimg.png">
+<meta property="og:url" content="https://devblog.lazyig.com/125/">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8149987977999297" crossorigin="anonymous"></script>
+<link rel="stylesheet"
+href="/static/highlight.css">
+</head>
+<body class="kigui one">
+<header class="kigui header">
+<div class="header-buttons">
+<span id="headerBtn" class="nav-header-btn"><img src="/static/menu-w.svg" alt="Menu"></span>
+</div>
+<a href="/">
+<h1 class="title">
+메모용 개발 블로그
+</h1>
+</a>
+</header>
+<div class="kigui header-space"></div>
+<section class="kigui">
+<div id="navBar" class="nav-bar">
+
+<div class="nav-header">
+<span id="catToggle" class="nav-header-btn"><img src="/static/menu.svg" alt="Menu"></span>
+</div>
+<ul class="category">
+
+<li style="padding-left: 0px">
+<a href="/c/전체보기/1/">전체보기<span class="nav-cat-cnt">(115)</span></a>
+</li>
+
+<li style="padding-left: 15px">
+<a href="/c/OS/1/">OS<span class="nav-cat-cnt">(35)</span></a>
+</li>
+
+<li style="padding-left: 30px">
+<a href="/c/Linux/1/">Linux<span class="nav-cat-cnt">(23)</span></a>
+</li>
+
+
+<li style="padding-left: 30px">
+<a href="/c/MacOS/1/">MacOS<span class="nav-cat-cnt">(8)</span></a>
+</li>
+
+
+<li style="padding-left: 30px">
+<a href="/c/Windows/1/">Windows<span class="nav-cat-cnt">(4)</span></a>
+</li>
+
+
+
+<li style="padding-left: 15px">
+<a href="/c/데이터베이스/1/">데이터베이스<span class="nav-cat-cnt">(3)</span></a>
+</li>
+
+<li style="padding-left: 30px">
+<a href="/c/Oracle/1/">Oracle<span class="nav-cat-cnt">(1)</span></a>
+</li>
+
+
+<li style="padding-left: 30px">
+<a href="/c/Postgresql/1/">Postgresql<span class="nav-cat-cnt">(1)</span></a>
+</li>
+
+
+
+<li style="padding-left: 15px">
+<a href="/c/Develop/1/">Develop<span class="nav-cat-cnt">(26)</span></a>
+</li>
+
+<li style="padding-left: 30px">
+<a href="/c/CSS3/1/">CSS3<span class="nav-cat-cnt">(3)</span></a>
+</li>
+
+
+<li style="padding-left: 30px">
+<a href="/c/Go/1/">Go<span class="nav-cat-cnt">(8)</span></a>
+</li>
+
+
+<li style="padding-left: 30px">
+<a href="/c/HTML5/1/">HTML5<span class="nav-cat-cnt">(2)</span></a>
+</li>
+
+
+<li style="padding-left: 30px">
+<a href="/c/Java/1/">Java<span class="nav-cat-cnt">(1)</span></a>
+</li>
+
+
+<li style="padding-left: 30px">
+<a href="/c/JavaScript/1/">JavaScript<span class="nav-cat-cnt">(4)</span></a>
+</li>
+
+
+<li style="padding-left: 30px">
+<a href="/c/React/1/">React<span class="nav-cat-cnt">(2)</span></a>
+</li>
+
+
+<li style="padding-left: 30px">
+<a href="/c/Svelte/1/">Svelte<span class="nav-cat-cnt">(2)</span></a>
+</li>
+
+
+
+<li style="padding-left: 15px">
+<a href="/c/개발일기/1/">개발일기<span class="nav-cat-cnt">(10)</span></a>
+</li>
+
+
+<li style="padding-left: 15px">
+<a href="/c/Docker/1/">Docker<span class="nav-cat-cnt">(1)</span></a>
+</li>
+
+
+<li style="padding-left: 15px">
+<a href="/c/Git/1/">Git<span class="nav-cat-cnt">(3)</span></a>
+</li>
+
+
+<li style="padding-left: 15px">
+<a href="/c/GitLab/1/">GitLab<span class="nav-cat-cnt">(12)</span></a>
+</li>
+
+
+<li style="padding-left: 15px">
+<a href="/c/Nginx/1/">Nginx<span class="nav-cat-cnt">(7)</span></a>
+</li>
+
+
+<li style="padding-left: 15px">
+<a href="/c/기타/1/">기타<span class="nav-cat-cnt">(15)</span></a>
+</li>
+
+
+<li style="padding-left: 15px">
+<a href="/c/이 블로그의 오픈소스/1/">이 블로그의 오픈소스<span class="nav-cat-cnt">(3)</span></a>
+</li>
+
+
+
+</ul>
+</div>
+<script>
+let catToggle = document.getElementById("catToggle");
+let headerBtn = document.getElementById("headerBtn");
+let navBar = document.getElementById("navBar");
+catToggle.addEventListener("click", () => {
+navBar.classList.toggle("show");
+});
+headerBtn.addEventListener("click", () => {
+navBar.classList.toggle("show");
+})
+</script>
+<div class="kigui frame">
+<p class="category-path">
+
+<a href="/c/전체보기/1/">전체보기</a>
+<span> > </span>
+
+<a href="/c/Docker/1/">Docker</a>
+<span> > </span>
+
+</p>
+<h1 class="article-title"><a href="https://devblog.lazyig.com/125/">nextjs docker image 경량화</a></h1>
+<p class="write-date">2025-02-19 00:42:14</p>
+<div class="markdown-body">
+<h3>서론</h3>
+<h3>개발 환경 및 기타 정보</h3>
+<ul>
+<li>
+<p>Node: 22</p>
+</li>
+<li>
+<p>next.js: 15.1.4</p>
+</li>
+</ul>
+<h3>1. 컨테이너 이미지 변경</h3>
+<p>가장 먼저 고려해야할 요소는 컨테이너 이미지이다.</p>
+<p>기반이 되는 배포판의 이미지가 가벼운 것을 사용하는 것이 좋다. 무난하게 alpine 리눅스를 흔히 사용한다.</p>
+<p><code>node:22-alpine</code>  이미지를 사용하고 있다.</p>
+<p><code>node:22</code> 이미지는 <code>717.72 MiB</code></p>
+<p><code>node:22-alpine</code> 이미지는  <code>387.45 MiB</code> 가 나왔다.</p>
+<p><code>330.27 MiB</code>라는 차이가 발생하였으며 거의 절반에 가까운 감소를 보였다.</p>
+<h3>2. output: standalone</h3>
+<p>next 서버 구동을 위해서 불필요한 것을 빼고 필수요소만 정리하여 배포할 수 있다.</p>
+<p>공식 문서는 아래 경로를 참고한다.</p>
+<p><a href="https://nextjs.org/docs/pages/api-reference/config/next-config-js/output">https://nextjs.org/docs/pages/api-reference/config/next-config-js/output</a></p>
+<p><code>next.config.ts</code> 파일을 연 다음 다음과 같이 수정한다.</p>
+<pre><code class="language-typescript"><span class="hljs-keyword">import</span> <span class="hljs-keyword">type</span> { <span class="hljs-title class_">NextConfig</span> } <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;next&quot;</span>;
+
+<span class="hljs-keyword">const</span> <span class="hljs-attr">nextConfig</span>: <span class="hljs-title class_">NextConfig</span> = {
+    <span class="hljs-attr">output</span>: <span class="hljs-string">&quot;standalone&quot;</span>,
+};
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> nextConfig;
+
+</code></pre>
+<p>이후 <code>npm run build</code> 명령어로 빌드를 수행하면 <code>.next/standalone</code> 경로에 빌드가 된다.</p>
+<p>standalone 경로에는 프론트에 필요한 정적 파일이 존재하지 않는데.</p>
+<p>이들은 수동으로 복사해주어야 한다. 대상하는 파일은 <code>public</code>, <code>.next/static</code>이다.</p>
+<p>GitLab을 통한 배포를 수행하고 있으므로 다음과 같이 빌드를 수정해주었다.</p>
+<p>(GitLab + GitLab Runner + GitLab Registry)</p>
+<pre><code class="language-yaml"><span class="hljs-attr">stages:</span>
+  <span class="hljs-bullet">-</span> <span class="hljs-string">build-next</span>
+  <span class="hljs-bullet">-</span> <span class="hljs-string">release-docker</span>
+
+<span class="hljs-attr">Build Next App:</span>
+  <span class="hljs-attr">stage:</span> <span class="hljs-string">build-next</span>
+  <span class="hljs-attr">image:</span> <span class="hljs-string">node:22-alpine</span>
+  <span class="hljs-attr">before_script:</span>
+    <span class="hljs-bullet">-</span> <span class="hljs-string">npm</span> <span class="hljs-string">ci</span> <span class="hljs-string">--cache</span> <span class="hljs-string">.npm</span> <span class="hljs-string">--prefer-offline</span>
+  <span class="hljs-attr">script:</span>
+    <span class="hljs-bullet">-</span> <span class="hljs-string">npm</span> <span class="hljs-string">i</span>
+    <span class="hljs-bullet">-</span> <span class="hljs-string">npm</span> <span class="hljs-string">run</span> <span class="hljs-string">build</span>
+    <span class="hljs-bullet">-</span> <span class="hljs-string">cp</span> <span class="hljs-string">-r</span> <span class="hljs-string">./public</span> <span class="hljs-string">./.next/standalone</span>
+    <span class="hljs-bullet">-</span> <span class="hljs-string">cp</span> <span class="hljs-string">-r</span> <span class="hljs-string">./.next/static</span> <span class="hljs-string">./.next/standalone/.next</span>
+  <span class="hljs-attr">cache:</span>
+    <span class="hljs-attr">key:</span>
+      <span class="hljs-attr">files:</span>
+        <span class="hljs-bullet">-</span> <span class="hljs-string">package-lock.json</span>
+    <span class="hljs-attr">paths:</span>
+      <span class="hljs-bullet">-</span> <span class="hljs-string">.npm/</span>
+  <span class="hljs-attr">artifacts:</span>
+    <span class="hljs-attr">expire_in:</span> <span class="hljs-string">3days</span>
+    <span class="hljs-attr">paths:</span>
+      <span class="hljs-bullet">-</span> <span class="hljs-string">.next/standalone</span>
+  <span class="hljs-attr">tags:</span>
+    <span class="hljs-bullet">-</span> <span class="hljs-string">docker</span>
+
+<span class="hljs-attr">Release docker image:</span>
+  <span class="hljs-attr">stage:</span> <span class="hljs-string">release-docker</span>
+  <span class="hljs-attr">image:</span> <span class="hljs-string">docker:20.10.16</span>
+  <span class="hljs-attr">rules:</span>
+    <span class="hljs-bullet">-</span> <span class="hljs-attr">if:</span> <span class="hljs-string">$CI_COMMIT_REF_NAME</span> <span class="hljs-string">==</span> <span class="hljs-string">$CI_DEFAULT_BRANCH</span>
+  <span class="hljs-attr">before_script:</span>
+    <span class="hljs-bullet">-</span> <span class="hljs-string">docker</span> <span class="hljs-string">login</span> <span class="hljs-string">-u</span> <span class="hljs-string">&quot;$CI_REGISTRY_USER&quot;</span> <span class="hljs-string">-p</span> <span class="hljs-string">&quot;$CI_REGISTRY_PASSWORD&quot;</span> <span class="hljs-string">$CI_REGISTRY</span>
+  <span class="hljs-attr">script:</span>
+    <span class="hljs-bullet">-</span> <span class="hljs-string">docker</span> <span class="hljs-string">pull</span> <span class="hljs-string">$CI_REGISTRY_IMAGE:latest</span> <span class="hljs-string">||</span> <span class="hljs-literal">true</span>
+    <span class="hljs-bullet">-</span> <span class="hljs-string">docker</span> <span class="hljs-string">build</span> <span class="hljs-string">--cache-from</span> <span class="hljs-string">$CI_REGISTRY_IMAGE:latest</span> <span class="hljs-string">--tag</span> <span class="hljs-string">$CI_REGISTRY_IMAGE:latest</span> <span class="hljs-string">.</span>
+    <span class="hljs-bullet">-</span> <span class="hljs-string">docker</span> <span class="hljs-string">push</span> <span class="hljs-string">$CI_REGISTRY_IMAGE:latest</span>
+  <span class="hljs-attr">resource_group:</span> <span class="hljs-string">registry</span>
+  <span class="hljs-attr">cache:</span>
+    <span class="hljs-attr">key:</span>
+      <span class="hljs-attr">files:</span>
+        <span class="hljs-bullet">-</span> <span class="hljs-string">package-lock.json</span>
+    <span class="hljs-attr">paths:</span>
+      <span class="hljs-bullet">-</span> <span class="hljs-string">.npm/</span>
+    <span class="hljs-attr">policy:</span> <span class="hljs-string">pull</span>
+  <span class="hljs-attr">dependencies:</span>
+    <span class="hljs-bullet">-</span> <span class="hljs-string">Build</span> <span class="hljs-string">Next</span> <span class="hljs-string">App</span>
+  <span class="hljs-attr">tags:</span>
+    <span class="hljs-bullet">-</span> <span class="hljs-string">docker-host</span>
+
+</code></pre>
+<p>앞서 말한 것 처럼 정적파일들은 별도로 복사해주었다.</p>
+<pre><code class="language-sh"><span class="hljs-built_in">cp</span> -r ./public ./.next/standalone
+<span class="hljs-built_in">cp</span> -r ./.next/static ./.next/standalone/.next
+</code></pre>
+<p>컨테이너 빌드를 위한 <code>Dockerfile</code>도 수정해주었다.</p>
+<pre><code class="language-dockerfile"><span class="hljs-keyword">FROM</span> node:<span class="hljs-number">22</span>-alpine
+<span class="hljs-keyword">RUN</span><span class="language-bash"> apk add curl</span>
+<span class="hljs-keyword">COPY</span><span class="language-bash"> ./.next/standalone /app/server</span>
+<span class="hljs-keyword">HEALTHCHECK</span><span class="language-bash"> --interval=10s --<span class="hljs-built_in">timeout</span>=3s CMD curl -f http://localhost:3000 || <span class="hljs-built_in">exit</span> 1</span>
+<span class="hljs-keyword">WORKDIR</span><span class="language-bash"> /app/server</span>
+<span class="hljs-keyword">CMD</span><span class="language-bash"> [<span class="hljs-string">&quot;node&quot;</span>, <span class="hljs-string">&quot;/app/server/server.js&quot;</span>]</span>
+
+</code></pre>
+<p>결과적으로 <code>387.45 MiB</code>에서  <code>78.16 MiB</code> 로 줄어들었다.</p>
+<p>약 <code>309.29 MiB</code> 줄어들었다.</p>
+<h3>최종</h3>
+<p>위 과정을 수행하여서 <code>639.56 MiB</code> 용량을 줄일 수 있었다.</p>
+<p><code>717.72 MiB</code> - <code>78.16 MiB</code> = <code>639.56 MiB</code></p>
+
+</div>
+</div>
+<div class="kigui frame">
+<script src="https://utteranc.es/client.js"
+repo="lazyig/blog-comment"
+issue-term="pathname"
+label="blog-comment"
+theme="github-light"
+crossorigin="anonymous"
+async>
+</script>
+</div>
+</section>
+</body>
+</html>

@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
+<link rel="stylesheet" href="/static/catstyle.css">
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>NPM 업데이트 하기</title>
+<title>Docker 카테고리</title>
 <meta
 name="description"
 content="정적페이지로 운영하는 개발 블로그입니다."
@@ -81,13 +82,11 @@ href="/static/apple-touch-icon-180x180.png"
 <link rel="stylesheet" href="/static/style.css">
 <meta name="theme-color" content="#ff5722">
 <meta property="og:type" content="website">
-<meta property="og:title" content="NPM 업데이트 하기">
+<meta property="og:title" content="Docker 카테고리">
 <meta property="og:description" content="공부한 개발 정보를 공유합니다.">
-<meta property="og:image" content="https://devblog.lazyig.com/27//static/ogimg.png">
-<meta property="og:url" content="https://devblog.lazyig.com/27/">
+<meta property="og:image" content="https://devblog.lazyig.com/static/ogimg.png">
+<meta property="og:url" content="https://devblog.lazyig.com">
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8149987977999297" crossorigin="anonymous"></script>
-<link rel="stylesheet"
-href="/static/highlight.css">
 </head>
 <body class="kigui one">
 <header class="kigui header">
@@ -238,66 +237,25 @@ navBar.classList.toggle("show");
 })
 </script>
 <div class="kigui frame">
-<p class="category-path">
-
-<a href="/c/전체보기/1/">전체보기</a>
-<span> > </span>
-
-<a href="/c/기타/1/">기타</a>
-<span> > </span>
-
-</p>
-<h1 class="article-title"><a href="https://devblog.lazyig.com/27/">NPM 업데이트 하기</a></h1>
-<p class="write-date">2021-10-29 00:04:28</p>
 <div class="markdown-body">
-<p>이미 Node.js와 NPM이 설치되어 있고, 이를 업데이트 하기 위한 방법은 간단하다.</p>
-<p>그리고 업데이트를 진행하다가 아쉽게도 시행착오가 있었으니 여러분은</p>
-<ol>
-<li>Node.js</li>
-<li>NPM</li>
-</ol>
-<p>순서대로 업데이트 해주기를 바랍니다.</p>
-<h3>NPM 업데이트</h3>
-<pre><code># npm install -g npm
-</code></pre>
-<p>npm으로 npm을 업데이트 시켜주면 된다.</p>
-<pre><code>PS C:\Users\User\Desktop&gt; npm -v
-6.9.0
-PS C:\Users\User\Desktop&gt; npm install -g npm
-C:\Users\User\AppData\Roaming\npm\npm -&gt; C:\Users\User\AppData\Roaming\npm\node_modules\npm\bin\npm-cli.js
-C:\Users\User\AppData\Roaming\npm\npx -&gt; C:\Users\User\AppData\Roaming\npm\node_modules\npm\bin\npx-cli.js
-+ npm@8.1.1
-added 218 packages from 96 contributors in 5.057s
-PS C:\Users\User\Desktop&gt; npm -v
-(node:24144) ExperimentalWarning: The fs.promises API is experimental
-npm WARN npm npm does not support Node.js v10.16.0
-npm WARN npm You should probably upgrade to a newer version of node as we
-npm WARN npm can't make any promises that npm will work with this version.
-npm WARN npm You can find the latest version at https://nodejs.org/
-8.1.1
-</code></pre>
-<p>다음과 같이 6.9.0에서 8.1.1 버전으로 업데이트가 정상적으로 되었다!</p>
-<p>여기에 오류가 조금 있는데. Node.js의 버전이 NPM버전과 호환이 안되는 문제다.</p>
-<p>그래서 Node.js를 먼저 업데이트를 했어야했는데. 이미 늦었다.</p>
-<p>이럴 경우 처음 설치했던 것 처럼 상위버전을 설치해주면 된다.</p>
-<p><img src="/static/img-73l1-qJivJWmM8JSPB5f262BKcLUtsz4TBVdo1p_nPM.png" alt=""></p>
-<p>저는 윈도우 환경이기 때문에 그냥 다시 받아서 설치했습니다.</p>
-<pre><code>PS C:\Users\User\Desktop&gt; node -v
-v17.0.1
-</code></pre>
-<p>설치 완료!</p>
+<h1>Docker</h1>
+</div>
+<ul class="catlist">
 
+<li>
+<a href="/125"><span class="date">2025-02-19 00:42:14</span>nextjs docker image 경량화</a>
+</li>
+
+</ul>
 </div>
-</div>
-<div class="kigui frame">
-<script src="https://utteranc.es/client.js"
-repo="lazyig/blog-comment"
-issue-term="pathname"
-label="blog-comment"
-theme="github-light"
-crossorigin="anonymous"
-async>
-</script>
+<div class="kigui frame catnum">
+<ul>
+
+<li>
+<a href="/c/Docker/1">1</a>
+</li>
+
+</ul>
 </div>
 </section>
 </body>
