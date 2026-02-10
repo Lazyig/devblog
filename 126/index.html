@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-<link rel="stylesheet" href="/static/catstyle.css">
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Develop 카테고리</title>
+<title>로지텍 G535 음량조절 비활성화</title>
 <meta
 name="description"
 content="정적페이지로 운영하는 개발 블로그입니다."
@@ -82,11 +81,13 @@ href="/static/apple-touch-icon-180x180.png"
 <link rel="stylesheet" href="/static/style.css">
 <meta name="theme-color" content="#ff5722">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Develop 카테고리">
+<meta property="og:title" content="로지텍 G535 음량조절 비활성화">
 <meta property="og:description" content="공부한 개발 정보를 공유합니다.">
-<meta property="og:image" content="https://devblog.lazyig.com/static/ogimg.png">
-<meta property="og:url" content="https://devblog.lazyig.com">
+<meta property="og:image" content="https://devblog.lazyig.com/126//static/ogimg.png">
+<meta property="og:url" content="https://devblog.lazyig.com/126/">
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8149987977999297" crossorigin="anonymous"></script>
+<link rel="stylesheet"
+href="/static/highlight.css">
 </head>
 <body class="kigui one">
 <header class="kigui header">
@@ -237,53 +238,43 @@ navBar.classList.toggle("show");
 })
 </script>
 <div class="kigui frame">
+<p class="category-path">
+
+<a href="/c/전체보기/1/">전체보기</a>
+<span> > </span>
+
+<a href="/c/기타/1/">기타</a>
+<span> > </span>
+
+</p>
+<h1 class="article-title"><a href="https://devblog.lazyig.com/126/">로지텍 G535 음량조절 비활성화</a></h1>
+<p class="write-date">2026-02-10 23:29:28</p>
 <div class="markdown-body">
-<h1>Develop</h1>
+<h2>서론</h2>
+<p>헤드셋 사용 중 의자에 기대면 휠이 쓸려서 볼륨이 조절되는 문제가 발생하였다.</p>
+<p>거기다가 휠도 고장이 나서 휠을 조작해도 볼륨이 불규칙적이게 오르거나 내려가는 문제도 발생하였다.</p>
+<h2>방법</h2>
+<p>볼륨 휠 조작을 담당하는 드라이버를 비활성화 혹은 제거해서 해결 할 수 있다.</p>
+<p>시작 메뉴에서 검색하여 장치 관리자를 들어간다.</p>
+<p><img src="/static/img-LM6YIEnyE25212KXsCHzVVcikfLiQr2iKfEj5QWi12o.png" alt="image-20260207232602107"></p>
+<p>보기 &gt; 연결별 디바이스 클릭</p>
+<p><img src="/static/img--psRl4LSchXgwrcGVYhmYcI819evyhgwBWVK4zXUOPo.png" alt="image-20260207232641506"></p>
+<p>연결별 장치로 보면 해당 포트로 연결된 드라이버를 모두 볼 수 있다.</p>
+<p><img src="/static/img-KMZhd9Q2DcvD4G2NCrtgXEvFFT1TY43u4oxOx6z6A38.png" alt="image-20260207232806550"></p>
+<p>장치를 찾아서 드라이버 사용 안함이나 제거를 해버리면 볼륨 조절 기능이 동작하지 않게 된다.</p>
+<p>끝.</p>
+
 </div>
-<ul class="catlist">
-
-<li>
-<a href="/25"><span class="date">2021-10-27 22:28:01</span>모바일 웹 브라우저 상단바 색 변경</a>
-</li>
-
-<li>
-<a href="/24"><span class="date">2021-10-27 22:19:12</span>모바일 웹 킷 파란 강조 표시 제거</a>
-</li>
-
-<li>
-<a href="/22"><span class="date">2021-10-26 23:20:22</span>자바스크립트의 false</a>
-</li>
-
-<li>
-<a href="/18"><span class="date">2021-10-17 00:36:03</span>구버전의 IE(8 이하)에서 시맨틱 태그 호환</a>
-</li>
-
-<li>
-<a href="/4"><span class="date">2021-10-13 21:55:00</span>안드로이드 명령줄 빌드</a>
-</li>
-
-<li>
-<a href="/3"><span class="date">2021-10-13 21:55:00</span>자바스크립트의 Number 범위</a>
-</li>
-
-</ul>
 </div>
-<div class="kigui frame catnum">
-<ul>
-
-<li>
-<a href="/c/Develop/1">1</a>
-</li>
-
-<li>
-<a href="/c/Develop/2">2</a>
-</li>
-
-<li>
-<a href="/c/Develop/3">3</a>
-</li>
-
-</ul>
+<div class="kigui frame">
+<script src="https://utteranc.es/client.js"
+repo="lazyig/blog-comment"
+issue-term="pathname"
+label="blog-comment"
+theme="github-light"
+crossorigin="anonymous"
+async>
+</script>
 </div>
 </section>
 </body>
